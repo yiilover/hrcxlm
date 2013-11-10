@@ -1,0 +1,93 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/$STYLE/showroom/list.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer">
+  <tr> 
+    <td>{$label[blue_showroomlistad]}</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer mt10">
+  <tr> 
+    <td class="side">
+    	<div class="sortcont">
+        	<div class="head"><div class="tag">展览馆分类</div></div>
+            <div class="cont">
+<!--
+EOT;
+foreach($Fid_db[0] AS $fkey=>$fvalue){
+$color=$fid==$fkey?" style=\"color:red\"":'';
+print <<<EOT
+-->
+            	<div class="listsort"><a href="list.php?fid=$fkey"$color>{$fvalue}</a> </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+				<div class="h"><div class="tg">热门展会</div></div>
+                <div class="c">
+<!--
+EOT;
+$array=list_zh('hot',8);
+foreach($array AS $rs){print <<<EOT
+-->
+            		<div class="list"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></div>
+	
+<!--
+EOT;
+}print <<<EOT
+-->
+                </div>
+            </div>
+        </div>
+    </td>
+    <td class="main">
+    	<div class="drag">
+        	<div class="head"><div class="tag">展会列表</div></div>
+            <div class="cont">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="listtable">
+                  <tr class="h">
+                    <td class="td1">展会名称</td>
+<!---->
+                    <td width="30%">展览馆</td>
+                    <td width="15%">地区</td>
+                    <td width="10%">开展日期</td>
+                  </tr>
+<!--
+EOT;
+$i=0;
+foreach($listdb AS $key=>$rs){
+$i++;
+$class=($i%2==1)?"class=\"c1\"":"class=\"c2\"";
+print <<<EOT
+-->
+                  <tr $class>
+                    <td class="td1"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></td>
+<!---->
+                    <td><a href="showroom.php?id=$rs[roomid]" target="_blank">$rs[roomname]</a></td>
+                    <td>{$cityDB['name'][$rs[roomcity]]}</td>
+                    <td>{$rs[day_begin]}</td>
+                  </tr>
+<!--
+EOT;
+}if($showpage){print <<<EOT
+-->
+				  <tr>
+                    <td colspan="4">$showpage</td>
+                  </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+                </table>
+
+            </div>
+        </div>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

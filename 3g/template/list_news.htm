@@ -1,0 +1,33 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MiddleCont">
+	<div class="SideCont SideCont1">
+    	<div class="head">
+        	<div class="tag">{$head[$ordertype]}资讯</div>
+            <div class="more">
+            	<a href="?ordertype=levelstime">推荐资讯</a>
+                <a href="?ordertype=hits">热门资讯</a>
+                <a href="?ordertype=id">最新资讯</a>
+            </div>
+        </div>
+        <div class="cont">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){ 
+print<<<EOT
+-->
+			<div class="listnews"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a><span>$rs[posttime]</span></div>
+<!--
+EOT;
+}print<<<EOT
+-->
+        </div>
+    </div>	
+    <div class="shoppage">$showpage</div>
+</div>
+<!--
+EOT;
+?>
+-->

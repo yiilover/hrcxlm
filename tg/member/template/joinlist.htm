@@ -1,0 +1,47 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">当前活动参与的人数如下</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="10%">联系人</th>
+            <th width="20%">报名日期</th>
+            <th width="15%">帐号</th>
+            <th width="15%">联系电话</th>
+            <th width="10%">参加人数</th>
+            <th width="10%">审核</th>
+            <th width="10%">详情</th>
+            <th width="10%">踢除</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td>{$rs[realname]}</td>
+            <td>$rs[posttime]</td>
+            <td>$rs[username]</td>
+            <td>$rs[telphone]</td>
+            <td>$rs[join_num]</td>
+            <td>$rs[ifyz]</td>
+            <td><a href="joinshow.php?id=$rs[id]">查看</a></td>
+            <td><a href="join.php?action=del&id=$rs[id]&cid=$rs[cid]&fid=$rs[fid]">踢除</a></td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

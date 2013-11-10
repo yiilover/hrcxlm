@@ -1,0 +1,49 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function set_class(){
+	obj=document.body.getElementsByTagName("input");
+	for(var i=0;i< obj.length;i++ ){
+		if(obj[i].type=='submit'||obj[i].type=='button'){
+			obj[i].className='submit';
+		}else if (obj[i].type=='radio'||obj[i].type=='checkbox'){
+			obj[i].style.border='0px;';
+		}else if(obj[i].type=='text'){
+			obj[i].className='input_text';
+		}
+	}
+	obj=document.body.getElementsByTagName("textarea");
+	for(var i=0;i< obj.length;i++ ){
+		obj[i].className='input_textarea';
+	}
+	if(document.getElementById("top_menu")!=null)
+	{
+		obj2=get_obj('top_menu').getElementsByTagName("td");
+	
+		for(var i=0;i< obj2.length;i++ ){
+			s=obj2[i].innerHTML;
+			s=s.replace(/\[|\]/g, "");
+			obj2[0].innerHTML=s;	
+		}
+	}
+	
+}
+set_class();
+
+clickEdit.init();	//生成一些快速操作按钮
+get_cache_button("<?php echo $webdb['ComebackDate'];?>");	//生成表单中的数据恢复按钮
+
+
+function setbodyheight(){
+	$(document).ready(function(){
+		var height = $(document.body).height();
+		if(height<700)height=700;
+		window.parent.document.getElementById('win').style.height= height+'px';
+	});
+}
+window.setInterval('setbodyheight()',500);
+//-->
+</SCRIPT>
+ 
+
+</body>
+</html>

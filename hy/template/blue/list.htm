@@ -1,0 +1,168 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/blue/hy/list.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer">
+  <tr>    
+    <td class="main">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hylistsort">
+          <tr>
+            <td>
+            	<div class="tag">分类</div>
+                <div class="sort">
+<!--
+EOT;
+$array=$Fid_db[$fid]?$Fid_db[$fid]:$Fid_db[$fidDB[fup]];
+foreach($array AS $fkey=>$fvalue){
+$thissort = $fid == $fkey ? " style=\"color:red\"" : "";
+print <<<EOT
+-->
+			<a href="list.php?fid=$fkey"{$thissort}>$fvalue</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+                </div>
+            </td>
+          </tr>
+        </table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="zone_street_menu">
+        <!--
+EOT;
+if($city_id){
+print <<<EOT
+-->
+        <tr> 
+          <td class="zone" id="zone_td"> <span id="zone_span_0"><A HREF="list.php?fid=$fid">{$city_DB[name][$city_id]}</A></span> 
+            <!--
+EOT;
+foreach($zone_DB[name] AS $key=>$value){
+print <<<EOT
+-->
+            <span class="choose" id="zone_span_$key"><A HREF="list.php?fid=$fid&city_id=$city_id&zone_id=$key">$value</A></span> 
+            <!--
+EOT;
+}
+print <<<EOT
+-->
+          </td>
+        </tr>
+        <!--
+EOT;
+if($street_DB[$zone_id]){
+print <<<EOT
+-->
+        <tr> 
+          <td class="street" id="street_td"> 
+            <!--
+EOT;
+foreach($street_DB[$zone_id] AS $key=>$value){
+print <<<EOT
+-->
+            <A id="street_a_$key" HREF="list.php?fid=$fid&city_id=$city_id&zone_id=$zone_id&street_id=$key">$value</A> 
+            <!--
+EOT;
+}
+print <<<EOT
+-->
+          </td>
+        </tr>
+        <!--
+EOT;
+}}
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function zone_menu(zone_id){
+	obj=document.getElementById("zone_td").getElementsByTagName("span");
+	for(var i=0;i< obj.length;i++ ){
+		obj[i].className='';
+	}
+	document.getElementById("zone_span_"+zone_id).className='choose';
+}
+zone_menu("$zone_id");
+function street_menu(street_id){
+	obj=document.getElementById("street_td").getElementsByTagName("a");
+	for(var i=0;i< obj.length;i++ ){
+		obj[i].className='';
+	}
+	if(document.getElementById("street_a_"+street_id)!=null){
+		document.getElementById("street_a_"+street_id).className='choose';
+	}
+}
+street_menu("$street_id");
+//-->
+</SCRIPT>
+      </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="showcont">
+          <tr>
+            <td class="head"><div class="tag"><span>$fidDB[name]</span></div><div class="more"><br/></div></td>
+          </tr>
+          <tr>
+            <td class="cont">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="contlist">
+                  <tr class="h">
+                    <td class="td1"><select name="menu1" onChange="window.location.href='list.php?fid=$fid&renzheng='+this.options[this.selectedIndex].value">
+   <option value="0">商家类型</option>
+   <option value="1" $renzheng_db[1]>普通认证</option>
+   <option value="2" $renzheng_db[2]>银牌认证</option>
+   <option value="3" $renzheng_db[3]>金牌认证</option>
+</select></td>
+                    <td class="td2">公司名称</td>
+                    <td class="td3">登记日期</td>
+                    <td class="td4">商家认证</td>
+                  </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+                  <tr class="c">
+                    <td class="td1">
+                    	<a href="$webdb[www_url]/home/?uid=$rs[uid]" target="_blank"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" width="120" height="90"></a>                    </td>
+                    <td class="td2">
+                    	<div class="title"><a href="$webdb[www_url]/home/?uid=$rs[uid]" target="_blank">$rs[title]</a></div>
+                        <div>日期:{$rs[posttime]} 浏览:{$rs[hits]}次 发布者:{$rs[username]}</div>
+                        <div class="m"><span>经营模式:</span>{$rs[qy_saletype]} <span>企业类型:</span>{$rs[qy_cate]} 
+                    <span>所属分类:</span>{$rs[fname]}</div>                    </td>
+                    <td class="td3">$rs[posttime]</td>
+                    <td class="td4"><img alt="{$renzhengDB[$rs[renzheng]]}" src="$webdb[www_url]/images/yellow/company_renzheng{$rs[renzheng]}.gif"></td>
+                  </tr>
+<!--
+EOT;
+}if($showpage){
+print <<<EOT
+-->
+				  <tr>
+                    <td colspan="4" class="page">$showpage</td>
+                  </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                </table>
+            </td>
+          </tr>
+        </table>
+    </td>
+    <td class="side">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="sidetable">
+          <tr>
+            <td class="head"><div class="tag">推荐企业</div></td>
+          </tr>
+          <tr>
+            <td class="cont">{$label[blue_hylisttzcompany]}</td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+</table> 
+<!--
+EOT;
+?>
+-->

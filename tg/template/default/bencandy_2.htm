@@ -1,0 +1,113 @@
+<!--
+<?php
+print <<<EOT
+-->
+<style type="text/css">
+<!--
+.FormTable,.FormTable td{
+	border:#DDD solid 1px;
+}
+.FormTable th{
+	padding:10px;
+}
+.FormTable td.tdL{
+	font-weight:bold;
+}
+.FormTable td.tdR{
+	padding:5px;
+	vertical-align:middle;
+	line-height:20px;
+}
+.showpic{
+	width:150px;
+	border:#DDD solid 1px;
+	padding:1px;
+}
+-->
+</style>
+<div class="MainCont">
+	<div class="head"><div class="tag">用户报名资料详情如下</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr>
+            <th colspan="2">
+            	<div class="showpic"><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" title='$rs[full_title]' target="_blank"><img width="150" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"  src="$rsdb[picurl]"/></a></div>
+            </th>
+          </tr>
+          <tr>
+            <td class="tdL">活动名称:</td>
+            <td class="tdR"><a href="bencandy.php?fid={$rsdb[C][fid]}&id={$rsdb[C][id]}&city_id={$rsdb[C][city_id]}" target="_blank">{$rsdb[C][title]}</a></td>
+          </tr>
+          <tr>
+            <td class="tdL">报名者帐号:</td>
+            <td class="tdR"><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$rsdb[username]</a></td>
+          </tr>
+          <tr>
+            <td class="tdL">报名时间:</td>
+            <td class="tdR">$rsdb[posttime]</td>
+          </tr>
+<!--
+EOT;
+$rsdb[yz]=$rsdb[yz]?"<font color=\"#FF0000\">已审核</font>":"<font color=\"#0000FF\">未审核</font>";
+print <<<EOT
+-->
+          <tr>
+            <td class="tdL">审核与否:</td>
+            <td class="tdR">$rsdb[yz]</td>
+          </tr>
+<!--
+EOT;
+if($rsdb['realname']){print <<<EOT
+-->
+          <tr>
+            <td class="tdL">真实姓名:</td>
+            <td class="tdR">{$rsdb[realname]} </td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['telphone']){print <<<EOT
+-->
+          <tr>
+            <td class="tdL">联系电话:</td>
+            <td class="tdR">{$rsdb[telphone]} </td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['join_num']){print <<<EOT
+-->
+          <tr>
+            <td class="tdL">参加人数:</td>
+            <td class="tdR">{$rsdb[join_num]} </td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['content']){print <<<EOT
+-->
+          <tr>
+            <td class="tdL">附注留言:</td>
+            <td class="tdR">{$rsdb[content]} </td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+--><!---->
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">[<a href="$FROMURL">点击返回</a>]</td>
+          </tr>
+        </table>
+    </div>
+</div> 
+<!--
+EOT;
+?>
+-->

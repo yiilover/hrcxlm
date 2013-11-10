@@ -1,0 +1,76 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/green/gift/index.css">
+<div class="Process">$label[fashion_giftindext1]</div>
+<div class="MainCont">
+	<div class="Main">
+    	<div class="SlideCont">
+        	$label[fashion_giftindext2]
+        </div>
+        <div class="ShowPicCont">
+        	<div class="head">
+            	$label[fashion_giftindexh1]
+            </div>
+            <div class="cont">
+            	$label[fashion_giftindext4]
+            </div>
+        </div>
+    </div>
+    <div class="Side">
+    	<div class="sidecont">
+        	<div class="head"><div class="tag">$label[fashion_giftindexh2]</div></div>
+            <div class="cont giftcont">
+            	$label[fashion_giftindext3]
+            </div>
+        </div>
+        <div class="ShowSorts">
+        	<div class="head"><div class="tag">$label[fashion_giftindexh3]</div></div>
+            <div class="cont">
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$name){
+$i++;
+if($i>5) break;
+$url=get_info_url('',$key,$city_id);
+print <<<EOT
+-->
+                <div class="list"><span><img src="$webdb[www_url]/images/green/gift/icon$i.gif"></span><a href="$url">$name</a></div>			
+<!--
+EOT;
+}
+print <<<EOT
+-->
+            </div>
+        </div>
+        <div class="sidecont">
+        	<div class="head"><div class="tag">$label[fashion_giftindexh4]</div></div>
+            <div class="cont cc1">
+<!--
+EOT;
+$array=list_apply(5);
+foreach($array AS $rs){
+print <<<EOT
+-->
+			  
+          <div class="lista"><span>$rs[username]</span>”⁄<em>$rs[posttime]</em>…Í«Î¡À<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+            </div>
+            <div class="cont cc2">
+            	$label[fashion_giftindext5]
+            </div>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<div class="FootCont"></div>
+<!--
+EOT;
+?>
+-->

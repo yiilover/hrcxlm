@@ -1,0 +1,198 @@
+/*reset*/
+header, hgroup, menu, nav, section, menu,footer,article,figure,figcaption,commend,aside{
+	display:block;
+	margin:0;
+	padding:0;
+}
+body,p,input,h1,h2,h3,h4,ul,li,dl,dt,dd,form,textarea{
+	margin:0;
+	padding:0;
+	list-style:none;
+	vertical-align:middle;
+}
+body{ 
+	font-family:"\5FAE\8F6F\96C5\9ED1", Helvetica;
+	font-size:16px; 
+}
+img {
+	border:0; 
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.ClearDiv{
+	clear:both;
+}
+a,a:link,a:visited,a:hover,a:active{
+	text-decoration: none;
+	color: #333333;
+}
+.Hearder,ul.Nav,div.ListPm,.Showpage,.Footer,.Mtitle,.PostPm{
+	clear:both;
+	width:320px;
+	margin:auto;
+	overflow:hidden;
+}
+/*
+*Hearder
+*/
+.Hearder{
+	height:45px;
+	background:#5490CE;
+}
+.Hearder dt{
+	width:160px;
+	float:left;
+	text-align:center;
+	padding-top:5px;
+	word-spacing:10px;
+}
+.Hearder dd{
+	width:150px;
+	line-height:40px;
+	height:40px;
+	padding-top:5px;
+	overflow:hidden;
+	float:left;
+	color:#FFF;
+	text-align:right;
+}
+.Hearder dd a,.Hearder dd a:link,.Hearder dd a:visited,.Hearder dd a:hover{
+	color:#FFF;
+}
+/*
+*Nav
+*/
+ul.Nav{
+	height:40px;
+	border-bottom:#B7B7B7 solid 1px;
+	background:#EFEFEF;
+	border-top:#FFF solid 1px;
+}
+ul.Nav li{
+	float:left;
+	line-height:35px;
+	padding:5px 5px 0 25px;
+	background:url(nav.gif) left 1px no-repeat;
+	color:#666;
+}
+ul.Nav li.begin{
+	background:none;
+	padding-left:10px;
+}
+ul.Nav li.title{
+	width:220px;	
+}
+div.ListPm ul{
+	height:40px;
+	overflow:hidden;
+	border-bottom:#B7B7B7 solid 1px;
+	line-height:45px;
+}
+div.ListPm ul.over{
+	background:#FAFAFA;
+}
+div.ListPm ul li{
+	float:left;
+	height:40px;
+	width:50px;
+	overflow:hidden;
+	text-align:center;
+}
+div.ListPm ul li.t{
+	width:165px;
+	text-align:left;
+}
+div.ListPm a,div.ListPm a:link,div.ListPm a:visited,div.ListPm a:hover,div.ListPm a:active{
+	color: #36C;
+}
+div.ListPm ul li.t a{
+	padding-left:5px;
+	padding-right:5px;
+}
+div.ListPm ul li.time{
+	font-size:14px;
+	color:#666;
+}
+div.ListPm ul.h{
+	font-weight:bold;
+	background:url(h.gif) left 9px repeat-x;
+}
+div.ListPm ul.h li.t{
+	text-align:center;
+}
+div.ListPm ul.h li.time{
+	font-size:16px;
+	color:#333;
+}
+.Showpage{
+	text-align:center;
+	padding:15px 0 12px 0;
+}
+.Showpage a{
+	border:#DDD solid 1px;
+	padding:3px 5px 2px 5px;
+	font-size:12px;
+}
+.Footer{
+	border-top:#B7B7B7 solid 1px;
+	background:#E6E6E6;
+	text-align:center;
+	padding:10px  0 15px 0;
+	line-height:25px;
+	color:#666;
+}
+.Mtitle{
+	padding-bottom:15px;
+}
+.Mtitle dt{
+	padding:8px 5px 3px 10px;
+	line-height:25px;
+	font-weight:bold;
+}
+.Mtitle dd{
+	width:300px;
+	padding-left:10px;
+	border-bottom:#DDD solid 1px;
+	margin:auto;
+	line-height:30px;
+	color:#666;
+}
+#contents{
+	TABLE-LAYOUT: fixed;
+	WORD-WRAP: break-word;
+	width:310px;
+	margin:5px auto;
+	line-height:25px;
+}
+.PostPm{
+	padding:15px 0 15px 0;
+	background:#EEE;
+}
+.PostPm dl{
+	padding:5px 10px 10px 15px;
+}
+.PostPm dl dd{
+	padding-top:5px;
+}
+.PostPm dl dd.user input{
+	width:100px;
+}
+.PostPm dl dd.title input{
+	width:270px;
+}
+.PostPm dl dd textarea{
+	width:270px;
+	height:200px;
+}
+.PostPm div.sub{
+	padding:5px 0 10px 15px;
+}
+.PostPm div.sub input{
+	width:50px;
+	height:30px;
+	font-size:18px;
+}

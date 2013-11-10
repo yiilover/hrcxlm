@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(.*)-htm-(.*)$ $1\.php\?Rurl=$2
+</IfModule>

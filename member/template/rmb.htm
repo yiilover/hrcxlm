@@ -1,0 +1,215 @@
+<!--
+<?php
+if($job=='pwd'){
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head"><div class="tag">支付密码设置</div></div>
+    <div class="cont">
+        <form name="form1" method="post" action="?job=$job">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr>
+            <td class="tdL" style="width:150px;">新的支付密码:</td>
+            <td class="tdR"><input type="password" name="pwd" size="20"></td>
+          </tr>
+          <tr>
+            <td class="tdL">重复输入新的支付密码:</td>
+            <td class="tdR"><input type="password" name="pwd2" size="20"></td>
+          </tr>
+<!--
+EOT;
+if($lfjdb[rmb_pwd]){print <<<EOT
+-->
+          <tr>
+            <td class="tdL">旧的支付密码:</td>
+            <td class="tdR"><input type="password" name="old_pwd" size="20"></td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+            	<input type="submit" name="Submit" value="提交">
+                    <input type="hidden" name="step" value="2">
+            </td>
+          </tr>
+        </table>
+        </form>
+        <ul class="aboutnote">
+        	<li>1.支付密码很重要,涉及到你的人民币消费与取现等相关操作.请尽量不要跟登录密码一样.</li>
+            <li>2.除首次设置外,今后更改支付密码需要输入原密码,如果忘记原密码,请联系管理员!</li>
+                    
+        </ul>
+    </div>
+</div>
+<!--
+EOT;
+}elseif($job=='get'){print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">提现</div></div>
+    <div class="cont">
+        <form name="form1" method="post" action="?job=$job">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr>
+            <td class="tdL" style="width:180px;">可用余额为:</td>
+            <td class="tdR"><span class="b red">$lfjdb[rmb]</span>元</td>
+          </tr>
+          <tr>
+            <td class="tdL">提现金额为:(<span class="red">*</span>)</td>
+            <td class="tdR"><input type="text" name="RMBmoney" size="5">元</td>
+          </tr>
+<!--
+EOT;
+if($lfjdb[rmb_pwd]){print <<<EOT
+-->
+          <tr>
+            <td class="tdL">支付密码:(<span class="red">*</span>)</td>
+            <td class="tdR"><input type="password" name="pwd" size="20"></td>
+          </tr>
+          <tr>
+            <td class="tdL">请选择提现到哪个收款帐户:(<span class="red">*</span>)</td>
+            <td class="tdR">
+<!--
+EOT;
+foreach($backDB[BACK] AS $key=>$value){print <<<EOT
+-->
+              <div><input type="radio" name="banktype" value="$key $value"> $key $value</div>
+					
+<!--
+EOT;
+}print <<<EOT
+-->
+            </td>
+          </tr>
+          <tr>
+            <td class="tdL">收款人真实姓名:(<span class="red">*</span>)</td>
+            <td class="tdR"><input type="text" name="truename"></td>
+          </tr>
+          <tr>
+            <td class="tdL">联系电话:(选填)</td>
+            <td class="tdR"><input type="text" name="tel"></td>
+          </tr>
+          <tr>
+            <td class="tdL">提现原因:(选填)</td>
+            <td class="tdR"><textarea name="why" cols="50" rows="5"></textarea></td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+            	<input type="submit" name="Submit" value="提交">
+                    <input type="hidden" name="step" value="2">
+            </td>
+          </tr>
+        </table>
+        </form>
+        <ul class="aboutnote">
+        	<li>1.提现金额将会被冻结不可用.</li>
+            <li>2.资料提交后,管理员需要1-2天时间审核处理,请耐心等待.</li>
+                    
+        </ul>
+    </div>
+</div>
+<!--
+EOT;
+}elseif($job=='getlog'){print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">提现记录</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="13%">提现金额</th>
+            <th width="20%">申请时间</th>
+            <th width="20%">处理时间</th>
+            <th width="30%">收款帐号</th>
+            <th width="10%">支付与否</th>
+            <th width="8%">删除</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>            
+            <td><b>$rs[money]</b> 元</td>
+            <td>$rs[posttime]</td>
+            <td>$rs[replytime]</td>
+            <td>$rs[bankname] $rs[banktype]</td>
+            <td>$rs[pay]</td>
+            <td> <a href="?act=del_get_log&id=$rs[id]">删除</a></td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">我的财务信息</div></div>
+    <div class="cont">
+    	<ul class="aboutnote">
+        	<li>当前可用余额: <span class="b red">{$lfjdb[rmb]}</span>元 [<a href="../do/rmb_add.php" target="_blank">充值</a>] [<a href="?job=get">提现</a>] 
+            [<a href="?job=getlog">提现记录</a>] [<a href="bank.php?job=set">收款帐号设置</a>] 
+            [<a href="?job=pwd">支付密码设置</a>]</li>
+            <li>冻结资金: <span class="b blue">{$lfjdb[rmb_freeze]}</span> 元</li>
+        </ul>
+    </div>
+</div>
+<style type="text/css">
+.ListTable td{
+	vertical-align:middle;
+}
+</style>
+<div class="MainCont mtop10">
+	<div class="head"><div class="tag">充值/消费记录</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="10%">状态</th>
+            <th width="45%">项目</th>
+            <th width="15%">可用余额变动</th>
+            <th width="20%">发生时间</th>
+            <th width="10%">删除</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td>$rs[state]</td>
+            <td class="tL">$rs[about]</td>
+            <td class="b">$rs[money] 元</td>
+            <td>$rs[posttime]</td>
+            <td> <a href="?act=del_consume&id=$rs[id]">删除</a></td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+}
+?>
+-->

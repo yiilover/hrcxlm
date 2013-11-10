@@ -1,0 +1,118 @@
+<!--
+<?php
+print <<<EOT
+-->
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+<div class="MainCont">
+	<div class="head"><div class="tag">$fidDB[name]</div></div>
+    <div class="cont">
+    	<form name="FORM" id="FORM" method="post" action="post.php?action=$atc"  enctype="multipart/form-data">
+<script>
+function upfile(url,name,size,ty){
+	document.getElementById("atc_pic").value=url;
+}
+</script>
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr><th colspan="2">基本资料</th></tr>
+          <tr>
+            <td class="tdL"><font color="red">*</font> 名称:</td>
+            <td class="tdR"><input type="text" name="postdb[title]" id="atc_title" size="40" value="$rsdb[title]"></td>
+          </tr>
+<!--
+EOT;
+if($job!="edit"&&!$web_admin&&$groupdb[postCouponYzImg]){
+print <<<EOT
+-->
+          <tr>
+            <td class="tdL"><font color="red">*</font> 验证码:</td>
+            <td class="tdR">
+            	<input id="yzImgNum" type="text" name="yzimg" size="8">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<img border="0" name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'">');
+//-->
+</SCRIPT>
+            </td>
+          </tr>
+<!--
+EOT;
+}if(count($city_DB[name])>1){
+print <<<EOT
+-->
+          <tr>
+            <td class="tdL">所在城市:</td>
+            <td class="tdR">
+            	<select name="postdb[city_id]"><option value='0'>全国</option>
+<!--
+EOT;
+foreach($city_DB[name] AS $key=>$value){
+if($job=='edit'){
+	$city_id=$rsdb[city_id];
+}
+$ckk=$city_id==$key?'selected':'';
+print <<<EOT
+-->
+                      <option value="$key" $ckk>$value</option>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                </select>
+            </td>
+          </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+          <tr>
+            <td class="tdL">图片:</td>
+            <td class="tdR">
+            	<div style="float:left;"><input type="text" name="postdb[picurl]" id="atc_pic" size="40" value="$rsdb[picurl]"></div>
+                <div style="float:left;"><iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=$_pre/$fid' width="310"></iframe></div>
+            </td>
+          </tr>
+
+        <tr> 
+          <td class="tdL">市场价:<br></td>
+          <td class="tdR"> <input   type='text' name='postdb[mart_price]' id='atc_mart_price' style='width:100px;' value='$rsdb[mart_price]'> 元</td>
+        </tr>
+
+        <tr> 
+          <td class="tdL">促销价:<br></td>
+          <td class="tdR"> <input   type='text' name='postdb[price]' id='atc_price' style='width:100px;' value='$rsdb[price]'> 元</td>
+        </tr>
+
+        <tr> 
+          <td class="tdL">截止日期:<br></td>
+          <td class="tdR"><input  onclick="setday(this,1)" type='text' name='postdb[end_time]' id='atc_end_time' size='20' value='$rsdb[end_time]'> </td>
+        </tr>
+
+        <tr> 
+          <td class="tdL">详细信息:<br></td>
+          <td class="tdR"><script type='text/javascript'>loadBaiduEditorJs();</script>
+			<textarea name='postdb[content]' id='atc_content' style='width:650px;'>$rsdb[content]</textarea> 
+			<script type='text/javascript'>				
+			var editor_content = new baidu.editor.ui.Editor({minFrameHeight:250});
+				editor_content.render( 'atc_content' );
+			</script></td>
+        </tr>
+<!---->
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+            	<input type="submit" name="Submit" value="提 交">
+                <input type="hidden" name="fid" value="$fid">
+                <input type="hidden" name="id" value="$id">
+            </td>
+          </tr>
+        </table>
+        </form>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

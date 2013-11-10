@@ -1,0 +1,108 @@
+<!--
+<?php
+print <<<EOT
+-->
+<form name="form_work" method="post" action="$admin_path&job=work">
+<div class="MainCont">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+    <tr> 
+      <th width="5%">ID</th>
+      <th>标 题</th>
+      <th width="9%">发布者</th>
+      <th width="7%">所在栏目</th>
+      <th width="4%">点击</th>
+      <th width="9%">发表日期</th>
+      <th width="8%">审核与否</th>
+      <th width="7%">推荐</th>
+      <th width="4%">标签</th>
+      <th width="11%">修改/删除</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr> 
+      <td>$rs[id]</td>
+      <td class="txL"> 
+        <input type="checkbox" name="listdb[{$rs[id]}]" value="$rs[title]">
+        <a href="$Murl/bencandy.php?fid=$rs[fid]&id=$rs[id]" target='_blank'  style="color:$rs[titlecolor];">$rs[title]</a></td>
+      <td>$rs[username]</td>
+      <td><a href="$admin_path&job=list&fid=$rs[fid]">$rs[fname]</a></td>
+      <td>$rs[hits]</td>
+      <td>$rs[posttime]</td>
+      <td>$rs[ischeck]</td>
+      <td>$rs[iscom]</td>
+      <td><a href="$Murl/bencandy.php?fid=$rs[fid]&id=$rs[id]&jobs=show" target="_blank">标签</a></td>      
+      <td><a href="$webdb[www_url]/member/?main=$Murl/member/post.php?job=edit&fid=$rs[fid]&id=$rs[id]" target=_blank>修改</a>/<a href="$admin_path&action=work&jobs=delete&id=$rs[id]" onClick="return confirm('你确认要删除吗?不可恢复');">删除</a></td>
+    </tr>
+<!--
+EOT;
+}$showpage=$showpage?"<div class='ShowPage'>$showpage</div>":"";
+print <<<EOT
+-->
+  </table>
+	<div class="ListBut">
+    	<a href="#" onClick="CheckAll('all')">全选</a>/<a href="#" onClick='CheckAll()'>反选</a> 
+        <input type="button" name="Submit2" value="审核操作" onclick="postdo('yz')">
+        <input type="button" name="Submit42223" value="推荐操作" onclick="postdo('com')">
+        <input type="button" name="Submit4" value="置顶操作" onclick="postdo('top')">
+        <input type="button" name="Submit422" value="提前" onclick="postdo('front')">
+        <input type="button" name="Submit4222" value="沉底" onclick="postdo('bottom')">
+        <input type="button" name="Submit42222" value="移动" onClick="postdo('move')">
+        <input type="button" name="Submit3" value="删除" onclick="postdo('delete')">
+        <input type="hidden" name="jobs" value="0">
+    </div>
+    <div class="ShowPage">{$showpage}</div>
+</div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(va){
+	document.form_work.jobs.value=va
+	document.form_work.submit();
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<div class="MainCont">
+	<div class="head"><div class="tag">相关选项</div></div>
+    <div class="ListBut">
+      <input type="button" name="Submit" value="所有" onclick="window.location.href='$admin_path&job=list'">
+      <input type="button" name="Submit6" value="已审核" onclick="window.location.href='$admin_path&job=list&fid=$fid&type=yz'">
+      <input type="button" name="Submit5" value="未审核" onclick="window.location.href='$admin_path&job=list&fid=$fid&type=unyz'">
+      <input type="button" name="Submit52" value="精华" onclick="window.location.href='$admin_path&job=list&fid=$fid&type=levels'">
+      <input type="button" name="Submit522" value="非精华" onclick="window.location.href='$admin_path&job=list&fid=$fid&type=unlevels'">
+	  $sort_fid
+    </div>
+</div>
+<form name="form1" method="post" action="$admin_path&job=$job">
+<div class="MainCont">
+	<div class="head"><div class="tag">内容搜索</div></div>
+    <div class="ListBut">
+      关键字 
+        <input type="text" name="keyword">
+        <select name="type">
+          <option value="title">标题名称</option>
+          <option value="id">ID</option> 
+          <option value="username">发布者</option>
+        </select>
+        <input type="submit" name="Submit7" value="提交">
+    </div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->
+ 

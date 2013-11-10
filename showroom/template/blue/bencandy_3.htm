@@ -1,0 +1,85 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/$STYLE/showroom/room.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer mt10">
+  <tr> 
+    <td class="side">
+    	<div class="sortcont">
+        	<div class="head"><div class="tag">发布者信息</div></div>
+            <div class="cont">
+				<div class="user">
+                    发布者帐号:<a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$rsdb[username]</a><br/>
+					用户级别:{$ltitle[$memberdb[groupid]]}<br/>
+					注册时间:$memberdb[regdate]
+                </div>
+                <div class="h"><div class="tg">相关展览馆</div></div>
+                <div class="c">
+<!--
+EOT;
+$array=list_room('new',8);
+foreach($array AS $rs){print <<<EOT
+-->
+            		<div class="list"><a href="showroom.php?id=$rs[id]" target="_blank">$rs[title]</a></div>
+	
+<!--
+EOT;
+}print <<<EOT
+-->
+                </div>
+            </div>
+        </div>
+    </td>
+    <td class="main">
+    	<div class="drag">
+        	<div class="head"><div class="tag">展览馆详情</div></div>
+            <div class="cont">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="baseinfo">
+                  <tr>
+                    <td class="img">
+                    	<div class="pic"><a href="job.php?job=show_room_img&id=$id&type=1" target="_blank"><img src="$rsdb[picurl]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'" width="200"/></a></div>
+                        <div><a href="job.php?job=show_room_img&id=$id&type=1" target="_blank">共({$rsdb[picnum]})图</a></div>
+                    </td>
+                    <td class="info">
+                    	<div><span>展览馆名称：</span>{$rsdb[title]}</div>
+<!--
+EOT;
+if($rsdb['room_address']){print <<<EOT
+--> 
+						<div><span>展览馆地址：</span>{$rsdb[room_address]} </div>      
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['room_web']){print <<<EOT
+--> 
+						<div><span>展览馆官网：</span>{$rsdb[room_web]} </div>      
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['contact']){print <<<EOT
+--> 
+						<div><span>联系方式：</span>{$rsdb[contact]} </div>      
+<!--
+EOT;
+}print <<<EOT
+--><!---->
+                        <div class="join"><a href="$webdb[www_url]/member/?main=$Murl/member/post_b.php?roomid=$id" target="_blank"><img src="$webdb[www_url]/images/blue/showroom/postroom.gif"/></a></div>
+                    </td>                    
+                  </tr>
+                </table>
+                <div class="h">展览馆介绍</div>
+                <div class="c">$rsdb[content]</div>
+            </div>
+        </div>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

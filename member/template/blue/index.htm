@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+<?php
+print <<<EOT
+-->
+<head>
+<title>会员中心 </title>
+<link rel="stylesheet" type="text/css" href="images/blue/css.css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="images/blue/member.js"></SCRIPT>
+</head>
+<body>
+<div class="Toper">
+	<div class="Infos">
+		欢迎你回来:<span>$lfjid</span> $MSG
+        <a href="$webdb[_www_url]/member/homepage.php?uid=$lfjuid">个人信息</a>
+        <a href="$webdb[_www_url]/member/index.php?main=userinfo.php?job=edit">修改资料</a>
+    	<a href="$webdb[www_url]/do/login.php?action=quit" class="quit">安全退出</a> 
+    </div>
+</div>
+<div class="Navers">
+	<div class="Logo"><A HREF="/"><img src="./images/blue/logo.gif"/></A></div>
+    <div class="Search">
+    	<form class="topsearch" target="_blank" method="post" action='$webdb[www_url]/f/search.php?action=search'>
+        <div class="showtype">分类</div>
+        <div class="listtype">
+        	<span>分类</span>
+            <span>商品</span>
+            <span>资讯</span>
+            <span>团购</span>
+            <span>商家</span>
+            <span>促销</span>
+            <span>招聘</span>
+            <span>二手</span>
+            <span>点评</span>
+        </div>
+        <div class="keywords">
+          <input name="keyword" type="text" value="请输入您要查找的内容"/>
+        </div>
+        <div class="subbutter">
+          <input type="submit" name="Submit" value="站内搜索"/>
+        </div>
+        </form>
+    </div>
+</div>
+<div class="MainMenu">
+	<ul>
+<!--
+EOT;
+$weburl = $city_DB[domain][$city_id]?$city_DB[domain][$city_id]:$webdb[www_url];
+$detail=explode("\r\n",$webdb[guide_word]);
+foreach($detail AS $key=>$value){
+if(!$value)continue;
+list($Hname,$Hurl,$Hblank,$Hcolor,$Hlid,$link)=explode("|",$value);
+if(ereg("^\/",$Hurl)){$Hurl="$weburl$Hurl";}elseif(!ereg("://",$Hurl)){$Hurl="$weburl/$Hurl";}
+$Hblank=$Hblank?"  target=\"_blank\"":'';
+$Hcolor=$Hcolor?" style=\"color:$Hcolor;\"":'';
+print <<<EOT
+-->
+	<li><span><a href="$Hurl"{$Hblank}{$Hcolor} hidefocus>{$Hname}</a></span></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+	</ul>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer">
+  <tr>
+    <td class="Side">
+<!--
+EOT;
+$iscompany=$lfjdb[grouptype]==1?"企业会员":"个人会员";
+$idcard_yz=$lfjdb[idcard_yz]==1?"<img src=\"$webdb[www_url]/images/default/yz/idcard_1.gif\" alt=\"身份认证会员\">":"<img src=\"$webdb[www_url]/images/default/yz/idcard_0.gif\" alt=\"身份还未认证\">";
+$email_yz=$lfjdb[email_yz]==1?"<img src=\"$webdb[www_url]/images/default/yz/email_1.gif\" alt=\"邮箱认证会员\">":"<img src=\"$webdb[www_url]/images/default/yz/email_0.gif\" alt=\"邮箱还未认证\">";
+$mob_yz=$lfjdb[mob_yz]==1?"<img src=\"$webdb[www_url]/images/default/yz/mob_1.gif\" alt=\"手机认证会员\">":"<img src=\"$webdb[www_url]/images/default/yz/mob_0.gif\" alt=\"手机还未认证\">";
+$lfjdb[icon]=tempdir($lfjdb[icon]);
+print <<<EOT
+-->
+    	<dl class="memberinfo">
+        	<dt>
+            	<a href="homepage.php?uid=$lfjuid" target="_blank"><img onerror="this.src='$webdb[www_url]/images/default/noface.gif'" src="$lfjdb[icon]" width="40" /></a>
+            </dt>
+            <dd>
+            	<div>
+                	<a href="homepage.php?uid=$lfjuid" target="_blank">$lfjid</a> 
+					<span>$idcard_yz $email_yz $mob_yz</span>
+                </div>
+                <div>
+                	<a href="$webdb[www_url]/do/login.php?action=quit">退出</a>
+                	<span>$iscompany</span>
+                </div>
+            </dd>
+        </dl>
+        <div class="MenuAct">
+        	<div>
+            	<span class="showall">全部展开</span>
+        		<span class="hideall">全部收缩</span>
+            </div>
+        </div>
+        <div class="ShowMenu">
+<!--
+EOT;
+foreach($menudb AS $SortName=>$array){
+print<<<EOT
+-->
+        <dl> 
+           <dt>$SortName</dt>
+<!--
+EOT;
+foreach($array AS $MenuName=>$array2){
+if($power<$array2[power])continue;
+if(strstr($array2[link],'../')){
+$target='_blank';
+}else{
+$target='win';
+}
+print<<<EOT
+-->
+          <dd><A HREF="$array2[link]" target="$target">$MenuName</A></dd>
+<!--
+EOT;
+}print<<<EOT
+-->
+        </dl>
+<!--
+EOT;
+}
+foreach($menu_GpartDB AS $SortName=>$array){
+print<<<EOT
+-->
+        <dl> 
+            <dt>$array[name]</dt>
+<!--
+EOT;
+foreach($array[son] AS $k2=>$rs){
+if($rs[target]){
+$target='_blank';
+}else{
+$target='win';
+}
+print<<<EOT
+-->
+              <dd><a href='$rs[linkurl]' target='$target'>$rs[name]</a></dd>
+<!--
+EOT;
+}print<<<EOT
+-->
+        </dl>
+<!--
+EOT;
+}print<<<EOT
+-->
+		</div>
+    </td>
+    <td class="Main">
+    	<iframe width="100%" height="1500" id="win" name="win" frameborder="0" scrolling="no" src="$MainUrl"></iframe>
+    </td>
+  </tr>
+</table>
+<div class="CopyRight">
+	Powered by <a href="javascript:;" >华人诚信联盟</a> Code &copy; 2003-13  
+</div>
+<div class="siteurl" style="display:none;">$webdb[_www_url]</div>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

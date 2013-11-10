@@ -1,0 +1,488 @@
+/*
+*招商首页全局定位
+*/
+.SideL{
+	width:250px;
+	float:left;
+}
+.SideC1{
+	width:510px;
+	float:left;
+	padding-left:10px;
+}
+.SideC2{
+	width:355px;
+	float:left;
+}
+.SideR1{
+	width:200px;
+	float:right;
+}
+.SideR2{
+	width:355px;
+	float:right;
+}
+.MainR{
+	width:720px;
+	float:right;
+}
+.MainR1{
+	width:720px;
+	height:220px;
+	overflow:hidden;
+	margin-top:10px;
+}
+.mt10{
+	margin-top:10px;
+}
+.head{
+	height:33px;
+	overflow:hidden;
+	line-height:35px;
+}
+.tag{
+	font-size:14px;
+	font-weight:bold;
+	float:left;
+	padding-left:25px;
+}
+.more{
+	float:right;
+	padding-right:10px;
+}
+.MainContainer1{
+	height:242px;
+	overflow:hidden;
+}
+.MainContainer2{
+	height:390px;
+	margin-top:10px;
+	overflow:hidden;
+}
+.MainContainer3{
+	height:620px;
+	margin-top:10px;
+	overflow:hidden;
+}
+/*
+*招商频道注册登录
+*/
+.UserAtc{
+	height:40px;
+	overflow:hidden;
+}
+.UserAtc div{
+	width:122px;
+	height:40px;
+	float:left;
+	background:url(butter.gif) no-repeat;
+}
+.UserAtc div.login{
+	float:right;
+}
+.UserAtc div a{
+	display:block;
+	text-align:center;
+	margin-top:10px;
+	line-height:20px;
+	font-size:16px;
+	font-weight:bold;
+	color:#000;
+}
+/*
+*如何成功招商
+*/
+.Notecont{
+	height:115px;
+	background:url(contbg1.gif) no-repeat;
+	margin-top:10px;
+}
+.Notecont .head{
+	padding-top:5px;
+}
+.Notecont .head .tag{
+	padding-left:15px;
+	color:#C00C0C;
+}
+.Notecont .cont{
+	padding:5px 0 0 20px;
+	line-height:20px;
+}
+.Notecont .cont div{
+	height:20px;
+	overflow:hidden;
+	padding-left:20px;
+	background:url(icon1.gif) left 5px no-repeat;
+}
+/*
+*左边图片广告
+*/
+.sidelad{
+	margin-top:10px;
+	width:250px;
+	overflow:hidden;
+}
+/*
+*幻灯片
+*/
+.div_jflash {
+	background: #BFBFBF;
+	width: 510px; 
+	height: 242px;
+	position: relative;
+}
+.div_jimg {
+	width:510px;
+	height: 242px
+}
+.div_jimg #a_jimg {
+	display: block; 
+	width:320px; 
+	height:240px;
+	padding:1px 0 0 1px;
+}
+.div_jimg #bigimg { 
+	width: 320px;
+	height: 240px
+}
+.div_jimg .ul_jimg {
+	right: 0px;	
+	width: 208px; 
+	position: absolute; 
+	top: 0px;
+	height: 241px;
+	background:url(textbg.gif) right bottom no-repeat;
+}
+.div_jimg .ul_jimg li{
+	display: inline; 
+	float: right;
+	width: 208px;
+	height: 40px; 
+	overflow:hidden;	
+	cursor: pointer;
+	background: url(out1.gif) repeat-y right top; 
+}
+.div_jimg .ul_jimg .on {
+	 background:url(over1.gif) no-repeat left top;
+	 position: static;
+}
+.div_jimg .ul_jimg li a{
+	display:block;
+	padding:10px 10px 0 30px;
+	line-height:20px;
+	height:20px;
+	overflow:hidden;
+}
+.div_jimg .ul_jimg .on a{
+	font-weight: bold;
+}
+/*
+*热点招商
+*/
+.HotZscont .head{
+	background:url(over2.gif) no-repeat;
+}
+.HotZscont .head div{
+	width:100px;
+	float:left;
+	text-align:center;
+	font-size:14px;
+	cursor:pointer;
+}
+.HotZscont .head div.down{
+	background:url(head1.gif) right top no-repeat;
+}
+.HotZscont .head div.up{
+	background:url(head1.gif) left top no-repeat;
+}
+.HotZscont .head div.choose{
+	color:#C00C0C;
+	font-weight:bold;
+}
+.HotZscont .cont{
+	border:#B4D6E7 solid 1px;
+	border-top:0;
+	padding:10px;
+	height:188px;
+	overflow:hidden;
+}
+.HotZscont .cont dl{
+	height:75px;
+	overflow:hidden;
+}
+.HotZscont .cont dl dt{
+	width:80px;
+	border:#DDD solid 1px;
+	padding:1px;
+	float:left;
+}
+.HotZscont .cont dl dt a{
+	display:block;
+	width:80px;
+	height:60px;
+	overflow:hidden;
+}
+.HotZscont .cont dl dd{
+	width:85px;
+	float:left;
+	padding-left:8px;
+}
+.HotZscont .cont dl dd div{
+	height:18px;
+	overflow:hidden;
+	line-height:18px;
+	font-weight:bold;
+}
+.HotZscont .cont dl dd p{
+	padding:0;
+	margin:0;
+	height:48px;
+	overflow:hidden;
+	line-height:16px;
+	color:#888;
+}
+.HotZscont .cont .list{
+	height:20px;
+	overflow:hidden;
+	line-height:20px;
+	padding-left:10px;
+	background:url(point1.gif) left 9px no-repeat;
+}
+/*
+*招商分类
+*/
+.ShowZsSort .head{
+	background:url(head2.gif) no-repeat;
+}
+.ShowZsSort .cont{
+	border:#B4D6E7 solid 1px;
+	border-top:0;
+	padding:10px;
+}
+.ShowZsSort .cont dl{
+	height:336px;
+	width:228px;
+	margin:auto;
+	overflow:auto;
+	overflow-x:hidden;
+	scrollbar-face-color: #FFFFFF;
+	scrollbar-shadow-color: #eee;
+	scrollbar-highlight-color: #eee;
+	scrollbar-3dlight-color: #FFFFFF;
+	scrollbar-darkshadow-color: #FFFFFF;
+	scrollbar-track-color: #FFFFFF;
+	scrollbar-arrow-color: #D2E5F4;
+}
+.ShowZsSort .cont dl dt{
+	height:25px;
+	overflow:hidden;
+	line-height:25px;
+	font-weight:bold;
+}
+.ShowZsSort .cont dl dd{
+	background:url(dotted.gif) left bottom repeat-x;
+	margin-bottom:5px;
+	padding-bottom:5px;
+	line-height:20px;
+	color:#853385;
+}
+/*
+*推荐招商品牌
+*/
+.tzzsbrand{
+	height:160px;
+	overflow:hidden;
+}
+.tzzsbrand .head{
+	background:url(head3.gif) no-repeat;
+}
+.tzzsbrand .head .tag{
+	padding-left:30px;
+}
+.tzzsbrand .cont{
+	border:#dadada solid 1px;
+	border-top:0;
+	padding:16px 0 0 15px;
+	height:110px;
+	overflow:hidden;
+	word-spacing:15px;
+}
+/*
+*sidecont
+*/
+.sidecont .head{
+	background:url(head4.gif) right top no-repeat;
+}
+.sidecont .head .tag{
+	display:block;
+	width:125px;
+	background:url(tag1.gif) left top no-repeat;
+	padding:0;
+	text-align:center;
+	color:#005A9A;
+}	
+.sidecont .cont{
+	border:#DCDCDC solid 1px;
+	border-top:0;
+	padding:10px;
+	height:166px;
+	overflow:hidden;
+}
+.sidecont .cont .list{
+	height:21px;
+	overflow:hidden;
+	padding-left:10px;
+	background:url(point2.gif) left 8px no-repeat;
+	line-height:21px;
+}
+/*
+*sidecont1
+*/
+.sidecont1 .head{
+	background:url(head5.gif) right top no-repeat;
+}
+.sidecont1 .cont{
+	border:#DCDCDC solid 1px;
+	border-top:0;
+	padding:10px;
+}
+.sidecont1 .cont .lista{
+	height:23px;
+	overflow:hidden;
+	line-height:23px;
+	padding-left:23px;
+}
+.sidecont1 .cont .lista a{
+	display:block;
+	float:left;
+	width:155px;
+	overflow:hidden;
+}
+.sidecont1 .cont .lista span{
+	float:left;
+	padding-left:18px;
+	color:#888;
+	background:url(icon2.gif) left 2px no-repeat;
+	margin-left:10px;
+}
+.sidecont1 .cont .list1{
+	background:url(num1.gif) left top no-repeat;
+}
+.sidecont1 .cont .list2{
+	background:url(num1.gif) left -25px no-repeat;
+}
+.sidecont1 .cont .list3{
+	background:url(num1.gif) left -50px no-repeat;
+}
+.sidecont1 .cont .list4{
+	background:url(num1.gif) left -75px no-repeat;
+}
+.sidecont1 .cont .list5{
+	background:url(num1.gif) left -100px no-repeat;
+}
+.sidecont1 .cont dl{
+	height:75px;
+	overflow:hidden;
+}
+.sidecont1 .cont dl dt{
+	width:80px;
+	border:#DDD solid 1px;
+	padding:1px;
+	float:left;
+}
+.sidecont1 .cont dl dt a{
+	display:block;
+	width:80px;
+	height:60px;
+	overflow:hidden;
+}
+.sidecont1 .cont dl dd{
+	width:135px;
+	float:left;
+	padding-left:8px;
+}
+.sidecont1 .cont dl dd div{
+	height:18px;
+	overflow:hidden;
+	line-height:18px;
+	font-weight:bold;
+}
+.sidecont1 .cont dl dd p{
+	padding:0;
+	margin:0;
+	height:48px;
+	overflow:hidden;
+	line-height:16px;
+	color:#888;
+}
+/*
+*合作商机
+*/
+.hjszcont .cont{
+	height:106px;
+	overflow:hidden;
+}
+.hjszcont .cont .listb{
+	width:330px;
+	height:21px;
+	padding-right:18px;
+	overflow:hidden;
+	line-height:21px;
+	float:left;
+}
+.hjszcont .cont .listb a{
+	float:left;
+}
+.hjszcont .cont .listb a.f{
+	color:#c00;
+	padding-right:5px;
+}
+.hjszcont .cont .listb span{
+	float:right;
+	color:#888;
+}
+/*
+*
+*/
+.sidecont .cont dl{
+	height:85px;
+	overflow:hidden;
+}
+.sidecont .cont dl dt{
+	width:100px;
+	border:#DDD solid 1px;
+	padding:1px;
+	float:left;
+}
+.sidecont .cont dl dt a{
+	display:block;
+	width:100px;
+	height:75px;
+	overflow:hidden;
+}
+.sidecont .cont dl dd{
+	width:220px;
+	float:left;
+	padding-left:8px;
+}
+.sidecont .cont dl dd div{
+	height:20px;
+	overflow:hidden;
+	line-height:20px;
+	font-weight:bold;
+}
+.sidecont .cont dl dd p{
+	padding:0;
+	margin:0;
+	height:60px;
+	overflow:hidden;
+	line-height:20px;
+	color:#888;
+}
+.sidecont .cont .listc{
+	height:21px;
+	overflow:hidden;
+	padding-left:10px;
+	background:url(point1.gif) left 9px no-repeat;
+	line-height:21px;
+}

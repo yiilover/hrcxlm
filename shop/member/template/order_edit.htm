@@ -1,0 +1,44 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head"><div class="tag">修改订单</div></div>
+    <div class="cont">
+    	<form name="form1" method="post" action="?job=edit">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+<!--
+EOT;
+if(!$rsdb[ifpay]){
+print <<<EOT
+--> 
+          <tr> 
+              <td class="tdL"> 应付总额:</td>
+              <td class="tdR"><input type="text" name="totalmoney" size="10" value="$rsdb[totalmoney]"> 元 </td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+--> 
+			  
+          <tr> 
+              <td class="tdL">快递单号:</td>
+              <td class="tdR"><input type="text" name="emscode" size="50" value="$rsdb[emscode]"> 快递名称+单号 </td>
+          </tr>
+          <tr> 
+              <td class="tdL">&nbsp;</td>
+              <td class="tdR"> 
+              	<input type="submit" name="Submit" value="提交">
+                <input type="button" name="Submit2" onclick="window.location.href='?job=list'" value="返回">
+                <input type="hidden" name="step" value="2">
+                <input type="hidden" name="id" value="$id">
+              </td>
+          </tr>
+        </table>
+        </form>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

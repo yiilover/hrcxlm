@@ -1,0 +1,155 @@
+.ShowBaseInfo .title{
+	height:20px;
+	line-height:20px;
+	padding-left:15px;
+	overflow:hidden;
+	font-size:14px;
+	font-weight:bold;
+	margin-top:10px;
+}
+.InfoTable .ShowPic{
+	width:350px;
+	padding-top:10px;
+}
+.InfoTable .ShowPic .BigPic{
+	width:315px;
+	height:315px;
+	border:#DDD solid 1px;
+	background:#FFF;
+	margin:auto;
+}
+.InfoTable .ShowPic .BigPic td{
+	text-align:center;
+	vertical-align:middle;
+}
+.ChangePic{
+	height:70px;
+	width:320px;
+	overflow:hidden;
+	margin:5px auto;
+	position:relative;
+}
+.ChangePic #Up_atc,.ChangePic #Down_atc{
+	width:18px;
+	height:64px;
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	cursor:pointer;
+}
+.ChangePic #Up_atc{
+	background:url(array.gif) left top no-repeat;
+	left:0;
+}
+.ChangePic #Down_atc{
+	background:url(array.gif) right top no-repeat;
+	right:0;
+}
+.ChangePic .listminpic{
+	width:280px;
+	height:70px;
+	overflow:hidden;
+	margin:2px auto 0 auto;
+	position:relative;
+}
+.ChangePic .listminpic .lists{
+	width:10000px;
+	position:absolute;
+}
+.ChangePic .listminpic .lists ul{
+	float:left;
+}
+.ChangePic .listminpic .lists ul li{
+	width:70px;
+	height:70px;
+	overflow:hidden;
+	float:left;	
+}
+.ChangePic .listminpic .lists ul li div{
+	border:#DDD solid 1px;
+	width:50px;
+	padding:5px;
+	margin:auto;
+	FILTER: alpha(opacity=60); 
+	opacity: 0.6;
+}
+.ChangePic .listminpic .lists ul li.cur div{
+	FILTER: alpha(opacity=100); 
+	opacity: 1;
+	border:#F00 solid 1px;
+}
+.ChangePic .listminpic .lists ul li div a{
+	display:block;
+	width:50px;
+	height:50px;
+	text-align:center;
+	overflow:hidden;
+}
+.InfoTable .MoreInfo{
+	padding:10px 15px 0 0;
+}
+.InfoTable .MoreInfo div.infoa{
+	line-height:20px;
+	padding-bottom:5px;
+}
+.InfoTable .MoreInfo div.infob{
+	border-top:#FDDCB7 dotted 1px;
+	border-bottom:#FDDCB7 dotted 1px;
+	height:75px;
+	padding:5px 0 5px 0;
+}
+.InfoTable .MoreInfo div.infob div{
+	width:49%;
+	float:left;
+	line-height:25px;
+}
+.InfoTable .MoreInfo div.infob div span{
+	font-size:14px;
+	color:#CC6500;
+}
+
+/*
+*Í¼±ê
+*/
+.InfoTable .MoreInfo div.shopbuys{
+	height:90px;
+}
+.InfoTable .MoreInfo div.shopbuys .buynum{
+	height:30px;
+	padding-top:10px;
+}
+.InfoTable .MoreInfo div.shopbuys .buynum dt{
+	width:120px;
+	float:left;
+	line-height:30px;
+	font-size:14px;
+	color:#CC6500;
+	text-align:right;
+}
+.InfoTable .MoreInfo div.shopbuys .buynum dd{
+	float:left;
+	padding:3px 0 0 10px;
+}
+.InfoTable .MoreInfo div.shopbuys .buynum dd input{
+	width:30px;
+}
+.InfoTable .MoreInfo div.shopbuys .butter{
+	text-align:center;
+	word-spacing:15px;
+}
+
+.InfoTable .MoreInfo .order{
+	height:30px;
+	padding-top:15px;
+}
+.InfoTable .MoreInfo .order a{
+	float:right;
+	display:block;
+	margin-right:10px;
+	padding-left:22px;
+	background:url(pro_report.gif) no-repeat;
+}
+.InfoTable .MoreInfo .order a.fav{
+	padding-left:16px;
+	background:url(pro_fav.gif) no-repeat;
+}

@@ -1,0 +1,369 @@
+.BannerCont{
+	margin-top:10px;
+	width:980px;
+	text-align:center;
+	overflow:hidden;
+}
+.ShowCont{
+	margin-top:10px;
+}
+.ShowCont .Mhead{
+	height:74px;
+	overflow:hidden;
+	background:url(h13.gif) no-repeat;
+}
+.ShowCont .Mhead .tag{
+	float:left;
+	width:200px;
+	padding:25px 0 0 20px;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	font-size:24px;
+	font-weight:bold;
+	color:#FFF;
+	font-family:"黑体";
+}
+.ShowCont .Mhead .ListType{
+	float:left;
+	padding:30px 0 0 20px;
+	height:30px;
+	overflow:hidden;
+}
+.ShowCont .Mhead .ListType li{
+	float:left;
+	width:95px;
+	text-align:center;
+	height:30px;
+	line-height:35px;
+	background:url(sub7.gif) center top no-repeat;
+	font-size:14px;
+	cursor:pointer;
+	color:#666;
+}
+.ShowCont .Mhead .ListType li.ck{
+	background:url(sub7.gif) center -30px no-repeat;
+	color:#FF3000;
+	font-weight:bold;
+}
+.ShowCont .Mcont{
+	border:#CCC solid 1px;
+	border-top:0;
+}
+.ShowCont .Mcont .BaseInfo{
+	width:213px;
+	border-right:#CCC solid 1px;
+	background:#FFF3D8;
+	padding:20px 0 10px 0;
+}
+.ShowCont .Mcont .BaseInfo .img{
+	width:150px;
+	border:#DDD solid 1px;
+	padding:1px;
+	margin:auto;
+	background:#FFF;
+}
+.ShowCont .Mcont .BaseInfo .img div{
+	width:150px;
+	height:190px;
+	overflow:hidden;
+}
+.ShowCont .Mcont .BaseInfo .img div span{
+	display:block;
+	width:250px;
+	height:190px;
+	text-align:center;
+	overflow:hidden;
+	margin-left:-50px;
+}
+.ShowCont .Mcont .BaseInfo .title{
+	width:150px;
+	height:20px;
+	line-height:20px;
+	padding-top:5px;
+	overflow:hidden;
+	margin:0 auto 10px auto;
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
+	color:#FF3000;
+}
+.ShowCont .Mcont .BaseInfo .list{
+	padding:5px 10px 0 15px;
+	line-height:20px;
+}
+.ShowCont .Mcont .BaseInfo .list span{
+	color:#36c;
+}
+.ShowCont .Mcont .BaseInfo .list em{
+	font-size:18px;
+	font-weight:bold;
+	font-style:normal;
+	color:#FF3000;
+}
+.ShowCont .Mcont .ChangeShow{
+	width:764px;
+}
+.ShowTabel .company_img{
+	width:250px;
+	padding:20px 15px 10px 20px;
+}
+.ShowTabel .company_img div{
+	width:250px;
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.ShowTabel .company_img div span{
+	display:block;
+	width:250px;
+	height:200px;
+	overflow:hidden;
+}
+.ShowTabel .company_img div span a{
+	display:block;
+	width:350px;
+	height:200px;
+	text-align:center;
+	margin-left:-50px;
+	overflow:hidden;
+}
+.ShowTabel .conts{
+	padding:20px 20px 10px 0;
+}
+.ShowTabel .conts h3{
+	font-size:14px;
+	line-height:20px;
+	padding-bottom:5px;
+}
+.ShowTabel .conts h3 a{
+	color:#36c;
+}
+.ShowTabel .conts p{
+	color:#666;
+	line-height:20px;
+}
+.ShowTabel .List_Demo{
+	padding:25px 5px 10px 15px;
+}
+.ShowTabel .List_Demo .listpic{
+	width:145px;
+	height:120px;
+	overflow:hidden;
+	float:left;
+}
+.ShowTabel .List_Demo .listpic div{
+	width:120px;
+	text-align:center;
+	margin:auto;
+}
+.ShowTabel .List_Demo .listpic div.img{
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.ShowTabel .List_Demo .listpic div.img a{
+	display:block;
+	width:120px;
+	height:80px;
+	overflow:hidden;
+	text-align:center;
+}
+.ShowTabel .List_Demo .listpic div.t{
+	height:20px;
+	line-height:20px;
+	padding-top:5px;
+	overflow:hidden;
+}
+.ShowTabel .show_contents{
+	padding:20px 15px 10px 20px;
+	line-height:20px;
+}
+.ShowTabel .show_comment{
+	padding:20px 15px 10px 15px;
+}
+
+#comment{
+	border:#D0D0D0 solid 1px;
+	margin-bottom:10px;
+}
+.comment_form{
+	border:#D1E0E5 solid 1px;
+}
+.comment_form th{
+	height:35px;
+	background:url(h6.gif) repeat-x;
+}
+.comment_form th .tag{
+	float:left;
+	padding:3px 0 0 25px;
+	line-height:28px;
+	font-size:14px;
+	font-weight:normal;
+	background:url(icon1.gif) 10px 10px no-repeat;
+}
+.comment_form .left{
+	width:80px;
+	line-height:30px;
+	text-align:right;
+	padding-right:5px;
+}
+.comment_form .right{
+	width:400px;
+	padding-top:5px;
+}
+.comment_form .right textarea{
+	width:380px;
+	height:150px;
+}
+.comment_form .submits{
+	padding-bottom:10px;
+}
+.comment_form .submits input{
+	width:46px;
+	height:21px;
+	background:url(sub4.gif) no-repeat;
+	border:0;
+	color:#FFF;
+	cursor:pointer;
+}
+/*
+*List_Comments
+*/
+.List_Comments .img{
+	width:5%;
+	padding-top:8px;
+	padding-bottom:5px;
+}
+.List_Comments .img .pic{
+	width:80px;
+	background:url(hicon.gif) center top no-repeat;
+	padding:4px 0 8px 0;
+}
+.List_Comments .img .pic a{
+	display:block;
+	margin:auto;
+	width:50px;
+	height:50px;
+	text-align:center;
+	overflow:hidden;
+}
+.List_Comments .img .name{
+	text-align:center;
+	padding:0 5px 0 5px;
+	line-height:16px;
+}
+.List_Comments .comment_content{
+	padding:8px 8px 5px 0;
+	width:380px;
+	line-height:20px;
+}
+.List_Comments .infos{
+	background:#F8F8F8;
+	padding:0 5px 0 5px;
+	border-bottom:#D0D0D0 solid 1px;
+}
+.List_Comments .infos .info{
+	float:left;
+	line-height:30px;
+}
+.List_Comments .infos .info em{
+	color:#006600;
+	font-weight:bold;
+}
+.List_Comments .infos .info .fl{
+	padding-left:15px;
+	background:url(fl.gif) left top no-repeat;
+}
+.List_Comments .infos .info .egg{
+	padding-left:18px;
+	background:url(egg.gif) left top no-repeat;
+}
+.List_Comments .infos .info span{
+	color:#ff0000;
+	font-weight:bold;
+}
+.List_Comments .infos .acts{
+	float:right;
+	padding:5px 5px 0 0;
+}
+.commentpage{
+	text-align:center;
+	padding:10px 0 10px 0;
+}
+.commentpage a{
+	border:#DDD solid 1px;
+	padding:3px 5px 2px 5px;
+	color:#888;
+}
+.no_comment{
+	padding:75px 20px 50px 160px;
+	line-height:30px;
+	font-size:22px;
+	font-weight:bold;
+	color:#FFB066;
+	background:url(nocomment.gif) 70px 60px no-repeat;
+}
+
+.sideconts{
+	margin-top:10px;
+	border:#EDD6C5 solid 1px;
+}
+.sideconts .head{
+	height:38px;
+	overflow:hidden;
+	background:url(h12.gif) repeat-x;
+	line-height:42px;
+}
+.sideconts .head .tag{
+	float:left;
+	padding-left:15px;
+	font-size:14px;
+	font-weight:bold;
+}
+.sideconts .cont{
+	padding:20px 0 0 15px;
+}
+.sideconts .cont .listpic{
+	width:240px;
+	height:120px;
+	overflow:hidden;
+	float:left;
+}
+.sideconts .cont .listpic dt{
+	float:left;
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.sideconts .cont .listpic dt div{
+	width:65px;
+	height:100px;
+	overflow:hidden;
+}
+.sideconts .cont .listpic dt div a{
+	display:block;
+	width:105px;
+	height:100px;
+	text-align:center;
+	overflow:hidden;
+	margin-left:-20px;
+}
+.sideconts .cont .listpic dd{
+	float:left;
+	width:150px;
+	padding-left:10px;
+	line-height:25px;
+}
+.sideconts .cont .listpic dd div{
+	height:25px;
+	overflow:hidden;
+}
+.sideconts .cont .listpic dd a{
+	color:#36c;
+}
+.sideconts .cont .listpic dd .t{
+	padding-left:20px;
+	background:url(iconh.gif) 3px 1px no-repeat;
+	font-weight:bold;
+}
+.sideconts .cont .listpic dd .t a{
+	color:#FF3000;
+}

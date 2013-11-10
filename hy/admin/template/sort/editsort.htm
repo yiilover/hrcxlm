@@ -1,0 +1,64 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<form name="form1" method="post" action="index.php?lfj=$lfj&dirname=$dirname&file=$file&action=$job">
+<table border="0" cellspacing="1" cellpadding="3" width="100%" class="tablewidth">
+    <tr align="center"> 
+      <td colspan="2" class="head">栏目修改</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width="40%">栏目名称:</td>
+      <td width="60%"> 
+        <input type="text" name="postdb[name]" value="$rsdb[name]">
+      </td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width="40%"> 父栏目FID: (不选择,将作为顶级栏目) </td>
+      <td width="60%"> 
+        <select name="postdb[fup]">
+          <option value="0">请选择</option>{$fup_select}
+        </select>
+      </td>
+    </tr> <tr bgcolor="#FFFFFF"  class="hidetr">
+      <td width="40%">SEO优化:</td>
+      <td width="60%"> 标题(title): 
+        <input type="text" name="postdb[metatitle]" size="35" value="$rsdb[metatitle]">
+        <br>关键字(metakeywords):
+        <input type="text" name="postdb[metakeywords]" size="35" value="$rsdb[metakeywords]">
+        <br>
+        描述(metadescription): 
+        <input type="text" name="postdb[metadescription]" size="35" value="$rsdb[metadescription]">
+        <br>
+        <br>
+        部分变量如下:<br>
+        {city_name} 代表当前城市名称<br>
+        {sort_name} 代表栏目名称</td>
+    </tr>
+ 
+	<tr bgcolor="#FFFFFF"  class="hidetr" style="display:$smallsort"> 
+      <td width="40%"> 
+        <input type="checkbox" name="Together[listorder]" value="1">
+        列表页排序方式: </td>
+      <td width="60%"> 
+        <select name="postdb[listorder]">
+          <option value="0" $listorder[0]>登记时间降序（最近登记的在前）</option>
+          <option value="1" $listorder[1]>登记时间升序（最近登记的在后）</option>
+          <option value="2" $listorder[2]>商铺级别降序</option>
+		   <option value="3" $listorder[3]>点击率降序</option>
+		    <option value="4" $listorder[4]>最近被浏览的排前</option>
+        </select> </td>
+    </tr>
+ 
+    <tr align="center"> 
+      <td colspan="2" bgcolor="#FFFFFF"> 
+        <input type="submit" name="Submit" value="提交">
+        <input type="hidden" name="postdb[fid]" value="$fid">
+      </td>
+    </tr>
+  </table>
+</form>
+<!--
+EOT;
+?>
+-->

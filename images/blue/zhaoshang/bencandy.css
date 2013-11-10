@@ -1,0 +1,179 @@
+.MainL{
+	width:720px;
+	float:left;
+}
+.SideR{
+	width:250px;
+	float:right;
+}
+.ClearDiv{
+	clear:both;
+}
+.mt10{
+	margin-top:10px;
+}
+.head{
+	height:33px;
+	overflow:hidden;
+	line-height:35px;
+	background:url(head4.gif) right top no-repeat;
+}
+.tag{
+	display:block;
+	background:url(head5.gif) left top no-repeat;
+	color:#005A9A;
+	font-size:14px;
+	font-weight:bold;
+	float:left;
+	padding-left:25px;
+}
+.more{
+	float:right;
+	padding-right:10px;
+}
+.cont{
+	border:#DCDCDC solid 1px;
+	border-top:0;
+	padding:10px;
+}
+.showcont .cont .title{
+	line-height:30px;
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
+}
+.showcont .cont .basetable{
+	width:670px;
+	border:#A9CBED solid 1px;
+	margin:10px auto;
+}
+.showcont .cont .basetable .word{
+	width:450px;
+}
+.showcont .cont .basetable .word dl{
+	border-right:#A9CBED solid 1px;
+	border-top:#A9CBED solid 1px;
+	height:33px;
+	line-height:33px;
+	overflow:hidden;
+}
+.showcont .cont .basetable .word dl dt{
+	float:left;
+	width:110px;
+	padding-left:10px;
+	border-right:#A9CBED solid 1px;
+}
+.showcont .cont .basetable .word dl dd{
+	float:left;
+	width:315px;
+	padding-left:10px;
+	overflow:hidden;
+}
+.showcont .cont .basetable .word dl.begin{
+	border-top:0;
+}
+.showcont .cont .basetable .img{
+	width:220px;
+	text-align:center;
+	vertical-align:middle;
+}
+.showcont .cont .basetable .img div{
+	width:160px;
+	height:120px;
+	overflow:hidden;
+	margin:auto;
+}
+.showcont .cont .h{
+	width:660px;
+	margin:auto;
+	height:25px;
+	overflow:hidden;
+	line-height:25px;
+	padding-left:10px;
+	background:#E9F3FB;
+}
+.showcont .cont .c{
+	width:670px;
+	margin:auto;
+	line-height:20px;
+	padding-top:15px;
+	overflow:hidden;
+}
+.sortcont .cont {
+	line-height:25px;
+	word-spacing:10px;
+	padding:10px 10px 10px 15px;
+}
+.sortcont .cont a{
+	font-size:14px;
+	color:#005999;
+}
+.zstopcont .cont div{
+	height:23px;
+	overflow:hidden;
+	line-height:23px;
+	padding-left:23px;
+}
+.zstopcont .cont div a{
+	display:block;
+	float:left;
+	width:155px;
+	overflow:hidden;
+}
+.zstopcont .cont div span{
+	float:left;
+	padding-left:18px;
+	color:#888;
+	background:url(icon2.gif) left 2px no-repeat;
+	margin-left:10px;
+}
+.zstopcont .cont .list1{
+	background:url(num1.gif) left top no-repeat;
+}
+.zstopcont .cont .list2{
+	background:url(num1.gif) left -25px no-repeat;
+}
+.zstopcont .cont .list3{
+	background:url(num1.gif) left -50px no-repeat;
+}
+.zstopcont .cont .list4{
+	background:url(num1.gif) left -75px no-repeat;
+}
+.zstopcont .cont .list5{
+	background:url(num1.gif) left -100px no-repeat;
+}
+.tzzscont .cont dl{
+	height:75px;
+	overflow:hidden;
+}
+.tzzscont .cont dl dt{
+	width:80px;
+	border:#DDD solid 1px;
+	padding:1px;
+	float:left;
+}
+.tzzscont .cont dl dt a{
+	display:block;
+	width:80px;
+	height:60px;
+	overflow:hidden;
+}
+.tzzscont .cont dl dd{
+	width:135px;
+	float:left;
+	padding-left:8px;
+}
+.tzzscont .cont dl dd div{
+	height:18px;
+	overflow:hidden;
+	line-height:18px;
+	font-weight:bold;
+}
+.tzzscont .cont dl dd p{
+	padding:0;
+	margin:0;
+	height:48px;
+	overflow:hidden;
+	line-height:16px;
+	color:#888;
+}

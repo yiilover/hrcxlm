@@ -1,0 +1,91 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/red/brand/bencandy.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer">
+  <tr> 
+    <td class="MainL">
+        <div class="brandlist">
+        	<div class="head"><div class="tag">品牌资料</div></div>
+            <div class="cont">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="baseinfo">
+                  <tr>
+                    <td class="info">
+                    	<div><span>品牌名称:</span>{$rsdb[title]}</div>						
+<!--{template}-->
+                        <div><span>{title}:</span>{value}</div>					
+<!--{/template}-->
+						
+                        <div><span>浏览次数:</span>{$rsdb[hits]}次</div>
+                        <div><span>更新日期:</span><a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a></div>
+                    </td>
+                    <td class="img">
+                    	<div class="pic"><img src="$rsdb[picurl]" width="200" onerror="this.src='$webdb[www_url]/images/yellow/brand.gif'" /></div>
+                        <div><a href="$webdb[www_url]/member/?main=$Murl/member/join.php?fid=$fid&cid=$id" target="_blank"><img src="$webdb[www_url]/images/yellow/brand_join.gif"/></a></div>
+                    </td>
+                  </tr>
+                </table>
+				<div class="h"><span>品牌介绍</span></div>
+                <div class="c">$rsdb[content]</div>
+            </div>
+        </div>               
+    </td>
+    <td class="SideR">
+    	<div class="sidecont">
+        	<div class="head"><div class="tag">当前品牌下的代理商如下</div></div>
+            <div class="cont">
+<!--
+EOT;
+$array = list_dl('new',20);
+foreach($array AS $rs){print <<<EOT
+-->
+                
+            <div class="list"><a href="joinshow.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[dl_name]</a></div> 
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+        <div class="sidecont mt10">
+        	<div class="head"><div class="tag">推荐品牌</div></div>
+            <div class="cont">
+<!--
+EOT;
+$array = list_title('com',3);
+foreach($array AS $rs){print <<<EOT
+-->
+            	<div class="listb">
+                	<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" class="img"><img src="$rs[picurl]" onerror="this.src='$webdb[www_url]/images/yellow/brand.gif'" width="110" height="40"/></a>
+                    <a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" class="t">$rs[title]</a>
+                </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+        <div class="sidecont mt10">
+        	<div class="head"><div class="tag">热门品牌</div></div>
+            <div class="cont">
+<!--
+EOT;
+$array = list_title('hot',8);
+foreach($array AS $key=>$rs){
+print <<<EOT
+-->
+            	<div class="lista"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

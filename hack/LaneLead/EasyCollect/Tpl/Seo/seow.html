@@ -1,0 +1,105 @@
+<include file="Index:header" />
+<script language="javascript">
+ <!--
+	function Delete(id){
+	    if(confirm('你确认要删除本词条吗?')==true)
+		ThinkAjax.send('__URL__/SaveSeow/delete/1','ajax=1&id='+id,SaveComplete,'result');
+	}
+	function EditList(){
+		ThinkAjax.sendForm('list_seow','__URL__/SaveSeow/savelist/1',SaveComplete,'result');
+	}
+	function DeleteList(){
+	     if(confirm('你确认要批量删除吗?')==true)	
+		ThinkAjax.sendForm('list_seow','__URL__/SaveSeow/deletelist/1',SaveComplete,'result');
+	}	
+	function Save(id){
+		if(id==undefined) id=0;
+		sourcew=$('#sourcew'+id).val();
+		replacew=$('#replacew'+id).val();
+		if(sourcew=='') {
+			$('#sourcew'+id).focus();
+			contnet='<span class="errorTip">请输入词条!</span>';			
+			showfloatTips(contnet);
+			return false;		
+		}
+		if(replacew=='') {
+			$('#replacew'+id).focus();
+			contnet='<span class="errorTip">请输入词条!</span>';			
+			showfloatTips(contnet);
+			return false;		
+		}
+		ThinkAjax.send('__URL__/SaveSeow/save/1/sourcew/'+sourcew+'/replacew/'+replacew+'/id/'+id,'ajax=1',SaveComplete,'result');
+	}
+	function SaveComplete(data,status){
+		if (status==1)
+		{
+			window.setTimeout(function (){window.location.href='__SELF__'},1000);
+		}
+	}	
+ //-->
+</script>
+
+<table cellpadding="3" cellspacing="1" class="tablewidth" align="center">
+  <tr class="head5">
+    <td width="300" style="padding-left:18px;"><form name="search_kw"  id="search_kw" method="post" action="__URL__/seow" style="margin:0; padding:0;">
+        关键词:
+        <input type="text" name="kw" value="{$kw}" size="15" style=" margin-top:2px;">
+        <span class='blank2'></span>
+        <input type="submit" name="Submit_search" value="词库搜索">
+      </form></td>
+    <td width="400"><form name="ImportSeow"  id="ImportSeow" method="post" action="__URL__/ImportSeow"  enctype="multipart/form-data" style="margin:0; padding:0;">
+        <span class="blank2"></span>上传词库文件:
+        <input type="file"  name="updatefile" style="background:#FFFFFF;">
+        <input type="Submit" name="Submit" value="导入词库">
+      </form></td>
+    <td style="text-align:center;"><form name="ImportSeow"  id="ImportSeow" method="post" action="__URL__/ExportSeow"  style="margin:0; padding:0;">
+        <input type="submit" name="Submit_eidit_list" value="导出词库">
+      </form></td>
+  </tr>
+</table>
+<form name="add_seow" id="add_seow"  method="post" action="__URL__/SaveSeow/add/1" style="margin:0; padding:0;">
+  <table cellpadding="3" cellspacing="1" class="tablewidth" align="center">
+    <tr class="head5">
+      <td width="480" style=" padding-left:18px;">原&nbsp;&nbsp;词:
+        <input type="text" name="sourcew" id="sourcew0" value="{$sourcew}" size="15" style=" margin-top:2px;">
+        <span class='blank2'>=></span> 替换词(同义词):
+        <input type="text" name="replacew" id="replacew0" value="{$replacew}" size="15" style=" margin-top:2px;">
+        <span class="blank2"></span>
+        <input type="button" name="Submit_eidit_list" value="添加词条" onClick="Save(0)">
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</form>
+<form name="list_seow" id="list_seow"  method="post" action="__URL__/SaveSeow/savelist/1" style="margin:0; padding:0;">
+  <table width='100%' cellspacing='1' cellpadding='3' class="tablewidth" align="center">
+    <tr class="head">
+      <td width="80" align="center"><strong>SEO词条ID</strong></td>
+      <td width="320" align="center"><strong>原 词 =>  替换词(同义词)</strong></td>
+      <td width="180"><strong>词条操作</strong></td>
+      <td></td>
+    </tr>
+    <volist id="vo" name="list">
+      <tr  id="list_seow_tr_{$vo.id}" class="trA" onMouseOver="this.className='trB'" onMouseOut="this.className='trA'">
+        <td><input type="checkbox" name="iddb[{$vo.id}]" value="{$vo.id}">
+          {$vo.id|sprintf="%05d",###}</td>
+        <td><input type="text" name="sourcew[{$vo.id}]" id="sourcew{$vo.id}" value="{$vo.sourcew}">
+          <span class='blank2'>=></span>
+          <input type="text" name="replacew[{$vo.id}]"  id="replacew{$vo.id}"  value="{$vo.replacew}"></td>
+        <td><input type="button" name="Submit_edit_SaveSeow" value="确定修改" onClick="Save({$vo.id})">
+          <span class="blank2"></span>
+          <input type="button" name="Submit_add_SaveSeow" value="删除词条" onClick="Delete({$vo.id})">
+        </td>
+        <td></td>
+      </tr>
+    </volist>
+    <tr>
+      <td><div align="center"><a href="javascript:" onClick="CheckAll('list_seow','all')">全选</a> / <a href="javascript:" onClick="CheckAll('list_seow','')">反选</a></div></td>
+      <td colspan="3"><input type="button" name="Submit_eidit_list" value="批量修改词条" onClick="EditList()">
+        &nbsp;
+        <input type="button" name="Submit_eidit_list" value="批量删除词条" onClick="DeleteList()">
+        &nbsp; <span class="sabrosus"> {$page} </span> </td>
+    </tr>
+  </table>
+</form>
+<include file="Index:footer" />

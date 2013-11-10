@@ -1,0 +1,157 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/$STYLE/brand/index.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer">
+  <tr>
+    <td>$label[brand_tt1ad]</td>
+  </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0" class="MainContainer mt10">
+  <tr> 
+    <td class="SideL">
+    	<div class="brand_hd">
+        	<div class="head"><span class="tag">$label[brand_t1]</span></div>
+            <div class="cont">
+            	$label[brand_t2]
+            </div>
+        </div>
+    </td>
+    <td class="MainR">
+    	<div class="brand_slide">$label[brand_rollpic]</div>
+    </td>
+  </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0" class="MainContainer mt10">
+  <tr> 
+    <td class="MainL">
+    	<div class="brand_piclist">
+        	<div class="head"><span class="tag">推荐品牌</span><span class="more">$label[brand_c1]</span></div>
+            <div class="cont">
+            	$label[brand_y1]
+            </div>
+        </div>
+        <div class="brand_piclist mt10">
+        	<div class="head heada"><span class="tag">最新品牌</span><span class="more">$label[brand_c2]</span></div>
+            <div class="cont">
+            	$label[brand_y2]
+            </div>
+        </div>
+        <div class="brand_piclist mt10">
+        	<div class="head"><span class="tag">热门品牌</span><span class="more">$label[brand_c3]</span></div>
+            <div class="cont">
+            	$label[brand_y3]
+            </div>
+        </div>
+    </td>
+    <td class="SideR">
+    	<table width="100%" cellspacing="0" cellpadding="0" class="brand_rcont">
+          <tr>
+            <td class="h"><span class="l">热门品牌</span><span class="r"> $label[brand_c4]</span></td>
+          </tr>
+          <tr>
+            <td class="c c1">
+            	<table width="100%" cellspacing="0" cellpadding="0" class="toplist">
+                  <tr class="h1">
+                    <td class="td1">排名</td>
+                    <td class="td2">品牌名称</td>
+                    <td class="td3">点击次数</td>
+                  </tr>
+<!--
+EOT;
+$array=list_title('hot',10);
+foreach($array AS $key=>$rs){
+$rs[title]=get_word($rs[title],20);
+$i=$key+1;
+print <<<EOT
+-->
+                  <tr class="l$i">
+                    <td class="td1">$i</td>                    
+                	<td class="td2"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></td>
+                    <td class="td3"><span>$rs[hits]</span>次</td>
+                  </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+  
+                </table>
+            </td>
+          </tr>
+        </table>
+        <table width="100%" cellspacing="0" cellpadding="0" class="brand_rcont mt10">
+          <tr>
+            <td class="h"><span class="l">最新入驻代理商</span><span class="r">$label[brand_c5]</span></td>
+          </tr>
+          <tr>
+          	<td class="c1">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="toplist">
+                  <tr>
+                    <td class="padding5">
+                    
+       
+ <!--
+EOT;
+$array=list_dl('new',10);
+foreach($array AS $key=>$rs){
+$rs[dl_name]=get_word($rs[dl_name],30);
+$i=$key+1;
+print <<<EOT
+-->
+            	
+                  <div class="l$key"><a href="joinshow.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[dl_name]</a></div>
+
+
+                   
+<!--
+EOT;
+}print <<<EOT
+-->
+                    </td>
+                  </tr>
+                </table>
+            </td>            
+          </tr>
+        </table>
+        <table width="100%" cellspacing="0" cellpadding="0" class="brand_rcont mt10">
+          <tr>
+            <td class="h"><span class="l">推荐代理商</span><span class="r">$label[brand_c6]</span></td>
+          </tr>
+          <tr>
+            <td class="c1">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="toplist">
+                  <tr>
+                    <td class="padding5">
+                     
+
+<!--
+EOT;
+$array=list_dl('hot',10);
+foreach($array AS $key=>$rs){
+$rs[dl_name]=get_word($rs[dl_name],30);
+$i=$key+1;
+print <<<EOT
+-->
+            	
+                  <div class="list"><a href="joinshow.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[dl_name]</a></div>
+
+
+                   
+<!--
+EOT;
+}print <<<EOT
+-->
+                    </td>
+                  </tr>
+                </table>
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

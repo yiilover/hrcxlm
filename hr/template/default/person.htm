@@ -1,0 +1,41 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+//-->
+</SCRIPT>
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+<div class="MainCont">
+	<div class="head"><div class="tag">个人简历</div></div>
+    <div class="cont">
+    	<form name="FORM" method="post" action="?action=$atc" enctype="multipart/form-data">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+<!--{template}-->
+          <tr>
+            <td class="tdL">{title}</td>
+            <td class="tdR">{value}</td>
+          </tr>
+<!--{/template}-->
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+            	<input type="submit" name="Submit" value="提 交" class='submit'>
+                <input type="hidden" name="id" value="$id">
+                <input type="hidden" name="postdb[lifeplace]" value="{$city_DB[name][$city_id]}">
+            </td>
+          </tr>
+        </table>
+        </form>
+    </div>
+</div>
+<div style="height:200px;"></div>
+<!--
+EOT;
+?>
+-->

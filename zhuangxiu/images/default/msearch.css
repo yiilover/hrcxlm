@@ -1,0 +1,131 @@
+/*
+*modemenu
+*/
+.modemenu{
+	height:41px;
+	overflow:hidden;
+	background:url(menu.gif) center top no-repeat;
+	padding-left:10px;
+}
+.modemenu li{
+	float:left;
+	height:41px;
+	background:url(mspac.gif) right top no-repeat;
+}
+.modemenu li span{
+	display:block;
+	height:41px;
+	padding:0 20px 0 50px;
+	float:left;
+}
+.modemenu li span a{
+	display:block;
+	padding:2px 3px 0 3px;
+	line-height:38px;
+	font-size:14px;
+	font-weight:bold;	
+}
+.modemenu li span a:hover,.modemenu li span a.ck{
+	background:url(mover.gif) left top repeat-x;
+	color:#FF6000;
+	text-decoration:none;
+}
+.modemenu li.li0 span{
+	background:url(mbg.gif) 8px top no-repeat;
+}
+.modemenu li.li1 span{
+	background:url(mbg.gif) 8px -40px no-repeat;
+}
+.modemenu li.li2 span{
+	background:url(mbg.gif) 8px -78px no-repeat;
+}
+.modemenu li.li3 span{
+	background:url(mbg.gif) 8px -120px no-repeat;
+}
+.modemenu li.li4 span{
+	background:url(mbg.gif) 8px -158px no-repeat;
+}
+.modemenu li.li5 span{
+	background:url(mbg.gif) 8px -200px no-repeat;
+}
+/*
+*modeSearch
+*/
+.modeSearch{
+	height:40px;
+	margin:15px auto 0 auto;
+	background:url(sbg.gif) center 5px no-repeat;
+	position:relative;
+	z-index:100;
+	color:#666;
+}
+.modeSearch .showtype{
+	width:106px;
+	height:26px;
+	background:url(showlist.gif) no-repeat;
+	position:absolute;
+	left:20px;
+	top:0;
+	cursor:pointer;
+}
+.modeSearch .showtype span{
+	display:block;
+	padding:2px 15px 0 10px;
+	height:24px;
+	line-height:24px;
+	overflow:hidden;
+}
+.modeSearch .listtype{
+	width:106px;
+	position:absolute;
+	left:20px;
+	top:25px;
+	background:url(showlist.gif) center bottom no-repeat;
+	padding-bottom:2px;
+}
+.modeSearch .listtype li{
+	background:url(listbg.gif) repeat-y;
+	padding:0 2px 0 2px;
+}
+.modeSearch .listtype li span{
+	display:block;
+	line-height:22px;
+	padding:0 5px 0 8px;
+	height:22px;
+	overflow:hidden;
+	cursor:pointer;
+}
+.modeSearch .listtype li span.over{
+	background:#EFEFEF;
+	font-weight:bold;
+}
+.modeSearch .listtype li span.ck{
+	font-weight:bold;
+	color:#f00;
+}
+.modeSearch .keyword{
+	width:237px;
+	height:26px;
+	position:absolute;
+	background:url(keyword.gif) no-repeat;
+	left:140px;
+	top:0;
+}
+.modeSearch .keyword input{
+	width:225px;
+	height:20px;
+	padding-left:5px;
+	line-height:20px;
+	background:none;
+	border:0;
+}
+.modeSearch .submits{
+	width:50px;
+	height:26px;
+	position:absolute;
+	top:0;
+	left:390px;
+}
+.modeSearch .submits input{
+	border:0;
+}

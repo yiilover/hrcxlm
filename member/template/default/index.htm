@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+<?php
+print <<<EOT
+-->
+<head>
+<title>会员中心 </title>
+<link rel="stylesheet" type="text/css" href="images/default/default.css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="images/default/member.js"></SCRIPT>
+</head>
+<body>
+<div class="Toper">
+	<div class="logo"><a href="index.php?SystemId=$SystemId"><img src="images/orange/logo.gif" /></a></div>
+    <ul class="topmenu">
+<!--
+EOT;
+$weburl = $city_DB[domain][$city_id]?$city_DB[domain][$city_id]:$webdb[www_url];
+$detail=explode("\r\n",$webdb[guide_word]);
+foreach($detail AS $key=>$value){
+if(!$value)continue;
+list($name,$url,$blank,$color,$lid)=explode("|",$value);
+if(ereg("^\/",$url)){
+	$url="$weburl$url";
+}elseif(!ereg("://",$url)){
+	$url="$weburl/$url";
+}
+print <<<EOT
+-->
+          <li><a href="$url" target="_blank">$name</a></li> 
+<!--
+EOT;
+}print <<<EOT
+-->
+    </ul>
+</div>
+<div class="SiteInfo">
+	<div class="members">
+    	欢迎你回来:<span>$lfjid</span> 
+        <A HREF="$webdb[www_url]/member/homepage.php?uid=$lfjuid" target=_blank>个人信息</A>
+        <a href="../do/login.php?action=quit">安全退出</a>
+    </div>
+    <div class="ShowSiteTime"></div>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer">
+  <tr>
+    <td class="Side">
+    	<div class="MenuAct">
+        	<div>
+            	<span class="showall">全部展开</span>
+        		<span class="hideall">全部收缩</span>
+            </div>
+        </div>
+        <div class="ShowMenu">
+<!--
+EOT;
+foreach($menudb AS $SortName=>$array){
+print<<<EOT
+-->
+        <dl> 
+           <dt>$SortName</dt>
+<!--
+EOT;
+foreach($array AS $MenuName=>$array2){
+if($power<$array2[power])continue;
+if(strstr($array2[link],'../')){
+$target='_blank';
+}else{
+$target='win';
+}
+print<<<EOT
+-->
+          <dd><A HREF="$array2[link]" target="$target">$MenuName</A></dd>
+<!--
+EOT;
+}print<<<EOT
+-->
+        </dl>
+<!--
+EOT;
+}
+foreach($menu_GpartDB AS $SortName=>$array){
+print<<<EOT
+-->
+        <dl> 
+            <dt>$array[name]</dt>
+<!--
+EOT;
+foreach($array[son] AS $k2=>$rs){
+if($rs[target]){
+$target='_blank';
+}else{
+$target='win';
+}
+print<<<EOT
+-->
+              <dd><a href='$rs[linkurl]' target='$target'>$rs[name]</a></dd>
+<!--
+EOT;
+}print<<<EOT
+-->
+        </dl>
+<!--
+EOT;
+}print<<<EOT
+-->
+		</div>
+        <div class="inlineserver">
+        	<div class="h">在线客服</div>
+           $webdb[member_contact]
+        </div>
+    </td>
+    <td class="Main">
+    	<iframe width="100%" height="1500" id="win" name="win" frameborder="0" scrolling="no" src="$MainUrl"></iframe>
+    </td>
+  </tr>
+</table>
+<div class="FootContainer">  </div>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

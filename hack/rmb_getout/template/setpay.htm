@@ -1,0 +1,52 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<form name="form_work" method="post" action="?lfj=$lfj&action=$job" onsubmit="return confirm('你确认已给对方付款了吗?点击确认的话,将会扣除他帐号的金额!');">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+    <tr align="center" class="head"> 
+      <td colspan="5">确认付款</td>
+    </tr>
+ 
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="27%">用户帐号 :</td>
+      <td colspan="4" align="left" width="73%">$rsdb[username]</td>
+    </tr>
+ <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="27%">真实姓名:</td>
+      <td colspan="4" align="left" width="73%">$rsdb[truename]</td>
+    </tr><tr bgcolor="#FFFFFF"> 
+      <td align="left" width="27%">申请提现金额:</td>
+      <td colspan="4" align="left" width="73%">{$rsdb[money]} 元</td>
+    </tr><tr bgcolor="#FFFFFF"> 
+      <td align="left" width="27%">申请日期:</td>
+      <td colspan="4" align="left" width="73%">$rsdb[posttime]</td>
+    </tr><tr bgcolor="#FFFFFF"> 
+      <td align="left" width="27%">收款帐号:</td>
+      <td colspan="4" align="left" width="73%">$rsdb[bankname]</td>
+    </tr><tr bgcolor="#FFFFFF"> 
+      <td align="left" width="27%">联系电话:</td>
+      <td colspan="4" align="left" width="73%">$rsdb[tel]</td>
+    </tr><tr bgcolor="#FFFFFF"> 
+      <td align="left" width="27%">附注:</td>
+      <td colspan="4" align="left" width="73%">$rsdb[why]</td>
+    </tr><tr bgcolor="#FFFFFF"> 
+      <td align="left" width="27%">留言:</td>
+      <td colspan="4" align="left" width="73%">
+        <textarea name="quitabout" cols="50" rows="10">$rsdb[quitabout]</textarea>
+      </td>
+    </tr><tr bgcolor="#FFFFFF"> 
+      <td align="left" width="27%">&nbsp;</td>
+      <td colspan="4" align="left" width="73%"> 
+        <input type="button" name="Submit2" value="返回" onclick="window.location.href='?lfj=$lfj&job=list'">
+        <input type="submit" name="Submit" value="确认支付">
+        <input type="hidden" name="id" value="$id">
+      </td>
+    </tr>
+ 
+  </table>
+</form>
+<!--
+EOT;
+?>
+-->

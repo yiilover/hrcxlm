@@ -1,0 +1,115 @@
+<!--
+<?php
+$ck_class[$fid] = "class='ck'";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$Murl/images/default/msearch.css">
+<ul class="modemenu">
+    <li><span><a href="list.php?fid=1" $ck_class[1]>招标信息</a></span></li>
+    <li><span><a href="list.php?fid=4" $ck_class[4]>装修学堂</a></span></li>
+    <li><span><a href="list.php?fid=5" $ck_class[5]>装修公司</a></span></li>
+    <li><span><a href="list.php?fid=2" $ck_class[2]>装修案例</a></span></li>
+    <li><span><a href="list.php?fid=3" $ck_class[3]>装修日志</a></span></li>
+    <li><span><a href="list.php?fid=6" $ck_class[6]>设计师</a></span></li>
+</ul>
+<div class="modeSearch">
+<form name="modesearch" method="post" action="search.php" onsubmit="return check_keyword();" target="_blank">
+	<div class="showtype"><span>招标信息</span></div>
+    <ul class="listtype">
+    	<li><span class="ck">招标信息</span></li>
+        <li><span>装修学堂</span></li>
+        <li><span>装修公司</span></li>
+        <li><span>装修案例</span></li>
+        <li><span>装修日志</span></li>
+        <li><span>设计师</span></li>
+    </ul>
+    <div class="keyword"><input type="text" name="keyword"></div>
+    <div class="submits"><input type="image" src="$Murl/images/default/sub.gif" /></div>
+    <input type="hidden" name="mid" value="1">
+    <input type="hidden" name="action" value="search">
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript" src="$Murl/images/default/msearch.js"></SCRIPT>
+<!--
+EOT;
+$big_pic="";
+$min_pic="";
+$i=0;
+foreach($picdb AS $key=>$rs){
+$i++;
+$cur_class = ($i==1) ? "class='cur'" : "";
+$big_pic .= "<li><div><a href=\"$rs[picurl]\"  target='_blank'><img onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" src=\"$rs[picurl]\" height=\"380\" alt=\"$rs[name]\" /></a></div></li>";
+$min_pic .= "<li $cur_class><div><span><img onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" src=\"$rs[picurl]\" height=\"75\" alt=\"$rs[name]\" /></span></div></li>";
+$nextdb=$db->get_one("SELECT title,picurl,id FROM {$_pre}content WHERE id<'$id' AND fid='$fid' AND yz=1 ORDER BY id DESC LIMIT 1");
+$backdb=$db->get_one("SELECT title,picurl,id FROM {$_pre}content WHERE id>'$id' AND fid='$fid' AND yz=1 ORDER BY id ASC LIMIT 1");
+$nextdb[picurl] && $nextdb[picurl]=tempdir($nextdb[picurl]);
+$backdb[picurl] && $backdb[picurl]=tempdir($backdb[picurl]);
+$back_html = $backdb[title] ? "<dl><dt><a href=\"?fid=$fid&id=$backdb[id]\"><img src='$backdb[picurl]' onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" height=\"45\"/></a></dt><dd><a href=\"?fid=$fid&id=$backdb[id]\">上一套案例</a></dd></dl>" : "<div class='notitle'><span>没有上一套案例</span></div>";
+$next_html = $nextdb[title] ? "<dl><dt><a href=\"?fid=$fid&id=$nextdb[id]\"><img src='$nextdb[picurl]' onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" height=\"45\"/></a></dt><dd><a href=\"?fid=$fid&id=$nextdb[id]\">下一套案例</a></dd></dl>" : "<div class='notitle'><span>没有下一套案例</span></div>";
+}print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$Murl/images/default/bencandydemo.css">
+<div class="MainConts">
+	<div class="MainL">
+    	<div class="ShowPics">
+        	<div class="head">
+            	<div class="tag">$rsdb[title]</div>
+                <div class="more"><a href="$city_url/job.php?job=show_img&fid=$fid&id=$id" target="_blank">全部</a> (<span>0</span>/{$rsdb[picnum]})</div>
+            </div>
+            <div class="ListBigPic">
+            	<ul class="slidePic">$big_pic</ul>
+            </div>
+            <div class="ChangePic">
+            	<div class="Back">$back_html</div>
+                <div class="Next">$next_html</div>
+                <div class="Up_atc"><a href="javascript:;up_show_pic()">上一张</a></div>
+                <div class="Down_atc"><a href="javascript:;down_show_pic()">下一张</a></div>
+            	<ul class="slideTxt">$min_pic</ul>
+            </div>
+            <SCRIPT LANGUAGE="JavaScript" src="$Murl/images/default/show_pic.js"></SCRIPT>
+        </div>
+		<div class="show_content">
+        	<div class="head"><div class="tag">案例介绍</div></div>
+            <table width="100%" cellspacing="0" cellpadding="0" style='TABLE-LAYOUT: fixed;WORD-WRAP: break-word'>
+              <tr> 
+                <td class="content">
+                	$rsdb[content]
+                </td>
+              </tr>
+            </table>
+        </div>
+        <div class="ListMoreDemo">
+            <div class="head"><div class="tag">最新案例</div><div class="more"><a href="list.php?fid=2">更多</a></div></div>
+            <div class="cont">
+                $label[zhuangxiu_listdemo1]
+            </div>
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="ShowMoreInfo">
+        	<div class="head"><div class="tag">该案例的信息资料</div></div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="cont">
+              <tr>
+                <td>
+<!--{template}--> 
+					<div>{title}：<span>{value}</span></div>
+<!--{/template}-->
+					<div style="display:none;">所属设计师ID(隐藏变量)：<span>{$rsdb[designer_id]} </span></div>
+                    <div>人气：<span>$rsdb[hits]</span></div>
+                </td>
+              </tr>
+            </table>
+        </div>
+        <div class="ListRightDemo">
+            <div class="head"><div class="tag">热门案例</div></div>
+            <div class="cont">
+                $label[zhuangxiu_listdemo2]
+            </div>
+        </div>
+    </div>
+    <div class="ClearDiv"></div>
+</div>
+<!--
+EOT;
+?>
+-->

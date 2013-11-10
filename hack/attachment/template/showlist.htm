@@ -1,0 +1,169 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<style type="text/css">
+.ListPics dl{
+	width:320px;
+	height:100px;
+	padding:15px 0 0 15px;
+	margin:0;
+	overflow:hidden;
+	float:left;
+}
+.ListPics dl dt{
+	float:left;
+	margin:0;
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.ListPics dl dt div{
+	width:100px;
+	height:80px;
+	overflow:hidden;
+}
+.ListPics dl dt div a{
+	display:block;
+	width:160px;
+	height:80px;
+	overflow:hidden;
+	text-align:center;
+	margin-left:-30px;
+}
+.ListPics dl dd{
+	float:left;
+	margin:0;
+	width:200px;
+	padding:0 0 0 10px;
+	line-height:20px;
+}
+.ListPics dl dd div{
+	height:20px;
+	overflow:hidden;
+}
+</style>
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth" style='TABLE-LAYOUT: fixed;WORD-WRAP: break-word'>
+  <tr class="head"> 
+    <td>&nbsp;</td>
+  </tr>
+ 
+  <tr>
+    <td>
+      <form name="form1" method="post" action="">
+        <SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,b){
+	get_obj('fi').innerHTML="调用地址是:<font color=red>$webdb[www_url]/$webdb[updir]/"+url+"</font>";
+}
+//-->
+</SCRIPT>上传一个文件 
+              
+         <iframe name='mainFrame2' frameborder=0 height=23 scrolling=no src='upfile.php?dir=other&label=fi' width=380></iframe>
+            <br><div id=fi></div>
+      </form>
+    </td>
+  </tr>
+</table>
+<form name="form_work" method="post" action="index.php?lfj=$lfj&job=$job&down_path=$down_path&type=$type&atc=del">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth" style='TABLE-LAYOUT: fixed;WORD-WRAP: break-word'>
+    <tr class="head"> 
+      <td width="5%" align="center">序号</td>
+      <td align="center">附件</td>
+      <td align="center" width="12%">上传日期 </td>
+      <td width="10%" align="center">大小</td>
+      <td width="6%" align="center">删除</td>
+    </tr>
+    <tr bgcolor="#FFFFFF" align="left"> 
+      <td colspan="5">当前目录:<font color="#FF0000">$thispath</font><br>
+        [<a href="?lfj=$lfj&job=list&down_path=$up_path"><font color="#0000FF"><b>返回上一级目录</b></font></a>] 
+        [<b><a href="index.php?lfj=attachment&job=show&down_path=$down_path&type=pic">当前目录所有图片文件</a></b>] 
+        [<b><a href="index.php?lfj=attachment&job=show&down_path=$down_path&type=files">当前目录所有非图片文件</a></b>]
+        <font color="#FF0000">注：如果当前目录文件太多，可以进入下一级目录操作，这样操作速度更快！ </font> 
+      </td>
+    </tr>
+<!--
+EOT;
+if($type=="files"){
+foreach($listdb AS $key=>$rs){
+$rs[url]=tempdir($rs[name1]);
+$userdb=$db->get_one("SELECT username FROM {$pre}memberdata WHERE uid='$rs[uid]'");
+$username=$userdb[username]?"<a href=\"$webdb[_www_url]/member/homepage.php?uid=$rs[uid]\" target='_blank'>$userdb[username]</a>":"未知";
+print <<<EOT
+-->
+    <tr bgcolor="#FFFFFF"> 
+      <td align="center">$rs[id]</td>
+      <td> 
+        <input type="checkbox" name="iddb[{$rs[keys]}]" value="$rs[keys]"><a href="$rs[url]" target="_blank">$rs[name1] </a> <font color="#888">（上传者：{$username}）</font></td>
+      <td>$rs[times]</td>
+      <td align="center">$rs[size]<b>(K)</b></td>
+      <td align="center"><a href="index.php?lfj=$lfj&job=$job&down_path=$down_path&type=$type&atc=del&iddb[{$rs[keys]}]={$rs[keys]}"><img alt='点击删除' src='../member/images/del_icon2.gif' border=0></a></td>
+    </tr>
+<!--
+EOT;
+}}elseif($type=="pic"){
+print <<<EOT
+-->
+    <tr bgcolor="#FFFFFF"> 
+      <td colspan="5" class="ListPics">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[url]=tempdir($rs[name1]);
+$userdb=$db->get_one("SELECT username FROM {$pre}memberdata WHERE uid='$rs[uid]'");
+$username=$userdb[username]?"<a href=\"$webdb[_www_url]/member/homepage.php?uid=$rs[uid]\" target='_blank'>$userdb[username]</a>":"未知";
+print <<<EOT
+-->
+        <dl>
+        	<dt><div><a href="$rs[url]" target="_blank"><img src="$rs[url]" height="80" /></a></div></dt>
+            <dd>
+            	<div>$rs[name]</div>
+            	<div>上传日间：$rs[times]</div>
+                <div>上传者：$username</div>
+                <div><input type="checkbox" name="iddb[{$rs[keys]}]" value="$rs[keys]"> <a href="$rs[url]" target="_blank">下载</a> <a href="index.php?lfj=$lfj&job=$job&down_path=$down_path&type=$type&atc=del&iddb[{$rs[keys]}]={$rs[keys]}"><img alt='点击删除' src='../member/images/del_icon2.gif' border=0></a></div>
+            </dd>
+        </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+      </td>
+    </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    <tr> 
+      <td colspan="5" bgcolor="#FFFFFF" align="center"> $showpage </td>
+    </tr>
+    <tr> 
+      <td colspan="5" bgcolor="#FFFFFF"></td>
+    </tr>
+    <tr> 
+      <td colspan="5" bgcolor="#FFFFFF" align="center"> <a href="#" onClick="CheckAll('all')">全选</a>/<a href="#" onClick='CheckAll()'>反选</a> 
+        <input type="submit" name="Submit" value="删 除">
+        <br>
+        <font color="#FF0000">请小心谨慎，不可恢复 </font></td>
+    </tr>
+  </table>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

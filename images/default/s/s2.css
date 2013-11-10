@@ -1,0 +1,7 @@
+.Container .Mcont .sideL,.Container .Mcont .sideR{
+	display:none;
+}
+.Container .Mcont .MainC{
+	width:900px;
+	padding-left:20px;
+}

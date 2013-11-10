@@ -1,0 +1,2 @@
+<?php
+class EclogModel extends Model { protected $_auto = array( array('gtime', 'time', 1, 'function'), array('taskid', 'GetTaskid', 1, 'callback'), ); public function GetTaskid($taskid) { return F('gcache/taskid'); } } ?>

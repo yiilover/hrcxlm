@@ -1,0 +1,173 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/yellow/showroom_zh_show.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="showroom_topad">
+  <tr> 
+    <td><img src="$webdb[www_url]/images/yellow/showroom_topad.jpg"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="showroom_showzh">
+  <tr> 
+    <td width="25%" class="side" height="204" valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="drag">
+        <tr> 
+          <td class="head"> 
+            <div class="LL"></div>
+            <div class="TAG">发布者信息</div>
+            <div class="RR"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="50" class="CC list_t" style="padding:12px;line-height:21px;"> 
+            发布者:<b><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$userinfo[username]</a></b><br>
+            用户级别:{$ltitle[$userinfo[groupid]]}<br>
+            发布日期:<a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>$rsdb[posttime]</a></td>
+        </tr>
+        <tr> 
+          <td  class="head2">相关展会信息</td>
+        </tr>
+        <tr> 
+          <td height="50" class="CC list_c" style="padding:12px;line-height:18px;"> 
+            <!--
+EOT;
+$array=list_zh('new',8);
+foreach($array AS $rs){print <<<EOT
+-->
+            <a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a><br>
+            <!--
+EOT;
+}print <<<EOT
+-->
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td width="75%" class="main" height="204" valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="drag">
+        <tr> 
+          <td class="head"> 
+            <div class="LL"></div>
+            <div class="TAG">展会详情</div>
+            <div class="RR"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="250" class="CC" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td>
+                  <div class="base"><b>展会名称：</b>{$rsdb[title]}<br>
+				  
+                   
+<!--{template}--> 
+<b>{title}：</b>{value}<br>      
+<!--{/template}-->
+
+				  
+				  
+                    <b> 所在展馆览：</b><a href="showroom.php?id=$rsdb[roomid]" target="_blank"><font color="#0000FF">$roomdb[title]</font></a></div>
+                  <div style="padding:8px 0 8px 0;text-align:center;"><a href="$webdb[www_url]/member/?main=$Murl/member/join.php?fid=$fid&cid=$id" target="_blank"><img src="$webdb[www_url]/images/yellow/zh_baoming.gif" border="0"></a></div>
+                </td>
+                <td style="width:200px;" valign="middle" align="center"> 
+                  <div> <img src="$rsdb[picurl]" width=150 onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'"> 
+                  </div>
+                  <div><a href="job.php?job=show_img&fid=$fid&id=$id" class="but" target="_blank">共{$rsdb[picnum]}图</a></div>
+                </td>
+              </tr>
+            </table>
+            <!--
+EOT;
+if($rsdb[assist_preside]){print <<<EOT
+-->
+            <div class="h3">协办单位</div>
+            <div class="c3">{$rsdb[assist_preside]}</div>
+            <!--
+EOT;
+}print <<<EOT
+-->
+            <!--
+EOT;
+if($rsdb[shop_area]){print <<<EOT
+-->
+            <div class="h3">展品范围</div>
+            <div class="c3">{$rsdb[shop_area]}</div>
+            <!--
+EOT;
+}print <<<EOT
+-->
+            <!--
+EOT;
+if($rsdb[joinmoney]){print <<<EOT
+-->
+            <div class="h3">参展费用</div>
+            <div class="c3">{$rsdb[joinmoney]}</div>
+            <!--
+EOT;
+}print <<<EOT
+-->
+            <!--
+EOT;
+if($rsdb[contact]){print <<<EOT
+-->
+            <div class="h3">联系方式</div>
+            <div class="c3">{$rsdb[contact]}</div>
+            <!--
+EOT;
+}print <<<EOT
+-->
+            <!--
+EOT;
+if($rsdb[about]){print <<<EOT
+-->
+            <div class="h3">注意事项</div>
+            <div class="c3">{$rsdb[about]}</div>
+            <!--
+EOT;
+}print <<<EOT
+-->
+            <!--
+EOT;
+if($rsdb['my_title1']&&$rsdb[my_content1]){print <<<EOT
+-->
+            <div class="h3">{$rsdb[my_title1]}</div>
+            <div class="c3">{$rsdb[my_content1]}</div>
+            <!--
+EOT;
+}print <<<EOT
+-->
+            <!--
+EOT;
+if($rsdb['my_title2']&&$rsdb[my_content2]){print <<<EOT
+-->
+            <div class="h3">{$rsdb[my_title2]}</div>
+            <div class="c3">{$rsdb[my_content2]}</div>
+            <!--
+EOT;
+}print <<<EOT
+-->
+            <!--
+EOT;
+if($rsdb[content]){print <<<EOT
+-->
+            <div class="h3">详细介绍</div>
+            <div class="c3"><table width="100%" cellspacing="0" cellpadding="0" style='TABLE-LAYOUT: fixed;WORD-WRAP: break-word' align="center">
+              <tr> 
+                <td>$rsdb[content]</td>
+              </tr>
+            </table></div>
+            <!--
+EOT;
+}print <<<EOT
+-->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

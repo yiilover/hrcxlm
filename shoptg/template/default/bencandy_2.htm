@@ -1,0 +1,187 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<style type="text/css">
+<!--
+.FormTable,.FormTable td{
+	border:#DDD solid 1px;
+}
+.FormTable td.tdL{
+	font-weight:bold;
+}
+.FormTable td.tdR{
+	padding:5px;
+	line-height:20px;
+	vertical-align:middle;
+}
+-->
+</style>
+<div class="MainCont">
+	<div class="head"><div class="tag">用户订单资料详情如下</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr>
+          	 <td class="tdL">订购产品:</td>
+             <td class="tdR"><a href="bencandy.php?city_id={$rsdb[shop][city_id]}&fid={$rsdb[shop][fid]}&id={$rsdb[shop][id]}&city_id={$rsdb[shop][city_id]}" target="_blank">{$rsdb[shop][title]}</a></td>	
+          </tr>
+          <tr>
+          	 <td class="tdL">订购者ID:</td>
+             <td class="tdR"><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$rsdb[username]</a></td>	
+          </tr>
+          <tr>
+          	 <td class="tdL">订购时间:</td>
+             <td class="tdR">$rsdb[posttime]</td>	
+          </tr><tr>
+          	 <td class="tdL">消费密码:</td>
+             <td class="tdR">$rsdb[password]</td>	
+          </tr>
+          <tr>
+          	 <td class="tdL">订购数量:</td>
+             <td class="tdR">$rsdb[shopnum]</td>	
+          </tr>
+          <tr>
+          	 <td class="tdL">应付总额:</td>
+             <td class="tdR">$rsdb[totalmoney]</td>	
+          </tr><tr>
+          	 <td class="tdL">付款银行:</td>
+             <td class="tdR">$rsdb[banktype]</td>	
+          </tr>
+          <tr>
+          	 <td class="tdL">付款与否:</td>
+             <td class="tdR">$rsdb[ifpay]</td>	
+          </tr>
+<!--
+EOT;
+if($rsdb[emscode]){print <<<EOT
+-->
+          <tr>
+          	 <td class="tdL">快递单号:</td>
+             <td class="tdR">$rsdb[emscode]</td>	
+          </tr>	
+<!--
+EOT;
+}print <<<EOT
+-->
+<!--
+EOT;
+if($rsdb['order_username']){print <<<EOT
+-->
+          <tr>
+          	 <td class="tdL">顾客姓名:</td>
+             <td class="tdR">{$rsdb[order_username]} </td>	
+          </tr>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_phone']){print <<<EOT
+-->
+          <tr>
+          	 <td class="tdL">联系电话:</td>
+             <td class="tdR">{$rsdb[order_phone]} </td>	
+          </tr>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_mobphone']){print <<<EOT
+-->
+          <tr>
+          	 <td class="tdL">联系手机:</td>
+             <td class="tdR">{$rsdb[order_mobphone]} </td>	
+          </tr>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_email']){print <<<EOT
+-->
+          <tr>
+          	 <td class="tdL">联系邮箱:</td>
+             <td class="tdR">{$rsdb[order_email]} </td>	
+          </tr>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_qq']){print <<<EOT
+-->
+          <tr>
+          	 <td class="tdL">联系QQ:</td>
+             <td class="tdR">{$rsdb[order_qq]} </td>	
+          </tr>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_postcode']){print <<<EOT
+-->
+          <tr>
+          	 <td class="tdL">邮政编码:</td>
+             <td class="tdR">{$rsdb[order_postcode]} </td>	
+          </tr>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_sendtype']){print <<<EOT
+-->
+          <tr>
+          	 <td class="tdL">配送方式:</td>
+             <td class="tdR">{$rsdb[order_sendtype]} </td>	
+          </tr>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_paytype']){print <<<EOT
+-->
+          <tr>
+          	 <td class="tdL">支付方式:</td>
+             <td class="tdR">{$rsdb[order_paytype]} </td>	
+          </tr>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_address']){print <<<EOT
+-->
+          <tr>
+          	 <td class="tdL">联系地址:</td>
+             <td class="tdR">{$rsdb[order_address]} </td>	
+          </tr>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['content']){print <<<EOT
+-->
+          <tr>
+          	 <td class="tdL">附注留言:</td>
+             <td class="tdR">{$rsdb[content]} </td>	
+          </tr>	
+<!--
+EOT;
+}print <<<EOT
+--><!---->
+          <tr>
+          	 <td class="tdL"><br/></td>
+             <td class="tdR"><a href="$FROMURL">返回</a> </td>	
+          </tr>
+        </table>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

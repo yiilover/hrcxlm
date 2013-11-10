@@ -1,0 +1,196 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/green/hr/index.css"> 
+<div class="MainContainer1">
+	<div class="HotHrCont">
+    	<div class="head">{$label[fashion_hrindexh1]}</div>
+        <div class="cont">
+<!--
+EOT;
+$array = list_hr_job('com',5,true);
+foreach($array AS $rs){print <<<EOT
+--->
+			<div class="list">
+            	<a href="$webdb[www_url]/home/?uid=$rs[uid]" target="_blank">$rs[company]</a>
+                <a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" class="job">$rs[title]</a>
+            </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div>
+    </div>
+    <div class="SlideCont">
+    	{$label[fashion_hrindext1]}
+    </div>
+    <div class="AtcCont">
+    	<div class="cont">
+    	<div class="showatc"> 
+            <div><a href="$webdb[_www_url]/member/?main=$Murl/member/post_choose.php" target="_blank">发布职位</a></div>
+            <div><a href="$webdb[_www_url]/member/?main=$Murl/member/listjob.php?job=list" target="_blank">职位管理</a></div>
+            <div><a href="$webdb[_www_url]/member/?main=$Murl/member/listapplyer.php?job=list" target="_blank">求职信</a></div>
+            <div><a href="listperson.php" target="_blank">找人才</a></div>
+        </div>
+        <div class="showatc"> 
+            <div><a href="$webdb[_www_url]/member/?main=$Murl/member/join.php" target="_blank">更新简历</a></div>
+            <div><a href="joinshow.php?uid=$lfjuid" target="_blank">查看简历</a></div>
+            <div><a href="$webdb[_www_url]/member/?main=$Murl/member/applyjob.php?job=list" target="_blank">申请的职位</a></div>                     
+        </div>
+        </div>
+        <div class="useratc">
+        	<a href="$webdb[www_url]/do/login.php"><img src="$webdb[www_url]/images/green/hr/login.gif" /></a>
+            <a href="$webdb[www_url]/do/reg.php"><img src="$webdb[www_url]/images/green/hr/reg.gif" /></a>
+        </div>
+    </div>
+</div>
+<div class="BrandHrCont">
+	<div class="head"><div class="tag"><img src="$webdb[www_url]/images/green/hr/tag1.gif"></div></div>
+    <div class="cont">
+    	<div class="list"><br/></div>
+        {$label[fashion_hrindext2]}        
+    </div>
+</div>
+<div class="SearchOrSort">
+	<div class="SideL">
+    	<div class="SearchCont">
+        	<div class="head"><div class="tag">{$label[fashion_hrindexh2]}</div></div>
+            <div class="cont">
+            <form name="form1" method="post" action="search.php?action=search" target="_blank">
+              <div class="type">
+              	找工作<input type="radio" name="mid" value="1" checked />
+                找人才<input type="radio" name="mid" value="2"/>
+              </div>
+              <div class="input"> 
+                <input type="text" name="keyword"/>
+              </div>
+              <div class="butt">
+              	<input name="" type="image" src="$webdb[www_url]/images/green/hr/search.gif" />
+              </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    <div class="MainR">
+    	<div class="SortsCont">
+        	<div class="head"><div class="tag">{$label[fashion_hrindexh3]}</div></div>
+            <div class="cont">
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $fkey=>$fvalue){
+$i++;
+if($i>3)  break;
+print <<<EOT
+-->
+			<dl class="dl$i">
+				<dt><a href="list.php?fid=$fkey">{$fvalue}</a></dt>
+            	<dd>
+<!--
+EOT;
+foreach($Fid_db[$fkey] AS $key=>$value){
+print <<<EOT
+-->
+              		<div>| <a href="list.php?fid=$key">{$value}</a></div>
+<!--
+EOT;
+}print <<<EOT
+--> 
+            	</dd>
+            </dl>	
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="OhterContainer">
+	<div class="SideL">
+    	<div  class="sidecont">
+        	<div class="head"><div class="tag">{$label[fashion_hrindexh4]}</div></div>
+            <div class="cont">
+            	{$label[fashion_hrindext3]} 
+            </div>
+        </div>
+        <div class="sidelAdcont">{$label[fashion_hrindext4]}</div>
+        <div  class="sidecont">
+        	<div class="head"><div class="tag">{$label[fashion_hrindexh5]}</div></div>
+            <div class="cont">
+            	{$label[fashion_hrindext5]} 
+            </div>
+        </div>
+    </div>
+    <div class="MainR">
+    	<div  class="sidecont">
+        	<div class="head">
+            	{$label[fashion_hrindexh6]}
+            </div>
+            <div class="cont showjob">
+<!--
+EOT;
+$array = list_hr_job('new',20,true);
+foreach($array AS $key=>$rs){
+print <<<EOT
+--->
+				<div class="listj">
+                	<a href="$webdb[www_url]/home/?uid=$rs[uid]" target="_blank">$rs[company]</a>
+                    <a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" class="job">$rs[title]</a>
+                </div>
+<!--
+EOT;
+}print <<<EOT
+---> 
+            </div>            
+        </div>
+        <div class="sidecont ShowHrCont">
+            <div class="showHrL">
+            	<div class="head">
+                    {$label[fashion_hrindexh7]}
+                </div>
+                <div class="cont">
+                	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="h"> 
+                        <td width="20%">姓名</td>
+                        <td width="25%">所学专业</td>
+                        <td width="20%">工作年限</td>
+                        <td width="15%">性别</td>
+                        <td width="20%">月薪要求</td>
+                      </tr>
+<!--
+EOT;
+$array = list_hr_member('new',10);
+foreach($array AS $key=>$rs){
+print <<<EOT
+--->
+                      <tr> 
+                        <td><a href="joinshow.php?id=$rs[id]" target="_blank">$rs[truename]</a></td>
+                        <td>$rs[speciality]</td>
+                        <td>$rs[workyear]</td>
+                        <td>$rs[sex]</td>
+                        <td>$rs[wage]</td>
+                      </tr>
+<!--
+EOT;
+}print <<<EOT
+--->
+            	  </table>
+                </div>
+            </div>
+            <div class="showHrR">
+            	<div class="head"><div class="tag">{$label[fashion_hrindexh8]}</div></div>
+                <div class="cont">
+                	{$label[fashion_hrindext6]}
+                </div>
+            </div>	
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<div class="FootBanner">{$label[fashion_hrindext7]}</div>
+<!--
+EOT;
+?>
+-->

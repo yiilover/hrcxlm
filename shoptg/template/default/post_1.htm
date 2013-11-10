@@ -1,0 +1,236 @@
+<!--
+<?php
+print <<<EOT
+-->
+<style type="text/css">
+.FormTable .tdL{
+	width:120px;
+}
+</style>
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+<div class="MainCont">
+	<div class="head"><div class="tag">$fidDB[name]</div></div>
+    <div class="cont">
+    	<form name="FORM" id="FORM" method="post" action="post.php?action=$atc"  enctype="multipart/form-data">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr>
+            <th colspan="2">基本资料</th>
+          </tr>
+          <tr>
+            <td class="tdL"><font color="red">*</font> 团购名称:</td>
+            <td class="tdR"><input type="text" name="postdb[title]" id="atc_title" size="40" value="$rsdb[title]"></td>
+          </tr>
+          <tr>
+            <td class="tdL"><font color="red">*</font> 折扣现价:</td>
+            <td class="tdR"><input type="text" name="postdb[price]" id="atc_title" size="10" value="$rsdb[price]"> 元</td>
+          </tr>
+<!--
+EOT;
+if($job!="edit"&&!$web_admin&&$groupdb[postShopTgYzImg]){
+print <<<EOT
+-->
+          <tr>
+            <td class="tdL"><font color="red">*</font> 验证码:</td>
+            <td class="tdR">
+            	<input id="yzImgNum" type="text" name="yzimg" size="8">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<img border="0" name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'">');
+//-->
+</SCRIPT>
+            </td>
+          </tr>
+<!--
+EOT;
+}if(count($city_DB[name])>1){
+print <<<EOT
+-->
+          <tr>
+            <td class="tdL">所在城市:</td>
+            <td class="tdR">
+            	<select name="postdb[city_id]"><option value='0'>全国</option>
+<!--
+EOT;
+foreach($city_DB[name] AS $key=>$value){
+if($job=='edit'){
+	$city_id=$rsdb[city_id];
+}
+$ckk=$city_id==$key?'selected':'';
+print <<<EOT
+-->
+                      <option value="$key" $ckk>$value</option>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                 </select>
+            </td>
+          </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+          <tr>
+            <td class="tdL">介绍图片: <a href="javascript:;" title="点击增加1项" onClick="showinput()"><img src='$webdb[www_url]/images/default/menu_add.gif'/></a></td>
+            <td class="tdR">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function choosef(i,t){
+	if(t=='out'){
+		document.getElementById("out_url"+i).style.display='';
+		document.getElementById("in_url"+i).style.display='none';
+	}else{
+		document.getElementById("out_url"+i).style.display='none';
+		document.getElementById("in_url"+i).style.display='';
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+if($groupdb['gid']==2){
+	$picnum=$webdb[Info_GuestPostPicNum]!=''?intval($webdb[Info_GuestPostPicNum]):3;
+}elseif($groupdb['gid']==8){
+	$picnum=$webdb[Info_MemberPostPicNum]!=''?intval($webdb[Info_MemberPostPicNum]):10;
+}else{
+	$picnum=80;
+}
+if($picnum<1)unset($listdb);
+$detail=explode(",",$webdb[group_UpPhoto].',3,4');
+if($webdb[group_UpPhoto]&&!in_array($groupdb['gid'],$detail))$none='none;';
+$i=0;
+foreach($listdb AS $key=>$rs){
+$i++;
+print <<<EOT
+-->
+                    图片标题: <input type="text" name="titledb[$i]" size="10" value="$rs[name]">
+                    图片地址: <input type="text" name="photodb[$i]" size="30" id="out_url$i" value="$rs[imgurl]">
+                    <input type="file" name="local_file$i" id="in_url$i" style="display:none;">
+                    <input type="radio" name="ftype[$i]" value="out" checked onclick="choosef($i,'out')"> 网络文件 
+                    <a style="display:$none;"><input type="radio" name="ftype[$i]" value="in" onclick="choosef($i,'in')"> 本地文件 </a> 
+                    <input type="hidden" name="piddb[$i]" value="$key">
+                    <br>
+<!--
+EOT;
+}print <<<EOT
+-->
+                    <div id='input$i'></div>
+<script>
+totalnum=$i;
+limitnum=$picnum;
+function showinput(){
+	if(totalnum>(limitnum-1)){
+		alert("你最多只能上"+limitnum+"传张图片!");
+		return ;
+	}
+	var str='';
+	var divid='input'+totalnum;
+	var num=2;
+	num=document.FORM.nums.value;
+	for(var i=1;i<=num;i++){
+		totalnum=totalnum+i;
+		str+='图片标题: <input type="text" name="titledb['+totalnum+']" size="10"/> 图片地址: <input type="text" name=photodb['+totalnum+'] size="30" id="out_url'+totalnum+'"/> <input type="file" name="local_file'+totalnum+'" id="in_url'+totalnum+'" style="display:none;"/> <input type="radio" name="ftype['+totalnum+']" value="out" checked onclick="choosef('+totalnum+',\'out\')"/>网络文件 <a style="display:$none;"><input type="radio" name="ftype['+totalnum+']" value="in" onclick="choosef('+totalnum+',\'in\')"/>本地文件</a><br/>';
+	}
+	document.getElementById(divid).innerHTML=str+"<div id='input"+totalnum+"'></div>";
+	if(parent.document.getElementById('member_mainiframe')!=null){
+		parent.document.getElementById('member_mainiframe').height=parseInt(parent.document.getElementById('member_mainiframe').height)+18;
+	}
+} 
+</script>
+               <input type="hidden" size="3" name="nums" value="1">
+            </td>
+          </tr>
+          <tr>
+            <td class="tdL">标签:</td>
+            <td class="tdR"><input type="text" name="postdb[keywords]" id="atc_title" size="50" value="$rsdb[keywords]"> (多个用空格隔开) </td>
+          </tr>
+          <tr><th colspan="2">补充资料</th></tr>
+
+          <tr> 
+            <td class="tdL">简介:<br></td>
+            <td class="tdR"><textarea  name='postdb[about]' id='atc_about' style='width:400px;height:90px;'>$rsdb[about]</textarea></td>
+          </tr>
+
+          <tr> 
+            <td class="tdL">最低团购人数:<br></td>
+            <td class="tdR"> <input   type='text' name='postdb[min_num]' id='atc_min_num' style='width:50px;' value='$rsdb[min_num]'> </td>
+          </tr>
+
+          <tr> 
+            <td class="tdL">市场价格:<br></td>
+            <td class="tdR"> <input   type='text' name='postdb[market_price]' id='atc_market_price' style='width:100px;' value='$rsdb[market_price]'> 元</td>
+          </tr>
+
+          <tr> 
+            <td class="tdL">折扣:<br></td>
+            <td class="tdR"> <input   type='text' name='postdb[shoptype]' id='atc_shoptype' style='width:100px;' value='$rsdb[shoptype]'> 折</td>
+          </tr>
+
+          <tr> 
+            <td class="tdL">结束日期:<br></td>
+            <td class="tdR"><input  onclick="setday(this,1)" type='text' name='postdb[end_time]' id='atc_end_time' size='20' value='$rsdb[end_time]'> </td>
+          </tr>
+
+          <tr> 
+            <td class="tdL">详细介绍:<br></td>
+            <td class="tdR"><script type='text/javascript'>loadBaiduEditorJs();</script>
+			<textarea name='postdb[content]' id='atc_content' style='width:600px;'>$rsdb[content]</textarea> 
+			<script type='text/javascript'>				
+			var editor_content = new baidu.editor.ui.Editor({minFrameHeight:250});
+				editor_content.render( 'atc_content' );
+			</script></td>
+          </tr>
+
+          <tr> 
+            <td class="tdL">商家地址:<br></td>
+            <td class="tdR"> <input   type='text' name='postdb[address]' id='atc_address' style='width:500px;' value='$rsdb[address]'> </td>
+          </tr>
+
+          <tr> 
+            <td class="tdL">团购提示:<br></td>
+            <td class="tdR"><script type='text/javascript' src='$webdb[www_url]/ewebeditor/xheditor/xheditor-1.1.13-zh-cn.js'></script><textarea name='postdb[awake]' id='atc_awake' style='visibility:hidden;'>$rsdb[awake]</textarea><SCRIPT LANGUAGE='JavaScript'>XHeditor=$('#atc_awake').xheditor({tools:'simple',width:500,height:100});</SCRIPT></td>
+          </tr>
+
+          <tr> 
+            <td class="tdL">是否支持到期退款:<br></td>
+            <td class="tdR"> <input type='radio' name='postdb[ifquit]' value='0' {$rsdb[ifquit]['0']}>不支持  <input type='radio' name='postdb[ifquit]' value='1' {$rsdb[ifquit]['1']}>支持  </td>
+          </tr>
+
+          <tr> 
+            <td class="tdL">限购数量:<br>留空或为0时则不限购</td>
+            <td class="tdR"> <input   type='text' name='postdb[limit_num]' id='atc_limit_num' style='width:50px;' value='$rsdb[limit_num]'> </td>
+          </tr>
+
+          <tr> 
+            <td class="tdL">订单类型:<br></td>
+            <td class="tdR"> <input type='radio' name='postdb[simple_order]' value='0' {$rsdb[simple_order]['0']}>实物订单  <input type='radio' name='postdb[simple_order]' value='1' {$rsdb[simple_order]['1']}>电子券订单  </td>
+          </tr>
+<!---->
+          <tr>
+            <td class="tdL">地图位置:</td>
+            <td class="tdR">
+            	<input type="text" name="postdb[gg_maps]" id="mapid" size="40" value="$rsdb[gg_maps]" readonly  onclick="window.open('$webdb[www_url]/hy/job.php?job=ggmap_position&position=$rsdb[gg_maps]&mapid=mapid&cityid='+document.getElementById('mapid_v').value);">
+(<img src="$webdb[www_url]/images/default/icon_qi.gif"><a onclick="window.open('$webdb[www_url]/hy/job.php?job=ggmap_position&position=$rsdb[gg_maps]&mapid=mapid&cityid='+document.getElementById('mapid_v').value);" href="#" >点击标注地图位置</a> 
+<font color="#999999">标注后，店铺将定位到电子地图上</font>) (<A onclick="document.getElementById('mapid').value='';" HREF="#">清除</A>) 
+<input type="hidden" name="hiddenField" id="mapid_v" value="$city_id">
+            </td>
+          </tr>
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+            	<input type="submit" name="Submit" value="提 交">
+                <input type="hidden" name="fid" value="$fid">
+                <input type="hidden" name="id" value="$id">
+            </td>
+          </tr>
+        </table>
+        </form>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

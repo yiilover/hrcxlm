@@ -1,0 +1,102 @@
+<!--
+<?php
+$news_fids = List_Moude_Sorts($news_fid_db,"news");
+$fenlie_fids = List_Moude_Sorts($fenlie_fid_db,"f");
+$shop_fids = List_Moude_Sorts($shop_fid_db,"shop");
+$hy_fids = List_Moude_Sorts($hy_fid_db,"hy");
+$tg_fids = List_Moude_Sorts($tg_fid_db,"tg");
+$coupon_fids = List_Moude_Sorts($coupon_fid_db,"coupon");
+$hr_fids = List_Moude_Sorts($hr_fid_db,"hr");
+$gift_fids = List_Moude_Sorts($gift_fid_db,"gift");
+$shoptg_fids = List_Moude_Sorts($shoptg_fid_db,"shoptg");
+$house_fids = List_Moude_Sorts($house_fid_db,"house");
+$dianping_fids = List_Moude_Sorts($dianping_fid_db,"dianping");
+$shou_fids = List_Moude_Sorts($shou_fid_db,"2shou");
+print <<<EOT
+-->
+<script type="text/javascript">
+$(function(){
+	$(".SideConts .head").click(function(){
+		$(".SideConts").removeClass("show_SideConts");
+		$(this).parent("div").addClass("show_SideConts");
+		//$(this).parent("div").toggleClass("show_SideConts");
+	});
+});
+</script>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/default/sitemap.css">
+<div class="SideConts show_SideConts">
+	<div class="head"><div class="tag">资讯栏目</div></div>
+    <div class="cont">
+		$news_fids
+    </div>
+</div>
+<div class="SideConts show_SideConts">
+	<div class="head"><div class="tag">分类信息栏目</div></div>
+    <div class="cont">
+		$fenlie_fids
+    </div>
+</div>
+<div class="SideConts">
+	<div class="head"><div class="tag">商城栏目</div></div>
+    <div class="cont">
+		$shop_fids
+    </div>
+</div>
+<div class="SideConts">
+	<div class="head"><div class="tag">商铺栏目</div></div>
+    <div class="cont">
+		$hy_fids
+    </div>
+</div>
+<div class="SideConts">
+	<div class="head"><div class="tag">聚会活动栏目</div></div>
+    <div class="cont">
+		$tg_fids
+    </div>
+</div>
+<div class="SideConts">
+	<div class="head"><div class="tag">促销栏目</div></div>
+    <div class="cont">
+		$coupon_fids
+    </div>
+</div>
+<div class="SideConts">
+	<div class="head"><div class="tag">招聘栏目</div></div>
+    <div class="cont">
+		$hr_fids
+    </div>
+</div>
+<div class="SideConts">
+	<div class="head"><div class="tag">礼品兑换栏目</div></div>
+    <div class="cont">
+		$gift_fids
+    </div>
+</div>
+<div class="SideConts">
+	<div class="head"><div class="tag">团购栏目</div></div>
+    <div class="cont">
+		$shoptg_fids
+    </div>
+</div>
+<div class="SideConts">
+	<div class="head"><div class="tag">房产栏目</div></div>
+    <div class="cont">
+		$house_fids
+    </div>
+</div>
+<div class="SideConts">
+	<div class="head"><div class="tag">点评栏目</div></div>
+    <div class="cont">
+		$dianping_fids
+    </div>
+</div>
+<div class="SideConts">
+	<div class="head"><div class="tag">二手栏目</div></div>
+    <div class="cont">
+		$shou_fids
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

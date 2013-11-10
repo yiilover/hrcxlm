@@ -1,0 +1,45 @@
+<!--
+<?php
+foreach($listdb AS $key=>$rs){
+$no_clicks = (0==$rs[uid]) ? "onclick=\"return false;\"" : "";
+print <<<EOT
+-->
+<table width="100%" cellspacing="0" cellpadding="0" class="List_Comments">
+  <tr>
+  	 <td class="img">
+     	<div class="pic"><a $no_clicks href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank"><img onerror="this.src='$webdb[www_url]/images/default/noface.gif'" src='$rs[icon]' height=50 /></a></div>
+        <div class="name"><a $no_clicks href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank">$rs[username]</a></div>
+     </td>
+     <td class="comment_content">
+    	{$rs[content]}
+     </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="infos">
+    	<div class="info">
+        	日期:{$rs[posttime]}
+        	$del_commennt
+            <a HREF="javascript:getcomment('$city_url/job.php?job=comment_ajax&action=flowers&fid=$fid&id=$id&cid=$rs[cid]')" class="fl">鲜花</a>(<em>{$rs[flowers]}</em>)
+            <a HREF="javascript:getcomment('$city_url/job.php?job=comment_ajax&action=egg&fid=$fid&id=$id&cid=$rs[cid]')" class="egg">鸡蛋</a>(<span>{$rs[egg]}</span>)
+        </div>
+        <div class="acts">
+            <A $no_clicks HREF="$webdb[_www_url]/member/?main=$webdb[_www_url]/member/pm.php?job=send&username=$rs[username]" target="_blank"><img src="$Murl/images/default/comment_guest.gif" /></A>
+        </div>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+}if($showpage){print <<<EOT
+-->
+<div class="commentpage">$showpage</div>
+<!--
+EOT;
+}if(!$listdb){print <<<EOT
+-->
+<div class="no_comment">暂时还没有评论</div>		
+<!--
+EOT;
+}
+?>
+-->

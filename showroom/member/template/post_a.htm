@@ -1,0 +1,49 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable">
+  <tr> 
+    <td height="100"  class="Main"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable" >
+        <tr> 
+          <td class="head"><font color="#FF0000"><b>请选择相应的展览馆</b></font></td>
+        </tr>
+        <tr> 
+          <td class="middle"> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" class="linetable">
+              <tr align="center" class="head3"> 
+                <td class="top" width="48%">展览馆名称</td>
+                <td class="top" width="12%">选择</td>
+              </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){print <<<EOT
+-->
+              <tr> 
+                <td class="middle" align="left">&nbsp;<a href="../showroom.php?id={$rs[id]}" target="_blank">{$rs[title]}</a></td>
+                <td class="middle" align="center"><a href="post_b.php?roomid=$rs[id]">在此展览馆发表</a></td>
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+-->
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td align="center" height="23">$showpage</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="foot"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

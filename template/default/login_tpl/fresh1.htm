@@ -1,0 +1,22 @@
+<!--
+<?php
+if($lfjid){print <<<EOT
+--> 
+    <a href="$webdb[_www_url]/member/" target="_blank">会员中心</a> 
+    <a href="$webdb[www_url]/do/login.php?action=quit">安全退出</a> 
+	<!--
+EOT;
+}elseif( $nickName=get_cookie('QQ_nickName') ){print <<<EOT
+-->
+<a href="$webdb[_www_url]/do/qq_bind.php" target="_blank">完善资料</a> 
+    <a href="$webdb[www_url]/do/qq_login.php?action=quit">安全退出</a> 
+<!--
+EOT;
+}else{print <<<EOT
+-->
+	<a href="$webdb[www_url]/do/login.php">快速登录</a>  
+    <a href="$webdb[www_url]/do/reg.php">免费注册</a> 
+<!--
+EOT;
+}?>
+-->

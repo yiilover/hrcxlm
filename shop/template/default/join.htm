@@ -1,0 +1,275 @@
+<!--
+<?php
+if(!$lfjid){
+print <<<EOT
+-->
+<div id="shop_login" style="display: none;position:absolute;top:50%;left:50%;z-index=2;"><div style="position:relative;top:-50%;left:-50%;">
+<!--  -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="LoginTable">
+<form name="form_login" method="post" action="$webdb[www_url]/do/login.php">
+  <tr>
+    <th colspan="2">您还没有登录,必须登录后才可进行购物</th>
+  </tr>
+  <tr>
+    <td class="tdL">帐号：</td>
+    <td class="tdR"><input type="text" name="username"></td>
+  </tr>
+  <tr>
+    <td class="tdL">密码：</td>
+    <td class="tdR"><input type="password" name="password"></td>
+  </tr>
+  <tr>
+    <td class="tdL">&nbsp;</td>
+    <td class="tdB"><input type="submit" name="Submit" value="登录"> <input  onclick="history.back()" type="button" value="返回"/></td>
+  </tr>
+  <input type="hidden" name="step" value="2">
+  <input class="radio" type="hidden" name="cookietime" value="86400" > 
+</form>
+</table>
+<!--  -->
+</div></div>
+<script type="text/javascript">$(function(){show_layer_msg('shop_login',"green");});</script>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function changenum(price,type,id,uid){
+    price=parseFloat(price);	
+	num = parseInt($("#numid"+id).val());
+	storage = parseInt($("#storage"+id).val());
+	if(type==1){	//增加
+		num++;
+	}else if(type==-1){	//减少
+		num--;
+	}else if(type==0){	//删除
+		num=0
+	}
+	if(type!=0 && num==0){
+		alert('数量不能小于1,若不想购买,请选择删除');
+		num=1;
+	}
+	if(num>storage){
+		alert("数量不能大于库存量,系统自动恢复默认购买1个数量");
+		num=1;
+	}
+	if(num*price > 100000){
+		alert("您的单个产品金额溢出十万元,系统自动恢复默认购买1个数量");
+		num=1;
+	}
+	$("#numid"+id).val(num);
+	$("#showid"+id).html(changeTwoDecimal(String(num*price)));
+	
+	obj=$(".shows"+uid);
+	
+	thispice = 0;
+	for(i=0;i<obj.size();i++){
+		thispice+=parseFloat(obj.eq(i).html());
+	}
+	$("#total"+uid).html(thispice);
+
+	if(type==0){
+		$.get("join.php?type=setcookie&cid="+id+"&num="+0);
+		$("#tr"+id).hide();
+	}else{
+		$.get("join.php?type=setcookie&cid="+id+"&num="+num+"&"+Math.random());
+	}	
+	
+	obj2 = $(".totalprice");
+	if(obj2.size()>1){
+		thispice = 0;
+		for(i=0;i<obj2.size();i++){
+			thispice+=parseFloat(obj2.eq(i).html());
+		}
+		$("#total_all").html(thispice);
+	}
+}
+function changeTwoDecimal(x){
+	var f_x = parseFloat(x);
+	if(isNaN(f_x)){
+		alert('function:changeTwoDecimal->parameter error');
+		return false;
+	}
+	var f_x = Math.round(x*100)/100;
+	return f_x;
+}
+//-->
+</SCRIPT>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/shopjoin/style.css">
+<div class="ShopJoin">
+	<div class="Heads"></div>
+    <form name="form_order" method="post" action="?action=$atc" enctype="multipart/form-data">
+<!--
+EOT;
+$total_all=0;
+foreach($listdb AS $name=>$array){
+$total=0;
+print <<<EOT
+-->
+		<div class="showcont">
+        	<div class="head">来自于“<span>{$name}</span>”销售的产品</div>
+            <table width="100%" border="0" cellspacing="4" cellpadding="0">
+              <tr>
+                <th width="50%">商品名称</th>
+                <th width="20%">数 量</th>
+                <th width="20%">总 价</th>
+                <th width="10%">&nbsp;</th>
+              </tr>
+<!--
+EOT;
+foreach($array AS $rs){
+@extract($db->get_one("SELECT storage FROM {$_pre}content_$rs[mid] WHERE id=$rs[id]"));
+@extract($db->get_one("SELECT content FROM {$_pre}content_$rs[mid] WHERE id=$rs[id]"));
+//$content=@preg_replace('/<([^>]*)>/is',"",$content);
+$content=preg_replace('/<([^<]*)>/is',"",$content); //把HTML代码过滤掉
+$rs[content]=get_word($content,120);
+$total+=$rs[price2];
+$total_all+=$rs[price2];
+print <<<EOT
+-->
+              <tr id="tr$rs[id]">
+                <td>
+                <div class="img">
+                	<a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank"><img src="$rs[picurl]"height="90" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a>
+                </div>
+                <div class="word">
+                	<h3><a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title] aaaa</a></h3>$storage
+                    <p>$rs[content]</p>
+                 </div>
+                </td>
+                <td>
+                	<input type="hidden" id="storage$rs[id]"  value="$storage" />
+                	<a href="javascript:changenum('$rs[price]',-1,$rs[id],$rs[uid])" onclick="">-</a> 
+                    <input type="text" name="product_array[{$rs[id]}]" value="$rs[num]" size="5" id="numid$rs[id]" onBlur="changenum('$rs[price]','CH',$rs[id],$rs[uid])">
+                    <a href="javascript:changenum('$rs[price]',1,$rs[id],$rs[uid])" onclick="">+</a> 
+                </td>
+                <td><span id="showid$rs[id]" class="shows$rs[uid]">{$rs[price2]}</span>元</td>
+                <td><a href="javascript:;"onclick="changenum('$rs[price]',0,$rs[id],$rs[uid])"><img src="$webdb[www_url]/images/shopjoin/del.gif"></a></td>
+              </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+			  <tr class="tal"> 
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>以上合计 <span id="total$rs[uid]" class="totalprice">$total</span>元</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+            <div class="bottom"></div>
+       </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+	<div class="showtotal">
+    	<div class="head"></div>
+<!--
+EOT;
+if(count($listdb)>1){
+print <<<EOT
+-->
+        <div class="total_all">以上共计为<span id="total_all">$total_all</span>元,不含邮费</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+        <div class="buttons" id="dobutton">  
+             <a href="javascript:window.location.href='./'"><img src="$webdb[www_url]/images/shopjoin/but1.gif"></a>
+             <a href='javascript:;' onclick='$("#othermore").show();$(this).parent().hide();'><img src="$webdb[www_url]/images/shopjoin/but2.gif"></a>
+        </div>
+    </div><script language="JavaScript">
+<!--
+function chooseAddress(selObj){
+	value = selObj.options[selObj.selectedIndex].value;
+	if(value=='-1'){
+		ifHideMoreTr(false);
+	}else{
+		ifHideMoreTr(true);
+	}
+}
+function ifHideMoreTr(type){
+	var arr = ["username","phone","mobphone","email","qq","postcode","address" ];
+	$("#othermore input").each(function (i){		
+		if(jQuery.inArray(this.name.replace(/postdb\[order_([\w]+)\]/, "$1"),arr)!=-1){
+			obj=$(this).parent().parent();
+			if(type==true){
+				obj.hide()
+			}else{
+				obj.show()
+			}			
+		}
+	});
+}
+
+$(document).ready(function(){
+	sObj = $("#choose_Address");
+	if(sObj.get(0).options.length==1||"$job"=="edit"){
+		sObj.parent().parent().hide();
+		ifHideMoreTr(false);
+	}else{
+		ifHideMoreTr(true);
+	}
+});
+//-->
+</script>
+    <table id="othermore" width="100%" border="0" cellspacing="0" cellpadding="0" style="display:none;">
+      <tr> 
+        <th colspan="2"><span>订单资料</span></th>
+      </tr>
+	  <tr> 
+        <td class="tdL">收货地址:</td>
+        <td class="tdR input1">
+          <select id="choose_Address" name="postdb[address_type]" onChange="chooseAddress(this)">
+            {$address_select}
+			<option value="-1" style="color:red;">使用新地址</option>
+          </select>
+        </td>
+      </tr>
+ 
+<!--{template}-->
+      <tr> 
+        <td class="tdL">{title}</td>
+        <td class="tdR input1"> {value}</td>
+      </tr>
+<!--{/template}-->
+      <tr> 
+        <td class="tdL">&nbsp; </td>
+        <td class="tdR submit">
+          <input type="image" name="imageField" id="imageField" src="$webdb[www_url]/images/shopjoin/but3.gif" />
+          <input type="hidden" name="fid" value="$fid">
+          <input type="hidden" name="id" value="$id">
+          <input type="hidden" name="cid" value="$cid">
+          <input type="hidden" name="postdb[title]" id="atc_title" size="50" value="$infodb[title]">
+<!--
+EOT;
+if($job=='edit'){print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+$(document).ready(function(){
+$("#othermore").show();$("#dobutton").hide();
+});
+//-->
+</SCRIPT>
+          <a href="?action=del&id=$id&cid=$cid&fid=$rsdb[fid]" onClick="return confirm('你确认要删除吗?');">删除</a> 
+<!--
+EOT;
+}print <<<EOT
+-->
+        </td>
+      </tr>
+      <tr class="trend"> 
+        <td colspan="2">&nbsp;</td>
+      </tr>
+    </table>        
+    </form>
+</div>
+<!--
+EOT;
+?>
+-->

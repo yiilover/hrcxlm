@@ -1,0 +1,217 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/yellow/brand_bencandy.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer">
+  <tr> 
+    <td width="75%" class="MainL" valign="top"> 
+      <table width="100%" cellspacing="0" cellpadding="0" class="brand_piclist">
+          <tr>
+            <td class="h">
+            	<span class="l">品牌资料</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="c">
+            	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="brand_base">
+                  <tr>
+                    <td class="word">
+                    	<span>品牌名称:</span>{$rsdb[title]}<br/>
+						
+ <!--{template}-->
+                        <span>{title}:</span>{value}<br/>
+						
+<!--{/template}-->
+						
+                        <span>浏览次数:</span>{$rsdb[hits]}次<br/>
+                        <span>更新日期:</span><a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a>
+                    </td>
+                    <td class="pic">
+                    	<div class="b"><img src="$rsdb[picurl]" width="150" onerror="this.src='$webdb[www_url]/images/yellow/brand.gif'" /></div>
+                        
+                  <div><a href="$webdb[www_url]/member/?main=$Murl/member/join.php?fid=$fid&cid=$id" target="_blank"><img src="$webdb[www_url]/images/yellow/brand_join.gif" border="0"/></a></div>
+                    </td>
+                  </tr>
+              </table>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="brand_content">
+                  <tr>
+                    <td class="h1"><span>品牌介绍</span></td>
+                  </tr>
+                  <tr>
+                    <td class="c1"><table width="100%" cellspacing="0" cellpadding="0" style='TABLE-LAYOUT: fixed;WORD-WRAP: break-word' align="center">
+              <tr> 
+                <td>$rsdb[content]</td>
+              </tr>
+            </table></td>
+                  </tr>
+                </table>
+
+            </td>
+          </tr>
+        </table>  
+    </td>
+    <td width="25%" class="SideR">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="sidertable md10">
+          <tr>
+            <td class="h"><span class="l">当前品牌下的代理商如下</span><span class="r"></span></td>
+          </tr>
+          <tr>
+            <td class="c">
+<!--
+EOT;
+$array = list_dl('new',20);
+foreach($array AS $rs){print <<<EOT
+-->
+                
+            <div class="list"><a href="joinshow.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[dl_name]</a></div> 
+<!--
+EOT;
+}print <<<EOT
+-->
+            </td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="sidertable md10">
+          <tr>
+            <td class="h"><span class="l">推荐品牌</span></td>
+          </tr>
+          <tr>
+            <td class="c"><!--
+EOT;
+$array = list_title('com',3);
+foreach($array AS $rs){print <<<EOT
+-->
+            	<div class="lista">
+                	<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" class="img"><img src="$rs[picurl]" onerror="this.src='$webdb[www_url]/images/yellow/brand.gif'" width="100" height="40"/></a>
+                    <a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" class="t">$rs[title]</a>
+                </div><!--
+EOT;
+}print <<<EOT
+-->
+            </td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="sidertable md10">
+          <tr>
+            <td class="h"><span class="l">热门品牌</span><span class="r"></span></td>
+          </tr>
+          <tr>
+            <td class="c">
+			<!--
+EOT;
+$array = list_title('hot',8);
+foreach($array AS $key=>$rs){
+$i=$key+2;
+print <<<EOT
+-->
+            	<div class="list l$i"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+</table>
+<!--table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable">
+  <tr> 
+    <td width="75%" height="393" valign="top" class="Main"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable" id="viewarticle">
+        <tr> 
+          <td class="head"> 
+            <h3 class="L"></h3>
+            <span class="TAG"><a editurl='$city_url/job.php?job=doinfo&fid=$fid&id=$id&atc=do'>TOP</a></span> 
+            <span class="more postbt"><a href="post.php?fid=$fid">发布</a></span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <td class="middle"> 
+            
+			<table width="97%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:10px;">
+              <tr> 
+                <td width="66%">发布时间:{$rsdb[posttime]}　浏览量：{$rsdb[hits]}次</td>
+                <td width="34%" align="right"><span class="R"><a href="post.php?fid=$fid">发布</a> 
+                  &nbsp;<a href="post.php?job=edit&fid=$fid&id=$id">修改</a>&nbsp;<a href="post.php?action=del&fid=$fid&id=$id">删除</a></span></td>
+              </tr>
+            </table>
+ 
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+                <td width="36%" align="center" valign="top"><a href="$rsdb[picurl]" class="picurl" target="_blank"><img src='$rsdb[picurl]' onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" width="220" ></a></td>            
+                <td width="64%" height="100" align="left" valign="top"> 
+
+EOT;
+if($rsdb['offurl']){print <<<EOT
+
+                  <b>品牌官网：</b>{$rsdb[offurl]} <br>
+
+EOT;
+}print <<<EOT
+
+                  <br>
+                  <br>
+                  <a href="join.php?fid=$fid&cid=$id"><b><font color="#FF0000">我是代理</font></b></a> 
+                </td>
+  </tr>
+</table>
+ 
+             
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td style="background:#eee;"><b>详细介绍</b></td>
+              </tr>
+              <tr>
+                <td>$rsdb[content]</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td class="foot"> 
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+    <td width="25%" height="393" valign="top" class="Side" align="right"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="dragTable">
+        <tr> 
+          <td class="head"> 
+            <h3 class="L"></h3>
+            <span class="TAG">相关信息</span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <td class="middle" valign="top" align="left"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb">
+              <tr> 
+                <td class="m"> 
+                  <div>发布时间:$rsdb[posttime]<br>
+                    发起者: <a href="$webdb[www_url]/home/?uid=$rsdb[uid]" target="_blank">$rsdb[username]</a><br>
+                    关注度：{$rsdb[hits]} 人次 </div>
+                  <div class="img"></div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td class="foot"> 
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table></td>
+  </tr>
+</table-->
+<!--
+EOT;
+?>
+-->

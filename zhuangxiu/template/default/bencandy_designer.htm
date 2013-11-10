@@ -1,0 +1,231 @@
+<!--
+<?php
+$ck_class[$fid] = "class='ck'";
+$rsdb[picurl]=str_replace(".gif","",$rsdb[picurl]);
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$Murl/images/default/msearch.css">
+<ul class="modemenu">
+    <li><span><a href="list.php?fid=1" $ck_class[1]>招标信息</a></span></li>
+    <li><span><a href="list.php?fid=4" $ck_class[4]>装修学堂</a></span></li>
+    <li><span><a href="list.php?fid=5" $ck_class[5]>装修公司</a></span></li>
+    <li><span><a href="list.php?fid=2" $ck_class[2]>装修案例</a></span></li>
+    <li><span><a href="list.php?fid=3" $ck_class[3]>装修日志</a></span></li>
+    <li><span><a href="list.php?fid=6" $ck_class[6]>设计师</a></span></li>
+</ul>
+<div class="modeSearch">
+<form name="modesearch" method="post" action="search.php" onsubmit="return check_keyword();" target="_blank">
+	<div class="showtype"><span>招标信息</span></div>
+    <ul class="listtype">
+    	<li><span class="ck">招标信息</span></li>
+        <li><span>装修学堂</span></li>
+        <li><span>装修公司</span></li>
+        <li><span>装修案例</span></li>
+        <li><span>装修日志</span></li>
+        <li><span>设计师</span></li>
+    </ul>
+    <div class="keyword"><input type="text" name="keyword"></div>
+    <div class="submits"><input type="image" src="$Murl/images/default/sub.gif" /></div>
+    <input type="hidden" name="mid" value="1">
+    <input type="hidden" name="action" value="search">
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript" src="$Murl/images/default/msearch.js"></SCRIPT>
+<link rel="stylesheet" type="text/css" href="$Murl/images/default/bencandysigner.css">
+<div class="BannerCont">$label[zhuangxiu_bencandy_banner]</div>
+<div class="ShowCont">
+	<div class="Mhead">
+    	<div class="tag">$rsdb[title]</div>
+        <ul class="ListType">
+        	<li>所属公司</li>
+            <li>相关作品</li>
+            <li>自我介绍</li>
+            <li>客户评价</li>
+        </ul>
+    </div>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="Mcont">
+      <tr>
+        <td class="BaseInfo">
+        	<div class="img"><div><span><img src="$rsdb[picurl]" onError="this.src='$webdb[www_url]/images/default/noface.gif'" height="190"/></span></div></div>
+            <div class="title">$rsdb[title]</div>
+<!--{template}-->
+            <div class="list">{title}：<span>{value}</span></div>
+<!--{/template}-->
+			<div class="list">关注度：<span><em>{$rsdb[hits]}</em>次</span></div>
+        </td>
+        <td class="ChangeShow">
+<!--
+EOT;
+$companys=$db->get_one("SELECT A.content,B.title,B.city_id,B.picurl,B.fid,B.id FROM {$_pre}content_5 A LEFT JOIN {$_pre}content B ON A.id=B.id WHERE B.id='$rsdb[company_id]'");
+$companys[picurl]=tempdir($companys[picurl]);
+$companys[url]=get_info_url($companys[id],$companys[fid],$companys[city_id]);
+$demos=List_Designer_Demo($rsdb[id],20);
+$list_demo="";
+foreach($demos AS $keys=>$rss){
+	$list_demo .= "<div class='listpic'><div class='img'><a href='$rss[url]' target='_blank'><img onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" src='$rss[picurl]' height='80'/></a></div><div class='t'><a href='$rss[url]' target='_blank'>$rss[title]</a></div></div>";
+}
+print <<<EOT
+-->
+        	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ShowTabel">
+          	 <tr>
+               <td class="company_img">
+					<div><span><a href="$companys[url]" target="_blank"><img src="$companys[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" height="200"/></a></span></div>
+               </td>
+               <td class="conts">
+               		<h3><a href="$companys[url]" target="_blank">$companys[title]</a></h3>
+               		<p>$companys[content]</p>
+               </td>
+             </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ShowTabel">
+          	 <tr>
+               <td class="List_Demo">
+               	   $list_demo
+               </td>
+             </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ShowTabel">
+          	 <tr>
+               <td class="show_contents">
+               	   $rsdb[content]
+               </td>
+             </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ShowTabel">
+          	 <tr>
+               <td class="show_comment">
+               	   <div id="comment"></div>
+                   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="comment_form">
+                  <tr>
+                    <th colspan="2"><span class="L">添加留言</span></th>
+                  </tr>
+<!--
+EOT;
+if($lfjid){$none='none';}
+print <<<EOT
+-->
+                  <tr style="display:$none;">
+                    <td class="left">称呼:</td>
+                    <td class="right"><input type="text" name="textfield2" id="comment_username" value="$lfjid"></td>
+                  </tr>
+<!--
+EOT;
+if($webdb[Info_GroupCommentYzImg]&&in_array($groupdb['gid'],explode(",",$webdb[Info_GroupCommentYzImg]))){
+$webdb[yzImgComment]=1;
+print <<<EOT
+-->
+				  <tr>
+                    <td class="left">验证码:</td>
+                    <td class="right">
+                        <input id="yzImgNum" type="text" name="yzimg" size="8" onFocus="commentyzimg()">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function commentyzimg(){
+	if(/yzimg\.php/.test($("#yz_Img")[0].src)==false){
+		$("#yz_Img").show();
+		$("#yz_Img")[0].src='$webdb[www_url]/do/yzimg.php?'+Math.random();
+	}
+	
+}
+document.write('<img border="0" id="yz_Img" name="imageField" onclick="this.src=this.src+Math.random();" src="" style="display:none;">');
+//-->
+</SCRIPT>
+                    </td>
+                  </tr>
+<!--
+EOT;
+}
+print <<<EOT
+--> 
+				  <tr>
+                    <td class="left">内容:</td>
+                    <td class="right"><textarea name="textfield" id="comment_content" onKeyDown="quickpost(event)"></textarea></td>
+                  </tr>
+                  <tr>
+                    <td class="left">
+<script language="JavaScript">
+<!--
+getcomment("$city_url/job.php?job=comment_ajax&fid=$fid&id=$id");
+cnt = 0;
+function quickpost(event)
+{
+	if((event.ctrlKey && event.keyCode == 13)||(event.altKey && event.keyCode == 83))
+	{
+		cnt++;
+		if (cnt==1){
+			post_comment();
+		}else{
+			alert('内容正在提交...');
+		}
+	}	
+}
+function post_comment(){
+	postcomment('$city_url/job.php?job=comment_ajax&action=post&fid=$fid&id=$id','$webdb[yzImgComment]');
+	if(document.getElementById("yz_Img")!=null){
+		//document.getElementById("yz_Img").src="$webdb[www_url]/do/yzimg.php?"+Math.random();;
+		$("#yz_Img")[0].src='';
+		$("#yz_Img").hide();
+	}
+}
+//-->
+</script>
+                        </td>
+                        <td class="right submits"><input type="button" id="comment_submit" name="Submit" value="提交" onClick="post_comment();"></td>
+                      </tr>
+                    </table>
+               </td>
+             </tr>
+            </table>
+        </td>
+      </tr>
+    </table>
+</div>
+<div class="sideconts">
+    <div class="head"><div class="tag">最新加入设计师</div></div>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="cont">
+<!--
+EOT;
+$array = Get_Info('new',4,40,$fid);
+foreach($array AS $rs){
+$rs[picurl]=str_replace(".gif","",$rs[picurl]);
+$rs[curl]=get_info_url($rs[company_id],5);
+$rs[skill]=Display_Type1($rs[skill]);
+print <<<EOT
+-->
+        <dl class="listpic">
+            <dt><div><a href="$rs[url]" target="_blank"><img src="$rs[picurl]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'" height="100" /></a></div></dt>
+            <dd>
+            	<div class="t"><a href="$rs[url]" target="_blank">$rs[title]</a></div>
+                <div><a href="$rs[curl]" target="_blank">$rs[in_company]</a></div>
+                <div>从业经验：<span>{$rs[experience]}</span></div>
+                <div>设计专长：<span>{$rs[skill]}</span></div>
+            </dd>
+        </dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </td>
+      </tr>
+    </table>
+</div>
+<script language="JavaScript">
+<!--
+$(".ChangeShow .ShowTabel").hide();
+$(".ListType li:eq(0)").addClass("ck");
+$(".ChangeShow .ShowTabel:eq(0)").show();
+$(".ListType li").click(function(){
+	var ck_num = $(this).index();
+	$(".ListType li").removeClass("ck");
+	$(this).addClass("ck");
+	$(".ChangeShow .ShowTabel").hide();
+	$(".ChangeShow .ShowTabel:eq("+ck_num+")").show();
+});
+//-->
+</script>
+<!--
+EOT;
+?>
+-->

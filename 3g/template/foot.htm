@@ -1,0 +1,32 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="Showcitys">
+    <span>热门城市:</span>
+<!--
+EOT;
+$i=0;
+$cityname=$city_DB[name];
+foreach($city_DB[hits] AS $key=>$value){
+$i++;
+if($i>5)break;
+print <<<EOT
+-->
+	<a href="$Murl/allcity.php?cityid=$key">$cityname[$key]</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    <a href="$Murl/allcity.php" class="more">更多&gt;&gt;</a>
+</div> 
+<div class="foot">
+  <div class="fl"><a href="javascript:;history.back()"><img src="$Murl/images/back.png"/></a></div>
+</div>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

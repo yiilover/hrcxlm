@@ -1,0 +1,57 @@
+<!--
+<?php
+$city_DB[copyright][$city_id] && $webdb[copyright]=stripslashes($city_DB[copyright][$city_id]);
+$webdb[copyright] && $webdb[copyright].='</br>';
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function selectsearch(theA,word){
+	obj=document.getElementById("selectsearch").getElementsByTagName("a");
+	for(var i=0;i< obj.length;i++ ){
+		obj[i].className='';
+	}
+	theA.className='choose';
+	document.getElementById("searchtype").value=word;
+}
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+clickEdit.init(); //生成一些快速操作按钮
+get_cache_button("$webdb[ComebackDate]");	//生成表单中的数据恢复按钮
+
+$("input[type='submit']").each(function(i){
+	this.className='buttonStyle';
+});
+$("input[type='button']").each(function(i){
+	this.className='buttonStyle';
+});
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+<!--//目的是为了做风格方便
+document.write('</div>');
+//-->
+</SCRIPT><div id="copyright">
+$webdb[copyright] 
+      Copyright@{$webdb[www_url]} all rights reserved <a href="http://www.miibeian.gov.cn" target="_blank">{$webdb[miibeian_gov_cn]}</a> 
+      <br>
+      Powered by <a href="/" target="_blank">07975.COM {$qibosoft_Edition}</a> 
+      Code &copy; 2003-2013 <a href="/" target="_blank">华人诚信联盟</a> 
+</div>
+<!--CNZZ站点统计
+EOT;
+if($webdb[cnzz_open]&&$webdb[cnzz_id]){print <<<EOT
+-->
+<div style="display:none"><script src='http://pw.cnzz.com/c.php?id=$webdb[cnzz_id]&l=2' language='JavaScript' charset='gb2312'></script></div>
+<!--CNZZ站点统计
+EOT;
+}print <<<EOT
+-->
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

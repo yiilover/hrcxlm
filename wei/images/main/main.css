@@ -1,0 +1,240 @@
+.ShowWaterFall{
+	clear:both;
+	margin-top:10px;
+}
+.ShowWaterFall .ListLi{
+	width:25%;
+	float:left;
+}
+.ShowWaterFall .ListLi .side{
+	width:210px;
+	margin:0 auto 10px auto;
+	padding:5px;
+	border:#CCC solid 1px;
+}
+.ShowWaterFall .ListLi .side h3{
+	font-size:12px;
+	line-height:18px;
+	margin-bottom:3px;
+}
+.ShowWaterFall .ListLi .side h3 a{
+	color:#F30;
+}
+.ShowWaterFall .ListLi .side div.img{
+	width:210px;
+	text-align:center;
+	overflow:hidden;
+	padding-bottom:5px;
+}
+.ShowWaterFall .ListLi .side p{
+	color:#666;
+	line-height:18px;
+}
+.ShowWaterFall .ListLi .side dl dt{
+	height:20px;
+	line-height:20px;
+	text-align:right;
+	color:#999;
+}
+.ShowWaterFall .ListLi .side dl dd{
+	border-top:#E3E3E3 solid 1px;
+	background:#F0EFEF;
+	padding:10px 10px 0 10px;
+	height:40px;
+	overflow:hidden;
+	line-height:16px;
+	color:#999;
+}
+.ShowWaterFall .ListLi .side dl dd a{
+	font-weight:bold;
+	color:#F30;
+}
+.ShowWaterFall .ListLi .side dl dd span{
+	display:block;
+	float:left;
+	width:30px;
+	height:30px;
+	overflow:hidden;
+	text-align:center;
+	margin-right:10px;
+}
+.ShowWaterFall .ListLi .side dl dd em{
+	font-style:normal;
+	color:#0033FF;
+	padding:0 3px 0 3px;
+}
+.MemberCont{
+	width:220px;
+	margin:auto;
+	border:#CCC solid 1px;
+}
+.MemberCont .head{
+	height:30px;
+	background:#F7F4F4;
+}
+.MemberCont .head .tag{
+	float:left;
+	padding:8px 0 0 15px;
+	font-size:14px;
+}
+.MemberCont .cont{
+	height:50px;
+	padding:15px 0 0 8px;
+}
+.MemberCont .cont a{
+	display:block;
+	width:102px;
+	height:38px;
+	text-align:center;
+	line-height:38px;
+	float:left;
+	background:url(but1.gif) center top no-repeat;
+	font-size:16px;
+}
+.MemberCont .cont a.ck{
+	background:url(but2.gif) center top no-repeat;
+	color:#FFF;
+}	
+.PostWei{
+	width:220px;
+	margin:10px auto;
+	border:#CCC solid 1px;
+}
+.PostWei .head{
+	height:35px;
+	background:url(post_h.gif) center 8px no-repeat;
+}
+.PostWei .head .tag{
+	display:none;
+}
+.PostWei .cont dl{
+	clear:both;
+}
+.PostWei .cont dl dt{
+	width:50px;
+	line-height:30px;
+	text-align:right;
+	float:left;
+}
+.PostWei .cont dl dd{
+	width:150px;
+	float:left;
+	overflow:hidden;
+	padding-top:5px;
+}
+.PostWei .cont dl dd textarea{
+	width:140px;
+	height:80px;
+}
+.PostWei .cont dl dd input{
+	width:140px;
+}
+.PostWei .cont .but{
+	clear:both;
+	padding:5px 0 15px 50px;
+}
+.PostWei .cont .but input{
+	border:0;
+}
+.SideConts{
+	width:220px;
+	margin:0 auto 10px auto;
+	border:#CCC solid 1px;
+}
+.SideConts .head{
+	height:42px;
+	background:url(head1.gif) left bottom repeat-x;
+}
+.SideConts .head .tag{
+	float:left;
+	padding:12px 0 0 15px;
+	font-weight:bold;
+	font-size:14px;
+	color:#228804;
+}
+.SideConts .head .more{
+	float:right;
+	padding:15px 10px 0 0;
+}
+.SideConts .head .more a{
+	color:#888;
+}
+.SideConts td.cont{
+	padding:15px 0 5px 15px;
+}
+.SideConts td.cont div{
+	height:35px;
+	padding-left:8px;
+	float:left;
+	margin-right:10px;
+	background:url(sort_bg.gif) no-repeat;
+}
+.SideConts td.cont div a{
+	display:block;
+	float:left;
+	padding:3px 16px 0 0;
+	background:url(sort_bg.gif) right top no-repeat;
+	line-height:22px;
+	white-space:nowrap;
+}
+.SideConts td.cont div.b{
+	clear:both;
+}
+.SideConts td.cont div.b a{
+	font-weight:bold;
+}
+.SideConts div.cont{
+	padding:10px;
+}
+.SideConts div.cont .list{
+	height:25px;
+	overflow:hidden;
+	line-height:25px;
+	padding-left:10px;
+	background:url(print.gif) left 11px no-repeat;
+}
+/*
+*ActionCont
+*/
+.ActionCont{
+	width:80px;
+	position:absolute;
+	background:url(to_topb.gif) no-repeat;
+	right:10px;
+	top:400px;
+}
+.ActionCont a{
+	display:block;
+	padding-top:85px;
+	text-align:center;
+	line-height:20px;
+	font-size:14px;
+	color:#888;
+	outline:none;
+}
+.ActionCont a:hover{
+	background:url(to_topa.gif) no-repeat;
+	color:#555;
+	text-decoration:none;
+}
+.ShowPage{
+	padding:15px 0 20px 0;
+	clear:both;
+	text-align:center;	
+}
+.ShowPage a{
+	border:#DDD solid 1px;
+	padding:3px 5px 2px 5px;
+	color:#888;
+}
+.ShowLoading{
+	clear:both;
+	text-align:center;
+	padding:30px 0 30px 0;
+	color:#888;
+	font-size:18px;
+}
+.Mwarp{
+	padding-top:5px;
+	background:url(bg.gif) repeat-x top;
+}

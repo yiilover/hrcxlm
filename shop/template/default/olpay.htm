@@ -1,0 +1,111 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable">
+  <tr> 
+    <td width="100%" height="393" valign="top" class="Main"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable" id="viewarticle">
+        <tr> 
+          <td class="head">
+            <h3 class="L"></h3>
+            <span class="TAG">请选择一种支付方式</span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <td class="middle"> 
+            <table width="100%" border="0" cellspacing="5" cellpadding="5">
+              <tr align="center"> 
+                <td height="22" colspan="4"><br>
+                  <!--
+EOT;
+if(get_cookie('olpay_id')){print <<<EOT
+-->
+                  <font color="#0000FF"><b>提示:</b>你同时选购了多个商品但不属于同一个商家,需要分开多次支付!</font> 
+                  <!--
+EOT;
+}print <<<EOT
+-->
+                  <br>
+                  你需要支付人民币 <b><font color="#FF0000">{$infodb[totalmoney]}</font></b> 
+                  元，请选择一种支付方式！</td>
+              </tr>
+              <tr align="center"> 
+<!--
+EOT;
+if($array[yeepay_id]){print <<<EOT
+-->
+                <td height="10"  ><img src="$webdb[www_url]/images/default/yeepay_logo.gif" width="96" height="37"> 
+                  <input type="radio" name="paytype" value="yeepay" style="border:0px;">
+                </td>
+<!--
+EOT;
+}if($array[tenpay_id]){print <<<EOT
+-->
+                <td height="10"  ><img src="$webdb[www_url]/images/default/tenpay_logo.gif" width="96" height="37"> 
+                  <input type="radio" name="paytype" value="tenpay" style="border:0px;">
+                </td>
+<!--
+EOT;
+}if($array[alipay_id]){print <<<EOT
+-->
+                <td height="10"  ><img src="$webdb[www_url]/images/default/alipay_logo.gif" width="96" height="37"> 
+                  <input type="radio" name="paytype" value="alipay" style="border:0px;">
+                </td>
+<!--
+EOT;
+}if($array[chinabank_id]){print <<<EOT
+-->
+                <td height="10"  ><img src="$webdb[www_url]/images/default/chinabank_logo.gif" width="96" height="37"> 
+                  <input type="radio" name="paytype" value="chinabank" style="border:0px;">
+                </td>
+<!--
+EOT;
+}if($array[paypal_id]){print <<<EOT
+-->
+                <td height="10"  ><img src="$webdb[www_url]/images/default/paypal_logo.gif" width="96" height="37"> 
+                  <input type="radio" name="paytype" value="paypal" style="border:0px;">
+                </td>
+<!--
+EOT;
+}print <<<EOT
+-->
+              </tr>
+              <tr align="center"> 
+                <td height="74" colspan="5"> 　　<a href="javascript:paytype();"><img src="images/default/next.gif" border="0"></a> 
+                  <script language="JavaScript">
+<!--
+function paytype(){
+	var type='';
+	$("input[name='paytype']").each(function(i){
+		if(this.checked==true)type=this.value;
+	});
+	if(type==''){
+		alert("请选择一种支付类型!");
+		return ;
+	}
+	window.location.href="?pay_code=$pay_code&banktype="+type;
+}
+//-->
+</script>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="foot">
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table>
+ 
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,43 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head"><div class="tag">该礼品申请的人数如下</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="15%">申请者</th>
+            <th width="15%">称呼</th>
+            <th width="15%">联系电话</th>
+            <th width="15%">申请时间</th>
+            <th width="10%">审核与否</th>
+            <th width="10%">详情</th>
+            <th width="10%">删除</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>            
+            <td><a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank">{$rs[username]}</a></td>
+            <td>{$rs[contact_name]}</td>
+            <td>{$rs[contact_phone]}</td>
+            <td>$rs[posttime]</td>
+            <td>$rs[send]</td>
+            <td><a href="joinshow.php?fid=$rs[fid]&id=$rs[id]">查看</a></td>
+            <td><a href="join.php?action=del&id=$rs[id]&fid=$rs[fid]&cid=$rs[cid]">删除</a></td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </table>
+        <div class="Showpage">$showpage</div>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

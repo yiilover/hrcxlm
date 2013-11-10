@@ -1,0 +1,129 @@
+<include file="Index:header" />
+<script language="javascript">
+ <!--
+	function Delete(id){
+	    if(confirm('你确认要删除本词条吗?')==true)
+		ThinkAjax.send('__URL__/SaveSeol/delete/1','ajax=1&id='+id,SaveComplete,'result');
+	}
+	function EditList(){
+		ThinkAjax.sendForm('list_seol','__URL__/SaveSeol/savelist/1',SaveComplete,'result');
+	}
+	function DeleteList(){
+	     if(confirm('你确认要批量删除吗?')==true)	
+		ThinkAjax.sendForm('list_seol','__URL__/SaveSeol/deletelist/1',SaveComplete,'result');
+	}	
+	function Save(id){
+		if(id==undefined) id=0;
+		kw=$('#kw'+id).val();
+		link=$('#link'+id).val();
+		if(kw=='') {
+			$('#kw'+id).focus();
+			contnet='<span class="errorTip">请输入词条!</span>';			
+			showfloatTips(contnet);
+			return false;		
+		}
+		if(link=='') {
+			$('#link'+id).focus();
+			contnet='<span class="errorTip">请输入词条!</span>';			
+			showfloatTips(contnet);
+			return false;		
+		}
+		ThinkAjax.sendForm('list_seol','__URL__/SaveSeol/save/1/id/'+id,SaveComplete,'result');
+	}
+	function SaveComplete(data,status){
+		if (status==1)
+		{
+			window.setTimeout(function (){window.location.href='__SELF__'},1000);
+		}
+	}	
+ //-->
+</script>
+<load href="__PUBLIC__/Js/setday/setday.js" />
+<script language="javascript">
+ <!--
+function foreColor_font(id)
+{
+  if(id==undefined) id=0;
+  var arr = showModalDialog('__PUBLIC__/Js/setday/selcolor.htm', '', 'dialogWidth:18.5em; dialogHeight:17.5em; status:0');
+  if (arr != null && arr!='#NaNNaNNaN' )  {
+	  get_obj('color'+id).value=arr;
+	  get_obj('color'+id).style.background=arr;
+  } else {
+	  get_obj('color'+id).focus();
+  } 
+}
+ //-->
+</script>
+
+<table cellpadding="3" cellspacing="1" class="tablewidth" align="center">
+  <tr class="head5">
+    <td width="300" style="padding-left:18px;"><form name="search_kw"  id="search_kw" method="post" action="__URL__/seol" style="margin:0; padding:0;">
+        关键词:
+        <input type="text" name="kw" value="{$kw}" size="15" style=" margin-top:2px;">
+        <span class='blank2'></span>
+        <input type="submit" name="Submit_search" value="搜 索">
+      </form></td>
+  </tr>
+</table>
+<form name="list_seol" id="list_seol"  method="post" action="__URL__/SaveSeol/save/1" style="margin:0; padding:0;">
+  <table cellpadding="3" cellspacing="1" class="tablewidth" align="center">
+    <tr class="head5">
+      <td  style=" padding-left:18px;">关键词:
+        <input type="text" name="kw[0]" id="kw0" value="" size="15" style=" margin-top:2px;">
+        <span class='blank2'></span> 超链接:
+        <input type="text" name="link[0]" id="link0" value="" size="50" style=" margin-top:2px;">
+        <span class="blank2"></span> 颜色
+        <input type="text" name="color[0]" style="background:{$color};" size="5" value="{$color}" id="color0" onClick="foreColor_font(0);">
+        &nbsp;
+        加粗
+        <input type="checkbox" name="bold[0]" value="1" {$bold_db[1]} >
+        <span class="blank2"></span>
+        <input type="button" name="Submit_eidit_list" value="添加新关键词" onClick="Save(0)">
+      </td>
+    </tr>
+  </table>
+  <table width='100%' cellspacing='1' cellpadding='3' class="tablewidth" align="center">
+    <tr class="head">
+      <td width="60" align="center"><strong>关键词ID</strong></td>
+      <td><strong>关键词 =>  SEO链接 => 显示样式</strong></td>
+      <td width="120"><strong>词条操作</strong></td>
+    </tr>
+    <volist id="vo" name="list">
+      <php>unset($bold_db);$bold_db[$vo['bold']]=' checked ';</php>
+      <tr  id="list_seol_tr_{$vo.id}" class="trA" onMouseOver="this.className='trB'" onMouseOut="this.className='trA'">
+        <td><input type="checkbox" name="iddb[{$vo.id}]" value="{$vo.id}">
+          {$vo.id|sprintf="%03d",###}</td>
+        <td style="text-align:left;"><input type="text" name="kw[{$vo.id}]" id="kw{$vo.id}" value="{$vo.kw}" size="15">
+          <span class='blank2'>=></span>
+          <input type="text" name="link[{$vo.id}]"  id="link{$vo.id}"  value="{$vo.link}" size="50">
+          <span class="blank2"></span> 颜色
+          <input type="text" name="color[{$vo.id}]" style="background:{$vo.color};" size="5" value="{$vo.color}" id="color{$vo.id}" onClick="foreColor_font({$vo.id});">
+          &nbsp;
+          加粗
+          <input type="checkbox" name="bold[{$vo.id}]" value="1" {$bold_db[1]} >
+        </td>
+        <td><input type="button" name="Submit_edit_SaveSeol" value="修改" onClick="Save({$vo.id})">
+          <span class="blank2"></span>
+          <input type="button" name="Submit_add_SaveSeol" value="删除" onClick="Delete({$vo.id})">
+        </td>
+      </tr>
+    </volist>
+    <tr>
+      <td><div align="center"><a href="javascript:" onClick="CheckAll('list_seol','all','iddb')">全选</a> / <a href="javascript:" onClick="CheckAll('list_seol','','iddb')">反选</a></div></td>
+      <td colspan="2"><input type="button" name="Submit_eidit_list" value="批量修改词条" onClick="EditList()">
+        &nbsp;
+        <input type="button" name="Submit_eidit_list" value="批量删除词条" onClick="DeleteList()">
+        &nbsp; <span class="sabrosus"> {$page} </span> </td>
+    </tr>
+  </table>
+</form>
+<table width="100%" border="0"  cellpadding="3" cellspacing="1" class="tablewidth" align="center">
+  <tr class="head">
+    <td><div align="left" style="color:red; font-weight:bold;">注意事项:</div></td>
+  </tr>
+  <tr>
+    <td><p>1.<font color="#FF0000">默认开启了自动关键词内链库生成功能</font>,即根据采集文章,智能分析出最核心的关键词,自动生成该关键词对应的内链URL,自动写入"关键词内链库".您可以在这里进行关键词内链修改等操作,以便更适合您的网站SEO.</p>
+      <p> 2.如果您不需要自动生成关键词内链库,请在<font color="#FF0000">"全局参数"</font>中关闭该功能. </p></td>
+  </tr>
+</table>
+<include file="Index:footer" />

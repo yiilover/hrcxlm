@@ -1,0 +1,247 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/deepblue/f/index.css">
+<div class="fenliead1">$label[blue_fenliead1]</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer mt10">
+  <tr>
+    <td class="Main">
+    	<div class="todaytz">
+        	<div class="tag">{$label[blue_fenlieh1]}</div>
+            <div class="cont">
+            	{$label[blue_fenliet1]}            	
+            </div>
+        </div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="Fenlietg">
+          <tr>
+            <td class="tgin">            
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span id="adinfo">$Load_Msg</span>');
+document.write('<div style="display:none;"><iframe src="job.php?job=adinfo&fid=-1&rows=15&leng=32&iframeID=adinfo" width=0 height=0></iframe></div>');
+//-->
+</SCRIPT>
+                
+          </tr>
+        </table>
+    </td>
+    <td class="Side">
+    	<div class="UserCont">          
+            <div class="butter"> <a href="post.php" class="post" target="_blank">免费发布信息</a> 
+              <a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/hy/member/homepage_ctrl.php?atn=info" class="tg" target="_blank">管理店铺</a> 
+              <a href="$webdb[_www_url]/member/?main=$Murl/member/list.php" target="_blank">修改删除信息</a> 
+              <a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/hy/member/renzheng.php" target="_blank">认证企业</a> 
+            </div> 
+            <div class="login">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span id="fenlie_loginer">$Load_Msg</span>');
+document.write('<div style="display:none;"><iframe src="$webdb[www_url]/do/hack.php?hack=login&iframeID=fenlie_loginer&styletype=fenlieindex" width=0 height=0></iframe></div>');
+//-->
+</SCRIPT>  
+			</div>
+        </div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer mt10">
+  <tr>
+    <td class="Main">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="fenlienewest">
+          <tr>
+            <td class="head">
+            	<div class="tag">{$label[blue_fenlieh2]}</div>
+                <div class="more">
+                	{$label[blue_fenliem2]}                	
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="cont">
+            	<div class="piccont">{$label[blue_fenliet2]}</div>
+                <div class="wordcont">{$label[blue_fenliet3]}</div>
+            </td>
+          </tr>
+        </table>
+    </td>
+    <td class="Side">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="fenliehot">
+          <tr>
+            <td class="head">
+            	<div class="tag">{$label[blue_fenlieh3]}</div>
+            </td>
+          </tr>
+          <tr>
+            <td class="cont">
+            	{$label[blue_fenliet4]}
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer mt10">
+  <tr>
+    <td class="Main">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="fenliesort">
+          <tr>
+            <td class="head">
+            	<div class="tag">{$label[blue_fenlieh4]}</div>
+                <div class="more">
+                	{$label[blue_fenliem4]}                	
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="cont">
+<SCRIPT type=text/javascript>
+$(document).ready(function(){
+$(".ShowSorts").jscroll({ 
+	W:"15px",BgUrl:"url($webdb[www_url]/images/deepblue/f/croll.gif)",Bg:"right 0 repeat-y",Bar:{Bd:{Out:"#F2D9A9",Hover:"#F8EFD3"}
+	,Bg:{Out:"-45px 0 repeat-y",Hover:"-58px 0 repeat-y",Focus:"-71px 0 repeat-y"}}
+	,Btn:{btn:true,uBg:{Out:"0 0",Hover:"-15px 0",Focus:"-30px 0"},dBg:{Out:"0 -15px",Hover:"-15px -15px",Focus:"-30px -15px"}}
+	,Fn:function(){}
+	});
+});
+</SCRIPT> 
+	<div class="ShowSorts">
+	<table width="100%" cellspacing="0" cellpadding="0" class="SortTable">
+<!--
+EOT;
+$ids=0;
+foreach($Fid_db[0] AS $key=>$rs){
+$url=get_info_url('',$key,$city_id);
+if($ids==0){print <<<EOT
+-->
+		<tr>
+<!--
+EOT;
+}$ids++;print <<<EOT
+-->
+			<td>
+            	<dl>
+                	<dt><a href="$url">{$Fid_db[name][$key]}</a></dt>
+                    <dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $keys=>$rss){
+$url=get_info_url('',$keys,$city_id);
+print <<<EOT
+-->
+						<div><a href="$url">{$Fid_db[name][$keys]}</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+                    </dd>
+                </dl>
+            </td>
+<!--
+EOT;
+if($ids==4){
+$ids=0;print <<<EOT
+-->
+		</tr>
+<!--
+EOT;
+}}if($ids && $ids<4){
+for($i=$ids;$i<4;$i++){print <<<EOT
+-->
+		<td><br /></td>
+<!--
+EOT;
+}print <<<EOT
+-->
+		</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+	</table>            	
+                </div>
+            </td>
+          </tr>
+        </table>
+    </td>
+    <td class="Side">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="fenlietop">
+          <tr>
+            <td class="head">
+            	<div class="tag">{$label[blue_fenlieh5]}</div>
+            </td>
+          </tr>
+          <tr>
+            <td class="cont">
+            	{$label[blue_fenliet5]}
+            </td>
+          </tr>
+        </table>
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="fenliehot mt10">
+          <tr>
+            <td class="head">
+            	<div class="tag">{$label[blue_fenlieh6]}</div>
+            </td>
+          </tr>
+          <tr>
+            <td class="cont">
+            	<div class="listad">{$label[blue_fenliead2]}</div>
+                <div class="listad">{$label[blue_fenliead3]}</div>
+                <div class="listad">{$label[blue_fenliead4]}</div>
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+</table>
+<div class="farrowad mt10">{$label[blue_fenliead5]}</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="FenliePhoto">
+  <tr>
+  	<td class="head"><div class="tag">$label[fenlei_b3]</div></td>
+  </tr>
+  <tr>
+  	<td class="cont">    	
+  		$label[fenlei_b4]
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainContainer mt10">
+  <tr>
+  	<td class="MiddleCont">
+<!--
+EOT;
+foreach($listdb_moresort AS $key1=>$rss){
+$url=get_info_url('',$rss[fid],$city_id);
+print <<<EOT
+-->
+		<div class="moresort">        	
+        	<div class="TAG"><a href="$url" target="_blank">$rss[name]</a></div>
+            <div class="title">
+<!--
+EOT;
+foreach($rss[article] AS $key2=>$rs){
+$url=get_info_url($rs[id],$rs[fid],$city_id);
+print <<<EOT
+-->
+                  <div>·<a href="$url" title="$rs[full_title]" target="_blank">$rs[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    </td>
+  </tr>
+  <tr>
+  	<td class="BottomFoot"><table><tr><td></td></tr></table></td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

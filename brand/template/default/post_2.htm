@@ -1,0 +1,55 @@
+<!--
+<?php
+print <<<EOT
+--> 
+ <script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+<script>
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+</script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable">
+  <tr> 
+    <td width="100%" height="393" valign="top" class="Main"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable" id="viewarticle">
+        <tr> 
+          <td class="head"> 
+            <h3 class="L"></h3>
+            <span class="TAG"><a href='bencandy.php?fid=$fid&id=$cid'>$infodb[title]</a></span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <td class="middle"> 
+            <table width="99%" border="0" cellspacing="1" cellpadding="3" id="bigtable">
+              <form name="FORM" method="post" action="?action=$atc" enctype="multipart/form-data">
+                <tr> <td align='right'>代理商名称:<br></td> <td > <input   type='text' name='postdb[dl_name]' id='atc_dl_name' style='width:300px;' value='$rsdb[dl_name]'> </td></tr><tr> <td align='right'>代理商级别:<br></td> <td ><select name='postdb[dl_level]' id='atc_dl_level'><option value='一级总代理' {$rsdb[dl_level]['一级总代理']}>一级总代理</option><option value='二级代理' {$rsdb[dl_level]['二级代理']}>二级代理</option><option value='三级代理' {$rsdb[dl_level]['三级代理']}>三级代理</option><option value='其它代理' {$rsdb[dl_level]['其它代理']}>其它代理</option></select></td></tr><tr> <td align='right'>代理商资格证书:<br></td> <td ><input type='text' name='postdb[dl_photo]' id='atc_dl_photo' size='50' value='$rsdb[dl_photo]'> <br><iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=$_pre/$fid&label=atc_dl_photo' width=310></iframe></td></tr><tr> <td align='right'>负责人姓名:<br></td> <td > <input   type='text' name='postdb[dl_man]' id='atc_dl_man' style='width:100px;' value='$rsdb[dl_man]'> </td></tr><tr> <td align='right'>联系电话:<br></td> <td > <input   type='text' name='postdb[dl_phone]' id='atc_dl_phone' style='width:100px;' value='$rsdb[dl_phone]'> </td></tr><tr> <td align='right'>传真:<br></td> <td > <input   type='text' name='postdb[dl_fax]' id='atc_dl_fax' style='width:300px;' value='$rsdb[dl_fax]'> </td></tr><tr> <td align='right'>邮箱地址:<br></td> <td > <input   type='text' name='postdb[dl_email]' id='atc_dl_email' style='width:200px;' value='$rsdb[dl_email]'> </td></tr><tr> <td align='right'>详细地址:<br></td> <td > <input   type='text' name='postdb[dl_address]' id='atc_dl_address' style='width:300px;' value='$rsdb[dl_address]'> </td></tr><tr> <td align='right'>网站:<br></td> <td > <input   type='text' name='postdb[dl_url]' id='atc_dl_url' style='width:300px;' value='$rsdb[dl_url]'> </td></tr><tr> <td align='right'>介绍:<br></td> <td ><textarea  name='postdb[content]' id='atc_content' style='width:500px;height:100px;'>$rsdb[content]</textarea> </td></tr><!----> 
+                <tr> 
+                  <td width="18%">&nbsp;</td>
+                  <td width="82%"> 
+                    <input type="submit" name="Submit" value="提 交" class='submit'>
+                    <input type="hidden" name="fid" value="$fid">
+                    <input type="hidden" name="id" value="$id">
+                    <input type="hidden" name="cid" value="$cid">
+                    <input type="hidden" name="postdb[title]" id="atc_title" size="50" value="$infodb[title]">
+                  </td>
+                </tr>
+              </form>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td class="foot"> 
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

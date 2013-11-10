@@ -1,0 +1,172 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/blue/zhaoshang/index.css">
+<div class="MainContainer1">
+	<div class="SideL">
+    	<div class="UserAtc">
+        	<div class="reg">{$label[zhaoshang_indext1]}</div>
+            <div class="login">{$label[zhaoshang_indext2]}</div>
+        </div>
+        <div class="Notecont">
+        	<div class="head"><span class="tag">如何成功招商?看这里</span></div>
+            <div class="cont">
+            	{$label[zhaoshang_indext3]}
+            </div>
+        </div>
+        <div class="sidelad">{$label[zhaoshang_ad1]}</div>
+    </div>
+    <div class="SideC1">
+		<div class="div_jflash">
+        	{$label[zhaoshang_slides]}
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/blue/zhaoshang/slideshow.js"></SCRIPT>		
+		</div>
+    </div>
+    <div class="SideR1">
+    	<div class="HotZscont">
+        	<div class="head">
+            	<div onmouseover="ShowTab(1,1,3)" id="Span1">{$label[zhaoshang_indexh2]}</div>
+                <div onmouseover="ShowTab(2,1,3)" id="Span2">{$label[zhaoshang_indexh3]}</div>
+            </div>
+            <div class="cont" id="Tab1">
+            	<div class="c1">{$label[zhaoshang_indext4]}</div>
+                <div class="c2">{$label[zhaoshang_indext5]}</div>	
+            </div>
+            <div class="cont" id="Tab2">
+            	<div class="c1">{$label[zhaoshang_indext6]}</div>
+                <div class="c2">{$label[zhaoshang_indext7]}</div>	
+            </div>
+            <SCRIPT LANGUAGE="JavaScript">ShowTab(1,1,3);</SCRIPT>
+        </div>
+    </div>
+</div>
+<div class="MainContainer2">
+	<div class="SideL">
+    	<div class="ShowZsSort">
+        	<div class="head"><span class="tag">{$label[zhaoshang_indexh4]}</span></div>
+            <div class="cont">
+            	<dl>
+<!--
+EOT;
+foreach($Fid_db[0] AS $key=>$name){
+$url=get_info_url('',$key,$city_id);
+print <<<EOT
+-->
+                <dt><a href="$url">$name</a></dt>
+                <dd> 
+<!--
+EOT;
+foreach($Fid_db[$key] AS $key2=>$name2){
+$url=get_info_url('',$key2,$city_id);
+print <<<EOT
+-->
+              	<a href="$url">$name2</a> | 
+<!--
+EOT;
+}print <<<EOT
+-->
+            </dd>			
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</dl>
+           </div>
+        </div>
+    </div>
+    <div class="MainR">
+    	<div class="tzzsbrand">
+        	<div class="head">{$label[zhaoshang_indexh5]}</div>
+            <div class="cont">
+            	{$label[zhaoshang_ad2]}
+            </div>
+        </div>
+        <div class="MainR1">
+        	<div class="SideC2">
+                <div class="sidecont">
+                    <div class="head"><span class="tag">{$label[zhaoshang_indexh6]}</span></div>
+                    <div class="cont">
+                    	{$label[zhaoshang_indext8]}
+                    </div>
+                </div>
+            </div>
+            <div class="SideR2">
+                <div class="sidecont">
+                    <div class="head"><span class="tag">{$label[zhaoshang_indexh7]}</span></div>
+                    <div class="cont">
+                    	{$label[zhaoshang_indext9]}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="MainContainer3">
+	<div class="SideL">
+    	<div class="sidecont1">
+            <div class="head"><span class="tag">{$label[zhaoshang_indexh8]}</span></div>
+            <div class="cont">
+                {$label[zhaoshang_indext10]}
+            </div>
+        </div>
+        <div class="sidecont1 mt10">
+            <div class="head"><span class="tag">{$label[zhaoshang_indexh9]}</span></div>
+            <div class="cont">
+                {$label[zhaoshang_indext11]}
+            </div>
+        </div>
+        <div class="sidelad">{$label[zhaoshang_ad3]}</div>
+    </div>
+    <div class="MainR">
+    	<div class="sidecont hjszcont">
+            <div class="head"><span class="tag">{$label[zhaoshang_indexh10]}</span></div>
+            <div class="cont">
+            	{$label[zhaoshang_indext12]}
+            </div>
+        </div>
+        <div class="MainR1">
+        	<div class="SideC2">
+                <div class="sidecont">
+                    <div class="head"><span class="tag">{$label[zhaoshang_indexh11]}</span></div>
+                    <div class="cont">
+                    	{$label[zhaoshang_indext13]}
+                    </div>
+                </div>
+            </div>
+            <div class="SideR2">
+                <div class="sidecont">
+                    <div class="head"><span class="tag">{$label[zhaoshang_indexh12]}</span></div>
+                    <div class="cont">
+                    	{$label[zhaoshang_indext14]}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="MainR1">
+        	<div class="SideC2">
+                <div class="sidecont">
+                    <div class="head"><span class="tag">{$label[zhaoshang_indexh13]}</span></div>
+                    <div class="cont">
+                    	<div class="c1">{$label[zhaoshang_indext15]}</div>
+                        <div class="c2">{$label[zhaoshang_indext16]}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="SideR2">
+                <div class="sidecont">
+                    <div class="head"><span class="tag">{$label[zhaoshang_indexh14]}</span></div>
+                    <div class="cont">
+                    	<div class="c1">{$label[zhaoshang_indext17]}</div>
+                        <div class="c2">{$label[zhaoshang_indext18]}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

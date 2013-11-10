@@ -1,0 +1,55 @@
+<!--
+<?php
+print <<<EOT
+-->
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+<script type="text/javascript">
+function upfile(url,name,size,ty){
+	document.getElementById("atc_pic").value=url;
+}
+</script>
+<div class="MainCont">
+	<div class="head"><div class="tag">$fidDB[name]</div></div>
+    <div class="cont">
+    	<form name="FORM" id="FORM" method="post" action="post.php?action=$atc"  enctype="multipart/form-data">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr>
+            <th colspan="2">基本资料</th>
+          <tr>
+            <td class="tdL">礼品名称:</td>
+            <td class="tdR"><input type="text" name="postdb[title]" id="atc_title" size="40" value="$rsdb[title]"></td>
+          </tr>
+          <tr>
+            <td class="tdL"><font color="red">*</font> 所需{$webdb[MoneyName]}:</td>
+            <td class="tdR"><input type="text" name="postdb[money]" id="atc_title" size="6" value="$rsdb[money]"> $webdb[MoneyDW] <span class="blue">(也就是兑换礼品所需{$webdb[MoneyName]})</span></td>
+          </tr>
+          <tr>
+            <td class="tdL">介绍图:</td>
+            <td class="tdR">
+            	<div style="float:left;padding-right:5px;"><input type="text" name="postdb[picurl]" id="atc_pic" size="40" value="$rsdb[picurl]"></div>
+            	<div style="float:left;"><iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=$_pre/$fid' width="310"></iframe></div>
+            </td>
+          </tr>
+<!--{template}-->
+        <tr> 
+          <td class="tdL">{title}</td>
+          <td class="tdR">{value}</td>
+        </tr>
+<!--{/template}-->
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+            	<input type="submit" name="Submit" value="提 交">
+                <input type="hidden" name="fid" value="$fid">
+                <input type="hidden" name="id" value="$id">
+            </td>
+          </tr>
+        </table>
+        </form>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

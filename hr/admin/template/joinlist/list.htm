@@ -1,0 +1,103 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/listpic.css">
+<form name="form_work" method="post" action="index.php?lfj=$lfj&dirname=$dirname&file=$file&action=del">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+  <tr align="center" class="head">
+    <td>简历管理</td> 
+  </tr>
+  <tr> 
+    <td>
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListPicTable">
+<!--
+EOT;
+$ids=0;
+foreach($listdb AS $key=>$rs){
+$rs[facephoto] && $rs[facephoto]=tempdir($rs[facephoto]);
+if($ids==0){print <<<EOT
+-->
+          <tr>
+<!--
+EOT;
+}$ids++;print <<<EOT
+-->
+            <td class="img"><div><a href="../$dirname/joinshow.php?id=$rs[id]" target=_blank><img src="$rs[facephoto]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" height="90"></a></div></td>
+            <td class="word">
+            	<div class="title"><input type="checkbox" name="listdb[]" value="$rs[id]"> <a href="../$dirname/joinshow.php?id=$rs[id]" target=_blank><span>{$rs[truename]}</span></a></div>
+                <div class="more">所在城市：<span>{$city_DB[name][$rs[city_id]]}</span> 性别:<span>{$rs[sex]}</span> 年龄:<span>{$rs[age]}岁</span> 浏览:<span>$rs[hits]</span> 登记日期:<span>$rs[posttime]</span></div>
+                <div class="butter">$rs[ifcom] <a href="../$dirname/joinshow.php?id=$rs[id]" target=_blank>查看</a> <a href="../$dirname/member/join.php?job=edit&fid=$rs[fid]&rid=$rs[id]&cid=$rs[cid]" target='_blank'>修改</a> <a href="$admin_path&action=del&listdb[]=$rs[id]">删除</a></div>
+            </td>
+<!--
+EOT;
+if($ids==2){
+$ids=0;print <<<EOT
+-->
+		</tr>
+<!--
+EOT;
+}}if($ids && $ids<2){
+for($i=$ids;$i<2;$i++){print <<<EOT
+-->
+            <td><br /></td><td><br /></td>
+<!--
+EOT;
+}print <<<EOT
+-->
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class='ShowPage'>$showpage</div>":"";
+print <<<EOT
+-->
+    	</table>
+		$showpage
+		<div class="ListButs">
+        	<a href="#" onClick="CheckAll('all')">全选</a>/<a href="#" onClick='CheckAll()'>反选</a> 
+            <input type="button" name="Submit3" value="删除" onclick="postdo('delete')">
+            <input type="hidden" name="jobs" value="0">
+        </div>
+    </td>
+  </tr>
+</table>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(va){
+	document.form_work.jobs.value=va
+	document.form_work.submit();
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT><br>
+<form name="form1" method="post" action="index.php?lfj=$lfj&dirname=$dirname&file=$file&job=$job">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+    <tr class="head"> 
+      <td><font color="#FFFFFF">搜索</font></td>
+    </tr>
+    <tr> 
+      <td align="center"> 姓名: 
+        <input type="text" name="keyword">
+        <input type="submit" name="Submit7" value="提交">
+        <input type="hidden" name="search_type" value="truename">
+      </td>
+    </tr>
+  </table>
+</form>
+<!--
+EOT;
+?>
+-->
+ 

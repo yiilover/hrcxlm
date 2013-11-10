@@ -1,0 +1,96 @@
+<!--
+<?php
+if($job=='buy'||$job=='edit'){
+print <<<EOT
+-->
+<div class="MainCont mtop10">
+	<div class="head"><div class="tag">电话广告位购买</div></div>
+    <div class="cont">
+    	<form name="form1" method="post" action="?hack=$hack&job=$job&step=2">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr>
+            <td class="tdL">广告标题:</td>
+            <td class="tdR">
+            <input type="text" name="title" size="20" value="$rsdb[title]">
+          </td>
+          </tr>
+          <tr>
+            <td class="tdL">电话号码:</td>
+            <td class="tdR">
+            <input type="text" name="telephone" size="20" value="$rsdb[telephone]">
+          </td>
+          </tr>
+          <tr>
+            <td class="tdL">介绍(可留空):</td>
+            <td class="tdR">
+            <input type="text" name="about" size="60" value="$rsdb[about]">
+          </td>
+          </tr>
+<!--
+EOT;
+if($job!='edit'){print <<<EOT
+-->
+          <tr>
+            <td class="tdL">购买天数:</td>
+            <td class="tdR">
+            	<input type="text" name="day" size="4"> 天 (每天需要{$webdb[MoneyName]}<span class="b red">{$webdb[money_sell_telephone]}</span>{$webdb[MoneyDW]},你当前拥有<span class="b blue">{$lfjdb[money]}</span>{$webdb[MoneyDW]})
+            </td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR"><input type="submit" name="Submit" value="提交">
+            <input type="hidden" name="id" value="$id">
+          </td>
+          </tr>
+         </table>
+         </form>
+    </div>
+</div>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+<div class="MainCont mtop10">
+	<div class="head"><div class="tag">以下是你购买过的电话广告位</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="15%">标题名称</th>
+            <th width="15%">电话号码</th>
+            <th width="25%">介绍</th>
+            <th width="18%">购买日期</th>
+            <th width="18%">截止日期</th>
+            <th width="9%">改 / 删</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td class="tL">$rs[title]</td>
+            <td>$rs[telephone]</td>
+            <td class="tL">$rs[about]</td>
+            <td>$rs[posttime]</td>
+            <td>$rs[endtime]</td>
+            <td><a href="?hack=$hack&job=edit&id=$rs[id]">改</a> / <a href="?hack=$hack&action=del&id=$rs[id]" onclick="return confirm('你确认要删除吗?');">删</a></td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+}
+?>
+-->

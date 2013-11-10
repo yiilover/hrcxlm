@@ -1,0 +1,58 @@
+<!--
+<?php
+print <<<EOT
+-->
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+<div class="MainCont">
+	<div class="head"><div class="tag">$fidDB[name]</div></div>
+    <div class="cont">
+    	<form name="FORM" id="FORM" method="post" action="post.php?action=$atc"  enctype="multipart/form-data">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr>
+            <td class="tdL">职位名称:</td>
+            <td class="tdR"><input type="text" name="postdb[title]" id="atc_title" size="40" value="$rsdb[title]"></td>
+          </tr>
+<!--
+EOT;
+if($job!="edit"&&!$web_admin&&$groupdb[postHrYzImg]){
+print <<<EOT
+-->
+          <tr>
+            <td class="tdL"><font color="red">*</font> 验证码:</td>
+            <td class="tdR">
+            	<input id="yzImgNum" type="text" name="yzimg" size="8">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<img border="0" name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'">');
+//-->
+</SCRIPT>
+            </td>
+          </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<!--{template}-->
+          <tr> 
+            <td class="tdL">{title}</td>
+            <td class="tdR">{value}</td>
+          </tr>
+<!--{/template}-->
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+            	<input type="submit" name="Submit" value="提 交">
+                <input type="hidden" name="fid" value="$fid">
+                <input type="hidden" name="id" value="$id">
+            </td>
+          </tr>
+        </table>
+        </form>
+    </div>
+</div>
+<div style="height:300px;"></div>
+<!--
+EOT;
+?>
+-->

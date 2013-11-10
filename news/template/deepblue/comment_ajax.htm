@@ -1,0 +1,79 @@
+<!--
+<?php
+if($web_admin || !$groupdb[CommentArticleYzImg]){$comment_yzimg_tr='none;';}
+foreach($listdb AS $key=>$rs){
+$showquote="<div>\n";
+foreach($rs[quote] AS $v) $showquote.="<div>\n";
+foreach($rs[quote] AS $v){
+$showquote.="<h3>{$v[username]} 于 {$v[posttime]} 发布</h3>";
+$showquote.="<p>$v[content]</p>";
+$showquote.="</div>\n";
+}
+$showquote.="<p>$rs[content]</p>";
+$showquote.="</div>\n";
+$showContent=$rs[quote]?$showquote:$rs[content];
+print <<<EOT
+-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListComment">
+  <tr>
+    <td class="img"><div><A HREF="$webdb[www_url]/member/userinfo.php?uid=$rs[uid]" target="_blank"><img src='$rs[icon]' onerror="this.src='$webdb[www_url]/images/default/nobody.gif'" width="60"/></A></div></td>
+    <td class="commentcont">
+    	<div class="Showcont">$showContent</div>
+        <div class="act">
+        	ID:{$rs[cid]} 称呼:{$rs[username]} 日期:{$rs[posttime]} <A HREF="javascript:getcomment('{$Mdomain}/comment_ajax.php?action=vote&id=$id&cid=$rs[cid]&posttype=ajax&job=agree')">支持:<font color="#FF0000">{$rs[agree]}</font>票</A> 
+      <A HREF="javascript:getcomment('{$Mdomain}/comment_ajax.php?action=vote&id=$id&cid=$rs[cid]&posttype=ajax&job=disagree')">反对:<font color="#0000FF">{$rs[disagree]}</font>票</A> <A HREF="javascript:" onclick="$('#div_comment_$rs[cid]').show();">回复</A> 
+<!--
+EOT;
+if($rs[ifadmin]){
+print <<<EOT
+-->
+      <A HREF="javascript:getcomment('{$Mdomain}/comment_ajax.php?action=del&id=$id&cid=$rs[cid]')">删除</A> 
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div>
+        <form name="form_comment_$rs[cid]" id="form_comment_$rs[cid]" method="post" action="{$Mdomain}/comment_ajax.php?fid=$fid&id=$id&cid=$rs[cid]">
+        <table border="0" cellspacing="0" cellpadding="0" id="div_comment_$rs[cid]" class="warp_comment" style="display:none;">
+          <tr>
+            <td class="tdL">&nbsp;</td>
+            <td class="tdR">&nbsp;</td>
+          </tr>
+          <tr style="display:$comment_yzimg_tr" id="comment_yzimg_tr_$rs[cid]">           
+            <td class="tdL">验证码：</td>
+            <td class="tdR"><input id="yzImgNum_$rs[cid]" type="text" size="8" onFocus="$('#yz_Img_$rs[cid]').show();$('#yz_Img_$rs[cid]')[0].src='$webdb[www_url]/do/yzimg.php?'+Math.random();"></span><span><img id="yz_Img_$rs[cid]" style="display:none;" name="imageField" onclick="this.src=this.src+Math.random();"/> </span></td>
+          </tr>
+          <tr>
+            <td class="tdL">称 呼：</td>
+            <td class="tdR"><input type="text" name="username" id="comment_username_$rs[cid]" value="$lfjid"></td>
+          </tr>
+          <tr>
+            <td class="tdL">内 容：</td>
+            <td class="tdR"><textarea name="content"  id="comment_content_$rs[cid]"></textarea></td>
+          </tr>
+          <tr>
+            <td class="tdL">&nbsp;</td>
+            <td class="tdR"><input type="button" onclick="post_comments('$rs[cid]');" value="提交"></td>
+          </tr>
+          <tr>
+            <td class="tdL">&nbsp;</td>
+            <td class="tdR">&nbsp;</td>
+          </tr>
+        </table>
+        </form>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class='ShowCommentPage'>$showpage</div>":"";
+$no_Comment=$listdb?"":"<div class='no_Comment'>暂时还没有任何评论</div>";
+print <<<EOT
+-->
+$showpage
+$no_Comment
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,48 @@
+<!--
+<?php 
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head"><div class="tag">我发布的免费信息 <a href="$city_url/post.php" target="_blank">发布免费信息</a></div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="54%">信息内容</th>
+            <th width="20%">日期</th>
+            <th width="8%">模型</th>
+            <th width="8%">操作</th>
+            <th width="10%">修改/删除</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[Lurl]=get_info_url('',$rs[fid],$rs[city_id]);
+$rs[title]=get_word($rs[title],40);
+$rs[fname]=get_word($rs[fname],16);
+print <<<EOT
+-->
+          <tr>
+            <td class="tL">
+            	<a href="$Murl/bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a>
+                <a href="$Murl/list.php?fid=$rs[fid]" target="_blank"><span class="red">[{$rs[fname]}]</span></a>
+                <span style="color:#999;">({$city_DB[name][$rs[city_id]]})</span>
+            </td>
+            <td>$rs[posttime]</td>
+            <td>{$module_db[$rs[mid]]}</td>
+            <td><a href="javascript:" click=1 editcode="">操作</a><div style="display:none;">{$rs[update]}<br/>{$rs[dotop]}<br/>{$rs[pop1]}<br/>{$rs[pop2]}<br/>{$rs[pop3]}</div></td>
+            <td><a href="javascript:" click=1 editcode="<a target='_blank' href='../post.php?job=edit&fid=$rs[fid]&id=$rs[id]'>修改内容</a><br><a href='editsort.php?job=edit&fid=$rs[fid]&id=$rs[id]'>修改分类</a>">修改</a>/<a href="../post.php?action=del&fid=$rs[fid]&id=$rs[id]&rid=$rs[rid]" target="_blank">删除</a></td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

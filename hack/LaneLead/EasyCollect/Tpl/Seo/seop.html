@@ -1,0 +1,136 @@
+<taglib name="html" />
+<include file="Index:header" />
+<script language="javascript">
+ <!--
+	function Delete(id){
+	    if(confirm('你确认要删除本词条吗?')==true)
+		ThinkAjax.send('__URL__/SaveSeop/delete/1','ajax=1&id='+id,SaveComplete,'result');
+	}
+	function EditList(){
+		ThinkAjax.sendForm('list_seop','__URL__/SaveSeop/savelist/1',SaveComplete,'result');
+	}
+	function DeleteList(){
+	     if(confirm('你确认要批量删除吗?')==true)	
+		ThinkAjax.sendForm('list_seop','__URL__/SaveSeop/deletelist/1',SaveComplete,'result');
+	}	
+	function Save(id){
+		if(id==undefined) id=0;
+		pcontent=$('#pcontent'+id).val();
+		if(pcontent=='') {
+			$('#pcontent'+id).focus();
+			contnet='<span class="errorTip">请输入段落内容!</span>';			
+			showfloatTips(contnet);
+			return false;		
+		}
+		ThinkAjax.sendForm('list_seop','__URL__/SaveSeop/save/1/id/'+id,SaveComplete,'result');
+	}
+	function SaveComplete(data,status){
+		if (status==1)
+		{
+			window.setTimeout(function (){window.location.href='__SELF__'},1000);
+		}
+	}	
+ //-->
+</script>
+
+<form name="list_seop" id="list_seop"  method="post" action="__URL__/SaveSeop/save/1" style="margin:0; padding:0;">
+  <table cellpadding="3" cellspacing="1" class="tablewidth" align="center">
+    <tr class="head8">
+      <td>自定义SEO段落</td>
+      <td width="60">段落位置</td>
+      <td width="60">前台显示</td>
+      <td width="60">确定添加</td>
+    </tr>
+    <tr>
+      <td><html:editor id="pcontent0" name="pcontent[0]" type="kindeditor" style="width:100%;height:120px;" >{$vo.pcontent}</html:editor></td>
+      <td style="text-align:center;"><p>
+          <input type="radio" name="position[0]" value="1">
+          <label>段首</label>
+        </p>
+        <p>
+          <input type="radio" name="position[0]" value="2">
+          <label>段尾</label>
+        </p>
+        <p>
+          <input type="radio" name="position[0]" value="3">
+          <label>随机</label>
+        </p></td>
+      <td style="text-align:center;"><p>
+          <input type="radio" name="ifshow[0]" value="1" checked>
+          <label>显示</label>
+        </p>
+        <p>
+          <input type="radio" name="ifshow[0]" value="2">
+          <label>隐藏</label>
+        </p></td>
+      <td><input type="button" name="Submit_eidit_list" value="添加" onClick="Save(0)" style="font-size:18px; height:36px; color:#003399; font-weight:bold;"></td>
+    </tr>
+  </table>
+  <table width='100%' cellspacing='1' cellpadding='3' class="tablewidth" align="center">
+    <tr class="head7">
+      <td width="60" align="center">段落ID</td>
+      <td>段落内容</td>
+      <td width="60">段落位置</td>
+      <td width="60">前台显示</td>
+      <td width="60">词条操作</td>
+    </tr>
+    <volist id="vo" name="list">
+      <php>unset($position_db);$position_db[$vo['position']]=' checked ';unset($ifshow_db);$ifshow_db[$vo['ifshow']]=' checked ';</php>
+      <tr  id="list_seop_tr_{$vo.id}" class="trA" onMouseOver="this.className='trB'" onMouseOut="this.className='trA'">
+        <td><input type="checkbox" name="iddb[{$vo.id}]" value="{$vo.id}">
+          {$vo.id|sprintf="%03d",###}</td>
+        <td style="text-align:left;"><html:editor id="pcontent{$vo.id}" name="pcontent[{$vo.id}]" type="kindeditor" style="width:100%;height:100px;" >{$vo.pcontent}</html:editor>
+        </td>
+        <td><p>
+            <input type="radio" name="position[{$vo.id}]" value="1" {$position_db[1]}>
+            <label>段首</label>
+          </p>
+          <p>
+            <input type="radio" name="position[{$vo.id}]" value="2" {$position_db[2]}>
+            <label>段尾</label>
+          </p>
+          <p>
+            <input type="radio" name="position[{$vo.id}]" value="3" {$position_db[3]}>
+            <label>随机</label>
+          </p></td>
+        <td><p>
+            <input type="radio" name="ifshow[{$vo.id}]" value="1" {$ifshow_db[1]}>
+            <label>显示</label>
+          </p>
+          <p>
+            <input type="radio" name="ifshow[{$vo.id}]" value="2" {$ifshow_db[2]}>
+            <label>隐藏</label>
+          </p></td>
+        <td><p>
+            <input type="button" name="Submit_edit_SaveSeop" value="修改" onClick="Save({$vo.id})" style="font-size:14px; height:24px;">
+          </p>
+          <p>
+            <input type="button" name="Submit_add_SaveSeop" value="删除" onClick="Delete({$vo.id})" style="font-size:14px; height:24px;">
+          </p></td>
+      </tr>
+    </volist>
+    <tr>
+      <td><div align="center"><a href="javascript:" onClick="CheckAll('list_seop','all','iddb')">全选</a> / <a href="javascript:" onClick="CheckAll('list_seop','','iddb')">反选</a></div></td>
+      <td colspan="4"><input type="button" name="Submit_eidit_list" value="批量修改" onClick="EditList()">
+        &nbsp;
+        <input type="button" name="Submit_eidit_list" value="批量删除"  style="color:red;"onClick="DeleteList()">
+        &nbsp; <span class="sabrosus"> {$page} </span> </td>
+    </tr>
+  </table>
+</form>
+<table width="100%" border="0"  cellpadding="3" cellspacing="1" class="tablewidth" align="center">
+  <tr class="head">
+    <td><div align="left" style="color:red; font-weight:bold;">注意事项:</div></td>
+  </tr>
+  <tr>
+    <td><p>在自定义段落库中可以使用以下<font color="#FF0000">通用标签</font>:	</p>
+      <p>
+	  <font color="#FF0000">{WebName}</font> - 自动替换为你的网站标题,超链接你的网站地址<br>
+	  <font color="#FF0000">{WebURL}</font> - 自动替换为你的网站地址<br>
+	  <font color="#FF0000">{UserName}</font> - 自动替换为采集用户名<br>
+	  <font color="#FF0000">{Contact}</font> - 自动替换为管理员联系方式(email等)<br>
+	  </p></td>
+  </tr>
+</table>
+
+<include file="Index:footer" />

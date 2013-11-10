@@ -1,0 +1,54 @@
+<!--
+<?php
+print <<<EOT
+--> 
+ <SCRIPT LANGUAGE="JavaScript">
+<!--
+function foreColor_font(obj)
+{
+  
+  var arr = showModalDialog('images/selcolor.htm', '', 'dialogWidth:18.5em; dialogHeight:17.5em; status:0');
+  if (arr != null)  obj.value=arr;
+  else  obj.focus();
+  obj.style.background=arr;
+}
+//-->
+</SCRIPT><form name="myform" method="post" action="index.php?lfj=$lfj&action=$job">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+  
+    <tr class="head"> 
+      <td colspan="2"> 修改模板</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width="14%"> 模板文件</td>
+      <td width="86%"> <a href="../template/default/$filepath" target="_blank">/template/default/$filepath</a></td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width="14%">模板代码:</td>
+      <td width="86%">  
+        <textarea name="code" cols="140" rows="20" id="tplpart_1">$code</textarea>
+        <br>
+        <input type="button" value="切换可视化编辑器" onclick="initEditor('tplpart_1','770px','300px');$(this).hide();" />
+      </td>
+    </tr>
+    <tr align="center" bgcolor="#FFFFFF"> 
+      <td colspan="2"> 
+        <input type="hidden" name="filepath" value="$filepath">
+        <input type="submit" name="Submit" value="提交">
+      </td>
+    </tr>
+  
+</table></form>
+<!--
+EOT;
+?>
+-->
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+     <tr class="head"> 
+      
+    <td  > 帮助说明:</td>
+    </tr>
+  <tr>
+    <td>1.修改前，请备份一下文件。修改后若出错，方便还原替换！</td>
+  </tr>
+</table>

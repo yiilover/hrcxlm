@@ -1,0 +1,237 @@
+<!--
+<?php
+$listmembers=$lfjid?"<a href='$webdb[www_url]/member/' target='_blank' class='ck'>管理</a> <a href='$webdb[www_url]/do/login.php?action=quit'>退出</a>":"<a href='$webdb[www_url]/do/reg.php'>注册</a> <a href='$webdb[www_url]/do/login.php' class='ck'>登录</a>";
+$rsdb[title] || $rsdb[title] = get_txt_word($rsdb[content],40);
+print <<<EOT
+-->
+<script type="text/javascript">
+
+function AddFavorite(sURL, sTitle)
+{
+    try
+    {
+        window.external.addFavorite(sURL, sTitle);
+    }
+    catch (e)
+    {
+        try
+        {
+            window.sidebar.addPanel(sTitle, sURL, "");
+        }
+        catch (e)
+        {
+            alert("加入收藏失败，请使用Ctrl+D进行添加");
+        }
+    }
+}
+</script>
+<link rel="stylesheet" type="text/css" href="$Murl/images/main/bencandy.css">
+<div class="MainCont">
+	<div class="Main">
+    	<div class="BaseInfo">
+        	<div class="head">
+            	<div class="tag"><a href='$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]' target='_blank'>$rsdb[username]</a> $rsdb[posttime]</div>
+                <div class="more">
+<!--
+EOT;
+if($lfjuid==$rsdb[uid]||$web_admin){print <<<EOT
+-->
+					<div class="post"><span><a editurl='{$Mdomain}/ajax.php?inc=bencandy&fid=$fid&id=$id&rid=$rsdb[rid]&job=do' href="#">管理</a></span></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+                	<div class="jb"><span><a href="mailto:$webdb[webmail]">举报</a></span></div>
+                    
+                    <div class="comment"><span><a href="#ShowComment">评论</a></span></div>
+                     <div class="fs"><span><a href="$webdb[www_url]/member/?main=$Murl/member/post.php?fid=$fid" target=_blank>发布</a></span></div>
+                    <div class="load"><span><a href="#" onclick="AddFavorite('$WEBURL','$rsdb[title]')">加入收藏</a></span></div>
+                </div>
+            </div>
+            <div class="title">$rsdb[title]</div>
+            <table class="content" width="100%" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td><div class="contstart">&nbsp;</div>
+
+<!--
+EOT;
+if($rsdb[picurl] && !strstr($rsdb[content],substr(basename($rsdb[picurl]),0,20))){print <<<EOT
+-->
+<center><img src="$rsdb[picurl]" onerror="this.style.display:none;" onload="if(this.width>600)this.width=600;"></center>
+
+<!--
+EOT;
+}print <<<EOT
+-->
+				$rsdb[content]
+				
+				<div class="contover">&nbsp;</div></td>
+              </tr>
+            </table> 
+            <div class="OtherAct">
+            	<div class="fname">$rsdb[keywords]</div>
+                <div class="Act">
+                	<span class="comment">评论($rsdb[comments])</span>
+                    <span class="like">浏览({$rsdb[hits]})</span>
+                     
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ShowComment"><div id="comment"></div></div>
+        <div class="AddComment">
+        	<div class="head"><div class="tag">我来说两句<a name="ShowComment"></a></div></div>
+        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td class="tdL">称呼:</td>
+                <td class="tdR"><input type="text" name="textfield2" id="comment_username" value="$lfjid"></td>
+              </tr>
+<!--
+EOT;
+if(!$web_admin){
+print <<<EOT
+-->
+              <tr> 
+                <td class="tdL">验证码:</td>
+                <td class="tdR"> 
+                  <span><input id="yzImgNum" type="text" name="yzimg" size="8"></span>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span><img border="0" name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"></span>');
+//-->
+</SCRIPT>
+                </td>
+              </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+              <tr> 
+                <td class="tdL">内容:</td>
+                <td class="tdR"><textarea name="textfield" cols="50" rows="5" id="comment_content" onKeyDown="quickpost(event)"></textarea></td>
+              </tr>
+              <tr> 
+                <td class="tdL">
+<script language="JavaScript">
+<!--
+getcomment("{$Mdomain}/comment_ajax.php?fid=$fid&id=$id");
+cnt = 0;
+function quickpost(event){
+	if((event.ctrlKey && event.keyCode == 13)||(event.altKey && event.keyCode == 83)){
+		cnt++;
+		if (cnt==1){
+			postcomment('{$Mdomain}/comment_ajax.php?action=post&fid=$fid&id=$id')
+		}else{
+			alert('内容正在提交...');
+		}
+	}	
+}
+//-->
+</script>
+                </td>
+                <td class="tdR">
+                  <input type="button" id="comment_submit" name="Submit" value="发表评论" onClick="postcomment('{$Mdomain}/comment_ajax.php?action=post&fid=$fid&id=$id','$webdb[yzImgComment]')">
+                </td>
+              </tr>
+            </table>
+        </div>
+
+
+    </div>
+    <div class="Side">
+    	<div class="MemberCont">
+        	<div class="head"><span class="tag">会员相关</span></div>
+            <div class="cont">
+				$listmembers
+            </div>
+        </div>
+		<div class="SideConts">
+        	<div class="head"><span class="tag">标签</span><span class="more"><a href="#">更多</a></span></div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td class="cont">
+ 
+<!--
+EOT;
+$listdb = list_hot_keyword($rows=20);
+foreach($listdb AS $rss){
+print <<<EOT
+-->
+                	<div><a style="$rss[style]" href="$webdb[www_url]/wei/tag.php?keyword=$rss[keywords]">$rss[keywords]</a></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                </td>
+              </tr>
+            </table>
+        </div>
+        <div class="SideConts">
+        	<div class="head"><span class="tag">分类</span><span class="more"><a href="#">更多</a></span></div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td class="cont">
+<!--
+EOT;
+$fidkey=$fidDB[fup]?$fidDB[fup]:0;
+foreach($Fid_db[$fidkey] AS $key=>$rs){
+print <<<EOT
+-->
+                	<div><a href="$webdb[www_url]/wei/list.php?fid=$key">$rs</a></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                </td>
+              </tr>
+            </table>
+        </div>
+        <div class="SideConts">
+        	<div class="head"><span class="tag">热门分享</span><span class="more"><a href="#">更多</a></span></div>
+            <div class="cont">
+<!--
+EOT;
+$array=Get_Info($type='hot',$webdb[InfoJsListRows]>0?$webdb[InfoJsListRows]:10,$webdb[InfoJsListLeng]>0?$webdb[InfoJsListLeng]:40,$fid,$mid=0);
+foreach($array AS $rs){print <<<EOT
+-->
+             
+            <div class="list"><a href="$webdb[www_url]/wei/bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" title="$rs[title]">$rs[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+    </div>
+    <div class="ClearBoth"></div>
+</div>
+<div class="ClearBoth" style="clear:both;"></div>
+<!--
+EOT;
+?>
+-->
+<script type="text/javascript">
+<!--
+function post_comments(cid){ 
+	var yzimg=$("#yzImgNum_"+cid).val();
+	var urls=$("#form_comment_"+cid).attr("action");
+	if(document.getElementById("comment_yzimg_tr_"+cid).style.display==''){
+		if(document.getElementById("yzImgNum_"+cid).value==''){
+			alert('验证码不能为空!');
+			return false;
+		}
+	}
+	var username=$("#comment_username_"+cid).attr("value");
+	var content=$("#comment_content_"+cid).attr("value");
+	if(content==""){
+		alert('内容不能为空!');
+		return false;
+	}
+	getcomment(urls+'&action=post&yzimg='+yzimg+'&username='+username+'&content='+content);
+}
+//-->
+</script>

@@ -1,0 +1,998 @@
+<include file="header" />
+<php> if(!$ec_id) {
+  extract(C('rule_save'));
+  extract(C('rule_seo'));
+  }
+  extract($vo);
+  $t_minleng || $t_minleng=8;
+  $rc_file_type || $rc_file_type='jpg|gif|jpeg|png';
+  $rc_file_explode || $rc_file_explode='src=';
+  $rk_egapi || $rk_egapi = "bd";
+  $agent || $agent=$_SERVER['HTTP_USER_AGENT'];
+  $port || $port=80;
+  
+  $check_array = array('rc_spe2page','rs_ifgetfile', 'rs_postusermod', 'rs_autoip', 'rs_autohits', 'rs_ifyz', 'rs_ifautocopyfrom', 'rs_ifautocopyfromurl','rs_ifautoauthor', 'rs_ifreverse', 'rs_fiframe', 'rs_fobject','rs_autonamemod','rs_autopassmod', 'rs_fscript', 'rs_embed', 'rs_fdisplaynone', 'rs_fa', 'rs_fimg','rseo_titlemod','rseo_kwmod','rseo_dcmod','rseo_autokwreplace','rseo_contentreplace','rseo_firstp','rseo_endp','rseo_middlep','rseo_autoseo','ifauto_timingc','c_mode','rk_egapi','rk_order','rt_rulepage','rc_spe2page','t_fmod','c_gmod','c_mpmod','ifauto_save','ifauto_seo','if_egparams');
+  foreach($check_array AS $k => $v) {
+  if(!$$v) $$v = 0;
+  $t = $v . '_db';
+  $$t = array($$v => ' checked ');
+  } 
+  $nums=count($rc_ruleDB); </php>
+<script type="text/javascript">
+  
+function  choose_autofields(showid){
+	if($('#cms_module').attr("value")=='') {
+		cms_module='fenlei';
+	}else{
+		cms_module=$('#cms_module').attr("value");
+	}
+	$.post('__URL__/choose_autofields/cms_module/'+cms_module+'/showid/'+showid,{},function(data){
+		data = data.data;
+		$('#show_mfield'+showid).html(data).show();
+	},'json');
+} 
+
+  </script>
+<form id="CrurlForm" name="CrurlForm" method="post" action="__URL__/SaveRule" style="margin:0; padding:0;">
+  <div id="description">
+    <div id="description_head">
+      <ul>
+        <li><a id="description_first" href="#description_base" class="here">Step1：采集规则配置<font color="red">(核心)</font></a></li>
+        <li><a href="#description_other">Step2：其他设置(入库/SEO等)</a></li>
+      </ul>
+    </div>
+    <div id="description_content">
+      <div id="description_base">
+        <table class="tablewidth" style="border: #CCCCCC 1px solid;" cellspacing='1' cellpadding='3' align="center">
+          <tr class="head2" onClick="showHide('rule_base_1');">
+            <td><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>规则基本设置(提示:点击展开/关闭)</b></td>
+          </tr>
+          <tr id="rule_base_1">
+            <td><table width="100%" border="0" cellpadding="3" cellspacing="1">
+                <tr>
+                  <td width="24%">规则名称/所属分类:</td>
+                  <td><input type="text" name="ec_name" size="50" value="{$ec_name}">
+                    <span class="blank2">=></span> <span>{$show_ec_sort}</span> </td>
+                </tr>
+                <tr>
+                  <td><span style="color:red; font-weight:bold;">适用模块/入库栏目: </span></td>
+                  <td> {$show_cms_module} <span class="blank2">=></span> <span id="show_appsort"></span></td>
+                </tr>
+                <tr>
+                  <td>请选择导入城市:</td>
+                  <td>{$show_city} <span class="blank2">=></span> <span id="show_zone"></span><span class="blank2">=></span> <span id="show_street"></span></td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr class="head2" onClick="showHide('rule_base_2');">
+            <td><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>规则核心设置(采集运行的关键)</b></td>
+          </tr>
+          <tr id="rule_base_2">
+            <td><table width="100%" border="0" cellpadding="3" cellspacing="1">
+                <tr class="head5">
+                  <td width="24%">请选择采集模式:</td>
+                  <td><input type="radio" name="c_mode" value="1" {$c_mode_db[1]} onclick="show_radio(this.name)" disabled="disabled">
+                    关键词智能采集<span help=1>关键词采集是易采集器自动根据设置的关键词到搜索引擎里搜索,根据搜索引擎的结果进行采集,从而获得搜索引擎高权重文章的一种采集方法.</span> <span class="blank2"></span>
+                    <input type="radio" name="c_mode" value="2" {$c_mode_db[2]} onclick="show_radio(this.name)" disabled="disabled">
+                    RSS列表智能采集<span help=1>RSS采集是易采集器自动监控RSS地址进行文章采集的一种方法,一般用于普通文章采集.</span> <span class="blank2"></span>
+                    <input type="radio" name="c_mode" value="3" {$c_mode_db[3]} onclick="show_radio(this.name)" disabled="disabled">
+                    定向智能采集<span help=1>定向智能采集是易采集器根据智能规则库进行智能采集的一种方法.</span> <span class="blank2"></span>
+                    <input type="radio" name="c_mode" value="4" {$c_mode_db[4]} onclick="show_radio(this.name)">
+                    自定义规则采集(精准)<span help=1>自定义标题列表url获取规则和内容字段获取规则,适合复杂模型的精准采集.</span> </td>
+                </tr>
+                <tr>
+                  <td colspan="2"><table width="100%" border="0" cellpadding="3" cellspacing="1" class="c_mode1">
+                      <tr>
+                        <td width="24%">采集引擎接口:</td>
+                        <td><label>
+                          <input type="radio" name="rk_egapi" value="bd" {$rk_egapi_db['bd']}>
+                          百度</label>
+                          <label>
+                          <input type="radio" name="rk_egapi" value="bdnews" {$rk_egapi_db['bdnews']}>
+                          百度新闻</label>
+                          <label>
+                          <input type="radio" name="rk_egapi" value="sgnews" {$rk_egapi_db['sgnews']}>
+                          搜狗新闻</label>
+                          <label>
+                          <input type="radio" name="rk_egapi" value="ydnews" {$rk_egapi_db['ydnews']}>
+                          有道新闻</label>
+                          <label>
+                          <input type="radio" name="rk_egapi" value="yh" {$rk_egapi_db['yh']}>
+                          雅虎</label>
+                          <label>
+                          <input type="radio" name="rk_egapi" value="bg" {$rk_egapi_db['bg']}>
+                          必应</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>采集顺序设置:<span help=1>(关键词少建议按关键词顺序，否则用随机以保证栏目采集均匀)</span></td>
+                        <td><input type="radio" name="rk_order" value="0" {$rk_order_db[0]}>
+                          按关键词顺序
+                          <input name="rk_order" type="radio" value="1" {$rk_order_db[1]}>
+                          随机采集 </td>
+                      </tr>
+                      <tr>
+                        <td>请输入采集关键词:<span help=1>为了保证采集的有效性,每个关键词采集数量限制最大为10 <br />
+                          建议一个栏目设置关键词数量不超过5个</span><br />
+                          <span class="help">(格式:关键词|采集数量,多个请换行.)</span></td>
+                        <td><textarea name="rk_kw" id="rk_kw" rows="4">{$rk_kw}</textarea>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellpadding="3" cellspacing="1" class="c_mode2">
+                      <tr>
+                        <td width="24%">请输入RSS地址： <span help=1>(如新浪-新闻要闻rss地址:http://rss.sina.com.cn/news/marquee/ddt.xml)</span> <br />
+                          <span class="help">(一行一个)</span></td>
+                        <td><textarea name="rr_rss" id="rr_rss" rows="4">{$rr_rss}</textarea></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellpadding="3" cellspacing="1" class="c_mode3">
+                      <tr>
+                        <td width="24%">定向智能规则库选择： <span help=1>(定向智能规则库中的入库字段是根据系统中默认字段设定的,如果您的入库模块采用了自定义字段,请选择使用自定义规则采集模式.)</span></td>
+                        <td>{$show_rd_rulebase}</td>
+                      </tr>
+                      <tr>
+                        <td>请输入标题列表地址：<br />
+                          <span class="help">(每行一个)</span></td>
+                        <td><textarea name="rd_listurl" id="rd_listurl" rows="3">{$rd_listurl}</textarea></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellpadding="3" cellspacing="1" class="c_mode4">
+                      <tr class="head3" onClick="showHide('rule_title');">
+                        <td colspan="2"><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>自定义标题列表获取规则</b></td>
+                      </tr>
+                      <tr>
+                        <td colspan="2"  id="rule_title"><table width="100%" border="0" cellpadding="3" cellspacing="1">
+                            <tr>
+                              <td width="24%">标题列表页分页设置：</td>
+                              <td><input type="radio" name="rt_rulepage" value="0" {$rt_rulepage_db[0]}  onclick="show_radio(this.name)">
+                                手工输入多页（常用，推荐）
+                                <input type="radio" name="rt_rulepage" value="1"  {$rt_rulepage_db[1]} onclick="show_radio(this.name)">
+                                有规则的连续多页</td>
+                            </tr>
+                            <tr class="rt_rulepage1">
+                              <td>文章列表页URL： <br>
+                                <span class="help">多页请换行,每行一页 </span><span help=1>注意:是文章的列表页,不是内容页</span> </td>
+                              <td><textarea name="rt_listmoreurl" id="rt_listmoreurl"  rows="3">{$rt_listmoreurl}</textarea>
+                              </td>
+                            </tr>
+                            <tr class="rt_rulepage2">
+                              <td>文章列表页URL规则: <br>
+                                <span class="help"> (对比两个不同的列表页网址,查找变动的部分(即页码)用 <font color="#FF0000" title="点击即可实现复制" onClick="javascript:CopyText(this);">[page]</font>代替).</span> <span help=1> 比如:<br />
+                                http://LaneLead.com/1/list.php?fid=1&amp;p=<font color="#FF0000">2</font><br />
+                                http://LaneLead.com/1/list.php?fid=1&amp;p=<font color="#FF0000">3</font><br />
+                                那右边应该填入<br />
+                                http://LaneLead.com/1/list.php?fid=1&amp;p=<font color="#FF0000" title="点击即可实现复制" onClick="javascript:CopyText(this);">[page]</font><br />
+                                一般情况第一页不会显示分页，所以大家最好从第二页开始分析 
+                                又比如:<br />
+                                http://LaneLead.com/1/list_<font color="#FF0000">1</font>.htm <br />
+                                http://LaneLead.com/1/list_<font color="#FF0000">2</font>.htm<br />
+                                http://LaneLead.com/1/list_<font color="#FF0000">3</font>.htm <br />
+                                那右边应该填入<br />
+                                http://LaneLead.com/1/list_<font color="#FF0000" title="点击即可实现复制" onClick="javascript:CopyText(this);">[page]</font>.htm<br />
+                                注意:如果第一页不是这样<br />
+                                http://LaneLead.com/1/list_<font color="#FF0000">1</font>.htm <br />
+                                而是<br />
+                                http://LaneLead.com/1/index<font color="#FF0000"></font>.htm<br />
+                                的话,这种情况第一页属于没规则,就需要在下面的表单输入框,输入这一页的网址.这种情况也是比较多出现的</span></td>
+                              <td><input type="text" style="width:90%;" name="rt_listurl" id="rt_listurl" value="{$rt_listurl}" >
+                              </td>
+                            </tr>
+                            <tr class="rt_rulepage2">
+                              <td>开始页码 -> 结尾页码:<br />
+                                <span class="help">即指定采集第几页到第几页.梯度是指相邻两个分页数之差.</span> <span help=1> 比如：<br />
+                                http://LaneLead.com/1/list.php?fid=1&amp;p=<font color="#FF0000">1</font><br />
+                                http://LaneLead.com/1/list.php?fid=1&amp;p=<font color="#FF0000">2</font><br />
+                                http://LaneLead.com/1/list.php?fid=1&amp;p=<font color="#FF0000">3</font> 则梯度为 <font color="#FF0000">1</font> </span> </td>
+                              <td>开始第几页
+                                <input name="rt_page_begin" id="rt_page_begin" type="text" value="{$rt_page_begin}" size="5" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                                <span class="blank2"></span> 结束第几页
+                                <input name="rt_page_end" id="rt_page_end" type="text" value="{$rt_page_end}" size="5" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                                <span class="blank2"></span> 梯度
+                                <input name="rt_page_step" type="text" value="{$rt_page_step}" size="5" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                              </td>
+                            </tr>
+                            <tr class="rt_rulepage2">
+                              <td>无规律的第一页网址: <span help=1>适用于第一页和其他页的规律不一致,比如:<br>
+                                第一页不是 
+                                http://LaneLead.com/1/list_<font color="#FF0000">1</font>.htm<br>
+                                而是 <br>
+                                http://LaneLead.com/1/list.htm <br>
+                                此时就在右边输入无规律的第一页网址.</span></td>
+                              <td><input type="text" name="rt_firstpage" style="width:90%;" value="{$rt_firstpage}"  >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>自定义文章列表获取规则: <span help=1> 即用通配符替换原文内容.<br>
+                                第一步,查看一个要采集的标题列表页HTML源代码.<br />
+                                第二步,分析标题列表网址特征,用通配符语法写出规则.<br />
+                                举例:标题列表重复部分html代码大致如下:<br />
+                                &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;<font color="#FF0000">文章URL地址</font>&quot; 
+                                title=&quot;<font color="#0000FF">文章标题</font>&quot;&gt;<font color="#FF0000">文章标题</font>&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;<br />
+                                那么左边输入<br />
+                                &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;<font color="#FF0000" title="点击即可实现复制" onClick="javascript:CopyText(this);">{url=\*}</font>&quot; 
+                                title=&quot;<font color="#0000FF" title="点击即可实现复制" onClick="javascript:CopyText(this);">{\*}</font>&quot;&gt;<font color="#FF0000" title="点击即可实现复制" onClick="javascript:CopyText(this);">{title=\*}</font>&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt; <br>
+                                </span> <span class="help"><br>
+                                通配符规则：<br />
+                                <font color="#FF0000" title="点击即可实现复制" onClick="javascript:CopyText(this);">{url=\*}</font> => 标题网址 (<font color="#FF0000">必需</font>)<br />
+                                <font color="#FF0000" title="点击即可实现复制" onClick="javascript:CopyText(this);">{title=\*}</font> => 标题 <br />
+                                <font color="#0000FF" title="点击即可实现复制" onClick="javascript:CopyText(this);">{\*}</font> => 不需要的内容 </span> </td>
+                              <td><textarea name="rt_titlerule" id="rt_titlerule" rows="5">{$rt_titlerule}</textarea>
+                              </td>
+                            </tr>
+                            <tr class="head4" onClick="showHide('rule_title_more');">
+                              <td colspan="2"><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>点击显示 标题规则 高级设置(不常用)</b></td>
+                            </tr>
+                            <tr id="rule_title_more" style="display:none;">
+                              <td colspan="2"><table width="100%" border="0" cellpadding="3" cellspacing="1">
+                                  <tr>
+                                    <td width="24%">标题列表<font color="red"><strong>开始部分</strong></font>特征代码 <span help=1><br />
+                                      (将截取源代码中,从<font color="red">开头</font>起第一次出现该特征代码<font color="red">之后</font>部分)</span> </td>
+                                    <td><textarea name="rt_begin_code" rows="2">{$rt_begin_code}</textarea>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>标题列表<font color="red"><strong>结尾部分</strong>特征代码</font><span help=1><br />
+                                      (将截取源代码中,截取从<font color="red">结尾</font>第一次出现该特征代码<font color="red">之前</font>部分) </span></td>
+                                    <td><textarea name="rt_end_code" rows="2">{$rt_end_code}</textarea>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>开头自定义PHP语句:<span help=1><br />
+                                      文章列表变量: <font color="red">数组 - $curlDB </font> <br />
+                                      当前列表url变量: <font color="red">字符串 - $curl</font> <br />
+                                      当前内容页html源码: <font color="red">$ccode </font> <br />
+                                      </span> </td>
+                                    <td><textarea name="rt_begin_preg" rows="2">{$rt_begin_preg}</textarea>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>结尾自定义PHP语句:<span help=1><br />
+                                      文章列表变量: <font color="red">数组 - $curlDB </font> <br />
+                                      当前列表url变量: <font color="red">字符串 - $curl</font> <br />
+                                      当前内容页html源码: <font color="red">$ccode </font> <br />
+                                      </span> </td>
+                                    <td><textarea name="rt_end_preg" rows="2">{$rt_end_preg}</textarea>
+                                    </td>
+                                  </tr>
+                                </table></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                      <tr class="head3" onClick="showHide('rule_content');">
+                        <td colspan="2"><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>自定义文章内容获取规则</b></td>
+                      </tr>
+                      <td colspan="2"  id="rule_content"><table width="100%" border="0" cellpadding="3" cellspacing="1">
+                            <tr>
+                              <td  width="24%">自定义内容字段获取规则: <br />
+                                <span class="help"> 格式：开始特征代码<font color="#0000FF">{字段名=\*}</font>结束特征代码 <br />
+                                含义：获取定义的两段代码间的内容作为该字段的值 <br />
+                                通配符：<font color="#FF0000">{字段名=\*}</font> <br />
+                                <font color="#FF0000"><b>说明:</b></font>通配符之前的代码要确保在要采集的内容之前唯一，通配符之后的代码应确保在通配符采集的内容中不包含这些代码。这是采集规则编写的核心所在！ </span> <span help=1><br>
+                                方法：查看要采集的内容页网页源代码,找到要采集的内容,删除它,用通配符<font color="#FF0000">{字段名=\*}</font>替换,然后再把他前面与后面的一小段代码也复制过来即可.<br />
+                                <font color="#0000FF">简单举例(常用):</font>比如被采集的网站内容页的html代码如下<br />
+                                &lt;tr&gt;&lt;td&gt;<font color="#FF0000">文章内容部分</font>&lt;/td&gt;&lt;/tr&gt;&lt;table&gt; <br />
+                                那么右边输入<br />
+                                &lt;tr&gt;&lt;td&gt;<font color="#FF0000" title="点击即可实现复制" onClick="javascript:CopyText(this);">{content=\*}</font>&lt;/td&gt;&lt;/tr&gt;&lt;table&gt; <br />
+                                <br />
+                                <font color="#0000FF">高级举例(分段采集合成):</font>支持同一个字段分段获取自动合并,最多支持5段. 比如被采集的网站内容页的html代码如下:<br />
+                                html源码<font color="#FF0000">要截取的第1部分内容</font>html源码<font color="#FF0000">要截取的第2部分内容</font>html源码<font color="#FF0000">要截取的第3部分内容</font>html源码 <br />
+                                <font color="#0000FF">则该字段的规则可以写为:</font> 开头特征代码1<font color="#FF0000">{字段名1=\*}</font>结尾特征代码1<font color="#FF0000">{\*}</font>开头特征代码2<font color="#FF0000">{字段名2=\*}</font>结尾特征代码2<font color="#FF0000">{\*}</font>开头特征代码3<font color="#FF0000">{字段名3=\*}</font>结尾特征代码3 <br />
+                                这样获取的各段内容,自动合并为定义字段的内容.<font color="#0000FF">这种分段采集方式中,需要用到{\*}通配符,含义为过滤不相关内容.</font> </span> </td>
+                              <td><p style=" width:90%;padding:5px 0;background:#FFFF99; color:blue;border:2px #009900 dotted;">说明:1.字段名称为数据表中要保存的字段名. 2.如果规定该字段必须采集,则:如果采集不到该字段内容,则跳过该篇文章,继续采集. 3.字段采集规则编写请参考左侧说明. 4.常见入库字段表查看.<br>
+                                  支持同一个字段多个获取规则,这样可以有效防止规则失效问题.分隔符： {||} <br>
+                                  支持二级页面内容获取,思路是：先获取二级页面url,然后获取字段内容. abc{nexturl=*}def{deep=1}abc{字段名=*}def </p>
+                                <eq name="rc_ruleDB|count" value="0"> <span id="show_rc_ruleDB1">
+                                  <p style="margin-bottom:5px;"> 第1个字段:
+                                    <php>$i=1;</php>
+                                    <script>choose_autofields({$i});</script>
+                                    <span id="show_mfield{$i}"></span>
+                                    <input type="text" name="rc_ruleDB[1][FieldName]" value="content" size="15">
+                                    &nbsp;
+                                    <input type="checkbox" name="rc_ruleDB[1][IsRquired]" value="1" checked>
+                                    必须采集 </p>
+                                  <textarea name="rc_ruleDB[1][FieldRule]" rows="3"></textarea>
+                                  </span> </eq>
+                                <volist name="rc_ruleDB" id="rcDB">
+                                  <php> unset($IsRquired_db);$IsRquired_db[$rcDB['IsRquired']] = " checked "; </php>
+                                  <span id="show_rc_ruleDB{$key}">
+                                  <p style="margin-bottom:5px;"> 第{$i}个字段:
+                                    <script>choose_autofields({$i});</script>
+                                    <span id="show_mfield{$i}"></span>
+                                    <input type="text" name="rc_ruleDB[{$i}][FieldName]" id="mfield{$i}" value="{$rcDB[FieldName]|stripslashes}" size="15">
+                                    &nbsp;
+                                    <input type="checkbox" name="rc_ruleDB[{$i}][IsRquired]" value="1" {$IsRquired_db[1]}>
+                                    必须采集 </p>
+                                  <textarea name="rc_ruleDB[{$i}][FieldRule]" rows="3">{$rcDB['FieldRule']|stripslashes}</textarea>
+                                  &nbsp; <a onClick="delItem_rcDB({$key});" href="javascript:;">删除</a> </span> </volist>
+                                <span id="moreItem"></span> <span style=" display:block;width:90%;margin-top:8px; background:#FFFF99; color:red; font-weight:bold; border:2px #009900 dotted;">再增加：
+                                <input type="text" name="textfield" value="1" size="5" id="addnum" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                                个字段采集规则           &nbsp;
+                                <input type="button" name="Submit_addItem" value="确定添加" onClick="addItem_rcDB();">
+                                <input type="hidden" name="addItemNum" id="num_s" value="{$nums}" >
+                                </span> </td>
+                            </tr>
+                            <tr class="head3" onClick="showHide('rule_content_more');">
+                              <td colspan="2"><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>点击显示 内容获取规则 高级设置(不常用)</b></td>
+                            </tr>
+                            <tr id="rule_content_more" style="display:none;">
+                              <td colspan="2"><table width="100%" border="0" cellpadding="3" cellspacing="1">
+                                  <tr>
+                                    <td width="24%"> 获取内容<font color="red"><strong>开始部分</strong></font>特征代码 :<span help=1><br />
+                                      (将截取源代码中,从<font color="red">开头</font>起第一次出现该特征代码<font color="red">之后</font>部分)</span> </td>
+                                    <td><textarea name="rc_begin_code" rows="2">{$rc_begin_code}</textarea>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>获取内容<font color="red"><strong>结尾部分</strong></font>特征代码:<span help=1><br />
+                                      (将截取源代码中,截取从<font color="red">结尾</font>第一次出现该特征代码<font color="red">之前</font>部分) </span></td>
+                                    <td><textarea name="rc_end_code" rows="2">{$rc_end_code}</textarea>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>多页处理:被替换的字符<span help=1><br />
+                                      比如: <br />
+                                      第一页http://LaneLead.com/1/index.html<br />
+                                      第二页http://LaneLead.com/1/index_2.html<br />
+                                      那么右边的表单填 <font color="#FF0000">.html </font><br />
+                                      再比如: <br />
+                                      第一页http://LaneLead.com?fid=39&aid=568 <br />
+                                      第二页http://LaneLead.com?fid=39&aid=568&page=2 <br />
+                                      那么右边的表单 <font color="#FF0000">留空即可 </font><br />
+                                      分析规则就是对比第一页与第二页的网址从左到右哪个字符出现不同,就把之后的字符复制出来</span></td>
+                                    <td><input type="text" name="rc_pagereplace" value="{$rc_pagereplace}">
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>多页处理:变动页替换规则 <span help=1><br />
+                                      比如: <br />
+                                      第一页http://LaneLead.com/1/index.html<br />
+                                      第二页http://LaneLead.com/1/index_2.html<br />
+                                      那么右边的表单填 <font color="#FF0000">_[page].html </font><br />
+                                      再比如: <br />
+                                      第一页http://LaneLead.com?fid=39&aid=568 <br />
+                                      第二页http://LaneLead.com?fid=39&aid=568&page=2 <br />
+                                      那么右边的表单填 <font color="#FF0000">&page=[page] </font><br />
+                                      分析规则就是对比第一页与第二页的网址从左到右哪个字符出现不同,就把第二页之后的字符复制出来,并把变动的页码数字用[page]替换</span></td>
+                                    <td><input type="text" name="rc_morepagerule"  value="{$rc_morepagerule}">
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>多页处理:第二页是否怪癖:<span help=1><br />
+                                      比如: <br />
+                                      第一页http://LaneLead.com/1/index.html<br />
+                                      第二页http://LaneLead.com/1/index_<font color="#FF0000">1</font>.html<br />
+                                      此时属于怪癖的,理论上应该是<br />
+                                      第三页http://LaneLead.com/1/index_<font color="#FF0000">2</font>.html <br />
+                                      所以右边请选择是,一般情况都是选否的 </span></td>
+                                    <td><input type="radio" name="rc_spe2page" value="1" {$rc_spe2page_db[1]}>
+                                      是
+                                      <input type="radio" name="rc_spe2page" value="0" {$rc_spe2page_db[0]}>
+                                      否 </td>
+                                  </tr>
+                                  <tr>
+                                    <td>文件url分隔符(默认为:<font color="#FF0000">src= </font>)<span help=1><br />
+                                      为了更准确的话,也可以根据html源代码灵活定义</span> </td>
+                                    <td><input type="text" name="rc_file_explode"  size="36" value="{$rc_file_explode}">
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>文件后缀名<span help=1>默认采集图片,后缀为<font color="#FF0000">jpg|gif|jpeg|png</font>,其他文件按需设置,如<font color="#FF0000">swf</font>,则采集flash </span> </td>
+                                    <td><input type="text" name="rc_file_type"  size="36"  value="{$rc_file_type}">
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>文件URL地址必须包含的字符<br />
+                                      <span class="help">(多个用‘|’隔开)</span> </td>
+                                    <td><textarea name="rc_file_incword" rows="2">{$rc_file_incword}</textarea>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>文件URL地址不能包含有的字符<br />
+                                      <span class="help">(多个用‘|’隔开)</span></td>
+                                    <td><textarea name="rc_file_noword" rows="2">{$rc_file_noword}</textarea>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>开头自定义PHP语句:<span help=1><br />
+                                      字段内容变量: <font color="red">数组 - $gcDB</font> <br />
+                                      当前内容页url: <font color="red">字符串 - $curl </font> <br />
+                                      当前内容页html源码: <font color="red">$ccode </font> <br />
+                                      </span></td>
+                                    <td><textarea name="rc_begin_preg" rows="2">{$rc_begin_preg}</textarea>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>结尾自定义PHP语句:<span help=1><br />
+                                      字段内容变量: <font color="red">数组 - $gcDB</font> <br />
+                                      当前内容页url: <font color="red">字符串 - $curl </font> <br />
+                                      当前内容页html源码: <font color="red">$ccode </font> <br />
+                                      </span></td>
+                                    <td><textarea name="rc_end_preg" rows="2">{$rc_end_preg}</textarea>
+                                    </td>
+                                  </tr>
+                                </table></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr class="head2" onClick="showHide('rule_base_3');">
+            <td><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>规则高级设置(有效采集的关键)</b></td>
+          </tr>
+          <tr id="rule_base_3" style="display:none;">
+            <td><table width="100%" border="0" cellpadding="3" cellspacing="1">
+                <tr>
+                  <td width="24%">重复采集过滤设置: </td>
+                  <td><input type="radio" name="t_fmod" value="1" {$t_fmod_db[1]}>
+                    采集url库重复识别<span class="help">(效率高)</span>
+                    <input name="t_fmod" type="radio" value="0" {$t_fmod_db[0]}>
+                    不过滤 </td>
+                </tr>
+                <tr>
+                  <td> 替换标题中的字符:<br />
+                    <span class="help">(格式:原字符|新字符,多个请换行)</span></td>
+                  <td><textarea name="t_replaceword" rows="2">{$t_replaceword}</textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>标题中必须包含的关键词:<span help=1>如果采集内容包含定义的任意一个关键词,则执行采集,否则跳过.例如:租房|售房,则只采集标题中含有"租房"或"售房"的文章.<font color="red">若配置得当,对网站SEO大有好处!</font></span> <br />
+                    <span class="help">(多个用‘|’隔开.)</span></td>
+                  <td><textarea name="t_incword" rows="2">{$t_incword}</textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>标题最少字符数:<span help=1><br />
+                    (一个汉字相当于两个字符。目的,有效过滤太短的标题,防止采集无效信息.) </span></td>
+                  <td><input type="text" name="t_minleng" size="5" value="{$t_minleng}" onKeyDown="onlyNum();" style="ime-mode:Disabled">
+                    <span class="help"> (默认最少8个字符,即4个汉字.) </span></td>
+                </tr>
+                <tr>
+                  <td>采集网址URL过滤(不能包含):<span help=1>(如果网址中包含定义的字符将不被采集.)</span><br />
+                    <span class="help">(多个用‘|’隔开)</span></td>
+                  <td><textarea name="url_noword" rows="2">{$url_noword}</textarea>
+                    <br>
+                  </td>
+                </tr>
+                <tr>
+                  <td>采集网址URL限制(必须包含):<span help=1>(只采集网址URL中包含定义字符的文章,目的是过滤无用URL.)</span><br />
+                    <span class="help">(多个用‘|’隔开)</span></td>
+                  <td><textarea name="url_incword" rows="2">{$url_incword}</textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>内容采集模式: </td>
+                  <td><input type="radio" name="c_gmod" value="0" {$c_gmod_db[0]}>
+                    常规内容采集
+                    <input name="c_gmod" type="radio" value="1" {$c_gmod_db[1]}>
+                    框架采集<span class="help">(只采集标题和文章url,一般不用)</span> </td>
+                </tr>
+                <tr>
+                  <td>多页采集模式: </td>
+                  <td><input type="radio" name="c_mpmod" value="0" {$c_mpmod_db[0]}>
+                    将采集多页合并为一页入库(推荐)
+                    <input type="radio" name="c_mpmod" value="1" {$c_mpmod_db[1]}>
+                    和采集目标分页设置一致 </td>
+                </tr>
+                <tr>
+                  <td> 采集内容字符替换:<br />
+                    <span class="help">(格式:原字符|新字符,多个请换行)</span></td>
+                  <td><textarea name="c_replaceword" rows="2">{$c_replaceword}</textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>采集正文中必须包含的关键词:<span help=1>如果采集到的主内容字段(一般为content字段)包含定义的任意一个关键词,则执行采集,否则跳过.例如:租房|售房,则只采集标题中含有"租房"或"售房"的文章.<font color="red">若配置得当,对网站SEO大有好处!</font></span> <br />
+                    <span class="help">(多个用‘|’隔开.)</span></td>
+                  <td><textarea name="c_incword" rows="2">{$c_incword}</textarea>
+                  </td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" cellpadding="3" cellspacing="1">
+                <tr style="height:36px;">
+                  <td></td>
+                  <td><input type="button" name="Submit_SaveRule" value="保存规则设置" onClick="post('saverule');">
+                    <span class="blank2"></span>
+                    <input type="button" name="Submit_testgather" value="测试采集(不入库)" onClick="post('testgather');">
+                    <span class="blank2"></span> <a class='submit' href='__APP__/Gather/index/runnow/1/showresult/1/ec_id/{$ec_id}/testgather/1' target='_blank'> 测试采集 </a> </td>
+                </tr>
+              </table></td>
+          </tr>
+        </table>
+      </div>
+      <div id="description_other">
+        <table class="tablewidth" style="border: #CCCCCC 1px solid;" cellspacing='1' cellpadding='3' align="center">
+          <tr class="head2" onClick="showHide('rule_other_rs');">
+            <td><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>采集入库规则设置</b></td>
+          </tr>
+          <tr id="rule_other_rs">
+            <td><table width="100%" border="0" cellpadding="3" cellspacing="1">
+                <tr class="head5">
+                  <td width="24%">采集入库规则设置:</td>
+                  <td><input type="radio" name="ifauto_save" value="0" {$ifauto_save_db[0]}  onclick="show_radio(this.name)">
+                    启用全局默认配置(可在全局配置中统一修改)
+                    <input type="radio" name="ifauto_save" value="1" {$ifauto_save_db[1]} onclick="show_radio(this.name)" />
+                    自定义入库规则</td>
+                </tr>
+                <tr>
+                  <td colspan="2"><table width="100%" border="0" cellpadding="3" cellspacing="1"  class="ifauto_save2">
+                      <tr>
+                        <td width="24%">远程图片本地化:<br />
+                          (极影响采集速度,极占用空间,建议关闭)</td>
+                        <td><input type="radio" name="rs_ifgetfile" value="0" {$rs_ifgetfile_db[0]}>
+                          否
+                          <input type="radio" name="rs_ifgetfile" value="1" {$rs_ifgetfile_db[1]}>
+                          是 <span  class="blank3"></span>文件存放目录:
+                          <input type="text" name="rs_file_dir" value="{$rs_file_dir}">
+                          <span class="help">(只有启用后,该配置才生效)</span> </td>
+                      </tr>
+                      <tr>
+                        <td>用户发表模式:<br />
+                          (默认为执行采集的用户)</td>
+                        <td><input type="radio" name="rs_postusermod" value="1" {$rs_postusermod_db[1]}>
+                          随机会员
+                          <input type="radio" name="rs_postusermod" value="2" {$rs_postusermod_db[2]}>
+                          游客
+                          <input type="radio" name="rs_postusermod" value="3" {$rs_postusermod_db[3]}>
+                          自动注册会员(一般在采集供求、黄页模块时需要开启)
+                          <input type="radio" name="rs_postusermod" value="4" {$rs_postusermod_db[4]}>
+                          指定用户 <span  class="blank3"></span>
+                          <input type="text" name="rs_postusername" value="{$rs_postusername}" size="12">
+                          <span class="help"> (启用指定用户模式时生效)</span> </td>
+                      </tr>
+                      <tr>
+                        <td>自动注册会员模式:<br />
+                          (一般在黄页、供求等模块使用) </td>
+                        <td><p>
+                            <input type="radio" name="rs_autonamemod" value="1" {$rs_autonamemod_db[1]}>
+                            以获取的公司名称为用户名
+                            <input type="radio" name="rs_autonamemod" value="0" {$rs_autonamemod_db[0]}>
+                            以公司名称拼音首字母为用户名  （公司名称获取字段为:CompnayName） </p>
+                          <p>
+                            <input type="radio" name="rs_autopassmod" value="0" {$rs_autopassmod_db[0]}>
+                            以公司名称拼音首字母为密码
+                            <input type="radio" name="rs_autopassmod" value="1" {$rs_autopassmod_db[1]}>
+                            手动指定密码 <span  class="blank3"></span>
+                            <input type="text" name="rs_autopass" value="{$rs_autopass}" size="12">
+                            <span class="help"> (启用指定密码模式时有效)</span> </p></td>
+                      </tr>
+                      <tr>
+                        <td>是否启用随机IP: <br />
+                          <span class="help">(如果启用随机IP,可以设定随机IP范围,以实现发表地区限制)</span></td>
+                        <td><input type="radio" name="rs_autoip" value="0" {$rs_autoip_db[0]}>
+                          否
+                          <input type="radio" name="rs_autoip" value="1" {$rs_autoip_db[1]}>
+                          是 <span  class="blank3"></span>IP范围:
+                          <input type="text" name="rs_ip11" value="{$rs_ip11}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                          -
+                          <input type="text" name="rs_ip12" value="{$rs_ip12}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                          ||
+                          <input type="text" name="rs_ip21" value="{$rs_ip21}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                          -
+                          <input type="text" name="rs_ip22" value="{$rs_ip22}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                          ||
+                          <input type="text" name="rs_ip31" value="{$rs_ip31}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                          -
+                          <input type="text" name="rs_ip32" value="{$rs_ip32}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                          ||
+                          <input type="text" name="rs_ip41" value="{$rs_ip41}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                          -
+                          <input type="text" name="rs_ip42" value="{$rs_ip42}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>是否启用随机点击数: </td>
+                        <td><input type="radio" name="rs_autohits" value="0" {$rs_autohits_db[0]}>
+                          否
+                          <input type="radio" name="rs_autohits" value="1" {$rs_autohits_db[1]}>
+                          是 <span  class="blank3"></span> 最小点击数:
+                          <input type="text" name="rs_hits1" value="{$rs_hits1}" size="5" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                          &nbsp; 最大点击数:
+                          <input type="text" name="rs_hits2" value="{$rs_hits2}" size="5" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                          <span class="help">(只有启用后,该配置才生效)</span> </td>
+                      </tr>
+                      <tr>
+                        <td>是否自动审核: </td>
+                        <td><input type="radio" name="rs_ifyz" value="0" {$rs_ifyz_db[0]}>
+                          否
+                          <input type="radio" name="rs_ifyz" value="1" {$rs_ifyz_db[1]}>
+                          是  &nbsp; <span class="help">(如果取消自动审核,采集的文章可以手动修改后发表.)</span> </td>
+                      </tr>
+                      <tr>
+                        <td>是否启用默认文章来源: </td>
+                        <td><input type="radio" name="rs_ifautocopyfrom" value="0" {$rs_ifautocopyfrom_db[0]}>
+                          否
+                          <input type="radio" name="rs_ifautocopyfrom" value="1" {$rs_ifautocopyfrom_db[1]}>
+                          是 <span  class="blank3"></span> 默认文章来源:
+                          <input type="text" name="rs_autocopyfrom" value="{$rs_autocopyfrom}">
+                          <span class="help">(只有启用后,该配置才生效)</span> </td>
+                      </tr>
+                      <tr>
+                        <td>是否启用默认文章来源url: </td>
+                        <td><input type="radio" name="rs_ifautocopyfromurl" value="0" {$rs_ifautocopyfromurl_db[0]}>
+                          否
+                          <input type="radio" name="rs_ifautocopyfromurl" value="1" {$rs_ifautocopyfromurl_db[1]}>
+                          是 <span  class="blank3"></span> 默认文章来源url:
+                          <input type="text" name="rs_autocopyfromurl" value="{$rs_autocopyfromurl}" size="35">
+                          <span class="help">(只有启用后,该配置才生效)</span> </td>
+                      </tr>
+                      <tr>
+                        <td>是否启用自定义作者: </td>
+                        <td><input type="radio" name="rs_ifautoauthor" value="0" {$rs_ifautoauthor_db[0]}>
+                          否
+                          <input type="radio" name="rs_ifautoauthor" value="1" {$rs_ifautoauthor_db[1]}>
+                          是 <span  class="blank3"></span> 自定义作者:
+                          <input type="text" name="rs_autoauthor" value="{$rs_autoauthor}" size="35">
+                          <span class="help">(只有启用后,该配置才生效)</span> </td>
+                      </tr>
+                      <tr>
+                        <td>每次采集数量限制: </td>
+                        <td><input type="text" name="rs_limitnum" value="{$rs_limitnum}" size="5" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                          &nbsp; <span class="help">(为了提高采集有效性,建议每次采集10篇以下. 0 - 不限制)</span> </td>
+                      </tr>
+                      <tr>
+                        <td>是否倒序采集: </td>
+                        <td><input type="radio" name="rs_ifreverse" value="0" {$rs_ifreverse_db[0]}>
+                          否
+                          <input type="radio" name="rs_ifreverse" value="1" {$rs_ifreverse_db[1]}>
+                          是  &nbsp; <span class="help">(与采集目标网站文章列表顺序相反,不常用.)</span> </td>
+                      </tr>
+                      <tr>
+                        <td>自动静态化: </td>
+                        <td><span style="color:blue">请在全局参数中统一进行设置。如果启用，则全部采集完毕后，将自动在后台执行静态化，包括：全部栏目、文章、首页。该功能与您的CMS系统设置有关：如果您的CMS支持自动静态化，并且您启用了该功能，这里的设置才起作用。</span> </td>
+                      </tr>
+                      <tr>
+                        <td>格式化采集代码设置:<br />
+                          (采集视频时,object、embed一般不能过滤.) </td>
+                        <td><input type="checkbox" name="rs_fiframe" value="1" {$rs_fiframe_db[1]}>
+                          iframe &nbsp;
+                          <input type="checkbox" name="rs_fobject" value="1" {$rs_fobject_db[1]}>
+                          object &nbsp;
+                          <input type="checkbox" name="rs_fscript" value="1" {$rs_fscript_db[1]}>
+                          script
+                          <input type="checkbox" name="rs_fembed" value="1" {$rs_fembed_db[1]}>
+                          embed
+                          <input type="checkbox" name="rs_fdisplaynone" value="1" {$rs_fdisplaynone_db[1]}>
+                          displaynone  &nbsp; <span class="help">(过滤脚本,过滤隐藏内容)</span> <br />
+                          <input type="checkbox" name="rs_fa" value="1" {$rs_fa_db[1]}>
+                          A <span class="help">(过滤超链接,字留下链接去掉) </span> &nbsp;
+                          <input type="checkbox" name="rs_fimg" value="1" {$rs_fimg_db[1]}>
+                          img <span class="help">(过滤图片,建议不过滤) </span><br />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="color:blue;">是否启用定时采集:</td>
+                        <td><input type="radio" name="ifauto_timingc" value="0" {$ifauto_timingc_db[0]}>
+                          开启
+                          <input type="radio" name="ifauto_timingc" value="1" {$ifauto_timingc_db[1]}>
+                          关闭 <span class="help">(具体定时采集时间,可以在定时采集配置中设置)</span> </td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr class="head2" onClick="showHide('rule_other_rseo');">
+            <td><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>伪原创(SEO)设置<font color="red">(重要)</font></b></td>
+          </tr>
+          <tr id="rule_other_rseo">
+            <td><table width="100%" border="0" cellpadding="3" cellspacing="1">
+                <tr class="head5">
+                  <td width="24%">伪原创(SEO)设置:</td>
+                  <td><input type="radio" name="ifauto_seo" value="1" {$ifauto_seo_db[1]} onclick="show_radio(this.name);$('#show_seo_keywords').show();">
+                    启用全局默认配置(可在全局配置中统一修改)
+                    <input type="radio" name="ifauto_seo" value="2" {$ifauto_seo_db[2]} onclick="show_radio(this.name);$('#show_seo_keywords').show();">
+                    自定义伪原创规则
+                    <input type="radio" name="ifauto_seo" value="0" {$ifauto_seo_db[0]} onclick="show_radio(this.name);$('#show_seo_keywords').hide();">
+                    禁用伪原创</td>
+                </tr>
+                <tr id="show_seo_keywords" style="display:none;">
+                  <td>设置栏目关键词:<br>
+                    <span class="help"> (启用伪原创时起作用.关键词之间用 "|" 隔开,建议5个之内)</span></td>
+                  <td><textarea name="seo_keywords" rows="2">{$seo_keywords}</textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2"><table width="100%" border="0" cellpadding="3" cellspacing="1" class="ifauto_seo2">
+                      <tr>
+                        <td>[title]标题SEO模式:</td>
+                        <td><input type="radio" name="rseo_titlemod" value="0" {$rseo_titlemod_db[0]}>
+                          关闭
+                          <input type="radio" name="rseo_titlemod" value="1" {$rseo_titlemod_db[1]}>
+                          同义词替换(可能降低可读性)
+                          <input type="radio" name="rseo_titlemod" value="2" {$rseo_titlemod_db[2]}>
+                          蓝锂优化的SEO标题生成</td>
+                      </tr>
+                      <tr>
+                        <td>[keywords]优化设置:</td>
+                        <td><input type="radio" name="rseo_kwmod" value="0" {$rseo_kwmod_db[0]}>
+                          关闭
+                          <input type="radio" name="rseo_kwmod" value="1" {$rseo_kwmod_db[1]}>
+                          与目标站相同
+                          <input type="radio" name="rseo_kwmod" value="2" {$rseo_kwmod_db[2]}>
+                          以标题作为keywords
+                          <input type="radio" name="rseo_kwmod" value="3" {$rseo_kwmod_db[3]}>
+                          蓝锂优化的keywords </td>
+                      </tr>
+                      <tr>
+                        <td>[description]优化设置:</td>
+                        <td><input type="radio" name="rseo_dcmod" value="0" {$rseo_dcmod_db[0]}>
+                          关闭
+                          <input type="radio" name="rseo_dcmod" value="1" {$rseo_dcmod_db[1]}>
+                          与目标站相同
+                          <input type="radio" name="rseo_dcmod" value="2" {$rseo_dcmod_db[2]}>
+                          自动截取内容前200字作为description
+                          <input type="radio" name="rseo_dcmod" value="3" {$rseo_dcmod_db[3]}>
+                          蓝锂优化的description </td>
+                      </tr>
+                      <tr>
+                        <td width="24%">[正文]启用关键词自动内链: </td>
+                        <td><input type="radio" name="rseo_autokwreplace" value="0" {$rseo_autokwreplace_db[0]}>
+                          关闭
+                          <input type="radio" name="rseo_autokwreplace" value="1" {$rseo_autokwreplace_db[1]}>
+                          开启 <span class="help" style="color:blue;">(启用时需要先配置好关键词链接词库,建议开启)</span> </td>
+                      </tr>
+                      <tr>
+                        <td>[正文]启用正文内容同义词替换:</td>
+                        <td><input type="radio" name="rseo_contentreplace" value="1" {$rseo_contentreplace_db[1]}>
+                          开启同义词替换(会影响可读性)
+                          <input type="radio" name="rseo_contentreplace" value="0" {$rseo_contentreplace_db[0]}>
+                          关闭 </td>
+                      </tr>
+                      <tr>
+                        <td>[正文]SEO首段设置: <span help=1><br />
+                          自动添加文章首段或尾段,比如版权申明,来源出处等,可在SEO段落库中定义</span></td>
+                        <td><input type="radio" name="rseo_firstp" value="1" {$rseo_firstp_db[1]} onclick="show_radio(this.name)">
+                          段落库随机首段
+                          <input type="radio" name="rseo_firstp" value="2" {$rseo_firstp_db[2]} onclick="show_radio(this.name)">
+                          段落库随机首段<span style="color:red; font-size:14px; padding:0 3px;">+</span>蓝锂SEO首段(推荐)
+                          <input type="radio" name="rseo_firstp" value="0" {$rseo_firstp_db[0]} onclick="show_radio(this.name)">
+                          关闭 </td>
+                      </tr>
+                      <tr>
+                        <td>[正文]SEO尾段设置: <span help=1><br />
+                          自动添加文章首段或尾段,比如版权申明,来源出处等,可在SEO段落库中定义</span></td>
+                        <td><input type="radio" name="rseo_endp" value="1" {$rseo_endp_db[1]} onclick="show_radio(this.name)">
+                          段落库随机尾段
+                          <input type="radio" name="rseo_endp" value="2"  {$rseo_endp_db[2]} onclick="show_radio(this.name)">
+                          段落库随机尾段<span style="color:red; font-size:14px; padding:0 3px;">+</span>蓝锂SEO尾段(推荐)
+                          <input type="radio" name="rseo_endp" value="0" {$rseo_endp_db[0]} onclick="show_radio(this.name)">
+                          关闭 </td>
+                      </tr>
+                      <tr>
+                        <td>[正文]SEO随机段落添加: <span help=1><br />
+                          自动添加一些随机段落,可在SEO段落库中定义</span></td>
+                        <td><input type="radio" name="rseo_middlep" value="1" {$rseo_middlep_db[1]} onclick="show_radio(this.name)">
+                          段落库随机添加
+                          <input type="radio" name="rseo_middlep" value="2"  {$rseo_middlep_db[2]} onclick="show_radio(this.name)">
+                          蓝锂随机段落SEO模式(推荐)
+                          <input type="radio" name="rseo_middlep" value="0" {$rseo_middlep_db[0]} onclick="show_radio(this.name)">
+                          关闭 </td>
+                      </tr>
+                      <tr>
+                        <td>[正文]启用<span style="color:blue;">本栏目关键词</span>SEO: <span help=1><br />
+                          启用后将根据栏目设置的关键词和蓝锂SEO优化模式自动执行SEO操作,不影响文章可读性,可以开启</span> </td>
+                        <td><input type="radio" name="rseo_autoseo" value="1" {$rseo_autoseo_db[1]}>
+                          开启(可以开启)
+                          <input type="radio" name="rseo_autoseo" value="0" {$rseo_autoseo_db[0]}>
+                          关闭</td>
+                      </tr>
+                      <tr>
+                        <td>[正文]高级混淆(段落重排、语句重排): </td>
+                        <td>将导致文章不可读,除非是做垃圾站,否则不建议使用.蓝锂官方已经取消该SEO功能.如需开启,请联系蓝锂官方.</td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr class="head2" onClick="showHide('rule_other_egparams');">
+            <td><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>采集引擎参数设置<font color="red">(注意:如果设置错误,将导致无法获取内容.)</font></b></td>
+          </tr>
+          <tr id="rule_other_egparams">
+            <td><table width="100%" border="0" cellpadding="3" cellspacing="1">
+                <tr class="head5">
+                  <td width="24%">采集引擎参数开关:</td>
+                  <td><input type="radio" name="if_egparams" value="0" {$if_egparams_db[0]} onclick="show_radio(this.name);">
+                    禁用自定义参数(推荐)
+                    <input type="radio" name="if_egparams" value="1" {$if_egparams_db[1]} onclick="show_radio(this.name);">
+                    启用自定义参数(请参考说明文档) </td>
+                </tr>
+                <tr class="if_egparams2">
+                  <td>传递的cookie值: <span help=1> (一般用于需要登录的网站采集,如阿里巴巴.获取方法:用合法的用户名、密码登录要采集的网站,然后使用类似ieHTTPHeaders的工具进行查看,即可获取cookie值.)</span><br>
+                    <span class="help"> (一般用于需要登录的网站采集)</span></td>
+                  <td><textarea name="cookie" rows="2">{$cookie}</textarea>
+                  </td>
+                </tr>
+                <tr class="if_egparams2">
+                  <td>网页iframe、frame自动获取深度:<span help=1> (即如果网页中存在iframe,则自动获取iframe内容的层数.建议关闭,如果遇到需要采集iframe的网页,可以通过其他方式解决.详细请参考蓝锂官方提供的高级采集教程.)</span></td>
+                  <td><input type="text" name="maxframes" value="{$maxframes}"  size="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                    <span class="help"> (默认值为0,即不获取iframe内容.)</span> </td>
+                </tr>
+                <tr class="if_egparams2">
+                  <td>伪referer:</td>
+                  <td><input type="text" name="referer" value="{$referer}" size="30">
+                    <span class="help"> (建议留空,有时候伪造referer会被目标网站封IP.)</span> </td>
+                </tr>
+                <tr class="if_egparams2">
+                  <td>代理IP地址:</td>
+                  <td><input type="text" name="proxy_host" value="{$proxy_host}"  size="30" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                    <span class="help"> (一般不启用,因为一般代理速度很慢.)</span> </td>
+                </tr>
+                <tr class="if_egparams2">
+                  <td>代理IP地址端口</td>
+                  <td><input type="text" name="proxy_port" value="{$proxy_port}"  size="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                  </td>
+                </tr>
+                <tr class="if_egparams2">
+                  <td>代理IP用户名:</td>
+                  <td><input type="text" name="proxy_user" value="{$proxy_user}" size="30">
+                    <span class="help"> (匿名代理IP请留空)</span> </td>
+                </tr>
+                <tr class="if_egparams2">
+                  <td>代理IP用户密码:</td>
+                  <td><input type="text" name="proxy_pass" value="{$proxy_pass}" size="30">
+                  </td>
+                </tr>
+                <tr class="if_egparams2">
+                  <td>伪造agent:<br>
+                    <span class="help"> (系统自动获取,一般无需设置.)</span></td>
+                  <td><textarea name="agent" rows="2">{$agent}</textarea>
+                  </td>
+                </tr>
+                <tr class="if_egparams2">
+                  <td>采集URL端口</td>
+                  <td><input type="text" name="port" value="{$port}"  size="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+                    <span class="help"> (默认为80端口,一般无需设置.)</span> </td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr style="height:36px;">
+            <td><input type="button" name="Submit_SaveRule" value="保存规则设置" onClick="post('saverule');">
+              <span class="blank2"></span>
+              <input type="button" name="Submit_testgather" value="测试采集(不入库)" onClick="post('testgather');">
+              <span class="blank2"></span> <a class='submit' href='__APP__/Gather/index/runnow/1/showresult/1/ec_id/{$ec_id}/testgather/1' target='_blank'> 测试采集 </a> </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" name="ajax" value="1">
+  <input type="hidden" name="ec_id" value="{$ec_id}">
+</form>
+<php>if(!$i) $i=1;</php>
+<script language="javascript">
+ <!--
+function post(type){
+	if(type==undefined) type='saverule';
+	if($("[name='c_mode']:checked").val()==1){
+		if(!$('#rk_kw').val()) {
+			$('#rk_kw').focus();  
+			contnet='<span class="errorTip">请输入采集关键词!</span>';			
+			showfloatTips(contnet);
+			return false;
+		}
+	}else if($("[name='c_mode']:checked").val()==2){
+		if(!$('#rr_rss').val()) {
+			$('#rr_rss').focus();  
+			contnet='<span class="errorTip">请输入合法的RSS地址!</span>';			
+			showfloatTips(contnet);
+			return false;
+		}	
+	}else if($("[name='c_mode']:checked").val()==3){
+		if(!$('#rd_listurl').val()) {
+			$('#rd_listurl').focus();  
+			contnet='<span class="errorTip">请输入合法的采集列表URL!</span>';			
+			showfloatTips(contnet);
+			return false;
+		}	
+	}else if($("[name='c_mode']:checked").val()==4){
+		if($("[name='rt_rulepage']:checked").val()==0){
+			if(!$('#rt_listmoreurl').val()) {
+				$('#rt_listmoreurl').focus();  
+				contnet='<span class="errorTip">请输入合法的采集列表URL!</span>';			
+				showfloatTips(contnet);
+				return false;
+			}	
+		}else if($("[name='rt_rulepage']:checked").val()==1){
+			if(!$('#rt_listurl').val() ||$('#rt_listurl').val().indexOf('[page]')<0) {
+				$('#rt_listurl').focus();  
+				contnet='<span class="errorTip">请输入合法的文章列表URL规则!</span>';			
+				showfloatTips(contnet);
+				return false;
+			}	
+			if(!$('#rt_page_begin').val() || !$('#rt_page_end').val()) {
+				$('#rt_page_begin').focus();  
+				contnet='<span class="errorTip">请输入开始页数和结束页数!</span>';			
+				showfloatTips(contnet);
+				return false;
+			}	
+		}
+		if(!$('#rt_titlerule').val() || $('#rt_titlerule').val().indexOf('{url=')<0) {
+			$('#rt_titlerule').focus();  
+			contnet='<span class="errorTip">请输入正确的标题采集规则!</span>';			
+			showfloatTips(contnet);
+			return false;
+		}	
+	}
+	if(type=='saverule'){
+		ThinkAjax.sendForm('CrurlForm','__URL__/SaveRule',complete,'result');
+	}else if(type=='verify'){
+		return true;
+	}else if(type=='testgather'){
+		$.dialog({
+			title: "测试采集,未入库. -  {$Think.config.ECAPP_ENNAME} {$Think.config.ECAPP_VER}",
+			content: '__APP__/Gather/index/runnow/1/showresult/1/ec_id/{$ec_id}/testgather/1',
+			width: "90%",
+			height: "80%",
+			lock: true
+		});
+	}
+}
+function complete(data,status){
+	if (status==1)
+	{
+		if(data) {
+			window.setTimeout(function (){window.location.href='__SELF__/ec_id/'+data},1000);
+		}else{
+			window.setTimeout(function (){window.location.href='__SELF__'},1000);
+		}
+	}
+}
+
+function choose_appsort(cms_module,cms_sfid){
+	$.post('__URL__/choose_appsort/cms_module/'+cms_module+'/cms_sfid/'+cms_sfid,{},function(data){
+		data = data.data;
+		$('#show_appsort').html(data).show();
+	},'json');
+} 
+choose_appsort("{$cms_module}","{$cms_sfid}");
+
+function choose_zone(fup,fid){
+	$.post('__URL__/choose_zone/fup/'+fup+'/fid/'+fid,{},function(data){
+		data = data.data;
+		$('#show_zone').html(data).show();
+	},'json');
+} 
+choose_zone("{$cms_scityid}","{$cms_szoneid}");
+function choose_street(fup,fid){
+	$.post('__URL__/choose_street/fup/'+fup+'/fid/'+fid,{},function(data){
+		data = data.data;
+		$('#show_street').html(data).show();
+	},'json');
+} 
+choose_street("{$cms_szoneid}","{$cms_sstreetid}");
+
+function choose_autofields_fresh(){
+	for(i=0;i<={$i};i++){
+		choose_autofields(i);
+	}
+} 
+
+function autofield(fieldname,id){
+	$('#mfield'+id).attr("value", fieldname);
+} 
+
+show_radio('c_mode');
+show_radio('rt_rulepage'); 
+show_radio('ifauto_save');
+show_radio('ifauto_seo');
+show_radio('if_egparams');
+function start(){
+	$('input[name="ifauto_seo"]').each(function(){
+			if(this.checked==true && ( this.value ==1 || this.value ==2 ) ){
+				$('#show_seo_keywords').show();
+			}
+	});
+	var if_rcDB;
+	if_rcDB = '{$nums}';
+	if(if_rcDB=='0') {
+		$('#rule_base_3').hide();
+	}
+}
+addLoadEvent(start);
+
+ //-->
+</script>
+<include file="footer" /> 

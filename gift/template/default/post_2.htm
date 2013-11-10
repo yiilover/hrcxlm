@@ -1,0 +1,60 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+<div class="MainCont">
+	<div class="head"><div class="tag">申请的礼品:<a href='bencandy.php?fid=$fid&id=$id&city_id=$infodb[city_id]'>$infodb[title]</a></div></div>
+    <div class="cont">
+    	<form name="FORM" method="post" action="?action=$atc" enctype="multipart/form-data">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+
+          <tr>
+            <td class="tdL">联系人姓名:<br></td>
+            <td class="tdR"> <input   type='text' name='postdb[contact_name]' id='atc_contact_name' style='width:100px;' value='$rsdb[contact_name]'> </td>
+          </tr>
+
+          <tr>
+            <td class="tdL">联系人电话:<br></td>
+            <td class="tdR"> <input   type='text' name='postdb[contact_phone]' id='atc_contact_phone' style='width:100px;' value='$rsdb[contact_phone]'> </td>
+          </tr>
+
+          <tr>
+            <td class="tdL">收信地址:<br></td>
+            <td class="tdR"> <input   type='text' name='postdb[contact_address]' id='atc_contact_address' style='width:200px;' value='$rsdb[contact_address]'> </td>
+          </tr>
+
+          <tr>
+            <td class="tdL">附注:<br></td>
+            <td class="tdR"><textarea  name='postdb[content]' id='atc_content' style='width:400px;height:50px;'>$rsdb[content]</textarea></td>
+          </tr>
+<!---->           
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+            	<input type="submit" name="Submit" value="提 交" class='submit'>
+                    <input type="hidden" name="fid" value="$fid">
+                    <input type="hidden" name="id" value="$id">
+                    <input type="hidden" name="cid" value="$cid">
+                    <input type="hidden" name="postdb[title]" id="atc_title" size="50" value="$infodb[title]">
+					
+<!--
+EOT;
+if($job=='edit'){print <<<EOT
+-->
+                    <a href="?action=del&id=$id&fid=$fid&cid=$cid" onclick="return confirm('你确认要删除吗?');">删除</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </td>
+          </tr>
+        </table>
+        </form>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

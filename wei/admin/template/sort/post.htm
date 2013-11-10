@@ -1,0 +1,41 @@
+<!--
+<?php
+print<<<EOT
+--> 
+<form name="formlist" method="post" action="$admin_path&action=editlist">
+<div class="MainCont">
+	<div class="head"><div class="tag">发表内容</div></div>
+    <ul class="NoteList">
+      <li class="red">请点击选择在哪个栏目发布内容.大分类不能发布</li>
+    </ul> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+      <tr> 
+        <th width="10%">FID</th>
+        <th width="54%">栏目名称</th>
+        <th width="18%">发布内容</th>
+        <th width="18%">查看前台内容</th>
+      </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+      <tr> 
+        <td class="B red">$rs[fid]</td>
+        <td class="txL"> 
+          <input type="checkbox" name="fiddb[{$rs[fid]}]" value="$rs[name]" style="border:0px;">
+          {$rs[icon]}【<a href='$Murl/list.php?fid=$rs[fid]' target="_blank" style="color:$rs[color]">{$rs[name]}</a>】</td>
+        <td><a href="$webdb[www_url]/member/?main=$Murl/member/post.php?fid=$rs[fid]" target="_blank" $rs[_ifcontent]>我要发布</a></td>
+        <td>[<a href='$Murl/list.php?fid=$rs[fid]' target="_blank">查看前台内容</a>]</td>
+      </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+	</table>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

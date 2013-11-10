@@ -1,0 +1,404 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/css4.0/main/main.css">
+<script type="text/javascript" src="$webdb[www_url]/images/css4.0/marquee.js"></script>
+<!--大屏广告开始,$label[bunenqushao]这个标签虽然不显示,但不能缺少的-->
+<div style="display:none;">$label[bunenqushao]</div>
+<!--
+EOT;
+if($webdb[Main_openAd]){
+$showad_height = $jobs=="show" ? "":"style=\"display:none;margin-bottom:10px;\"";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/openad/openad.css">
+<div class="TopBanner">
+	<div class="OpenAd"><img src="$webdb[www_url]/images/openad/open.gif"/></div>
+    <div class="ColseAd"><img src="$webdb[www_url]/images/openad/colse.gif"/></div>
+	<div id="ShowMainAd" $showad_height>{$label[main_openad]}</div>
+</div>
+<!--
+EOT;
+if($jobs!="show"){
+print <<<EOT
+-->
+<script type="text/javascript" src="$webdb[www_url]/images/openad/time.js"></script>
+<script type="text/javascript" src="$webdb[www_url]/images/openad/openad.js"></script>
+<!--
+EOT;
+}}
+print <<<EOT
+-->
+<!--大屏广告结束-->
+<div class="MainCont1">
+	<div class="sidcontL">
+       <div class="head">        	
+            <div onmouseover="ShowTab(1,1,4)" id="Span1">教育</div>
+            <div onmouseover="ShowTab(2,1,4)" id="Span2">出国</div>
+            <div onmouseover="ShowTab(3,1,4)" id="Span3">招生</div>
+        </div>
+        <div class="cont" id="Tab1">
+            $label[green_mainh1]            
+        </div>
+        <div class="cont" id="Tab2">
+            $label[green_mainh2]
+        </div>
+        <div class="cont" id="Tab3">
+            $label[green_mainh3]
+        </div>
+    </div>
+<SCRIPT LANGUAGE="JavaScript">ShowTab(1,1,4);</SCRIPT>
+    <div class="sidcontC">
+    	<div class="word">
+        	$label[green_mainh4]
+        </div>
+        <div class="img">$label[green_mainh5]</div>
+        <div class="word">
+        	$label[green_mainh6]
+        </div>
+    </div>
+	<div class="sidcontR">
+        <div class="head">
+            <div onmouseover="ShowTab(4,4,7)" id="Span4">最新</div>
+            <div onmouseover="ShowTab(5,4,7)" id="Span5">推荐</div>
+            <div onmouseover="ShowTab(6,4,7)" id="Span6">精品</div>
+        </div>
+        <div class="cont" id="Tab4">
+            $label[green_mainh7]
+        </div>
+        <div class="cont" id="Tab5">
+            $label[green_mainh8]
+        </div>
+        <div class="cont" id="Tab6">
+            $label[green_mainh9]
+        </div>
+    </div>
+<SCRIPT LANGUAGE="JavaScript">ShowTab(4,4,7);</SCRIPT>
+</div>
+$label[style4_marquees]
+<div class="MainCont MainCont2">
+	<div class="SideL">
+    	<div class="NewCont1">
+        	<div class="head">
+            	<div onmouseover="ShowTab(30,30,32)" id="Span30">今日推荐</div>
+            	<div onmouseover="ShowTab(31,30,32)" id="Span31">热点资讯</div>
+            </div>
+            <dl class="cont">
+            	<dt id="Tab30">$label[style4_title1]</dt>
+                <dt id="Tab31">$label[style4_title3]</dt>
+                <dd id="marquee1">                	
+                    <table style="border-collapse:collapse;" cellpadding="0" cellspacing="0">
+                     <tbody>
+                      <tr>
+                       <td>
+                        $label[style4_title2]
+                       </td>
+                      </tr>
+                     </tbody>
+                    </table>
+                </dd>
+            </dl>
+<SCRIPT LANGUAGE="JavaScript">ShowTab(30,30,32);</SCRIPT>
+        </div>
+    </div>
+    <div class="SideC">
+    	<div class="MainSlides">
+			{$label[green_indexslide]}
+            <link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/css4.0/main/slide.css">
+            <script type="text/javascript" src="$webdb[www_url]/images/css4.0/main/slide.js"></script>        
+        </div>
+		<div class="TodayNews">
+        	<div class="head"><div class="tag">今日头条</div></div>
+            <div class="cont">$label[style4_title4]</div>
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="BmCont">
+        	<div class="head"><div class="tag">便民</div></div>
+            <div class="cont">
+            	$label[green_maint33]
+            </div>
+        </div>
+        <div class="PicNews">
+        	<div class="head"><div class="tag">图片新闻</div><div class="more"><a href="#">更多</a></div></div>
+            <dl class="cont">
+            	<dt>$label[style4_title5]</dt>
+                <dd>$label[style4_title6]</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div class="MainCont MainCont3">
+	<div class="MainL">
+    	<div class="SideCont1">
+        	<div class="head">
+            	<div class="choose">最新信息</div>
+                <div><a href="./f/list.php?fid=1">房产</a></div>
+                <div><a href="./f/list.php?fid=2">物品交易</a></div>
+                <div><a href="./f/list.php?fid=3">企业招聘</a></div>
+                <div><a href="./f/list.php?fid=4">求职简历</a></div>
+                <div><a href="./f/list.php?fid=5">同城交友</a></div>
+                <div><a href="./f/list.php?fid=6">同城活动</a></div>
+                <div class="more"><a href="./f/post.php">免费发布信息&gt;&gt;</a></div>
+            </div>
+            <div class="Piccont">$label[style4_title7]</div>
+            <div id="marquee2">                	
+                <table style="border-collapse:collapse;" cellpadding="0" cellspacing="0">
+                 <tbody>
+                  <tr>
+                   <td>
+                    $label[style4_title8]
+                   </td>
+                  </tr>
+                 </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+	<div class="SideR">
+    	<div class="ADconts">
+        	<div class="word">$label[green_maint3]</div>
+            <div class="img">$label[style4_title9]</div>
+            <div class="word">$label[green_maint5]</div>
+            <div class="img">$label[style4_title10]</div>
+        </div>
+    </div>
+</div>
+<!--
+EOT;
+if($jobs!="show"){
+print <<<EOT
+-->
+<script type="text/javascript">
+new Marquee("marquee1",0,1,310,125,24,3000,500,25);
+new Marquee("marquee2",0,1,700,50,24,3000,500,25);
+</script>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<div class="HotCompany zhuangxiu_demo">
+	<div class="head"><div class="tag">装修案例</div></div>
+    <div class="cont">
+    	<div class="atc_up" id="upcompanys"><span>&nbsp;</span></div>
+        <div class="ListCompanyCont">
+        	<div id="ListCompanys" class="ListCompany">
+                <ul>
+                    $label[style4_title110]
+                </ul>
+            </div>
+        </div>
+        <div class="atc_down" id="downcompanys"><span>&nbsp;</span></div>
+    </div>
+</div>
+<div class="MainCont MainCont4">
+	<div class="MainL">
+    	<div class="SideCont1 ListConts">
+        	<div class="head">
+            	<div onmouseover="ShowTab(32,32,35)" id="Span32">热门商品</div>
+                <div onmouseover="ShowTab(33,32,35)" id="Span33">最新商品</div>
+                <div onmouseover="ShowTab(34,32,35)" id="Span34">推荐商品</div>
+                <div class="more"><a href="./f/post.php">免费发布信息&gt;&gt;</a></div>
+            </div>
+            <div class="cont" id="Tab32">
+            	$label[style4_title12]
+            </div>
+            <div class="cont" id="Tab33">
+            	$label[style4_title13]
+            </div>
+            <div class="cont" id="Tab34">
+            	$label[style4_title14]
+            </div>
+        </div> 
+<SCRIPT LANGUAGE="JavaScript">ShowTab(32,32,35);</SCRIPT>  
+    </div>
+    <div class="SideR">
+    	<div class="HotFenlieSort">
+        	<div class="head"><div class="tag">热门分类栏目</div></div>
+            <div class="cont">$label[style4_title15]</div>
+        </div>
+    </div>
+</div>
+<div class="MainBanner">
+	$label[green_maint27]
+</div>
+<div class="MainCont MainCont5">
+	<div class="SideL">
+    	<div class="Sidecont2">
+        	<div class="head head1"><div class="tag">团购进行时</div><div class="more"><a href="./shoptg/">更多</a></div></div>
+            <div class="cont">
+            	<div class="contshoptg1">
+            		$label[green_maint16]
+                </div>
+            </div>
+            <div class="foot"><span></span></div>
+        </div>        
+    </div>
+    <div class="SideC">
+    	<div class="Sidecont2">
+        	<div class="head"><div class="tag">同城活动</div><div class="more"><a href="./tg/">更多</a></div></div>
+            <div class="cont">$label[style4_title16]</div>
+            <div class="foot"><span></span></div>
+        </div>        
+    </div>
+    <div class="SideR">
+    	<div class="Sidecont2">
+        	<div class="head"><div class="tag">优惠信息</div><div class="more"><a href="./coupon/">更多</a></div></div>
+            <div class="cont">$label[style4_title17]</div>
+            <div class="foot"><span></span></div>
+        </div>        
+    </div>
+</div>
+<div class="HotCompany">
+	<div class="head"><div class="tag">热门商家</div></div>
+    <div class="cont">
+    	<div class="atc_up" id="upcompany"><span>&nbsp;</span></div>
+        <div class="ListCompanyCont">
+        	<div id="ListCompany" class="ListCompany">
+                <ul>
+                    $label[style4_title11]
+                </ul>
+            </div>
+        </div>
+        <div class="atc_down" id="downcompany"><span>&nbsp;</span></div>
+    </div>
+</div>
+<div class="MainCont MainCont6">
+	<div class="MainL">
+    	<div class="SideCont1 HouseCont">
+        	<div class="head">
+            	<div onmouseover="ShowTab(35,35,37)" id="Span35">出售房源</div>
+                <div onmouseover="ShowTab(36,35,37)" id="Span36">出租房源</div>
+            </div>
+            <ul class="UlList HulList">
+                <li class="l1">名称</li>
+                <li class="l2">来源</li>
+                <li class="l3">楼层</li>
+                <li class="l4">户型</li>
+                <li class="l5">面积</li>
+                <li class="l6">价格</li>
+                <li class="l7">发布时间</li>
+            </ul>
+            <div class="cont" id="Tab35">$label[style4_title18]</div>
+            <div class="cont" id="Tab36">$label[style4_title19]</div>
+        </div>
+<SCRIPT LANGUAGE="JavaScript">
+$("#Tab35 ul:odd").addClass("bg");
+$("#Tab36 ul:odd").addClass("bg");
+ShowTab(35,35,37);
+</SCRIPT>     
+    </div> 
+	<div class="SideR">
+    	<div class="HotFenlieSort TzBroker">
+        	<div class="head"><div class="tag">推荐经纪人</div></div>
+            <div class="cont" id="indexpiclist">
+            	<ul>
+            	$label[style4_title20]
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="HotHouses">
+	<div class="head"><div class="tag">热销楼盘</div></div>
+    <div class="cont">
+    	$label[style4_title21]
+    </div>
+</div>
+<div class="MainBanner">
+$label[green_maint27]
+</div> 
+<div class="MainCont MainCont7">
+	<div class="SideL">
+    	<div class="SideCont1 Hrcont1">
+        	<div class="head">
+            	<div class="choose">人才招聘</div><div class="more"><a href="./hr/">更多</a></div>
+            </div>
+            <div class="cont">$label[style4_title22]</div>
+        </div>
+    </div>
+    <div class="SideC">
+    	<div class="SideCont1 Hrcont2">
+        	<div class="head">
+            	<div class="choose">推荐简历</div><div class="more"><a href="./hr/">更多</a></div>
+            </div>
+            <div class="cont">$label[style4_title23]</div>
+        </div>
+        <dl class="AtcHrs">
+        	<dt><a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/hr/member/post_choose.php" target="_blank"><img src="$webdb[_www_url]/images/css4.0/main/hr1.gif"/></a></dt>
+            <dd><a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/hr/member/join.php" target="_blank"><img src="$webdb[_www_url]/images/css4.0/main/hr2.gif"/></a></dd>
+        </dl>
+    </div>
+    <div class="SideR">
+    	<div class="SideCont1 Hrcont3">
+        	<div class="head">
+            	<div class="choose">图片简历</div><div class="more"><a href="./hr/">更多</a></div>
+            </div>
+            <div class="cont" id="indexpiclist1">
+            	<ul>
+            	$label[style4_title24]
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="$webdb[www_url]/images/css4.0/main/listhouse.js"></script>
+<div class="BmContacts">
+	<div class="head"><div class="tag">便民黄页</div><div class="more">想让您的电话在这里显示吗？名额有限哦，<span>赶快联系客服吧！</span></div></div>
+    <div class="cont">
+    	$label[green_maint32]
+    </div>
+</div>
+<div class="FrendLink">
+	<div class="head">
+    	<div class="tag">友情链接</div>
+		<div class="more"><a href="./do/friendlink.php?job=apply">申请链接</a></div>   	    
+   </div>
+   <div class="cont">
+    	<div class="piclink">
+<!--
+EOT;
+if($friendlinkDB[1]&&$friendlink_DB[$city_id][1]){
+$array = $friendlinkDB[1]+$friendlink_DB[$city_id][1];
+}elseif($friendlinkDB[1]){
+$array = $friendlinkDB[1];
+}else{
+$array = $friendlink_DB[$city_id][1];
+}
+foreach($array AS $rs){print <<<EOT
+-->
+		
+        	<a href="$rs[url]" title="$rs[name] $rs[descrip]" target="_blank"><img src="$rs[logo]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'" width="88" height="31"/></a>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div>
+        <div class="wordlink">
+<!--
+EOT;
+if($friendlinkDB[0]&&$friendlink_DB[$city_id][0]){
+$array = $friendlinkDB[0]+$friendlink_DB[$city_id][0];
+}elseif($friendlinkDB[0]){
+$array = $friendlinkDB[0];
+}else{
+$array = $friendlink_DB[$city_id][0];
+}
+foreach($array AS $rs){print <<<EOT
+-->
+		
+        	<a href="$rs[url]" title="$rs[descrip]" target="_blank">$rs[name]</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div>       
+    </div>
+</div>
+<script type="text/javascript" src="$webdb[www_url]/images/css4.0/main/picfocus.js"></script> 
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,1466 @@
+.wrap a{
+	color:#2D374B;
+}
+/*
+*MainCont1
+*/
+.MainCont1{
+	height:580px;
+	overflow:hidden;
+	margin-top:10px;
+}
+.MainCont1 .Main{
+	width:700px;
+	float:left;
+	overflow:hidden;
+}
+.MainCont1 .Side{
+	width:270px;
+	float:right;
+	overflow:hidden;
+}
+.ChageHead{
+	height:30px;
+	overflow:hidden;
+	background:url(head1.gif) repeat-x;
+	border-left:#E9EBEF solid 1px;
+}
+.ChageHead div{
+	float:left;
+	padding:2px 15px 0 15px;
+	border-right:#E9EBEF solid 1px;
+	line-height:28px;
+	color:#2D374B;
+	font-size:14px;
+	cursor:pointer;
+}
+.ChageHead div.choose{
+	font-weight:bold;
+	background:#FFF;
+	border-top:#C00 solid 2px;
+}
+.TabCont1{
+	height:440px;
+	width:700px;
+	overflow:hidden;
+	margin:10px auto;
+	position:relative;
+}
+
+.ShowPhotos .SpacDiv{
+	position:absolute;
+	left:0;
+	top:0;
+	width:700px;
+	height:440px;
+	filter:alpha(opacity=50);
+	opacity:0.5;
+	z-index:50;
+}
+.ShowPhotos  dl{
+	width:180px;
+	height:107px;
+	overflow:hidden;
+	position:absolute;
+	z-index:100;
+}
+.ShowPhotos  dl.dl1{
+	width:330px;
+	height:218px;
+	left:0;
+	top:0;
+}
+.ShowPhotos dl.dl1 img{
+	width:330px;
+}
+.ShowPhotos dl.dl2{
+	right:185px;
+	top:0;
+}
+.ShowPhotos dl.dl3{
+	right:185px;
+	top:111px;
+}
+.ShowPhotos dl.dl4{
+	right:0;
+	top:0;
+}
+.ShowPhotos dl.dl5{
+	right:0;
+	top:111px;
+}
+.ShowPhotos dl.dl6{
+	left:0;
+	bottom:111px;
+}
+.ShowPhotos dl.dl7{
+	left:0;
+	bottom:0;
+}
+.ShowPhotos dl.dl8{
+	width:330px;
+	height:218px;
+	left:185px;
+	bottom:0;
+}
+.ShowPhotos dl.dl8 img{
+	width:330px;
+}
+.ShowPhotos dl.dl9{
+	right:0;
+	bottom:111px;
+}
+.ShowPhotos dl.dl10{
+	right:0;
+	bottom:0;
+}
+.ShowPhotos dl dd{
+	width:400px;
+	height:30px;
+	position:absolute;
+	left:0px;
+	top:220px;
+	line-height:30px;
+	overflow:hidden;
+	background:#000;
+	filter:alpha(opacity=50);
+	opacity:0.5;
+	text-align:center;
+}
+.ShowPhotos dl dd a{
+	color:#FFF;
+	padding:0 10px 0 10px;
+	font-size:14px;
+	font-weight:bold;
+}
+.Slide_NewsTop{
+	float:left;
+	padding:10px 10px 0 10px;
+	width:278px;
+	height:428px;
+	overflow:hidden;
+	border:#E9EBEF solid 1px;
+	background:#F9FAFB;
+}
+.Slide_NewsTop .ShowSlide{
+	width:278px;
+	height:210px;
+	overflow:hidden;
+	position:relative;
+}
+.Slide_NewsTop .NewsTop{
+	margin-top:15px;
+}
+.Slide_NewsTop .NewsTop .head{
+	border-bottom:#E9EBEF solid 1px;
+	height:30px;
+	overflow:hidden;
+	line-height:30px;
+}
+.Slide_NewsTop .NewsTop .head .tag{
+	float:left;
+	padding-left:5px;
+	font-size:14px;
+	font-weight:bold;
+	color:#2D374B;
+}
+.Slide_NewsTop .NewsTop .head .more{
+	float:right;
+	padding-right:5px;
+}
+.Slide_NewsTop .NewsTop .head .more a{
+	color:#777;
+}
+.Slide_NewsTop .NewsTop .cont{
+	padding-top:10px;
+	line-height:25px;
+}
+.Slide_NewsTop .NewsTop .cont div{
+	height:25px;
+	overflow:hidden;
+}
+.Slide_NewsTop .NewsTop .cont div span{
+	display:block;
+	width:20px;
+	text-align:center;
+	float:left;
+	background:url(numbg0.gif) center 5px no-repeat;
+	color:#FFF;
+}
+.Slide_NewsTop .NewsTop .cont div.list1 span,.Slide_NewsTop .NewsTop .cont div.list2 span,.Slide_NewsTop .NewsTop .cont div.list3 span{
+	background:url(numbg1.gif) center 5px no-repeat;
+}
+.Slide_NewsTop .NewsTop .cont div a{
+	display:block;
+	width:190px;
+	float:left;
+	padding-left:5px;
+	color:#2D374B;
+}
+.Slide_NewsTop .NewsTop .cont div em{
+	float:right;
+	padding-right:5px;
+	font-style:normal;
+	color:#F30;
+}
+.City_News{
+	width:385px;
+	float:right;
+}
+.City_News .head{
+	height:30px;
+	overflow:hidden;
+	background:url(head2.gif) left 8px repeat-x;
+}
+.City_News .head .tag{
+	width:95px;
+	height:30px;
+	float:left;
+	background:#FFF url(tag1.gif) no-repeat;
+}
+.City_News .head .tag span{
+	display:none;
+}
+.City_News .head .more{
+	float:right;
+	padding:2px 5px 0 8px;
+	line-height:28px;
+	background:#FFF;
+}
+.City_News .head .more a{
+	color:#888;
+}
+.City_News .cont{
+	height:410px;
+	overflow:hidden;
+}
+.City_News .cont .blist{
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	padding-left:5px;
+}
+.City_News .cont .blist a{
+	font-size:16px;
+	font-weight:bold;
+}
+.City_News .cont .spacLink{
+	height:30px;
+	clear:both;
+	background:url(dotted.gif) left 15px repeat-x;
+}
+.City_News .cont .lista,.City_News .cont .listb{
+	height:26px;
+	line-height:26px;
+	overflow:hidden;
+	padding-left:10px;
+	background:url(print.gif) left 12px no-repeat;
+}
+.City_News .cont .lista a,.City_News .cont .listb a{
+	font-size:14px;
+}
+.City_News .cont .lista span{
+	display:block;
+	float:left;
+	width:20px;
+	height:26px;
+	background:url(is_pic.gif) left 7px no-repeat;
+}
+.City_News .cont .lista a{
+	display:block;
+	float:left;
+	width:300px;
+}
+.City_News .cont .lista em{
+	float:right;
+	padding-right:5px;
+	font-style:normal;
+	color:#888;
+}
+.City_News .cont .listb a{
+	display:block;
+	float:left;
+}
+.City_News .cont .listb a.t{
+	width:200px;
+	padding-left:20px;
+	background:url(tspac.gif) 10px 6px no-repeat;
+}
+.City_News .cont .listb em{
+	float:right;
+	padding-right:5px;
+	font-style:normal;
+	color:#888;
+}
+.City_News .cont .note{
+	clear:both;
+	text-align:right;
+	padding:10px 5px 3px 0;
+	color:#888;
+}
+.City_News .cont .note a{
+	border:#DCDEE4 solid 1px;
+	padding:3px 15px 2px 5px;
+	background:url(array.gif) right 1px no-repeat;
+	margin-left:10px;
+}
+.ShowShopTg{
+	border:#DCDEE4 solid 1px;
+	height:270px;
+	overflow:hidden;	
+}
+.ShowShopTg .head{
+	width:95%;
+	height:40px;
+	margin:auto;
+	border-bottom:#DCDEE4 solid 1px;
+}
+.ShowShopTg .head .tag{
+	float:left;
+	padding:15px 0 0 10px;
+	font-size:14px;
+	font-weight:bold;
+	color:#16387C;
+}
+.ShowShopTg .cont{
+	padding-top:25px;
+}
+.ShowShopTg .cont .listshoptg{
+	width:200px;
+	margin:auto;
+	position:relative;
+}
+.ShowShopTg .cont .listshoptg .img{
+	width:190px;
+	height:120px;
+	border:#DDD solid 1px;
+	padding:4px;
+	margin:auto;
+	overflow:hidden;	
+}
+.ShowShopTg .cont .listshoptg .img a{
+	display:block;
+	width:190px;
+	height:120px;
+	text-align:center;
+}
+.ShowShopTg .cont .listshoptg span.tag{
+	display:block;
+	width:70px;
+	height:25px;
+	position:absolute;
+	left:-5px;
+	top:10px;
+	z-index:100;
+	background:url(todaytg.gif) no-repeat;
+}
+.ShowShopTg .cont .listshoptg .title{
+	clear:both;
+	height:20px;
+	padding-top:8px;
+	overflow:hidden;	
+	text-align:center;
+	line-height:20px;
+	font-weight:bold;
+}
+.ShowShopTg .cont .listshoptg .more{
+	height:25px;
+	overflow:hidden;
+	line-height:25px;
+	color:#888;
+}
+.ShowShopTg .cont .listshoptg .more span{
+	float:left;
+}
+.ShowShopTg .cont .listshoptg .more span.r{
+	float:right;
+}
+.ShowShopTg .cont .listshoptg .more span.r em{
+	font-style:normal;
+	font-size:16px;
+	font-weight:bold;
+	color:#F30;
+}
+.Food_Weather{
+	margin-top:10px;
+	border:#DCDEE4 solid 1px;
+	height:296px;
+	overflow:hidden;
+}
+.Food_Weather .ChageHead{
+	border-left:0;
+}
+.Food_Weather .cont{
+	padding:5px 10px 0 10px;
+	height:250px;
+	overflow:hidden;
+}
+.Food_Weather .cont li{
+	padding-top:15px;
+}
+.Food_Weather .cont li.listn{
+	height:55px;
+	overflow:hidden;
+	background:url(dotted1.gif) left 69px repeat-x;	
+	color:#888;
+}
+.Food_Weather .cont li.listn .t{
+	height:25px;
+	line-height:25px;
+	padding-left:15px;
+	background:url(array2.gif) left 8px no-repeat;
+}
+.Food_Weather .cont li.listn .t a{
+	color:#369;
+}
+.Food_Weather .cont li.listn .address{
+	float:left;
+	width:180px;
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	padding-left:15px;
+}
+.Food_Weather .cont li.listn .d{
+	float:right;
+	color:#369;
+	line-height:20px;
+	font-size:14px;
+}
+.Food_Weather .cont dl{
+	height:110px;
+	overflow:hidden;
+	background:url(dotted.gif) left 108px repeat-x;
+}
+.Food_Weather .cont dl dt{
+	float:left;
+	width:75px;
+	height:105px;
+	padding-top:5px;
+	background:url(contbg1.gif) right 5px no-repeat;
+}
+.Food_Weather .cont dl dt div{
+	padding-left:5px;
+}
+.Food_Weather .cont dl dt div a{
+	display:block;
+	width:55px;
+	height:55px;
+	overflow:hidden;
+}
+.Food_Weather .cont dl dt p{
+	padding:5px 15px 0 0;
+	text-align:center;
+	line-height:18px;
+}
+.Food_Weather .cont dl dd{
+	width:160px;
+	float:left;
+	padding-left:10px;
+	overflow:hidden;
+	line-height:20px;
+}
+.Food_Weather .cont dl dd div{	
+	color:#888;
+	height:20px;
+	overflow:hidden;
+}
+.Food_Weather .cont dl dd p{
+	height:60px;
+	overflow:hidden;
+}
+.Food_Weather .cont dl dd span{
+	display:block;
+	height:20px;
+	overflow:hidden;
+	color:#888;
+	text-align:right;
+}
+.Food_Weather .cont dl dd span em{
+	font-style:normal;
+	color:#F30;
+}
+/*
+*MainCont2
+*/
+.MainCont2{
+	margin:10px auto;
+}
+.ShowPicChange{
+	border:#DCDEE4 solid 1px;
+	margin-top:10px;
+}
+.ShowPicChange .Left,.ShowPicChange .Right{
+	width:40px;
+	text-align:center;
+	vertical-align:middle;
+}
+.ShowPicChange .Left img,.ShowPicChange .Right img{
+	cursor:pointer;
+}
+.ShowPicChange .Cont{
+	padding-top:15px;
+	width:898px;
+}
+.ShowPicChange .Cont .ListBox{
+	width:890px;
+	margin:auto;
+	overflow:hidden;
+	position:relative;
+	height:150px;
+}
+.ShowPicChange .Cont .ListBox .ListChangePic{
+	width:10000px;
+	position:absolute;
+}
+.ShowPicChange .Cont .ListBox .ListChangePic ul{
+	float:left;
+}
+.ShowPicChange .Cont .ListBox .ListChangePic ul li.listpic{
+	width:178px;
+	height:150px;
+	overflow:hidden;
+	float:left;
+}
+.ShowPicChange .Cont .ListBox .ListChangePic ul li.listpic .img{
+	width:160px;
+	overflow:hidden;
+	margin:auto;
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.ShowPicChange .Cont .ListBox .ListChangePic ul li.listpic .img a{
+	display:block;
+	width:160px;
+	height:100px;
+	overflow:hidden;
+	text-align:center;
+}
+.ShowPicChange .Cont .ListBox .ListChangePic ul li.listpic .t{
+	width:160px;
+	height:20px;
+	margin:auto;
+	padding-top:8px;
+	line-height:20px;
+	overflow:hidden;
+}
+.ShowPicChange .Cont .ListBox2{
+	width:888px;
+	height:140px;
+}
+.ShowPicChange .Cont .ListBox .ListChangePic ul li.listpic2{
+	width:148px;
+	height:140px;
+	overflow:hidden;
+	float:left;
+}
+.ShowPicChange .Cont .ListBox .ListChangePic ul li.listpic2 .img{
+	width:120px;
+	overflow:hidden;
+	margin:auto;
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.ShowPicChange .Cont .ListBox .ListChangePic ul li.listpic2 .img a{
+	display:block;
+	width:120px;
+	height:90px;
+	overflow:hidden;
+	text-align:center;
+}
+.ShowPicChange .Cont .ListBox .ListChangePic ul li.listpic2 .t{
+	width:120px;
+	height:20px;
+	margin:auto;
+	padding-top:8px;
+	line-height:20px;
+	overflow:hidden;
+}
+/*
+*MainCont3
+*/
+.MainCont3{
+	height:680px;
+	overflow:hidden;
+}
+.MainCont3 .Main{
+	width:700px;
+	float:left;
+}
+.MainCont3 .Side{
+	width:270px;
+	float:right;
+}
+.MainCont3 .Main .Mcont2{
+	height:640px;
+	overflow:hidden;
+	margin-top:10px;
+}
+.HouseContL{
+	width:300px;
+	height:640px;
+	float:left;
+}
+.HouseContR{
+	width:385px;
+	float:right;
+	height:640px;
+	position:relative;
+}
+.ShowHouse1{
+	border:#E9EBEF solid 1px;
+	background:#F9FAFB;
+	height:420px;
+	overflow:hidden;
+}
+.ShowHouse1 .head,.ShowHouse2 .head{
+	height:30px;
+	width:95%;
+	margin:auto;
+	border-bottom:#E9EBEF solid 1px;
+	color:#2D374B;
+}
+.ShowHouse1 .head .tag,.ShowHouse2 .head .tag{
+	float:left;
+	padding:10px 0 0 5px;
+	font-size:14px;
+	font-weight:bold;
+}
+.ShowHouse1 .head .more,.ShowHouse2 .head .more{
+	float:right;
+	padding:10px 5px 0 0;
+}
+.ShowHouse1 .cont{
+	width:280px;
+	margin:auto;
+	overflow:hidden;
+}
+.ShowHouse1 .cont dl{
+	height:112px;
+	padding-top:12px;
+	overflow:hidden;
+	background:url(dotted.gif) left 123px repeat-x;
+	position:relative;
+}
+.ShowHouse1 .cont dl dt{
+	float:left;
+	padding-left:4px;
+}
+.ShowHouse1 .cont dl dt div{
+	width:125px;
+	overflow:hidden;
+}
+.ShowHouse1 .cont dl dt div a{
+	display:block;
+	text-align:center;
+	width:165px;
+	text-align:center;
+	margin-left:-20px;
+}
+.ShowHouse1 .cont dl dd{
+	float:left;
+	width:140px;
+	padding-left:8px;
+	line-height:25px;
+}
+.ShowHouse1 .cont dl dd div{
+	height:25px;
+	overflow:hidden;
+	color:#666;
+}
+.ShowHouse1 .cont dl dd div span{
+	color:#F60;
+}
+.ShowHouse1 .cont dl dd div.t{
+	font-weight:bold;
+}
+.ShowHouse1 .cont dl dt span{
+	display:block;
+	width:45px;
+	height:20px;
+	position:absolute;
+	left:0;
+	top:20px;
+	background:url(seal_hot.gif) no-repeat;
+}
+.ShowHouse2{
+	border:#E9EBEF solid 1px;
+	background:#F9FAFB;
+	height:206px;
+	overflow:hidden;
+	margin-top:10px;
+}
+.ShowHouse2 .cont{
+	padding:12px 15px 0 15px;
+}
+.ShowHouse2 .cont div{
+	height:26px;
+	line-height:26px;
+	padding-left:22px;
+	background:url(icon_sael.gif) left 2px no-repeat;
+}
+.ShowHouse2 .cont div a{
+	float:left;	
+}
+.ShowHouse2 .cont div span{
+	float:right;	
+	color:#f60;
+}
+.ShowHouse3 .head{
+	height:30px;
+	overflow:hidden;
+	background:url(head2.gif) left 8px repeat-x;
+}
+.ShowHouse3 .head .tag{
+	width:95px;
+	height:30px;
+	float:left;
+	background:#FFF url(tag2.gif) no-repeat;
+}
+.ShowHouse3 .head .tag span{
+	display:none;
+}
+.ShowHouse3 .head .more{
+	float:right;
+	padding:2px 5px 0 8px;
+	line-height:28px;
+	background:#FFF;
+}
+.ShowHouse3 .head .more a{
+	color:#888;
+}
+.ShowHouse3 .cont .blist{
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	padding-left:5px;
+}
+.ShowHouse3 .cont .blist a{
+	font-size:16px;
+	font-weight:bold;
+}
+.ShowHouse3 .cont .lista{
+	height:26px;
+	line-height:26px;
+	overflow:hidden;
+	padding-left:10px;
+	background:url(print.gif) left 12px no-repeat;
+}
+.ShowHouse3 .cont .lista a{
+	font-size:14px;
+}
+.ShowHouse3 .cont .lista span{
+	display:block;
+	float:left;
+	width:20px;
+	height:26px;
+	background:url(is_pic.gif) left 7px no-repeat;
+}
+.ShowHouse3 .cont .lista a{
+	display:block;
+	float:left;
+	width:280px;
+}
+.ShowHouse3 .cont .lista em{
+	float:right;
+	padding-right:5px;
+	font-style:normal;
+	color:#888;
+}
+.ShowHouse4,.ShowHouse5{
+	margin-top:10px;
+	height:210px;
+	overflow:hidden;
+}
+.ShowHouse4 .head,.ShowHouse5 .head{
+	height:30px;
+	background:url(head3.gif) repeat-x;
+}
+.ShowHouse4 .head .tag,.ShowHouse5 .head .tag{
+	float:left;
+	padding:10px 0 0 10px;
+	font-size:14px;
+	font-weight:bold;
+}
+.ShowHouse4 .head .more,.ShowHouse5 .head .more{
+	float:right;
+	padding:10px 10px 0;
+}
+.ShowHouse4 .cont .listb,.ShowHouse5 .cont .listb{
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	padding-left:10px;
+	background:url(print.gif) left 12px no-repeat;
+}
+.ShowHouse4 .cont .listb a,.ShowHouse5 .cont .listb a{
+	display:block;
+	float:left;
+	font-size:14px;
+}
+.ShowHouse4 .cont .listb a.t,.ShowHouse5 .cont .listb a.t{
+	width:200px;
+	padding-left:20px;
+	background:url(tspac.gif) 10px 6px no-repeat;
+}
+.ShowHouse4 .cont .listb em,.ShowHouse5 .cont .listb em{
+	float:right;
+	padding-right:5px;
+	font-style:normal;
+	color:#888;
+}
+.HouseContR .Goto_Modul{
+	position:absolute;
+	width:385px;
+	left:0;
+	bottom:0;
+	text-align:right;
+	padding:5px 0 5px 0;
+}
+.HouseContR .Goto_Modul a{
+	border:#DCDEE4 solid 1px;
+	padding:3px 15px 2px 5px;
+	background:url(array.gif) right 1px no-repeat;
+	margin-left:10px;
+}
+/*
+*ThisSiteTg
+*/
+.ThisSiteTg{
+	height:478px;
+	border:#E4E0DA solid 1px;
+	position:relative;
+}
+.ThisSiteTg .head{
+	height:30px;
+	background:#F3F4F7;
+}
+.ThisSiteTg .head .tag{
+	float:left;
+	padding:10px 0 0 10px;
+	font-size:14px;
+	font-weight:bold;
+}
+.ThisSiteTg .cont{
+	width:260px;
+	height:420px;
+	overflow:hidden;
+	position:absolute;
+	z-index:100;
+	left:-5px;
+	top:45px;
+}
+.ThisSiteTg .cont .ListTg{
+	height:145px;
+	overflow:hidden;
+}
+.ThisSiteTg .cont .ListTg .time{
+	height:18px;
+	line-height:18px;
+	background:url(head4.gif) no-repeat;
+	padding-left:25px;
+	color:#FFF;
+	position:relative;
+}
+.ThisSiteTg .cont .ListTg .time span,.ThisSiteTg .cont .ListTg .time em{
+	display:block;
+	position:absolute;
+	right:-1px;
+	top:0;
+	padding:0 3px 0 3px;
+	background:#f90;
+	border-left:#FFF solid 1px;
+}
+.ThisSiteTg .cont .ListTg .time em{
+	font-style:normal;
+	background:#999;
+}
+.ThisSiteTg .cont .ListTg .title{
+	height:40px;
+	line-height:40px;
+	padding-left:20px;
+	overflow:hidden;
+}
+.ThisSiteTg .cont .ListTg dl{
+	height:60px;
+	padding-left:20px;
+	overflow:hidden;
+}
+.ThisSiteTg .cont .ListTg dl dt{
+	float:left;
+	width:80px;
+	overflow:hidden;
+}
+.ThisSiteTg .cont .ListTg dl dt a{
+	display:block;
+	width:100px;
+	text-align:center;
+	margin-left:-10px;
+	overflow:hidden;
+}
+.ThisSiteTg .cont .ListTg dl dd{
+	float:left;
+	width:150px;
+	padding-left:10px;
+	line-height:20px;
+	color:#666;
+}
+.ThisSiteTg .cont .ListTg dl dd a{
+	color:#f30;
+}
+.RightAdCont{
+	height:188px;
+	border:#E4E0DA solid 1px;
+	overflow:hidden;
+	margin-top:10px;
+}
+.RightAdCont .Ad1{
+	padding:10px;
+	line-height:22px;	
+}
+.RightAdCont .Ad1 .list{
+	height:22px;
+	overflow:hidden;
+	padding-left:10px;
+	background:url(icon1.gif) left 8px no-repeat;
+}
+.RightAdCont .Ad1 .list span{
+	color:#369;
+}
+.RightAdCont .Ad1 .list em{
+	color:#F60;
+	font-style:normal;
+}
+.RightAdCont .Ad2{
+	width:250px;
+	height:90px;
+	text-align:center;
+	margin:auto;
+	overflow:hidden;
+}
+.MiddleBanner{
+	width:980px;
+	text-align:center;
+	margin:10px auto;
+	overflow:hidden;
+}
+/*
+*MainCont4
+*/
+.MainCont4{
+	height:500px;
+	overflow:hidden;
+}
+.MainCont4 .Main{
+	width:700px;
+	float:left;
+}
+.MainCont4 .Side{
+	width:270px;
+	float:right;
+}
+.MainCont4 .Main .Mcont4{
+	height:460px;
+	overflow:hidden;
+	padding-top:10px;
+}
+.Cont2shou1{
+	width:298px;
+	height:458px;
+	overflow:hidden;
+	float:left;
+	border:#E9EBEF solid 1px;
+	background:#F9FAFB;
+}
+.Cont2shou1 .head{
+	border-bottom:#E9EBEF solid 1px;
+	width:95%;
+	height:30px;
+	margin:auto;
+}
+.Cont2shou1 .head .tag{
+	float:left;
+	padding:10px 0 0 10px;
+	font-size:14px;
+	font-weight:bold;
+}
+.Cont2shou1 .head .more{
+	float:right;
+	padding:10px 10px 0 0;
+}
+.Cont2shou1 .cont{
+	height:420px;
+	overflow:hidden;
+	padding-left:5px;
+}
+.Cont2shou1 .cont .listpic{
+	width:144px;
+	height:123px;
+	padding-top:15px;
+	background:url(dotted.gif) left 136px repeat-x;
+	overflow:hidden;
+	float:left;
+	position:relative;
+}
+.Cont2shou1 .cont .listpic .img{
+	width:125px;
+	height:95px;
+	margin:auto;
+	overflow:hidden;
+}
+.Cont2shou1 .cont .listpic .img a{
+	display:block;
+	width:165px;
+	height:95px;
+	text-align:center;
+	overflow:hidden;
+	margin-left:-20px;
+	background:#EFEFEF;
+}
+.Cont2shou1 .cont .listpic .t{
+	width:125px;
+	height:22px;
+	background:#333;
+	overflow:hidden;
+	position:absolute;
+	left:9px;
+	top:88px;
+	line-height:22px;
+	text-align:center;
+	filter:alpha(opacity=50);
+	opacity:0.5;
+}
+.Cont2shou1 .cont .listpic .t a{
+	color:#FFF;
+}
+.Cont2shou1 .cont .listpic .p{
+	text-align:center;
+	padding-top:6px;
+	color:#F30;
+}
+.Cont2shou2{
+	width:390px;
+	height:460px;
+	overflow:hidden;
+	float:right;
+}
+.Cont2shou2 .head{
+	height:30px;
+	background:url(head3.gif) repeat-x;
+}
+.Cont2shou2 .head .tag{
+	float:left;
+	padding:10px 0 0 10px;
+	font-size:14px;
+	font-weight:bold;
+}
+.Cont2shou2 .head .more{
+	float:right;
+	padding:10px 10px 0 10px;
+}
+.Cont2shou2 .cont{
+	padding:5px;
+}
+.Cont2shou2 .cont .list{
+	height:26px;
+	line-height:26px;
+	overflow:hidden;
+	padding-left:10px;
+	background:url(print.gif) left 12px no-repeat;
+}
+.Cont2shou2 .cont .list a{
+	font-size:14px;
+}
+.Cont2shou2 .cont .list a{
+	display:block;
+	float:left;
+}
+.Cont2shou2 .cont .list a.t{
+	width:250px;
+	padding-left:20px;
+	background:url(tspac.gif) 10px 6px no-repeat;
+}
+.Cont2shou2 .cont .list em{
+	float:right;
+	font-style:normal;
+	color:#888;
+}
+.Cont2shou2 .cont .spacLink{
+	clear:both;
+	height:15px;
+	background:url(dotted.gif) left 7px repeat-x;
+}
+.MainCont4 .Side .Tg_Coupon{
+	height:415px;
+	overflow:hidden;
+}
+.MainCont4 .Side .Tg_Coupon .ChageHead{
+	border-right:#E9EBEF solid 1px;
+}
+.MainCont4 .Side .Tg_Coupon .Scont4{
+	border:#E9EBEF solid 1px;
+	border-top:0;
+	height:384px;
+	overflow:hidden;
+}
+.MainCont4 .Side .Tg_Coupon .Scont4 .ListLi{
+	height:87px;
+	padding-top:10px;
+	overflow:hidden;
+	background:url(dotted.gif) left 96px repeat-x;
+}
+.MainCont4 .Side .Tg_Coupon .Scont4 .ListLi div{
+	height:26px;
+	line-height:26px;
+	overflow:hidden;
+	padding-left:15px;
+	color:#666;
+}
+.MainCont4 .Side .Tg_Coupon .Scont4 .ListLi div span{
+	color:#f30;
+}
+.MainCont4 .Side .Tg_Coupon .Scont4 .ListLi div.title{
+	background:url(array1.gif) 10px 4px no-repeat;
+}
+.MainCont4 .Side .Tg_Coupon .Scont4 .ListLi div.title a{
+	display:block;
+	float:left;
+}
+.MainCont4 .Side .Tg_Coupon .Scont4 .ListLi div.title a.f{
+	background:url(array1.gif) right 4px no-repeat;
+	padding-right:8px;
+	color:#FFF;
+}
+.MainCont4 .Side .Tg_Coupon .Scont4 .ListLi div.title a.t{
+	width:190px;
+	padding-left:5px;
+	font-size:14px;
+}
+.MainCont4 .Side .Tg_Coupon .Scont4 .TitleList{
+	padding:15px 10px 0 10px;
+}
+.MainCont4 .Side .Tg_Coupon .Scont4 .TitleList .listtitle{
+	height:30px;
+	line-height:30px;
+	padding-left:10px;
+	overflow:hidden;
+	background:url(icon1.gif) left 12px no-repeat;
+}
+.MainCont4 .Side .Tg_Coupon .Scont4 .listtitle a{
+	font-size:14px;
+}
+.MainCont4 .Side .RightAd2{
+	width:270px;
+	height:75px;
+	text-align:center;
+	margin-top:10px;
+	overflow:hidden;
+}
+/*
+*MainCont5
+*/
+.MainCont5{
+	height:435px;
+	overflow:hidden;
+}
+.MainCont5 .Main{
+	width:700px;
+	float:left;
+	position:relative;
+}
+.MainCont5 .Side{
+	width:270px;
+	float:right;
+}
+.MainCont5 .Main .Mcont5{
+	height:395px;
+	overflow:hidden;
+	width:700px;
+	position:absolute;
+	left:0;
+	top:40px;
+	z-index:10;
+}
+.MainCont5 .Main .Mcont5 .SpacDiv{
+	position:absolute;
+	left:0;
+	top:0;
+	width:700px;
+	height:395px;
+	filter:alpha(opacity=50);
+	opacity:0.5;
+	z-index:50;
+}
+.MainCont5 .Main .Mcont5 dl{
+	width:180px;
+	height:95px;
+	overflow:hidden;
+	position:absolute;
+	z-index:100;
+}
+.MainCont5 .Main .Mcont5 dl.dl1{
+	width:330px;
+	height:195px;
+	left:0;
+	top:0;
+}
+.MainCont5 .Main .Mcont5 dl.dl1 img{
+	width:330px;
+}
+.MainCont5 .Main .Mcont5 dl.dl2{
+	right:185px;
+	top:0;
+}
+.MainCont5 .Main .Mcont5 dl.dl3{
+	right:185px;
+	top:100px;
+}
+.MainCont5 .Main .Mcont5 dl.dl4{
+	right:0;
+	top:0;
+}
+.MainCont5 .Main .Mcont5 dl.dl5{
+	right:0;
+	top:100px;
+}
+.MainCont5 .Main .Mcont5 dl.dl6{
+	left:0;
+	bottom:100px;
+}
+.MainCont5 .Main .Mcont5 dl.dl7{
+	left:0;
+	bottom:0;
+}
+.MainCont5 .Main .Mcont5 dl.dl8{
+	width:330px;
+	height:195px;
+	left:185px;
+	bottom:0;
+}
+.MainCont5 .Main .Mcont5 dl.dl8 img{
+	width:330px;
+}
+.MainCont5 .Main .Mcont5 dl.dl9{
+	right:0;
+	bottom:100px;
+}
+.MainCont5 .Main .Mcont5 dl.dl10{
+	right:0;
+	bottom:0;
+}
+.MainCont5 .Main .Mcont5 dl dd{
+	height:30px;
+	position:absolute;
+	left:0px;
+	line-height:30px;
+	overflow:hidden;
+	background:#333;
+	filter:alpha(opacity=50);
+	opacity:0.5;
+	text-align:center;
+}
+.MainCont5 .Main .Mcont51 dl dd{
+	width:380px;
+	top:210px;
+}
+.MainCont5 .Main .Mcont52 dl dd{
+	width:100%;
+	bottom:0px;
+}
+.MainCont5 .Main .Mcont5 dl dd a{
+	color:#FFF;
+	padding:0 10px 0 10px;
+	font-size:14px;
+	font-weight:bold;
+}
+.Hr_Gift{
+	height:435px;
+	overflow:hidden;
+}
+.Hr_Gift .ChageHead{
+	border-right:#E9EBEF solid 1px;
+}
+.Hr_Gift .Scont5{
+	border:#E9EBEF solid 1px;
+	border-top:0;
+	height:404px;
+	overflow:hidden;
+	padding:0 5px 0 5px;
+}
+.Hr_Gift .Scont5 dl{
+	height:120px;
+	padding-top:15px;
+	overflow:hidden;
+	background:url(dotted.gif) left 134px repeat-x;
+	padding-left:10px;
+}
+.Hr_Gift .Scont5 dl dt{
+	width:100px;
+	float:left;
+	overflow:hidden;
+}
+.Hr_Gift .Scont5 dl dt a{
+	display:block;
+	width:200px;
+	height:100px;
+	text-align:center;
+	overflow:hidden;
+	margin-left:-50px;
+}
+.Hr_Gift .Scont5 dl dd{
+	width:135px;
+	float:left;
+	padding-left:10px;
+}
+.Hr_Gift .Scont5 dl dd div{
+	height:25px;
+	line-height:25px;
+	overflow:hidden;
+	color:#777;
+}
+.Hr_Gift .Scont5 dl dd div span{
+	color:#F30;
+}
+.Hr_Gift .Scont5 dl dd div a.but{
+	float:left;
+	padding:0 5px 0 5px;
+	background:url(but.gif) center 2px no-repeat;
+	color:#FFF;
+}
+/*
+*FrendLink
+*/
+.FrendLink{
+	margin-top:10px;
+	border:#E9EBEF solid 1px;
+}
+.FrendLink .head{
+	height:30px;
+	border:#FFF solid 1px;
+	background:url(head3.gif) repeat-x;
+}
+.FrendLink .head .tag{
+	float:left;
+	padding:10px 0 0 10px;
+	font-size:14px;
+	font-weight:bold;
+}
+.FrendLink .head .more{
+	float:right;
+	padding:10px 10px 0 0;
+}
+.FrendLink .piclink{
+	padding:5px 10px 5px 10px;
+}
+.FrendLink .wordlink{
+	padding:0 10px 5px 10px;
+	line-height:20px;
+}
+/*
+*
+*/
+.McontTable .LeftTd{
+	width:300px;
+	border:#E9EBEF solid 1px;
+}
+.McontTable .LeftTd .head{
+	height:30px;
+	width:95%;
+	margin:auto;
+	border-bottom:#E9EBEF solid 1px;
+}
+.McontTable .LeftTd .head .tag,.McontTable .RightTd .head .tag{
+	float:left;
+	padding:10px 0 0 10px;
+	font-size:14px;
+	font-weight:bold;
+}
+.McontTable .LeftTd .head .more,.McontTable .RightTd .head .more{
+	float:right;
+	padding:10px 10px 0 0;
+}
+.McontTable .LeftTd dl{
+	height:120px;
+	width:260px;
+	margin:auto;
+	overflow:hidden;
+	padding:25px 0 0 20px;
+	background:url(dotted1.gif) left 144px repeat-x;
+}
+.Mcont4 .McontTable .LeftTd dl{
+	height:115px;
+	padding:20px 0 0 20px;
+	background:url(dotted1.gif) left 134px repeat-x;
+}
+.McontTable .LeftTd dl dt{
+	float:left;
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.McontTable .LeftTd dl dt a{
+	display:block;
+	width:60px;
+	height:90px;
+	overflow:hidden;
+}
+.McontTable .LeftTd dl dd{
+	float:inherit;
+	width:180px;
+	padding-left:10px;
+	float:left;
+	line-height:24px;
+}
+.McontTable .LeftTd dl dd div{
+	height:24px;
+	overflow:hidden;
+	font-weight:bold;
+	color:#666;
+}
+.McontTable .LeftTd dl dd div span{
+	font-weight:normal;
+}
+.McontTable .LeftTd dl dd div a{
+	color:#F30;
+}
+.McontTable .RightTd{
+	padding-left:10px;
+}
+.McontTable .RightTd .head{
+	height:30px;
+	background:url(head3.gif) repeat-x;
+}
+
+.McontTable .RightTd .spacLink{
+	height:26px;
+	clear:both;
+	background:url(dotted1.gif) left 13px repeat-x;
+}
+.McontTable .RightTd .list,.McontTable .RightTd .hrlist{
+	height:26px;
+	line-height:26px;
+	overflow:hidden;
+	padding-left:15px;
+	background:url(print.gif) 5px 12px no-repeat;
+}
+.McontTable .RightTd .list a{
+	font-size:14px;
+	display:block;
+	float:left;
+}
+.McontTable .RightTd .list a.t{
+	width:200px;
+	padding-left:20px;
+	background:url(tspac.gif) 10px 6px no-repeat;
+}
+.McontTable .RightTd .list em{
+	float:right;
+	padding-right:5px;
+	font-style:normal;
+	color:#888;
+}
+.McontTable .RightTd .hrlist a{
+	color:#369;
+}
+.McontTable .RightTd .hrlist span{
+	color:#f60;
+}

@@ -1,0 +1,59 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable">
+  <tr> 
+    <td height="100"  class="Main"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable" >
+        <tr> 
+          <td class="head"><a href="joinlist.php"><font color="#FF0000"><b>申请代理</b></font></a></td>
+        </tr>
+        <tr> 
+          <td class="middle"> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" class="linetable">
+              <tr align="center" class="head3"> 
+                <td class="top" width="32%">代理的品牌名称</td>
+                <td class="top" width="20%">代理级别</td>
+                <td class="top" width="17%">申请时间</td>
+                <td class="top" width="12%">审核与否</td>
+                <td class="top" width="8%">详情</td>
+                <td class="top" width="5%">修改</td>
+                <td class="top" width="6%">注销</td>
+              </tr>
+              <!--
+EOT;
+foreach($listdb AS $key=>$rs){print <<<EOT
+-->
+              <tr> 
+                <td class="middle"  width="32%" align="left"><a href="../bencandy.php?fid={$rs[C][fid]}&id={$rs[C][id]}" target="_blank">{$rs[C][title]}</a></td>
+                <td class="middle"  width="20%" align="center">{$rs[dl_level]}</td>
+                <td class="middle"  width="17%" align="center">$rs[posttime]</td>
+                <td class="middle"  width="12%" align="center">$rs[yz]</td>
+                <td class="middle"  width="8%" align="center"><a href="../joinshow.php?fid=$rs[fid]&id=$rs[id]" target="_blank">查看</a></td>
+                <td class="middle"  width="5%" align="center"><a href="join.php?cid=$rs[cid]&fid=$rs[fid]&id=$rs[id]&job=edit">修改</a></td>
+                <td class="middle"  width="6%" align="center"><a href="join.php?action=del&id=$rs[id]&fid=$rs[fid]&cid=$rs[cid]">注销</a></td>
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+-->
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td align="center" height="23">$showpage</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="foot"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

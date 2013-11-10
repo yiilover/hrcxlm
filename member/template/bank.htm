@@ -1,0 +1,165 @@
+<!--
+<?php
+$paypal_type[intval($conf[paypal_type])]=' checked ';
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head">
+    	<div class="tag">网银帐号设置</div>
+    </div>
+    <div class="cont">
+        <form name="form_work" method="post" action="?action=set">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+		<tr>
+            <th colspan="2">网银在线信息</th>
+          </tr>
+          <tr>
+            <td class="tdL" style="width:150px;">收款网银在线商户号:</td>
+            <td class="tdR">
+            	<input type='text' size='30' value='$conf[chinabank_id]' name='postdb[chinabank_id]'>
+                <a href="https://www.yeepay.com/reg.html" target="_blank">注册</a> 
+                <a href="https://www.yeepay.com/individualservice/Login.action" target="_blank">登录</a>
+            </td>
+          </tr>
+		  <tr>
+            <td class="tdL">收款网银在线密钥:</td>
+            <td class="tdR"><input type='text' size='40' value='$conf[chinabank_key]' name='postdb[chinabank_key]'></td>
+          </tr>
+<tr>
+            <th colspan="2">贝宝支付信息</th>
+          </tr>
+          <tr>
+            <td class="tdL" style="width:150px;">收款贝宝支付商户帐号:</td>
+            <td class="tdR">
+            	<input    type='text' size='30' value='$conf[paypal_id]' name='postdb[paypal_id]'>
+                <a href="https://www.paypal.com/cn/cgi-bin/webscr?cmd=_registration-run" target="_blank">注册</a> 
+                <a href="https://www.paypal.com/cn/cgi-bin/webscr?cmd=_login-run" target="_blank">登录</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="tdL">收款贝宝支付商户密钥:</td>
+            <td class="tdR"><input type='text' size='40' value='$conf[paypal_key]' name='postdb[paypal_key]'></td>
+          </tr>
+		  <tr>
+            <td class="tdL">收款币种 类型:</td>
+            <td class="tdR">
+<input type="radio" name="postdb[paypal_type]" value="0" $paypal_type[0]> 人民币（适用中国版贝宝帐号）
+        <input type="radio" name="postdb[paypal_type]" value="1" $paypal_type[1]> 美元（适用国际版贝宝帐号，中国版贝宝帐号不能选择此项）
+
+</td>
+          </tr>
+
+          <tr>
+            <th colspan="2">易宝支付信息</th>
+          </tr>
+          <tr>
+            <td class="tdL" style="width:150px;">收款易宝支付商户编号:</td>
+            <td class="tdR">
+            	<input    type='text' size='30' value='$conf[yeepay_id]' name='postdb[yeepay_id]'>
+                <a href="https://www.yeepay.com/reg.html" target="_blank">注册</a> 
+                <a href="https://www.yeepay.com/individualservice/Login.action" target="_blank">登录</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="tdL">收款易宝支付商户密钥:</td>
+            <td class="tdR"><input    type='text' size='40' value='$conf[yeepay_key]' name='postdb[yeepay_key]'></td>
+          </tr>
+          <tr>
+            <th colspan="2">财付通信息</th>
+          </tr>
+          <tr>
+            <td class="tdL">收款财付通商户号:</td>
+            <td class="tdR">
+            	<input    type='text' size='30' value='$conf[tenpay_id]' name='postdb[tenpay_id]'>
+                    (<a href="http://www.tenpay.com/" target="_blank">注册</a> 
+                    <a href="http://mch.tenpay.com/" target="_blank">登录</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="tdL">收款财付通商户密钥:</td>
+            <td class="tdR"><input    type='text' size='40' value='$conf[tenpay_key]' name='postdb[tenpay_key]'></td>
+          </tr>
+          <tr>
+            <th colspan="2">支付宝信息</th>
+          </tr>
+          <tr>
+            <td class="tdL">收款支付宝帐号:</td>
+            <td class="tdR">
+            	<input    type='text' size='30' value='$conf[alipay_id]' name='postdb[alipay_id]'>
+                    <a href="https://www.alipay.com/user/user_register.htm" target="_blank">注册</a> 
+                    <a href="https://www.alipay.com/" target="_blank">登录</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="tdL">交易安全校验码（key）:</td>
+            <td class="tdR"><input    type='text' size='30' value='$conf[alipay_key]' name='postdb[alipay_key]'></td>
+          </tr>
+          <tr>
+            <td class="tdL">合作者身份（partnerID）:</td>
+            <td class="tdR"><input    type='text' size='30' name='postdb[alipay_partner]' value='$conf[alipay_partner]'>
+                    <a href="https://www.alipay.com/user/login.htm?goto=https%3A%2F%2Fwww.alipay.com%2Fhimalayas%2Fpracticality_profile_edit.htm" target="_blank" style="color:#03F">签约地址</a>(您可以通过注册获得一个支付宝的合作者身份ID，拥有该ID，您可以在支付宝网站上查询到该ID产生的所有交易历史</td>
+          </tr>
+          <tr>
+            <td class="tdL">接口类型:</td>
+            <td class="tdR">
+            	<select name="postdb[alipay_service]">
+				<option value="create_direct_pay_by_user" $alipay_service[create_direct_pay_by_user]>即时到账</option>
+                  <option value="create_partner_trade_by_buyer" $alipay_service[create_partner_trade_by_buyer]>纯担保交易</option>
+                  <option value="trade_create_by_buyer" $alipay_service[trade_create_by_buyer]>标准实物</option>
+                  
+                </select>
+            </td>
+          </tr>
+          <tr style="display:none;">
+            <td class="tdL">提交方式:</td>
+            <td class="tdR">
+            	<select name="postdb[alipay_transport]">
+                  <option value="https" $alipay_transport[https]>https</option>
+                  <option value="http" $alipay_transport[http]>http</option>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2">收款银行帐号设置</th>
+          </tr>
+          <tr>
+            <td class="tdL">银行帐号:</td>
+            <td class="tdR">
+            	<textarea cols="5" name="postdb[back_code]" style="width:500px;height:100px;">$conf[back_code]</textarea>
+                <br>
+              卡号与银行名称用空格隔开,多个帐号的话,每个换一行,格式如下:<br>
+              6222****73 张三 中国工商银行北京**支行<br>
+              6228***919 张三 中国农业银行北京***分行<br>
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2">邮费设置</th>
+          </tr>
+          <tr>
+            <td class="tdL">普通快递邮费:</td>
+            <td class="tdR"><input    type='text' size='5' value='$conf[norm_send]' name='postdb[norm_send]'> 元</td>
+          </tr>
+          <tr>
+            <td class="tdL">EMS邮费:</td>
+            <td class="tdR"><input    type='text' size='5' value='$conf[ems_send]' name='postdb[ems_send]'> 元 </td>
+          </tr>
+          <tr>
+            <td class="tdL">平邮邮费:</td>
+            <td class="tdR"><input    type='text' size='5' value='$conf[slow_send]' name='postdb[slow_send]'> 元 </td>
+          </tr>
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR"><input type="submit" name="Submit" value="修改"></td>
+          </tr>
+         </table>
+         </form>
+         <ul class="aboutnote">
+         	<li>1.以上易宝支付,财付通,支付宝三种收款帐号,如果不填写密钥相关信息的话,将不能用于商城与团购的在线即时收款.如果仅作为提现或人工转帐收款的话,只需填写帐号即可.</li>
+            <li>2.银行帐号不能用于商城与团购的在线即时收款,只能作为提现或人工转帐收款.</li>
+         </ul>
+    </div>
+</div> 
+<!--
+EOT;
+?>
+-->

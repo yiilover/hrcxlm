@@ -1,0 +1,41 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MiddleCont">
+	<div class="SideCont">
+    	<div class="head">
+        	<div class="tag">{$head[$ordertype]}商品</div>
+            <div class="more">
+                <a href="?ordertype=levelstime">推荐商品</a>
+                <a href="?ordertype=hits">热门商品</a>
+                <a href="?ordertype=id">最新商品</a>
+            </div>
+        </div>
+        <div class="cont">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){ 
+print<<<EOT
+-->
+        <dl class="ListShop">
+        	<dt><div><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" height="90"/></a></div></dt>
+            <dd>
+            	<div class="t"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></div>
+                <div class="c">市场价格：<span>{$rs[market_price]}</span>元</div>
+                <div class="c">商品型号：<span>{$rs[shoptype]}</span></div>
+                <div class="m"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">[详细]</a></div>
+            </dd>
+        </dl>
+<!--
+EOT;
+}print<<<EOT
+-->
+        </div>
+    </div>
+    <div class="shoppage">$showpage</div>	
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,98 @@
+<!--
+<?php
+print <<<EOT
+-->
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+<div class="MainCont">
+	<div class="head"><div class="tag">$fidDB[name]</div></div>
+    <div class="cont">
+    	<form name="FORM" id="FORM" method="post" action="post.php?action=$atc"  enctype="multipart/form-data">
+<script>
+function upfile(url,name,size,ty){
+	document.getElementById("atc_pic").value=url;
+}
+</script>
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr><th colspan="2">基本资料</th></tr>
+          <tr>
+            <td class="tdL"><font color="red">*</font> 名称:</td>
+            <td class="tdR"><input type="text" name="postdb[title]" id="atc_title" size="40" value="$rsdb[title]"></td>
+          </tr>
+<!--
+EOT;
+if($job!="edit"&&!$web_admin&&$groupdb[postCouponYzImg]){
+print <<<EOT
+-->
+          <tr>
+            <td class="tdL"><font color="red">*</font> 验证码:</td>
+            <td class="tdR">
+            	<input id="yzImgNum" type="text" name="yzimg" size="8">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<img border="0" name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'">');
+//-->
+</SCRIPT>
+            </td>
+          </tr>
+<!--
+EOT;
+}if(count($city_DB[name])>1){
+print <<<EOT
+-->
+          <tr>
+            <td class="tdL">所在城市:</td>
+            <td class="tdR">
+            	<select name="postdb[city_id]"><option value='0'>全国</option>
+<!--
+EOT;
+foreach($city_DB[name] AS $key=>$value){
+if($job=='edit'){
+	$city_id=$rsdb[city_id];
+}
+$ckk=$city_id==$key?'selected':'';
+print <<<EOT
+-->
+                      <option value="$key" $ckk>$value</option>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                </select>
+            </td>
+          </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+          <tr>
+            <td class="tdL">图片:</td>
+            <td class="tdR">
+            	<div style="float:left;"><input type="text" name="postdb[picurl]" id="atc_pic" size="40" value="$rsdb[picurl]"></div>
+                <div style="float:left;"><iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=$_pre/$fid' width="310"></iframe></div>
+            </td>
+          </tr>
+<!--{template}-->
+        <tr> 
+          <td class="tdL">{title}</td>
+          <td class="tdR">{value}</td>
+        </tr>
+<!--{/template}-->
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+            	<input type="submit" name="Submit" value="提 交">
+                <input type="hidden" name="fid" value="$fid">
+                <input type="hidden" name="id" value="$id">
+            </td>
+          </tr>
+        </table>
+        </form>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

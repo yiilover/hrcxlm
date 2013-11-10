@@ -1,0 +1,121 @@
+.Containers{
+	border:#FFCB95 solid 1px;
+	margin-bottom:10px;
+	width:100%;
+}
+.Containers .head{
+	height:28px;
+	background:url(head3.gif)	left top repeat-x;
+	line-height:28px;
+	padding-left:15px;
+	font-weight:bold;
+	color:#DD6B06;
+}
+.Containers .cont{
+	padding:5px;
+}
+.listtable{
+	border:#DDD solid 1px;
+}
+.listtable th,.listtable td{
+	font-size:12px;
+	text-align:center;
+	vertical-align:middle;
+}
+.listtable .ck{
+	border-left:#DDD solid 1px;
+	border-right:#DDD solid 1px;
+}
+.listtable th{
+	border-bottom:#DDD solid 1px;
+	height:30px;
+	font-weight:bold;
+	background:#EFEFEF;
+}
+.listtable td{
+	padding:5px;
+}
+.listtable td span{
+	color:red;
+}
+.listtable td em{
+	color:#888;
+}
+.listtable td div{
+	text-align:left;
+	line-height:18px;
+	padding:2px 0 2px 0;
+	color:#888;
+}
+.listtable td a{
+	color:blue;
+}
+.listtable td div em{
+	color:blue;
+}
+.listtable .hbg td{
+	background:#EFEFEF;
+}
+.pages{
+	text-align:center;
+	line-height:40px;
+}
+/**
+***/
+.post_comment {
+	margin-top:20px;
+}
+.post_comment .tdL{
+	width:120px;
+	line-height:30px;
+	text-align:right;
+}
+.post_comment .fens{
+	width:120px;
+	height:30px;
+	overflow:hidden;
+	background:url(shoptg_x1.gif) left 5px no-repeat;
+	margin-left:3px;
+}
+.post_comment .show1{
+	background:url(shoptg_x1.gif) left -25px no-repeat;
+}
+.post_comment .show2{
+	background:url(shoptg_x1.gif) left -55px no-repeat;
+}
+.post_comment .show3{
+	background:url(shoptg_x1.gif) left -85px no-repeat;
+}
+.post_comment .show4{
+	background:url(shoptg_x1.gif) left -115px no-repeat;
+}
+.post_comment .show5{
+	background:url(shoptg_x1.gif) left -145px no-repeat;
+}
+.post_comment .fens a{
+	display:block;
+	width:24px;
+	height:30px;
+	float:left;
+	cursor:pointer;
+}
+.post_comment .tdR{
+	padding:5px;
+}
+.post_comment .tdR textarea{
+	width:500px;
+	height:200px;
+}
+.post_comment .tdbut{
+	padding:10px 0 20px 0;
+}
+#submitbut , .resetbut{
+	width:80px;
+	height:25px;
+	border:0;
+	background:url(sub1.gif) center top no-repeat;
+}
+#submitbut{
+	background:url(sub.gif) center top no-repeat;
+	color:#FFF;
+}

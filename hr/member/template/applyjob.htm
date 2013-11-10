@@ -1,0 +1,39 @@
+<!--
+<?php 
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head"><div class="tag">我申请应聘的职位列表</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="40%">职位</th>
+            <th width="40%">公司</th>
+            <th width="20%">查看/删除</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td class="tL">{$rs[title]}</td>                  
+            <td class="tL"><a href="$webdb[www_url]/home/?uid=$rs[uid]" target="_blank" >{$rs[company]}</a></td>
+            <td>
+            <a href="../bencandy.php?job=edit&fid=$rs[fid]&id=$rs[bid]" target="_blank" >查看</a>/<a href="?action=del&id=$rs[id]">删除</a>               
+            </td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

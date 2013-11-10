@@ -1,0 +1,2 @@
+<?php
+class AutotaskModel extends AdvModel { protected $_auto = array( array('ifclose', '0'), ); protected $_validate = array( array('at_name', 'require', '请填写定时任务名称!'), array('at_type', 'require', '请选择定时模式!'), array('at_taskurl', 'require', '请填写执行路径!'), ); protected $serializeField = array( 'at_daytime' => array('h0','h1','h2','h3','h4','h5','h6','h7','h8','h9','h10','h11','h12','h13','h14','h15','h16','h17','h18','h19','h20','h21','h22','h23','if_random_minute'), ); } ?>

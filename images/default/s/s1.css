@@ -1,0 +1,53 @@
+.Container .Mcont .sideL{
+	width:160px;
+	height:400px;
+	float:left;
+	border-right:#CCC solid 1px;
+}
+.Container .Mcont .sideR{
+	width:160px;
+	height:400px;
+	float:right;
+}
+.Container .Mcont .MainC{
+	width:620px;
+	float:left;
+	padding-left:20px;
+}
+.showsort dt{
+	height:25px;
+	line-height:25px;
+	padding-left:25px;
+	padding-right:15px;
+	overflow:hidden;
+	background:url(icon1.gif) 15px 9px no-repeat;
+	font-weight:bold;
+}
+.showsort dd{
+	padding:0 20px 0 25px;
+}
+.showsort dd div{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+}
+.showsort dd div a:link,.showsort dd div a:visited,.showsort dd div a:hover{
+	color:#00c;
+	text-decoration:underline;
+}
+.hotsearch dt{
+	height:25px;
+	line-height:25px;
+	border-bottom:#CCC solid 1px;
+	font-weight:bold;
+	margin-bottom:5px;
+}
+.hotsearch dd div{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+}
+.hotsearch dd div a:link,.hotsearch dd div a:visited,.hotsearch dd div a:hover{
+	color:#00c;
+	text-decoration:underline;
+}

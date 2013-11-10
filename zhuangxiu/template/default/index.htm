@@ -1,0 +1,144 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$Murl/images/default/msearch.css">
+<ul class="modemenu">
+    <li><span><a href="list.php?fid=1">招标信息</a></span></li>
+    <li><span><a href="list.php?fid=4">装修学堂</a></span></li>
+    <li><span><a href="list.php?fid=5">装修公司</a></span></li>
+    <li><span><a href="list.php?fid=2">装修案例</a></span></li>
+    <li><span><a href="list.php?fid=3">装修日志</a></span></li>
+    <li><span><a href="list.php?fid=6">设计师</a></span></li>
+</ul>
+<div class="modeSearch">
+<form name="modesearch" method="post" action="search.php" onsubmit="return check_keyword();" target="_blank">
+	<div class="showtype"><span>招标信息</span></div>
+    <ul class="listtype">
+    	<li><span class="ck">招标信息</span></li>
+        <li><span>装修学堂</span></li>
+        <li><span>装修公司</span></li>
+        <li><span>装修案例</span></li>
+        <li><span>装修日志</span></li>
+        <li><span>设计师</span></li>
+    </ul>
+    <div class="keyword"><input type="text" name="keyword"></div>
+    <div class="submits"><input type="image" src="$Murl/images/default/sub.gif" /></div>
+    <input type="hidden" name="mid" value="1">
+    <input type="hidden" name="action" value="search">
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript" src="$Murl/images/default/msearch.js"></SCRIPT>
+<link rel="stylesheet" type="text/css" href="$Murl/images/default/index.css">
+<div class="ZXmaincont ZXmaincont1">
+	<div class="SideL">
+    	<link rel="stylesheet" type="text/css" href="$Murl/images/default/slide.css">
+    	<div class="SlideCont">
+        	{$label[zhuangxiu_index1]}        	
+        </div>
+        <div class="HotZXs">
+        	<div class="head"><div class="tag">热门招标</div><div class="more"><a href="listall.php?fid=1&ordertype=hits">MORE</a></div></div>
+            <div class="cont">
+            	{$label[zhuangxiu_index2]} 
+            </div>
+        </div>
+    </div>
+    <div class="SideC">
+    	<div class="CenterZX">
+        	<div class="head"><div class="tag">推荐信息</div></div>
+            <div class="cont">
+            	<div class="cont1">
+                	{$label[zhuangxiu_index3]} 
+                </div>
+                <div class="cont2">
+                	{$label[zhuangxiu_index4]} 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="AtcZxCont">
+        	<dl class="dl1">
+            	<dt><a href="post.php?fid=1">发布招标</a></dt>
+                <dd><a href="post.php?fid=3">发布日志</a></dd>
+            </dl>
+            <dl class="dl2">
+            	<dt><a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/zhuangxiu/member/collection.php">收藏夹</a></dt>
+                <dd><a href="search.php?mid=5">找装饰公司</a></dd>
+            </dl>
+        </div>
+        <div class="sidecont Hotgz">
+        	<div class="head"><div class="tag">热点关注</div><div class="more"><a href="listall.php?fid=4&ordertype=hits">MORE</a></div></div>
+            <div class="cont">
+            	{$label[zhuangxiu_index5]}
+            </div>
+        </div>
+        <div class="RightAd">{$label[zhuangxiu_index6]}</div>
+    </div>
+</div>
+<div class="ZXmaincont ZXmaincont2">
+	<div class="MainL">
+    	<div class="sidecont NewestZb">
+        	<div class="head"><div class="tag"><span>最新招标信息</span></div><div class="more"><a href="listall.php?fid=1">MORE</a></div></div>
+            <div class="cont">
+            	{$label[zhuangxiu_index7]}
+            </div>
+        </div>
+    </div> 
+	<div class="SideR">
+    	<div class="sidecont NewestZs">
+        	<div class="head"><div class="tag">装修案例</div><div class="more"><a href="listall.php?fid=2">MORE</a></div></div>
+            <div class="cont">
+            	{$label[zhuangxiu_index8]}
+            </div>
+        </div>
+    </div> 
+</div>
+<div class="sidecont ZXmaincont3">
+	<div class="head"><div class="tag"><span>推荐装修公司</span></div><div class="more"><a href="listall.php?fid=5">MORE</a></div></div>
+    <div class="cont">
+    	{$label[zhuangxiu_index9]}
+    </div>
+</div>
+<div class="MainBanner">{$label[zhuangxiu_index10]}</div>
+<div class="ZXmaincont4">
+	<div class="DisgnEr">
+    	<div class="head"><div class="tag">设计师</div><div class="more"><a href="listall.php?fid=6">MORE</a></div></div>
+        <div class="cont">
+            {$label[zhuangxiu_index11]}
+        </div>
+    </div>
+    <div class="ZxSchool">
+    	<div class="head"><div class="tag">装修学堂</div><div class="more"><a href="listall.php?fid=4">MORE</a></div></div>
+        <div class="cont">
+            <dl>{$label[zhuangxiu_index12]}</dl>
+            <dl>{$label[zhuangxiu_index13]}</dl>
+            <dl>{$label[zhuangxiu_index14]}</dl>
+            <dl>{$label[zhuangxiu_index15]}</dl>
+            <dl>{$label[zhuangxiu_index16]}</dl>
+            <dl>{$label[zhuangxiu_index17]}</dl>
+        </div>
+    </div>
+</div>
+<div class="ZXmaincont ZXmaincont5">
+	<div class="MainL">
+    	<div class="sidecont NewestZb HotShopTz">
+        	<div class="head"><div class="tag"><span>热门建材推荐</span></div><div class="more"><a href="../shop/">MORE</a></div></div>
+            <div class="cont">
+            	{$label[zhuangxiu_index18]}
+            </div>
+        </div>
+    </div> 
+	<div class="SideR">
+    	<div class="sidecont NewestCoupon">
+        	<div class="head"><div class="tag">最新促销活动</div><div class="more"><a href="../coupon">MORE</a></div></div>
+            <div class="cont">
+            	{$label[zhuangxiu_index19]}
+            </div>
+        </div>
+    </div> 
+</div>
+<!--
+EOT;
+?>
+-->

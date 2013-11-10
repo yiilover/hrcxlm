@@ -1,0 +1,49 @@
+<!--
+<?php
+$show_type || $show_type=1;
+$ck_class[$show_type]="class='ck'";
+print <<<EOT
+-->
+<input type="hidden" name="show_type" id="show_type" value="$show_type" /> 
+<input name="step" type="hidden" id="hd_step" value="1" /> 
+<input type="hidden" name="ajax_wait" id="ajax_wait" /> 
+<!--需要改成其它风格的话，请自行修改以下这个JS文件-->
+<SCRIPT LANGUAGE="JavaScript" src="$Murl/images/default/showall.js"></SCRIPT>
+<link rel="stylesheet" type="text/css" href="$Murl/images/default/showall.css">
+<ul class="show_type">
+	<li $ck_class[1]><a href="?show_type=1">最新团购</a></li>
+    <li $ck_class[2]><a href="?show_type=2">最热团购</a></li>
+    <li $ck_class[3]><a href="?show_type=3">推荐团购</a></li>
+</ul>
+<div class="MainContents">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ShowConts">
+  <tr>
+    <td id="ShowAlls">
+<!--
+EOT;
+foreach($data AS $key=>$rs){
+print <<<EOT
+-->	
+		<div class="ListShop">
+        	<div class="title"><a href="$rs[url]" target="_blank">$rs[title]</a></div>
+            <div class="company">商家：<a href="../home/?uid=$rs[uid]" target="_blank">$rs[companyname]</a></div>
+            <div class="img"><a href="$rs[url]" target="_blank"><img src="$rs[image]" onError="this.src='../images/default/nopic.jpg'" height="190" /></a></div>
+            <div class="info"><span>原价：<strike>$rs[market_price]元</strike></span><span>$rs[posttime]</span><span class="hits">点击：<em>$rs[hits]</em>次</span></div>
+            <div class="mores"><span class="price">￥<em>$rs[price]</em></span><a href="$rs[url]" target="_blank">去看看</a></div>
+        </div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    </td>
+  </tr>
+</table>
+</div>
+<div id="loading"> 
+	<span class="loading_span"></span><span>正在加载中......</span>
+</div>
+<!--
+EOT;
+?>
+-->

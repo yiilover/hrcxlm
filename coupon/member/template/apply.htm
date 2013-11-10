@@ -1,0 +1,38 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head"><div class="tag">我申请的礼品</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="40%">礼品名称</th>
+            <th width="15%">所需{$webdb[MoneyName]}</th>
+            <th width="20%">申请时间</th>
+            <th width="10%">审核与否</th>
+            <th width="15%">详情/删除</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){print <<<EOT
+-->
+          <tr>
+            <td class="tL"><a href="../bencandy.php?fid=$rs[fid]&id=$rs[cid]&city_id={$rs[shop][city_id]}" target="_blank">{$rs[C][title]}</a></td>
+            <td>{$rs[C][money]}</td>
+            <td>$rs[posttime]</td>
+            <td>$rs[send]</td>
+            <td><a href="joinshow.php?fid=$rs[fid]&id=$rs[id]">查看</a>/<a href="join.php?action=del&id=$rs[id]&fid=$rs[fid]&cid=$rs[cid]">删除</a></td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </table>
+        <div class="Showpage">$showpage</div>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

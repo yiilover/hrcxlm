@@ -1,0 +1,93 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<SCRIPT LANGUAGE="JavaScript">
+<!--//屏蔽出错代码
+function killErr(){
+	return true;
+}
+window.onerror=killErr;
+//-->
+</SCRIPT>
+<form name="form1" method="post" action="$admin_path&action=$job">
+<div class="MainCont">
+	<div class="head"><div class="tag">栏目修改</div></div>
+    <div class="ListBut red">[<a href="$Murl/list.php?fid=$fid" target="_blank">浏览前台</a>] [<a href="$admin_path&file=list&job=list&fid=$fid">管理内容</a>]</div>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+    <tr> 
+      <td class="tdL">栏目名称:</td>
+      <td class="tdR"> 
+        <input type="text" name="postdb[name]" value="$rsdb[name]">
+      </td>
+    </tr>
+    <tr> 
+      <td class="tdL">父栏目: </td>
+      <td class="tdR"> $select_fid </td>
+    </tr>
+    <tr style="display:$moresons"> 
+      <td class="tdL">分类/栏目/单篇文章: </td>
+      <td class="tdR"> 
+        <input type="radio" name="postdb[type]" value="1" $typedb[1]  >
+        分类 
+        <input type="radio" name="postdb[type]" value="0" $typedb[0]  >
+        栏目 
+         </td>
+    </tr>
+    
+    
+  
+   
+    <!--
+EOT;
+if($rsdb[type]==0){print <<<EOT
+-->
+     
+    <!--
+EOT;
+}print <<<EOT
+-->
+     
+    <!--
+EOT;
+if($rsdb[type]<2){print <<<EOT
+-->
+   
+    <!--
+EOT;
+}elseif($rsdb[type]==2){print <<<EOT
+-->
+    <tr  class="hidetr"> 
+      <td colspan="2"><b><font color="#FF0000">单篇文章内容:</font></b><br>
+        <input type="hidden" name="postdb[descrip]" id="content" size="50" value='$rsdb[descrip]'>
+        <iframe id="eWebEditor1" src="$webdb[www_url]/ewebeditor/ewebeditor.php?id=content&style=standard" frameborder="0" scrolling="no" width="100%" height="450"></iframe> 
+      </td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+    <tr  class="hidetr"> 
+      <td class="tdL">SEO优化:</td>
+      <td class="tdR"> 标题(title): 
+        <input type="text" name="postdb[metatitle]" size="35" value="$rsdb[metatitle]">
+        <br>
+        关键字(metakeywords): 
+        <input type="text" name="postdb[metakeywords]" size="35" value="$rsdb[metakeywords]">
+        <br>
+        描述(metadescription): 
+        <input type="text" name="postdb[metadescription]" size="35" value="$rsdb[metadescription]">
+         </td>
+    </tr>
+    $TempLate
+	</table>
+    <div class="ListBut">
+    	<input type="submit" name="Submit" value="提交">
+        <input type="hidden" name="postdb[fid]" value="$fid">
+    </div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

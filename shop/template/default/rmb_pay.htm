@@ -1,0 +1,67 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable">
+  <tr> 
+    <td width="100%" height="393" valign="top" class="Main"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable" id="viewarticle">
+        <tr> 
+          <td class="head">
+            <h3 class="L"></h3>
+            <span class="TAG">余额付款</span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <td class="middle" height="400" align="center">
+            <form name="form1" method="post" action="">
+              <p>本次共需支付：<b><font color="#0000FF">{$totalmoney}</font></b> 元　<br>
+                你当前帐户可用余额为 <b><font color="#FF0000">{$lfjdb[rmb]}</font></b> 元, 
+                <!--
+EOT;
+if($lfjdb[rmb]>$totalmoney){print <<<EOT
+-->
+                你可以选择余额一次支付 
+                <!--
+EOT;
+}else{print <<<EOT
+-->
+                你可以选择余额支付部分,欠缺部分可另外再选择在线支付 
+                <!--
+EOT;
+}print <<<EOT
+-->
+                <br>
+				
+                支付密码: 
+                <input type="password" name="pwd" size="8">
+                <input type="submit" name="Submit" value="支付">
+                <input type="hidden" name="step" value="2">
+                <input type="hidden" name="ids" value="$ids">
+                <input type="hidden" name="to_url" value="$to_url">
+                <br>
+                <br>
+                <br>
+                你若不想使用余额支付的话,只能选择在线付款,请点击 
+                <input type="button" name="Submit2" value="返回,使用在线付款" onclick="window.location.href='?job=goto&ids=$ids'">
+              </p>
+              <p>&nbsp; </p>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td class="foot">
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table>
+ 
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

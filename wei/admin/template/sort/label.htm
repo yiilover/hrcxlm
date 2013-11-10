@@ -1,0 +1,31 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">标签设置</div></div>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+    <tr> 
+      <td class="tdL">列表页标签:</td>
+      <td class="tdR">
+      <form name="form2" method="post" action="$admin_path&action=updatelabel&label_type=list&label_system=article&fid=$fid"> 
+        <input type="submit" name="Submit" value="设置">
+      </form>
+      </td>
+      </tr>
+      <tr> 
+        <td class="tdL">内容页标签:</td>
+        <td class="tdR">
+          <form name="form1" method="post" action="$admin_path&action=updatelabel&label_type=bencandy&label_system=article&fid=$fid"> 文章ID 
+            <input type="text" name="id" size="7" value="$rsdb[aid]">
+            <input  class=mmcinb  type='submit' name='w' value='设置'>
+            (要修改内容页标签,必须输入一个文章ID号) 
+        </form>
+       </td>
+      </tr>
+    </table>
+</div>
+<!--
+EOT;
+?>
+-->

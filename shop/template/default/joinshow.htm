@@ -1,0 +1,96 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<style type="text/css">
+<!--
+.FormTable,.FormTable td{
+	border:#DDD solid 1px;
+}
+.FormTable td.tdL{
+	font-weight:bold;
+}
+.FormTable td.tdR{
+	padding:5px;
+	vertical-align:middle;
+	line-height:20px;
+}
+-->
+</style>
+<div class="MainCont">
+	<div class="head"><div class="tag">用户订单资料详情如下</div></div>
+    <div class="cont">
+     	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr><th>订购产品</th></tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable mtop10">
+          <tr>
+            <th width="60%">名称</th>
+            <th width="20%">单价</th>
+            <th width="20%">订购数量</th>
+          </tr>
+<!--
+EOT;
+foreach($rsdb['plist'] AS $rs2){print <<<EOT
+-->
+          <tr>
+            <td class="tL"><a href="../bencandy.php?fid=$rs2[fid]&id=$rs2[id]" target="_blank">$rs2[title]</a></td>
+            <td>$rs2[price]</td>
+            <td>$rs2[num]</td>
+          </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </table>
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable mtop10">
+          <tr>
+            <td class="tdL">订购者ID:</td>
+            <td class="tdR"><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$rsdb[username]</a></td>
+          </tr>
+          <tr>
+            <td class="tdL">订购时间:</td>
+            <td class="tdR">$rsdb[posttime]</td>
+          </tr>
+          <tr>
+            <td class="tdL">应付总额:</td>
+            <td class="tdR">$rsdb[totalmoney]</td>
+          </tr>
+          <tr>
+            <td class="tdL">付款银行:</td>
+            <td class="tdR">$rsdb[banktype]</td>
+          </tr>
+          <tr>
+            <td class="tdL">付款与否:</td>
+            <td class="tdR">$rsdb[ifpay]</td>
+          </tr>
+<!--
+EOT;
+if($rsdb[emscode]){print <<<EOT
+-->
+          <tr>
+            <td class="tdL">快递单号:</td>
+            <td class="tdR">$rsdb[emscode]</td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+<!--{template}-->
+          <tr>
+            <td class="tdL">{title}:</td>
+            <td class="tdR">{value}</td>
+          </tr>
+<!--{/template}-->
+		  <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR"><a href="$FROMURL">返回</a> </td>
+          </tr>
+        </table>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

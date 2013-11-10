@@ -1,0 +1,70 @@
+<!--
+<?php
+print <<<EOT
+-->
+<style type="text/css">
+<!--
+.FormTable,.FormTable td{
+	border:#DDD solid 1px;
+}
+.FormTable th{
+	padding:10px;
+}
+.FormTable th .showpic{
+	width:150px;
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.FormTable td.tdL{
+	font-weight:bold;
+}
+.FormTable td.tdR{
+	padding:5px;
+	vertical-align:middle;
+	line-height:20px;
+}
+-->
+</style> 
+<div class="MainCont">
+	<div class="head"><div class="tag">用户申请资料如下</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr>
+            <th colspan="2">
+            	<div class="showpic"><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" title='$rs[full_title]' target="_blank"><img width="150" height="150" onError="this.src='$webdb[www_url]/images/default/noface.gif'"  src="$rsdb[picurl]"/></a></div>
+            </th>
+          </tr>
+          <tr>
+          	<td class="tdL">申请礼品:</td>
+            <td class="tdR"><a href="bencandy.php?fid={$rsdb[C][fid]}&id={$rsdb[C][id]}&city_id={$rsdb[C][city_id]}" target="_blank">{$rsdb[C][title]}</a></td>
+          </tr>
+          <tr>
+          	<td class="tdL">申请者帐号:</td>
+            <td class="tdR"><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$rsdb[username]</a></td>
+          </tr>
+          <tr>
+          	<td class="tdL">申请时间:</td>
+            <td class="tdR">$rsdb[posttime]</td>
+          </tr>
+<!--
+EOT;
+$rsdb[yz]=$rsdb[yz]?"<font color=\"#FF0000\">已审核</font>":"<font color=\"#0000FF\">未审核</font>";
+print <<<EOT
+-->
+          <tr>
+          	<td class="tdL">审核与否:</td>
+            <td class="tdR">$rsdb[yz]</td>
+          </tr>
+<!--{template}-->
+          <tr>
+          	<td class="tdL">{title}:</td>
+            <td class="tdR">{value}</td>
+          </tr>
+<!--{/template}--> 
+        </table>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

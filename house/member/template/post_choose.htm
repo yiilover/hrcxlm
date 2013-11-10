@@ -1,0 +1,35 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">发布信息</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="40%">类别</th>
+            <th width="30%">管理</th>
+            <th width="30%">发布</th>
+          </tr>
+<!--
+EOT;
+foreach($Fid_db[name] AS $key=>$name){
+if($key==6)continue;
+print <<<EOT
+-->
+          <tr>
+            <td><a href="../post.php?fid=$key" target="_blank">$name</a></td>
+            <td><a href="list.php?job=list&fid=$key">管理</a></td>
+            <td><a href="../post.php?fid=$key" target="_blank">发布</a></td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </table>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

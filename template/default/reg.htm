@@ -1,0 +1,357 @@
+<!--
+<?php
+$more_tag = $step ? "请注意：带<span>*</span>号的项目必须填写" : "";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/default/reg/default.css">
+<div class="MainContainer">
+	<div class="Mhead"><div class="tag">注册成为会员</div><div class="more">{$more_tag}</div></div>
+    <div class="Mcont">
+<!--
+EOT;
+$_fromurl=urlencode($_fromurl);
+if(!$step){
+print <<<EOT
+-->
+		<ul class="regtype">
+        	<li>
+            	<div>发布生活信息</div>
+                <div>加入人才库</div>
+                <div>在线找工作</div>
+                <div>在线购物</div>
+                <div>参加活动</div>
+                <div>加入社区</div>
+                <div class="other">……</div>
+                <div class="sub"><img onclick="window.location.href='?step=1&_fromurl=$_fromurl'" src="$webdb[www_url]/images/default/reg/reg1.gif"/></div>
+            </li>
+            <li>
+            	<div>拥有个人会员全部功能</div>
+                <div>在线招聘人才</div>
+                <div>查看简历库</div>
+                <div>发布店铺</div>
+                <div>发布商品</div>
+                <div>深入商业合作</div>
+                <div class="other">……</div>
+                <div class="sub"><img onclick="window.location.href='$webdb[www_url]/hy/reg.php'" src="$webdb[www_url]/images/default/reg/reg2.gif"/></div>
+            </li>
+        </ul>
+<!--
+EOT;
+}if($step==1){
+print <<<EOT
+-->
+		<form name="form1" method="post" action="?f" onsubmit="return regpost();">
+			<div class="list1">请选择您的用户名</div>
+            <dl>
+            	<dt><span>*</span>设置一个用户名</dt>
+            	<dd>
+                	<span class="input"><input type="text" id="reg_username" name="username" onBlur="ckdata(this,'username_msg','name')" style="width:220px;height:18px;"/></span> 
+                    <span id="username_msg">3-15字符内，可以是汉字，a-z，0-9以及下划线</span>                	
+                </dd>
+            </dl>
+            
+            <div class="list2">请填写安全设置 <span>（以下信息对保护您的帐号安全极为重要，请您慎重填写并牢记）</span></div>
+            <dl>
+            	<dt><span>*</span>请设置一个密码</dt>
+            	<dd>
+                	<span class="input"><input type="password" id="reg_password" name="password" onBlur="ckdata(this,'password_msg','pwd')" style="width:220px;height:18px;"/> </span>
+					<span id="password_msg">任意字符都可以</span>
+                </dd>
+            </dl>
+            <div class="showinfo"></div>
+            <dl>
+            	<dt><span>*</span>确定下您的密码</dt>
+            	<dd>
+                	<span class="input"><input type="password" name="password2" style="width:220px;height:18px;" id="reg_password2"
+						  onBlur="if($('#reg_password').val()!=$('#reg_password2').val()){\$('#password2_msg').html('重复密码不一样!')}else{\$('#password2_msg').html('<img src=$webdb[www_url]/images/default/check_right.gif> OK!')}"></span>
+                    <span id="password2_msg">重新输入一次密码</span>
+                </dd>
+            </dl>
+            <dl>
+            	<dt><span>*</span>您电子邮件地址</dt>
+            	<dd>
+                	<span class="input"><input type="text" id="reg_email" name="email" onBlur="ckdata(this,'email_msg','email')" style="width:220px;height:18px;"/> </span>
+                    <span id="email_msg">非常重要，取回密码需要</span>
+                </dd>
+               
+            </dl> 
+<!--
+EOT;
+if($webdb[RegPropagandizeMan]){
+$webdb[propagandize_Reg_Money] = intval($webdb[propagandize_Reg_Money]);
+print <<<EOT
+-->
+			<dl> 
+                <dt>推荐人帐号</dt>
+                <dd> 
+                  <span class="input"><input type="text" name="propagandize_name" onBlur="if(this.value!='')ckdata(this,'propagandize_nameMsg','propagandize')" style="width:150px;height:18px;"></span>
+				  <span id="propagandize_nameMsg">请输入推荐你注册那个人的帐号，它将可得到{$webdb[propagandize_Reg_Money]}{$webdb[MoneyDW]}{$webdb[MoneyName]}的奖励</span>
+                </dd>
+            </dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+            <dl> 
+                <dt>您的QQ号码</dt>
+                <dd> 
+                  <span class="input"><input type="text" name="oicq" style="width:150px;height:18px;"></span>
+                </dd>
+            </dl>
+<!--
+EOT;
+if($webdb[yzNumReg] == 2){
+print <<<EOT
+-->
+            <dl> 
+                <dt><span>*</span>手机注册码</dt>
+                <dd> 
+                  <span class="input"><input type="text" name="yznum" style="width:80px;height:18px;"/></span>
+                  <span>请在右边方框输入手机号码获取注册码</span> 
+                  <span class="input"><input type="text" id="mobblenum" size="20" name="mobphone" /></span>
+                  <span class="input"><input  value="发送短信" type="button"  onClick="sendsms(2);"/></span>
+                </dd>
+            </dl>
+<!--
+EOT;
+}
+elseif($webdb[yzNumReg] == 1){
+print <<<EOT
+-->
+            <dl> 
+                <dt><span>*</span>邮件注册码</dt>
+                <dd> 
+                  <span class="input"><input type="text" name="yznum" style="width:80px;height:18px;"/></span>
+                  <span>请点击发送邮件获取注册码</span> 
+                  <span class="input"><input  value="发送邮件" type="button"  onClick="sendsms(1);"/></span>
+                </dd>
+            </dl>        
+<!--
+EOT;
+}
+if($webdb[yzImgReg]){
+print <<<EOT
+-->
+          <dl>
+            <dt><span>*</span>验证码</dt>
+            <dd><span class="input"><input type="text" name="yzimg" style="height:18px;width:80px;" onBlur="ckdata(this,'yzimg_vi','yzimg')"></span>  <span id="yzimg_vi"></span> 
+<!-- 
+EOT;
+if($webdb[YzImg_voice]){
+print <<<EOT
+-->
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="0" height="0" id="code_play" align="middle">
+<param name="allowScriptAccess" value="always" />
+<param name="FlashVars" value="url=$webdb[www_url]/do/voice_code.php" />
+<param name="movie" value="$webdb[www_url]/images/default/code_play.swf"/>
+<param name="quality" value="high" />
+<param name="bgcolor" value="#ffffff" />
+<embed id="code_play" name="code_play" src="$webdb[www_url]/images/default/code_play.swf"  FlashVars="url=$webdb[www_url]/do/voice_code.php" quality="high" bgcolor="#ffffff" width="0" height="0" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+</object>
+<span class="img"><a href="javascript:void(0);" onclick="javascript:readVoiceCode();" style="color:blue" title="点击获取验证码"><img src="$webdb[www_url]/images/default/seccodeplayer.gif"/>点击获取验证码</a></span> <span>(请输入你听到的字符)</span>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function readVoiceCode()
+{
+    window.document.code_play.SetVariable("isPlay", "1");
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span class="img"><img border="0" name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"></span>');
+//-->
+</SCRIPT>
+<!-- 
+EOT;
+}
+print <<<EOT
+-->
+               </dd>
+          </dl>          
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var filed_id='';
+var filed_name='';
+function ckregdata(a,b){
+	filed_id=a;
+	filed_name=b;
+}
+function ckregdatapost(){
+	id_array=filed_id.split(',');
+	name_array=filed_name.split(',');
+	for(var i=0;i<id_array.length;i++){
+		if(id_array[i]!=''&&document.getElementById(id_array[i]).value==''){
+			alert("“"+name_array[i]+'”不能为空');
+			document.getElementById(id_array[i]).focus();
+			return false;
+		}
+	}
+}
+document.write('<script src="$webdb[www_url]/images/default/setday.js"><\/script>');
+/*如要为页面布局考虑的话，你可以把template\default\regfield.htm里边的内容复制过来，然后把以下两行删除即可*/
+document.write('<div id="showRegDiv"></div>');
+AJAX.get("showRegDiv","$webdb[www_url]/do/regfield.php?job=reg");
+//-->
+</SCRIPT>
+            
+            <dl> 
+                <dt>性别</dt>
+                <dd> 
+                  <span class="radio"><input type="radio" name="sex" value="0" checked></span>
+                  <span>保密</span> 
+                  <span class="radio"><input type="radio" name="sex" value="1"></span>
+                  <span>男</span> 
+                  <span class="radio"><input type="radio" name="sex" value="2"></span>
+                  <span> 女</span> 
+                </dd>
+            </dl>  
+			
+<!--
+EOT;
+if($webdb[reg_group]&&$webdb[reg_group]!='8'){
+$detail=explode(",",$webdb[reg_group]);
+if(!in_array(8,$detail)){
+$detail[-1]=8;
+ksort($detail);
+}
+$groupck[8]=' checked ';
+print <<<EOT
+-->
+            <dl> 
+                <dt>所属会员组:</dt>
+                <dd> 
+                   
+
+<!--
+EOT;
+foreach($detail AS $value){
+print <<<EOT
+-->
+                        <span class="radio"><input type="radio" {$groupck[$value]} name="groupid" value="$value"  ></span>
+						 <span>{$ltitle[$value]}</span> 
+<!--
+EOT;
+}print <<<EOT
+-->	
+
+                </dd>
+            </dl>  
+			
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+
+            <div class="submits">
+            	<span class="img"><input name="Submit" type="image" src="$webdb[www_url]/images/default/reg/reg1.gif" /></span>
+				<input type="hidden" name="$webdb[rand_reg_num_inputname]" value="$webdb[rand_reg_num]">
+                <input type="hidden" name="step" value="2">
+                <input type="hidden" value="$_fromurl" name="jumpto">
+                <input type="hidden" value="$grouptype" name="grouptype">
+                <span class="input"><input name="agree" type="checkbox" value="1" checked="checked" /></span>
+                <span>我已阅读并同意 <a href="javascript:;" onclick="showAgreement()">会员注册协议</a></span>
+            </div>
+            <div style="clear:both;height:20px;"></div>
+        </form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function regpost(){
+	if(document.getElementById('reg_username').value==''){
+		alert('用户名不能为空');
+		document.getElementById('reg_username').focus();
+		return false;
+	}
+	if(document.getElementById('reg_email').value==''){
+		alert('邮箱不能为空');
+		document.getElementById('reg_email').focus();
+		return false;
+	}
+	if(document.getElementById('reg_password').value==''){
+		alert('密码不能为空');
+		document.getElementById('reg_password').focus();
+		return false;
+	}
+	if(document.getElementById('reg_password2').value==''){
+		alert('重复密码不能为空');
+		document.getElementById('reg_password2').focus();
+		return false;
+	}
+	if(ckregdatapost()==false){
+		return false;
+	}
+}
+function ckdata(obj,b,c){
+	AJAX.get(b,"$webdb[www_url]/do/job.php?job=ckreg&name="+obj.value+"&type="+c);
+}
+function sendsms(type){
+	if(type == 2){
+		if(document.getElementById('mobblenum').value==''){
+			alert('请输入手机号码');
+			document.getElementById('mobblenum').focus();
+			return false;
+		}
+		window.open("$webdb[www_url]/do/job.php?job=regsendnum&num="+document.getElementById('mobblenum').value+"&type="+type);
+	}	
+	if(type == 1){
+		if(document.getElementById('reg_email').value==''){
+			alert('请输入邮箱帐号');
+			document.getElementById('reg_email').focus();
+			return false;
+		}
+		window.open("$webdb[www_url]/do/job.php?job=regsendnum&num="+document.getElementById('reg_email').value+"&type="+type);
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    </div>
+</div>
+<div class="Agreement" id="Agreement" style="display:none;">
+    <div class="h"><span>会员注册协议</span><a href="javascript:;" onclick="hiddenAgreement()">关闭</a></div>
+    <div class="c">
+        <h3>一、不得利用本站危害国家安全、泄露国家秘密，不得侵犯国家社会集体的和公民的合法权益，不得利用本站制作、复制和传播下列信息：</h3> 
+      	<div>（一）煽动抗拒、破坏宪法和法律、行政法规实施的；</div>
+       	<div>（二）煽动颠覆国家政权，推翻社会主义制度的；</div>
+        <div>（三）煽动分裂国家、破坏国家统一的；</div>
+        <div>（四）煽动民族仇恨、民族歧视，破坏民族团结的；</div>
+        <div>（五）捏造或者歪曲事实，散布谣言，扰乱社会秩序的；</div>
+        <div>（六）宣扬封建迷信、淫秽、色情、赌博、暴力、凶杀、恐怖、教唆犯罪的；</div>
+        <div>（七）公然侮辱他人或者捏造事实诽谤他人的，或者进行其他恶意攻击的；</div>
+        <div>（八）损害国家机关信誉的；</div>
+        <div>（九）其他违反宪法和法律行政法规的；</div>
+        <div>（十）发布黄色反动文章</div>
+      	<h3>二、互相尊重，对自己的言论和行为负责。</h3>
+    </div>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function hiddenAgreement(){
+	document.getElementById("Agreement").style.display="none";
+}
+function showAgreement(){
+	document.getElementById("Agreement").style.display="block";
+}
+//-->
+</SCRIPT> 
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,79 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/default/post/pub.css">
+<dl class="PubDl">
+	<dt class="head"><div>请选择一个分类</div></dt>
+    <dd class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<!--
+EOT;
+$trnum=0;
+$tdnum=0;
+foreach($Fid_db[0] AS $key=>$array){
+$tdnum++;
+$tdbg=$tdnum%2==0?"hbg":"";
+$bgnum=$tdnum%9;
+if($trnum==0){
+print <<<EOT
+-->
+			<tr>
+<!--
+EOT;
+}$trnum++;print <<<EOT
+-->
+				<td class="$tdbg list$bgnum">
+                	<h3><span class="icon"><img src="$webdb[www_url]/images/default/post/s$bgnum.gif"/></span>{$Fid_db[name][$key]}</h3>
+<!--
+EOT;
+$y=0;
+foreach($Fid_db[$key] AS $keys=>$rs){
+$y++;
+if($webdb[Info_showsortnum]>0&&$y>$webdb[Info_showsortnum]){break;}
+$InfoNum[$keys]=intval($InfoNum[$keys]);
+if($Fid_db[$keys]){
+	$str='';
+	foreach($Fid_db[$keys] AS $k=>$v){
+		$str.="<A HREF='$city_url/post.php?city_id=$city_id&fid=$k'>$v</A><br>";
+	}
+	$href=" href='javascript:' click=1 editcode=\"$str\" ";
+}else{
+	$href=" href='$city_url/post.php?city_id=$city_id&fid=$keys' ";
+}
+print <<<EOT
+-->
+                    <div>[<a $href>{$Fid_db[name][$keys]}</a>]</div> 
+<!--
+EOT;
+}print <<<EOT
+-->					
+                </td>
+<!--
+EOT;
+if($trnum==3){
+$trnum=0;print <<<EOT
+-->
+			</tr>
+<!--
+EOT;
+}}if($trnum && $trnum<2){
+for($i=$trnum;$i<2;$i++){print <<<EOT
+-->
+                <td>&nbsp;</td>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </table>
+    </dd>
+</dl>
+<!--
+EOT;
+?>
+-->

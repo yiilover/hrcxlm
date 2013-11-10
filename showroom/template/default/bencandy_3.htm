@@ -1,0 +1,102 @@
+<!--
+<?php
+print <<<EOT
+-->  
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/yellow/showroom_viewroom.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="showroom_showzh">
+  <tr>
+    <td width="25%" class="side" height="204" valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="drag">
+        <tr> 
+          <td class="head">
+            <div class="LL"></div>
+            <div class="TAG">发布者信息</div>
+            <div class="RR"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="50" class="CC list_c" style="padding:8px;line-height:23px;"> 
+            发布者帐号:<a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$rsdb[username]</a> 
+            <br>
+			用户级别:{$ltitle[$memberdb[groupid]]}<br>
+注册时间:$memberdb[regdate]</td>
+        </tr>   
+      </table>
+    </td>
+    <td width="75%" class="main" height="204" valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="drag">
+        <tr> 
+          <td class="head"> 
+            <div class="LL"></div>
+            <div class="TAG">展览馆详情</div>
+            <div class="RR"></div>
+          </td>
+        </tr>
+    
+        <tr> 
+          <td height="250" class="CC" valign="top">
+		  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+                <td width="13%">
+                  <div id="roompic"><a href="job.php?job=show_room_img&id=$id&type=1" target="_blank"><img src="$rsdb[picurl]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'" width="150" border="0"></a><br>
+                    <a href="job.php?job=show_room_img&id=$id&type=1" target="_blank">共({$rsdb[picnum]})图</a></div>
+                </td>
+                <td valign="top" width="87%"> 
+                  <div class="base"><b>展览馆名称：</b>{$rsdb[title]}<br>
+             
+			  <!--
+EOT;
+if($rsdb['room_address']){print <<<EOT
+-->
+                   <b>展览馆地址：</b>{$rsdb[room_address]}  <br>
+                    <!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['room_web']){print <<<EOT
+-->
+                   <b>展览馆官网：</b>{$rsdb[room_web]}  <br>
+                    <!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['contact']){print <<<EOT
+-->
+                   <b>联系方式：</b>{$rsdb[contact]}  <br>
+                    <!--
+EOT;
+}print <<<EOT
+--><!---->
+			  
+			  </div>
+			      <div style="margin-top:20px;"><a href="$webdb[www_url]/member/?main=$Murl/member/post_b.php?roomid=$id" target="_blank"><img src="$webdb[www_url]/images/yellow/post_zh.gif" border="0"></a></div>
+			  </td>
+  </tr>
+</table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td style="background:#eee;line-height:25px;font-weight:bold;">展览馆介绍</td>
+  </tr>
+  <tr>
+    <td style="padding:5px;"><table width="100%" cellspacing="0" cellpadding="0" style='TABLE-LAYOUT: fixed;WORD-WRAP: break-word' align="center">
+              <tr> 
+                <td>$rsdb[content]</td>
+              </tr>
+            </table></td>
+  </tr>
+</table>
+		  
+		 
+          </td>
+        </tr>
+		
+      </table>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

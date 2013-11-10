@@ -1,0 +1,250 @@
+<!--
+<?php
+$priceColordb["c$price1$price2"]='red';
+$orderColordb["$ordertype"]='red';
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$Mdomain/images/default/list.css">
+<div class="MainCont">
+	<div class="main">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ShowSorts">
+          <tr>
+            <td>
+<!--
+EOT;
+$array = $Fid_db[$fid]?$Fid_db[$fid]:$Fid_db[$fidDB[fup]];
+foreach($array AS $key=>$value){
+$url=get_info_url('',$key,$city_id);
+$acolor = $fid==$key ? "style=\"color:red;\"" : "";
+print <<<EOT
+-->
+              <div><span><a href="$url" $acolor>{$Fid_db[name][$key]}</a></span></div> 
+<!--
+EOT;
+}
+print <<<EOT
+-->
+            </td>
+          </tr>
+        </table>
+        <div class="SearchType">
+        	<div class="head"><div class="tag">按条件搜索</div></div>
+            <div class="cont">
+<!--
+EOT;
+if($city_id){
+$class0 = $zone_id ? "" : "class=\"ck\"";
+$url=get_info_url('',$fid,$city_id,'','',$TempSearch_array);
+print <<<EOT
+-->
+            	<dl class="zone_street">
+                	<dt>
+                    	<div {$class0}><span><a href="$url">{$city_DB[name][$city_id]}</a></span></div>
+<!--
+EOT;
+foreach($zone_DB[name] AS $key=>$value){
+$url=get_info_url('',$fid,$city_id,$key,'',$TempSearch_array);
+$class1 = $zone_id==$key ? "class=\"ck\"" : "";
+print <<<EOT
+-->
+            			<div {$class1}><span><a href="$url">$value</a></span></div> 
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                    </dt>
+<!--
+EOT;
+if($street_DB[$zone_id]){
+print <<<EOT
+-->
+                    <dd>
+<!--
+EOT;
+foreach($street_DB[$zone_id] AS $key=>$value){
+$url=get_info_url('',$fid,$city_id,$zone_id,$key,$TempSearch_array);
+$class2 = $street_id==$key ? "class=\"ck\"" : "";
+print <<<EOT
+-->
+            			<a href="$url" {$class2}>$value</a> 
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                    </dd>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->     
+				<div class="listsearch"> 
+
+					<div><span class='t'>新旧程度：</span><span class='f'><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array());
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[sortid][0]}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>'9'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['9']}>九成新</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>'8'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['8']}>八成新</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>'7'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['7']}>七成新</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>'6'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['6']}>六成新</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>'5'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['5']}>五成新</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>'4'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['4']}>四成新</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>'3'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['3']}>三成新</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>'2'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['2']}>两成新</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>'1'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['1']}>一成新</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>'0'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['0']}>全新</A></span></div>
+<!---->
+	  			</div>       	
+            </div>
+        </div>
+        <div class="ShowListCont">
+        	<div class="head">
+            	<div class="tag"><span>{$city_DB[name][$city_id]}$fidDB[name]</span></div>
+          		<div class="post"><a target="_blank" href="$city_url/post.php?fid=$fid&city_id=$city_id&zone_id=$zone_id&street_id=$street_id"><img src="$Murl/images/default/post1.gif" /></a></div>
+            </div>
+            <div class="cont" id="ListDb" onmouseout="setclass()">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[ip]=preg_replace("/\.([0-9]+)\.([0-9]+)$/is",".*.*",$rs[ip]);
+$ready=$db->get_one("SELECT * FROM {$_pre}content_$rs[mid] WHERE id=$rs[id]");
+$ready[content]=preg_replace('/<([^<]*)>/is',"",$ready[content]);	//把HTML代码过滤掉
+$ready[content]=preg_replace('/ |　|&nbsp;/is',"",$ready[content]);	//把多余的空格去除掉
+$ready[content]= get_word($ready[content],180);
+$furl=get_info_url('',$rs[fid],$city_id);
+print <<<EOT
+-->
+				<ul onmouseover="settheclass(this)">
+                	<li class="img"><a href="$rs[url]" title='$rs[full_title]' target="_blank"><span><img src="$rs[picurl]" height="70" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></span></a></li>
+                    <li class="word">
+                    	<h3><a href="$rs[url]" target="_blank" title='$rs[full_title]' style="color:$rs[titlecolor];">$rs[title]</a></h3>
+                        <!--div>所属分类:<a href="$furl">$rs[fname]</a></div-->
+                        <p>$ready[content]</p>
+                    </li>
+                    <li class="time"><div>发布时间</div><div class="date">{$rs[posttime]}</div></li>
+                    <li class="info">
+                        <div>价格：<span>{$ready[sellprice]}元</span></div>
+                        <div>关注度:<span>{$rs[hits]}</span>次</div>
+                    </li>
+                </ul>
+<!--
+EOT;
+}print <<<EOT
+-->
+				<div class="page">$showpage</div>
+            </div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function setclass(){
+	objul=document.getElementById("ListDb").getElementsByTagName("ul");
+	for(var i=0;i< objul.length;i++ ){
+		var nid = (i%2==0) ? "" : "hbg";
+		objul[i].className=nid;
+	}
+}
+function settheclass(id){
+	setclass();
+	id.className = "ck";
+}
+setclass();
+//-->
+</SCRIPT>
+        </div>
+    </div>
+    <div class="side">
+    	<div class="sidecont">
+        	<div class="head">
+            	<div class="tag">二手人气排行</div>
+                <div class="more"><a href="listall.php">更多&gt;&gt;</a></div>
+            </div>
+            <div class="cont cont1">
+<!--
+EOT;
+$listdb = Get_Info("hot",10,40,$fid);
+foreach($listdb AS $key=>$rs){
+$rs[url]=get_info_url($rs[id],$rs[fid],$rs[city_id]);
+print <<<EOT
+-->
+				<div class="list{$key}"><span>{$key}</span><a href="$rs[url]" target="_blank" title='$rs[full_title]' style="color:$rs[titlecolor];">$rs[title]</a></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+            </div>
+        </div>
+        <div class="siderAd">$label[flea_listrad]</div>
+        <div class="sidecont">
+        	<div class="head">
+            	<div class="tag">最新二手</div>
+                <div class="more"><a href="listall.php">更多&gt;&gt;</a></div>
+            </div>
+            <div class="cont cont2">
+<!--
+EOT;
+$listdb = Get_Info("pic",5,40,$fid);
+foreach($listdb AS $key=>$rs){
+$rs[url]=get_info_url($rs[id],$rs[fid],$rs[city_id]);
+$furl=get_info_url('',$rs[fid],$city_id);
+print <<<EOT
+-->
+				<dl>
+                	<dt><a href="$rs[url]" title='$rs[full_title]' target="_blank"><img src="$rs[picurl]" height="75" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></dt>
+                    <dd>
+                    	<h3><a href="$rs[url]" target="_blank" title='$rs[full_title]' style="color:$rs[titlecolor];">$rs[title]</a></h3>
+                        <div>所属分类:<a href="$furl">$rs[fname]</a></div>
+                    </dd>
+                </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+            </div>
+        </div>
+    </div>
+    <div class="cleardiv"></div>
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,43 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">我收藏的简历</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="20%">姓名</th>
+            <th width="10%">年龄</th>
+            <th width="10%">性别</th>
+            <th width="40%">毕业院校</th>
+            <th width="20%">简历/踢除</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td><a href="../joinshow.php?id=$rs[id]" target="_blank" >{$rs[truename]}</a></td>
+            <td>{$rs[age]}岁</td>
+            <td>$rs[sex]</td>
+            <td class="tL">$rs[alma_mater]</td>
+            <td>
+              <a href="../joinshow.php?id=$rs[id]" target="_blank" >查看</a>/<a href="?action=del&id=$rs[meid]">删除</a>               
+            </td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div> 
+<!--
+EOT;
+?>
+-->

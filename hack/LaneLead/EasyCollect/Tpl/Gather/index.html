@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="zh-cn" />
+<title>可视化执行采集任务...</title>
+<load href='__PUBLIC__/Images/style.css' />
+<load href='__PUBLIC__/Js/Jquery/jquery-1.3.2.min.js' />
+<load href="__PUBLIC__/Js/Ajax/ThinkAjax.js" />
+<load href="__PUBLIC__/Js/dialog/dialog.js" />
+<script language="javascript">	
+var testgather = {$testgather|default=0};
+if(testgather) {
+	setTimeout('autoclose()', 30000);	
+}else{
+	var setID=self.setInterval("ShowResult()",1000);
+}
+
+function ShowResult(){
+	ThinkAjax.send('__URL__/showresult','ajax=1',ShowResultComplete);
+}
+function ShowResultComplete(data,status){
+	if (status==1)
+	{	var i=0;
+		if(data.length>5){
+			var showdetail='<table cellspacing="1" cellpadding="3">';
+			for(i=0;i<data.length-5;i++){
+			   if(data[i]['gstatus']==1) {
+					gstatus='【<font color="green">成功</font>】';
+			   }else if(data[i]['gstatus']==2) {
+					gstatus='【<font color="red">失败</font>】';		   
+			   }
+			   showdetail +='<tr>';
+			   showdetail +='<td  width="16%" style=" font-weight:bold; text-align:center;">任务ID: '+data[i]['ec_id']+' ('+data[i]['nowsNum']+'/' + data[i]['nowlNum'] + ')</td><td><a href="'+data[i]['curl']+'" target="_blank">'+ data[i]['curl'] +"</a>"+ gstatus + '</td>';
+			   showdetail +='<tr>';
+			}
+			showdetail +='</table>';
+			$('#showdetail').html(showdetail);	
+		}
+        $('#totalGNum').html(data[i]['totalGNum']);
+        $('#threadNum').html(data[i+1]['threadNum']);
+		var doneTask=0;		
+		doneTask= data[i+2]['doneTask'];
+		if(doneTask>={$totalTask|intval}) doneTask={$totalTask|intval};
+        $('#doneTask').html(doneTask);
+		if(!data[i+3]['taskOver']) $('#totalTime').html(parseInt($('#totalTime').html())+1);			
+		if(data[i+3]['taskOver']) {
+			$('#Overview').remove();
+			$('#taskOver').show();
+			window.clearInterval(setID);		
+			$('#taskOver').html('所有采集任务已经结束, 成功采集文章 <span style= "color:green;font-size:16px;"> '+ data[i]['totalGNum'] +' </span> 篇. <br> 30s自动关闭该窗口.您也可以手动关闭. ');
+			setTimeout('autoclose()', 30000);			
+		}
+		if(data[i+4]['socketerror']) {
+			$('#Overview').remove();
+			$('#taskOver').show();
+			window.clearInterval(setID);		
+			$('#taskOver').html('<span style= "color:red;font-size:16px;">错误: 蓝锂多线程 sock锁 超时错误! 可能的原因: <br> 1.您的服务器网速太慢. <br> 2.您设置的并发采集线程太多,建议不要超过10个. <br> 3.您设置的定时采集时间间隔太短,如果您的规则比较多或者采集数量比较多,请设置的间隔时间长一些,最短时间计算公式:预计采集数量/线程数*6/60 (分钟,其中 6 代表每篇文章耗时秒数,如果采集目标网速快,可以设置的更短,比如3),比如计划采集数量 1000 篇,线程并发 10 ,则建议间隔时间: 1000/10*6/60=1000分钟(最短为300分钟). </span><br> 30s自动关闭该窗口.您也可以手动关闭. ');
+			setTimeout('autoclose()', 30000);			
+		}
+
+	}
+}
+function autoclose() {
+	$("#div_dialogclose",window.parent.document).trigger("click");
+}
+</script>
+</head>
+<body>
+<if condition="$testgather"> <include file="testgather" />
+  <else />
+  <div id="gathering" style="position:absolute;left:0;top:0; background:#FFFFFF; width:99%;height:300px;z-index:200;">
+    <table class="tablewidth" style="border:1px dashed silver;" cellspacing='1' cellpadding='3' align="center">
+      <tr>
+        <td width="18%" style="font-size:14px; font-weight:bold; text-align:center; line-height:180%">任务总进度:</td>
+        <td style="font-size:14px; font-weight:bold;">
+        <div id="Overview">
+        <span id="doneTask" style="color:green;">{$doneTask|default=0}</span> <b>/</b> <span id="totalTask" style="color:blue;">{$totalTask}</span> ;  并发进程数 <span id="threadNum" style="color: #003399;">{$threadNum}</span> ,  已采集 <span id="totalGNum" style="color:green;">0</span> 篇 , 总耗时 <span id="totalTime" style="color:blue;">0</span> 秒
+        </div>
+        <div id="taskOver" style="font-size:16px; line-height:180%;font-weight:600;color:#0000CC;"></div>
+        
+        </td>
+      </tr>
+        <tr>
+          <td colspan="2"><div id="showdetail" style="font-size:14px; line-height:160%;font-weight:600;color:#0000CC;">&nbsp;&nbsp;&nbsp;任务初始化,请稍后...</div></td>
+        </tr>
+    </table>
+    <div class="result">提示:详细的采集结果可以在"采集日志"中进行查看.  &nbsp; Powered by LaneLead </div>
+  </div>
+</if>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/default/reg/login.css">
+<div class="Maincontainer">
+	<div class="Mhead"><div class="tag"></div></div>
+    <dl>
+    	<dt>
+        	<div class="h"><img src="$webdb[www_url]/images/default/reg/icon1.gif" /></div>
+            <form name="form1" method="post" action="?f">
+            	<div class="input">
+                	<div class="t">帐号</div>
+                    <div class="i"><input type="text" name="username" /></div>
+                    <div class="m"><a href="reg.php">注册新帐号</a></div>
+                </div>
+                <div class="input">
+                	<div class="t">密码</div>
+                    <div class="i"><input type="password" name="password" /></div>
+                    <div class="m"><a href="$webdb[www_url]/do/sendpwd.php">找回密码</a></div>
+                </div>
+<!--
+EOT;
+if($webdb[yzImgLogin]){
+print <<<EOT
+-->
+				<div class="input">
+                	<div class="t">验证码</div>
+                    <div class="i"><input type="text" style="width:70px" name="yzimg"></div>
+                    <div class="m"><SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<img border="0" name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'">');
+//-->
+</SCRIPT></div>
+                </div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                <div class="submit">
+                	<input type="image" src="$webdb[www_url]/images/default/reg/login.gif" />
+                    <input type="hidden" name="step" value="2">
+                    <input type="hidden" name="fromurl" value="$FROMURL">
+                    <input type="hidden" name="cookietime" value="86400">
+                </div>
+            </form>
+            <div class="qqlogin">
+<!--
+EOT;
+if($webdb[QQ_login]){print <<<EOT
+-->
+			<span>您还可以</span><a href="$webdb[www_url]/do/qq_login.php"><img src="$webdb[www_url]/images/default/reg/qqlogin.gif"></a>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </dt>
+        <dd>
+        	<div class="h"><img src="$webdb[www_url]/images/default/reg/icon2.gif" /></div>
+            <p>现在免费注册成为华人诚信联盟用户，便能立刻享受强大的会员功能和各种网站服务</p>
+            <div class="reg"><a href="reg.php"><img src="$webdb[www_url]/images/default/reg/reg.gif" /></a></div>
+        </dd>
+    </dl>
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,82 @@
+<!--
+<?php
+print <<<EOT
+-->
+
+<form name="form_work" method="post" action="$admin_path&job=work">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+    <tr align="center" class="head"> 
+      <td colspan="2">认领详情</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">商铺名称: </td>
+      <td align="left" width="74%"><a href="$Murl/bencandy.php?fid=$rsdb[fid]&id=$rsdb[id]&city_id=$rsdb[city_id]" target="_blank">$rsdb[title] 
+        </a></td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">认领人ID: </td>
+      <td align="left" width="74%"><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$rsdb[username]</a></td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">认领时间: </td>
+      <td align="left" width="74%">$rsdb[posttime] </td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">认领企业名称: </td>
+      <td align="left" width="74%">$rsdb[company_name] </td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">认领企业法人: </td>
+      <td align="left" width="74%">$rsdb[company_man] </td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">工商执照编号: </td>
+      <td align="left" width="74%">$rsdb[company_license] </td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">联系人: </td>
+      <td align="left" width="74%">$rsdb[contact_man] </td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">联系人手机: </td>
+      <td align="left" width="74%">$rsdb[contact_mob] </td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">联系人电话: </td>
+      <td align="left" width="74%">$rsdb[contact_tel] </td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">联系人邮箱: </td>
+      <td align="left" width="74%">$rsdb[contact_email] </td>
+    </tr>
+	<tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">附注留言: </td>
+      <td align="left" width="74%">$rsdb[about] </td>
+    </tr>
+ 
+	
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">营业执照扫描件: </td>
+      <td align="left" width="74%"><a href="$rsdb[pic_license]" target="_blank"><img onload="this.width='400'" onerror="this.style.display='none'"  src="$rsdb[pic_license]" border="0"></a> 
+      </td>
+    </tr>
+	
+	
+    <tr bgcolor="#FFFFFF"> 
+      <td align="left" width="26%">法人身份证扫描件: </td>
+      <td align="left" width="74%"><a href="$rsdb[pic_idcard]" target="_blank"><img onLoad="this.width='400'" onError="this.style.display='none'"  src="$rsdb[pic_idcard]" border="0"></a></td>
+    </tr>
+	
+	
+    <tr bgcolor="#FFFFFF">
+      <td align="left" width="26%">&nbsp;</td>
+      <td align="left" width="74%">
+        <input type="button" name="Submit" value="返回" onclick="window.location.href='$FROMURL'">
+      </td>
+    </tr>
+  </table>
+</form>
+<!--
+EOT;
+?>
+-->

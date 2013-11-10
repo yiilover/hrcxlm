@@ -1,0 +1,68 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MiddleCont">
+	<div class="SideCont SideCont1">
+    	<div class="head">
+        	<div class="tag">最新商家</div>
+            <div class="more">
+                <a href="listall.php?ordertype=id">更多&gt;&gt;</a>
+            </div>
+        </div>
+        <div class="cont">
+<!--
+EOT;
+$listnew = showlisttype("new",$rows=5,$leng=50,$fid=0,$conten=160);
+foreach($listnew AS $key=>$rs){ 
+print<<<EOT
+-->
+        <dl class="ListShop">
+        	<dt><div><a href="javascript:jumpto('$webdb[www_url]/home/?uid=$rs[uid]')"><img src="$rs[picurl]" height="90"/></a></div></dt>
+            <dd>
+            	<div class="t"><a href="javascript:jumpto('$webdb[www_url]/home/?uid=$rs[uid]')">$rs[title]</a></div>
+                <div class="c">登记时间：<span>{$rs[posttime]}</span></div>
+                <div class="c">企业类型：<span>{$rs[qy_cate]}</span></div>
+                <div class="m"><a href="javascript:jumpto('$webdb[www_url]/home/?uid=$rs[uid]')">[详细]</a></div>
+            </dd>
+        </dl>
+<!--
+EOT;
+}print<<<EOT
+-->
+        </div>
+    </div>
+    <div class="SideCont"> 
+    	<div class="head">
+        	<div class="tag">热门商家</div>
+            <div class="more">
+                <a href="listall.php?ordertype=hits">更多&gt;&gt;</a>
+            </div>
+        </div>
+        <div class="cont">
+<!--
+EOT;
+$listhot = showlisttype("hot",$rows=3,$leng=50,$fid=0,$conten=160);
+foreach($listhot AS $key=>$rs){ 
+print<<<EOT
+-->
+        <dl class="ListShop">
+        	<dt><div><a href="javascript:jumpto('$webdb[www_url]/home/?uid=$rs[uid]')"><img src="$rs[picurl]" height="90"/></a></div></dt>
+            <dd>
+            	<div class="t"><a href="javascript:jumpto('$webdb[www_url]/home/?uid=$rs[uid]')">$rs[title]</a></div>
+                <div class="c">登记时间：<span>{$rs[posttime]}</span></div>
+                <div class="c">企业类型：<span>{$rs[qy_cate]}</span></div>
+                <div class="m"><a href="javascript:jumpto('$webdb[www_url]/home/?uid=$rs[uid]')">[详细]</a></div>
+            </dd>
+        </dl>
+<!--
+EOT;
+}print<<<EOT
+-->
+        </div>
+    </div> 	
+</div>
+<!--
+EOT;
+?>
+-->

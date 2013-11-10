@@ -1,0 +1,76 @@
+.PubDl .head{
+	height:36px;
+	overflow:hidden;
+	background:url(hbg.gif) right top no-repeat;
+}
+.PubDl .head div{
+	float:left;
+	padding:4px 0 0 30px;
+	line-height:32px;
+	background:url(hbg.gif) left top no-repeat;
+	font-size:14px;
+	font-weight:bold;
+}
+.PubDl .cont{
+	border:#E5E5E5 solid 1px;
+	border-top:0;
+}
+.PubDl .cont td{
+	width:33%;
+	padding:10px 10px 10px 90px;	
+}
+.PubDl .cont td.hbg{
+	background:#F9F9F9;
+}
+.PubDl .cont td h3{
+	height:25px;
+	font-size:14px;
+	line-height:25px;
+	position:relative;
+}
+.PubDl .cont td.list1 h3,.PubDl .cont td.list1 h3 a{
+	color:#AB82C0;
+}
+.PubDl .cont td.list2 h3,.PubDl .cont td.list2 h3 a{
+	color:#A6D151;
+}
+.PubDl .cont td.list3 h3,.PubDl .cont td.list3 h3 a{
+	color:#6CDC7F;
+}
+.PubDl .cont td.list4 h3,.PubDl .cont td.list4 h3 a{
+	color:#76D6DD;
+}
+.PubDl .cont td.list5 h3,.PubDl .cont td.list5 h3 a{
+	color:#DF7CC8;
+}
+.PubDl .cont td.list6 h3,.PubDl .cont td.list6 h3 a{
+	color:#C47CE8;
+}
+.PubDl .cont td.list7 h3,.PubDl .cont td.list7 h3 a{
+	color:#9AB6E6;
+}
+.PubDl .cont td.list8 h3,.PubDl .cont td.list8 h3 a{
+	color:#E26565;
+}
+.PubDl .cont td.list0 h3,.PubDl .cont td.list0 h3 a{
+	color:#FDBE07;
+}
+.PubDl .cont td  h3 .icon{
+	display:block;
+	width:55px;
+	height:50px;
+	position:absolute;
+	top:5px;
+	left:-70px;
+}
+.PubDl .cont td div{
+	width:50%;
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	float:left;
+	color:#666;
+}
+.PubDl .cont td div a{
+	color:#666;
+}

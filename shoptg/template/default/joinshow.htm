@@ -1,0 +1,82 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<style type="text/css">
+<!--
+.FormTable,.FormTable td{
+	border:#DDD solid 1px;
+}
+.FormTable td.tdL{
+	font-weight:bold;
+}
+.FormTable td.tdR{
+	padding:5px;
+	line-height:20px;
+	vertical-align:middle;
+}
+-->
+</style>
+<div class="MainCont">
+	<div class="head"><div class="tag">用户订单资料详情如下</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr>
+          	 <td class="tdL">订购产品:</td>
+             <td class="tdR"><a href="$webdb[www_url]/shoptg/bencandy.php?city_id={$rsdb[shop][city_id]}&fid={$rsdb[shop][fid]}&id={$rsdb[shop][id]}&city_id={$rsdb[shop][city_id]}" target="_blank">{$rsdb[shop][title]}</a></td>	
+          </tr>
+          <tr>
+          	 <td class="tdL">订购者ID:</td>
+             <td class="tdR"><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$rsdb[username]</a></td>	
+          </tr>
+          <tr>
+          	 <td class="tdL">订购时间:</td>
+             <td class="tdR">$rsdb[posttime]</td>	
+          </tr><tr>
+          	 <td class="tdL">消费密码:</td>
+             <td class="tdR">$rsdb[password]</td>	
+          </tr>
+          <tr>
+          	 <td class="tdL">订购数量:</td>
+             <td class="tdR">$rsdb[shopnum]</td>	
+          </tr>
+          <tr>
+          	 <td class="tdL">应付总额:</td>
+             <td class="tdR">$rsdb[totalmoney]</td>	
+          </tr><tr>
+          	 <td class="tdL">付款银行:</td>
+             <td class="tdR">$rsdb[banktype]</td>	
+          </tr>
+          <tr>
+          	 <td class="tdL">付款与否:</td>
+             <td class="tdR">$rsdb[ifpay]</td>	
+          </tr>
+<!--
+EOT;
+if($rsdb[emscode]){print <<<EOT
+-->
+          <tr>
+          	 <td class="tdL">快递单号:</td>
+             <td class="tdR">$rsdb[emscode]</td>	
+          </tr>	
+<!--
+EOT;
+}print <<<EOT
+-->
+<!--{template}-->
+          <tr>
+          	 <td class="tdL">{title}:</td>
+             <td class="tdR">{value}</td>	
+          </tr>	
+<!--{/template}-->
+          <tr>
+          	 <td class="tdL"><br/></td>
+             <td class="tdR"><a href="$FROMURL">返回</a> </td>	
+          </tr>
+        </table>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

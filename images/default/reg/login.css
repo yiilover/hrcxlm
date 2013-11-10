@@ -1,0 +1,85 @@
+.Maincontainer{
+	background:#F8F8F8;
+	padding-bottom:3px;
+}
+.Maincontainer .Mhead{
+	height:50px;
+	background:#FFF url(hbg.gif) left 7px no-repeat;
+}
+.Maincontainer .Mhead .tag{
+	height:50px;
+	background:url(tag1.gif) 20px top no-repeat;
+}
+.Maincontainer dl{
+	height:310px;
+	border:#CACACA solid 1px;
+	border-top:0;
+}
+.Maincontainer dl dt{
+	width:520px;
+	height:310px;
+	border-right:#CACACA solid 1px;
+	float:left;
+	background:#FFF;
+}
+.Maincontainer dl dd{
+	width:450px;
+	height:310px;
+	float:left;
+}
+.Maincontainer dl .h{
+	padding:25px 0 0 35px;
+	height:40px;
+	overflow:hidden;
+}
+.Maincontainer dl .input{
+	height:45px;
+	overflow:hidden;
+}
+.Maincontainer dl .input div{
+	float:left;
+	line-height:35px;
+}
+.Maincontainer dl .input div.t{
+	width:70px;
+	text-align:right;
+}
+.Maincontainer dl .input div.i{
+	padding:3px 8px 0 10px;
+}
+.Maincontainer dl .input div.i input{
+	border:#A2A9AF solid 1px;
+	width:150px;
+	height:22px;
+	line-height:22px;
+}
+.Maincontainer dl .input a{
+	color:#06c;
+}
+.Maincontainer dl .submit{
+	height:65px;
+	padding-left:80px;
+}
+.Maincontainer dl .submit input{
+	border:0;
+}
+.Maincontainer dl .qqlogin{
+	height:30px;
+	padding:30px 0 0 30px;
+	background:url(spacing.gif) center top no-repeat;
+}
+.Maincontainer dl .qqlogin span{
+	float:left;
+	padding:5px 10px 0 0;
+	font-weight:bold;
+}
+.Maincontainer dl .qqlogin a{
+	float:left;
+}
+.Maincontainer dl p{
+	padding:0 30px 0 60px;
+	line-height:25px;
+}
+.Maincontainer dl .reg{
+	padding:20px 0 0 60px;
+}

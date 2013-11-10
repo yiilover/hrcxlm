@@ -1,0 +1,58 @@
+<!--
+<?php
+$IF_Private_tpl[intval($webdb[IF_Private_tpl])]=' checked ';
+print <<<EOT
+--> 
+ 
+<form name="form1" method="post" action="$admin_path&action=config">
+<table width='100%' cellspacing='1' cellpadding='3' class="tablewidth">
+    <tr class="head"> 
+      <td colspan='2'> 
+        <div align='center'><b><font color="#FFFFFF">{$webdb[MoneyName]}设置</font></b></div>
+      </td>
+    </tr>
+    <tr> 
+      <td width='22%' bgcolor='#FFFFFF'> 
+        <div align="left">发表文章奖励{$webdb[MoneyName]}多少:</div>
+      </td>
+      <td bgcolor='#FFFFFF' width="78%"> 
+        <input    type='text' name='webdbs[postArticleMoney]' size='10' value='$webdb[postArticleMoney]'>
+        {$webdb[MoneyDW]} </td>
+    </tr>
+    <tr> 
+      <td width='22%' bgcolor='#FFFFFF'> 
+        <div align="left">删除文章扣除{$webdb[MoneyName]}多少:</div>
+      </td>
+      <td bgcolor='#FFFFFF' width="78%"> 
+        <input    type='text' name='webdbs[deleteArticleMoney]' size='10' value='$webdb[deleteArticleMoney]'>
+        {$webdb[MoneyDW]} </td>
+    </tr>
+    <tr>
+      <td width='22%' bgcolor='#FFFFFF'>管理员设置文章精华奖励{$webdb[MoneyName]}多少:</td>
+      <td bgcolor='#FFFFFF' width="78%">
+        <input    type='text' name='webdbs[comArticleMoney]' size='10' value='$webdb[comArticleMoney]'>
+        {$webdb[MoneyDW]} </td>
+    </tr>
+    <tr>
+      <td width='22%' bgcolor='#FFFFFF'>管理员设置文章提前奖励{$webdb[MoneyName]}多少:</td>
+      <td bgcolor='#FFFFFF' width="78%">
+        <input    type='text' name='webdbs[frontArticleMoney]' size='10' value='$webdb[frontArticleMoney]'>
+        {$webdb[MoneyDW]} </td>
+    </tr><tr>
+      <td width='22%' bgcolor='#FFFFFF'>管理员设置文章置顶奖励{$webdb[MoneyName]}多少:</td>
+      <td bgcolor='#FFFFFF' width="78%">
+        <input    type='text' name='webdbs[topArticleMoney]' size='10' value='$webdb[topArticleMoney]'>
+        {$webdb[MoneyDW]} </td>
+    </tr>
+    <tr> 
+      <td width='22%' bgcolor='#FFFFFF'>&nbsp;</td>
+      <td bgcolor='#FFFFFF' width="78%"> 
+        <input    type='submit' name='w' value='保存设置'>
+      </td>
+    </tr>
+  </table>
+</form>
+<!--
+EOT;
+?>
+-->

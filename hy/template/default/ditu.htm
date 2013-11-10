@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<title>$titleDB[title]</title>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/ditu/style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="keywords" content="$titleDB[keywords]">
+<meta name="description" content="$titleDB[description]">
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+//屏蔽可忽略的js脚本错误
+function killErr(){
+	return true;
+}
+window.onerror=killErr;
+</SCRIPT>
+<!--
+EOT;
+if($webdb[cookieDomain]){print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+//解决不同域名的框架跨域问题
+document.domain = "$webdb[cookieDomain]";
+</SCRIPT>
+<!--
+EOT;
+}
+$changcity=count($city_DB[name])>1?"<a href=\"$webdb[www_url]/allcity.php\">[切换城市]</a>":"当前城市";
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+$(document).ready(function(){
+	$(".Mainmenu li").mouseover(function(){
+		$(".Mainmenu li").removeClass("over");
+		$(this).addClass("over");
+	});
+	$(".Mainmenu").mouseout(function(){
+		$(".Mainmenu li").removeClass("over");
+	});
+	$(".showsorts .head").click(function(){
+		$(this).parent("div").toggleClass("showsorts1");
+	});
+	$(".InfoList dl").mouseover(function(){
+		$(".InfoList dl").removeClass("over");
+		$(this).addClass("over");
+	});
+	$(".InfoList").mouseout(function(){
+		$(".InfoList dl").removeClass("over");
+	});
+});
+//-->
+</SCRIPT>
+
+<script type="text/javascript" src="$webdb[googleMapUrl]/maps/api/js?sensor=false&language=zh"></script> 
+<script type="text/javascript">
+pintMsg=[$pointMsg];
+cityname = '$cityname';
+function setAllShop(){
+	{$allcitypoint}
+}
+</script>
+<script  type="text/javascript"> 
+
+var querycity = "$cityname";
+var map;
+var infowindow;
+var LatLngArray = [$pointLatLng];
+var pintMsg=[$pointMsg];
+
+var position_array="{$city_DB[maps][$city_id]}".split(',');
+var mapLat=parseFloat(position_array[0]),mapLng=parseFloat(position_array[1]);
+
+function initialize() {
+	
+	map = new google.maps.Map(document.getElementById("map_canvas"), {scaleControl: true,scrollwheel:false});
+	map.setZoom(13);
+	map.setMapTypeId(google.maps.MapTypeId.ROADMAP);	
+	
+	if( isNaN(mapLat) || isNaN(mapLng) ){
+		codeAddress();
+	}else{
+		map.setCenter(new google.maps.LatLng(mapLat,mapLng));
+	}
+
+	infowindow = new google.maps.InfoWindow();
+	for(i=0;i<LatLngArray.length;i++){
+		creatMark(i);
+	}
+}
+
+function creatMark(i){
+	ar = LatLngArray[i].split(",");
+	var mapLatLng = new google.maps.LatLng(parseFloat(ar[0]),parseFloat(ar[1]));	
+	var newMarker = new google.maps.Marker({map: map,position:mapLatLng});
+	newMarker.setIcon("http://www.google.com/mapfiles/marker"+String.fromCharCode("A".charCodeAt(0) + i)+".png");
+	//var infowindow = new google.maps.InfoWindow();	
+	google.maps.event.addListener(newMarker, 'click', function() {
+		infowindow.setContent(pintMsg[i]);
+		infowindow.open(map, this);
+	});
+}
+
+function codeAddress() {
+	var address = querycity;
+	var geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': address}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			map.setCenter(results[0].geometry.location);
+			//new google.maps.Marker({map: map, position: results[0].geometry.location});
+		} else {
+			map.setZoom(5);
+			map.setCenter(new google.maps.LatLng(39.89979413273051,116.35774612426758));
+		}
+	});
+}
+
+function showShop(i){
+	ar=LatLngArray[i].split(",");
+	var point = new google.maps.LatLng(parseFloat(ar[0]),parseFloat(ar[1]));
+	map.setCenter(point);
+	//creatMark(i);
+	infowindow.setPosition(point);
+	infowindow.setContent(pintMsg[i]);	
+	infowindow.open(map);
+}
+</script> 
+<body>
+<div class="Header">
+	<div class="logo"><a href="$webdb[www_url]"><img src="$webdb[www_url]/images/ditu/logo.gif"/></a></div>
+    <div class="changecity">
+        <span class="city">{$city_DB[name][$city_id]}</span>
+        <span class="change">$changcity</span>      
+    </div>
+    <div class="login" id="head_loginer">$Load_Msg
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<div style="display:none;"><iframe src="$webdb[www_url]/do/hack.php?hack=login&iframeID=head_loginer&styletype=ditu"></iframe></div>');
+//-->
+</SCRIPT>
+    </div>
+</div>
+<!--
+EOT;
+$choose_class[intval($webdb['module_id'])]='ck';
+$detail=explode("\r\n",$webdb[guide_word]);
+$listmenu="";
+foreach($detail AS $key=>$value){
+	if(!$value)continue;
+    list($Hname,$Hurl,$Hblank,$Hcolor,$Hlid,$link)=explode("|",$value);
+    if(ereg("^\/",$Hurl)){$Hurl="$webdb[www_url]$Hurl";}elseif(!ereg("://",$Hurl)){$Hurl="$webdb[www_url]/$Hurl";}
+    $choosemenu = $choose_class[$link] ? "class=\"ck\"" : "";
+    $listmenu.="	<li {$choosemenu}><span><a href=\"$Hurl\">{$Hname}</a></span></li>\r\n";
+}
+print <<<EOT
+-->
+<ul class="Mainmenu">
+$listmenu
+</ul>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ShowCont">
+  <tr>
+    <td class="Left">
+    	<div class="showsorts">
+        	<div class="head">按分类选择:<a href="javascript:;">所有分类</a><span>只显示大分类</span></div>
+            <div class="cont">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="bigsorts">
+                  <tr>
+                    <td>
+<!--
+EOT;
+foreach($Fid_db[0] AS $fkey=>$fvalue){
+print <<<EOT
+-->
+                <div><a href="ditu.php?fid=$fkey">{$fvalue}</a></div>			
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                    </td>
+                  </tr>
+                </table>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="allsorts">
+                  <tr>
+                    <td>
+<!--
+EOT;
+foreach($Fid_db[0] AS $fkey=>$fvalue){
+print <<<EOT
+-->
+						<dl>
+                        	<dt><a href="ditu.php?fid=$fkey">{$fvalue}</a></dt>
+                        	<dd>
+<!--
+EOT;
+foreach($Fid_db[$fkey] AS $key=>$name){
+$color=$fid==$key?'red':'';
+print <<<EOT
+-->
+                  				<a href="ditu.php?fid=$key" style="color:$color;">$name</a> | 
+<!--
+EOT;
+}print <<<EOT
+-->
+                            </dd>
+                        </dl>                						
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                    </td>
+                  </tr>
+                </table>
+            </div>
+        </div>
+        <div class="showInfo">
+        	<div class="head">分类信息列表</div>
+            <div class="InfoList">
+
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$letter = chr(ord('A')+$key);
+print <<<EOT
+-->
+            	<dl onclick="showShop($key);">
+                	<dt>$letter</dt>
+                    <dd>
+                    	<div class="t"><a target="_blank" href="$webdb[www_url]/home/?uid=$rs[uid]"  onclick="showShop($key);return false;">$rs[title]</a></div>
+                        <div class="c">登记日期:$rs[posttime]</div>
+                        <div>所属分类:$rs[fname]</div>
+                        <div>联系电话:<span>$rs[qy_contact_tel]</span></div>
+                        <div>地址:$rs[qy_address]</div>
+                    </dd>
+                </dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+                <div class="showpage"> $showpage</div>
+            </div>
+        </div>
+    </td>
+    <td class="Right" id="bigArea"><div id="map_canvas" style="width: 800px; height: 600px"></div></td>
+  </tr>
+</table>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+$(document).ready(function(){
+  $("#map_canvas").css("width",$("#bigArea").width());
+  $("#map_canvas").css("height",$("#bigArea").height());
+  initialize();
+});
+
+//-->
+</SCRIPT>
+<div class="CopyRight">
+	  $webdb[copyright]<br>
+      Copyright@{$www_url} all rights reserved <a href="http://www.miibeian.gov.cn" target="_blank">{$webdb[miibeian_gov_cn]}</a> 
+      <br>
+      Powered by <a href="http://www.qibosoft.com" target="_blank">qibosoft {$qibosoft_Edition}</a> 
+      Code &copy; 2003-12 <a href="http://bbs.qibosoft.com/" target="_blank">qibosoft</a> $speed_totaltime
+</div>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->
+

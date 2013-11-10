@@ -1,0 +1,430 @@
+.ShowCont{
+	clear:both;
+	margin-top:10px;
+}
+.ShowCont .Mhead{
+	height:47px;
+	background:url(h7.gif) right top no-repeat;
+	overflow:hidden;
+}
+.ShowCont .Mhead .tag{
+	float:left;
+	padding:2px 0 0 25px;
+	line-height:45px;
+	background:url(h7.gif) left top no-repeat;
+	font-size:16px;
+	font-weight:bold;
+}
+.ShowCont .Mhead .more{
+	float:right;
+	padding:15px 25px 0 0;
+	font-size:14px;
+}
+.ShowCont .Mhead .more span{
+	background:#FFF;
+	padding:0 2px 0 2px;
+	color:#FF3000;
+	font-weight:bold;
+}
+.ShowCont .Mcont{
+	border:#DADADA solid 1px;
+	border-top:0;
+}
+.ListType{
+	height:32px;
+	padding-top:13px;
+	overflow:hidden;
+	background:url(h8.gif) left 41px repeat-x;
+	padding-left:5px;
+}
+.ListType li{
+	width:105px;
+	height:32px;
+	text-align:center;
+	text-align:center;
+	float:left;
+	background:url(out1.gif) center top no-repeat;
+	cursor:pointer;
+	font-size:14px;
+	line-height:32px;
+}
+.ListType li.ck{
+	background:url(over1.gif) center top no-repeat;
+	font-weight:bold;
+	color:#FFF;
+}
+.ShowType{
+	padding:15px;
+}
+.BaseInfos .img{
+	width:20%;
+	padding:5px;
+	background:url(imgbg.gif) center 290px no-repeat;
+}
+.BaseInfos .img div{
+	width:400px;
+	border:#E4E4E4 solid 1px;
+	padding:15px;
+	background:#FFF;
+}
+.BaseInfos .img div span{
+	display:block;
+	width:400px;
+	height:260px;
+	overflow:hidden;
+}
+.BaseInfos .img div span a{
+	display:block;
+	width:500px;
+	height:260px;
+	text-align:center;
+	overflow:hidden;
+	margin-left:-50px;
+}
+.BaseInfos .info{
+	padding-left:15px;
+	line-height:30px;
+	font-size:14px;
+}
+.BaseInfos .info .title{
+	font-size:16px;
+	font-weight:bold;
+	height:30px;
+	overflow:hidden;
+}
+.BaseInfos .info span{
+	color:#36c;
+}
+.BaseInfos .info em{
+	color:#FF3000;
+	font-style:normal;
+	font-weight:bold;	
+}
+#contents{
+	line-height:20px;
+}
+.ListDesigns {
+	padding:10px 0 0 10px;
+}
+.ListDesigns dl{
+	width:310px;
+	height:120px;
+	overflow:hidden;
+	float:left;
+}
+.ListDesigns dl dt{
+	float:left;
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.ListDesigns dl dt span{
+	display:block;
+	width:65px;
+	height:100px;
+	overflow:hidden;
+}
+.ListDesigns dl dt span a{
+	display:block;
+	width:105px;
+	height:100px;
+	overflow:hidden;
+	text-align:center;
+	margin-left:-20px;
+}
+.ListDesigns dl dd{
+	width:200px;
+	height:100px;
+	float:left;
+	line-height:25px;
+	padding-left:10px;
+}
+.ListDesigns dl dd a{
+	font-weight:bold;
+}
+.ListDesigns dl dd span{
+	color:#36c;
+}
+.ListDemos .picurl{
+	width:185px;
+	height:170px;
+	overflow:hidden;
+	float:left;
+}
+.ListDemos .picurl .img{
+	width:160px;
+	border:#DDD solid 1px;
+	padding:1px;
+	margin:auto;
+}
+.ListDemos .picurl .img span{
+	display:block;
+	width:160px;
+	height:120px;
+	overflow:hidden;
+}
+.ListDemos .picurl .img span a{
+	display:block;
+	width:200px;
+	height:120px;
+	overflow:hidden;
+	text-align:center;
+	margin-left:-20px;
+}
+.ListDemos .picurl .t{
+	width:160px;
+	height:20px;
+	text-align:center;
+	padding-top:5px;
+	line-height:20px;
+	overflow:hidden;
+	margin:auto;
+}
+.ShowMaps{
+	padding:0 5px 0 5px;
+}
+.listcomment{
+	width:50%;
+}
+.postcomment{
+	padding-left:15px;
+}
+#comment{
+	border:#D0D0D0 solid 1px;
+}
+.comment_form{
+	margin-bottom:10px;
+	border:#D1E0E5 solid 1px;
+}
+.comment_form th{
+	height:35px;
+	background:url(h6.gif) repeat-x;
+}
+.comment_form th .tag{
+	float:left;
+	padding:3px 0 0 25px;
+	line-height:28px;
+	font-size:14px;
+	font-weight:normal;
+	background:url(icon1.gif) 10px 10px no-repeat;
+}
+.comment_form .left{
+	width:80px;
+	line-height:30px;
+	text-align:right;
+	padding-right:5px;
+}
+.comment_form .right{
+	width:400px;
+	padding-top:5px;
+}
+.comment_form .right textarea{
+	width:380px;
+	height:150px;
+}
+.comment_form .submits{
+	padding-bottom:10px;
+}
+.comment_form .submits input{
+	width:46px;
+	height:21px;
+	background:url(sub4.gif) no-repeat;
+	border:0;
+	color:#FFF;
+	cursor:pointer;
+}
+/*
+*List_Comments
+*/
+.List_Comments .img{
+	width:70px;
+	padding-top:8px;
+	padding-bottom:5px;
+}
+.List_Comments .img .pic{
+	background:url(hicon.gif) center top no-repeat;
+	padding:4px 0 8px 0;
+}
+.List_Comments .img .pic a{
+	display:block;
+	margin:auto;
+	width:50px;
+	height:50px;
+	text-align:center;
+	overflow:hidden;
+}
+.List_Comments .img .name{
+	text-align:center;
+	padding:0 5px 0 5px;
+	line-height:16px;
+}
+.List_Comments .comment_content{
+	padding:8px 8px 5px 0;
+	width:380px;
+	line-height:20px;
+}
+.List_Comments .infos{
+	background:#F8F8F8;
+	padding:0 5px 0 5px;
+	border-bottom:#D0D0D0 solid 1px;
+}
+.List_Comments .infos .info{
+	float:left;
+	line-height:30px;
+}
+.List_Comments .infos .info em{
+	color:#006600;
+	font-weight:bold;
+}
+.List_Comments .infos .info .fl{
+	padding-left:15px;
+	background:url(fl.gif) left top no-repeat;
+}
+.List_Comments .infos .info .egg{
+	padding-left:18px;
+	background:url(egg.gif) left top no-repeat;
+}
+.List_Comments .infos .info span{
+	color:#ff0000;
+	font-weight:bold;
+}
+.List_Comments .infos .acts{
+	float:right;
+	padding:5px 5px 0 0;
+}
+.commentpage{
+	text-align:center;
+	padding:10px 0 10px 0;
+}
+.commentpage a{
+	border:#DDD solid 1px;
+	padding:3px 5px 2px 5px;
+	color:#888;
+}
+.no_comment{
+	padding:75px 20px 50px 160px;
+	line-height:30px;
+	font-size:22px;
+	font-weight:bold;
+	color:#FFB066;
+	background:url(nocomment.gif) 70px 60px no-repeat;
+}
+/*
+*
+*/
+.ListMoreDemo,.ListMoreDesigner{
+	border:#D0DFE4 solid 1px;
+	margin-top:10px;
+}
+.ListMoreDemo .head,.ListMoreDesigner .head{
+	height:35px;
+	overflow:hidden;
+	line-height:40px;
+	background:url(h6.gif) repeat-x;
+	padding:0 10px 0 15px;
+}
+.ListMoreDemo .head .tag,.ListMoreDesigner .head .tag{
+	float:left;
+	font-size:14px;
+	font-weight:bold;
+}
+.ListMoreDemo .head .more,.ListMoreDesigner .head .more{
+	float:right;
+}
+.ListMoreDemo .cont{
+	padding:20px 0 0 15px;
+	height:190px;
+	overflow:hidden;
+}
+.ListMoreDemo .cont .listpic{
+	width:190px;
+	height:190px;
+	overflow:hidden;
+	float:left;
+}
+.ListMoreDemo .cont .listpic div{
+	width:160px;
+	margin:auto;
+	text-align:center;
+}
+.ListMoreDemo .cont .listpic .img{
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.ListMoreDemo .cont .listpic .img span{
+	display:block;
+	width:160px;
+	height:120px;
+	overflow:hidden;
+}
+.ListMoreDemo .cont .listpic .img span a{
+	display:block;
+	width:220px;
+	height:120px;
+	text-align:center;
+	overflow:hidden;
+	margin-left:-30px;
+}
+.ListMoreDemo .cont .listpic .t{
+	height:20px;
+	padding-top:5px;
+	line-height:20px;
+	overflow:hidden;
+}
+.ListMoreDemo .cont .listpic .m{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	color:#FF3000;
+}
+/*
+*
+*/
+.ListMoreDesigner{
+	border:#EED7C6 solid 1px;
+}
+.ListMoreDesigner .head{
+	background:url(h9.gif) repeat-x;
+}
+.ListMoreDesigner .cont{
+	padding:20px 0 0 20px;
+	height:130px;
+	overflow:hidden;
+}
+.ListMoreDesigner .cont dl{
+	width:310px;
+	height:120px;
+	overflow:hidden;
+	float:left;
+}
+.ListMoreDesigner .cont dl dt{
+	float:left;
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.ListMoreDesigner .cont dl dt span{
+	display:block;
+	width:65px;
+	height:100px;
+	overflow:hidden;
+}
+.ListMoreDesigner .cont dl dt span a{
+	display:block;
+	width:105px;
+	height:100px;
+	overflow:hidden;
+	text-align:center;
+	margin-left:-20px;
+}
+.ListMoreDesigner .cont dl dd{
+	width:200px;
+	height:100px;
+	float:left;
+	line-height:20px;
+	padding-left:10px;
+}
+.ListMoreDesigner .cont dl dd .t a{
+	font-weight:bold;
+}
+.ListMoreDesigner .cont dl dd span{
+	color:#36c;
+}

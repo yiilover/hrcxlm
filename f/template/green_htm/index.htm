@@ -1,0 +1,185 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/green/f/index.css">
+<div class="MainBanner">
+	{$label[fashion_findexad1]}
+</div>
+<div class="MainContainer">
+	<div class="showsort" onmouseout="hiddenthesort()">
+    	<div class="head"><span class="tag">{$label[fashion_findexh1]}</span></div>
+        <div class="cont" id="showallsort">
+<!--
+EOT;
+$i=0;
+$array=array_flip($Fid_db[0]);
+foreach($array AS $key=>$rs){
+$i++;
+if($i>12)break;
+$url=get_info_url('',$rs,$city_id);
+print <<<EOT
+-->
+			<dl onmouseover="showthesort(this)">
+            	<dt><span><img src="$webdb[www_url]/images/green/f/icon$i.gif"></span><a href="$url">{$Fid_db[name][$rs]}</a></dt>
+                <dd>
+                	<ul>
+<!--
+EOT;
+foreach($Fid_db[$rs] AS $key_3=>$rss){
+$InfoNum[$key_3]=intval($InfoNum[$key_3]);
+$url=get_info_url('',$key_3,$city_id);
+$color=$Fid_db[ifcolor][$key_3]?"color:red;":'';
+print <<<EOT
+-->
+                    	<li><a href="$url" style="$color">{$Fid_db[name][$key_3]}</a></li> 
+<!--
+EOT;
+}print <<<EOT
+-->
+					</ul>
+                </dd>
+            </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </div>        
+    </div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var obj=document.getElementById("showallsort").getElementsByTagName("dl");
+function showthesort(theDl){	
+	for(var i=0;i< obj.length;i++ ){
+		obj[i].className='';
+	}
+	theDl.className='show';
+}
+function hiddenthesort(){
+	for(var i=0;i< obj.length;i++ ){
+		obj[i].className='';
+	}
+}
+//-->
+</SCRIPT>
+    <div class="HotInfo">
+        <div class="contl">{$label[fashion_findext1]}</div>
+        <div class="contc">
+            <div class="cc1">{$label[fashion_findext2]}</div>
+            <div class="cc2">{$label[fashion_findext3]}</div>
+            <div class="cc1">{$label[fashion_findext4]}</div>
+        </div>
+        <div class="contr">{$label[fashion_findext5]}</div>
+    </div>
+    <div class="NewInfo">
+    	<div class="head">
+        	<span class="tag">{$label[fashion_findexh2]}</span>
+            <span class="more">
+            	<a href="list.php?fid=2">物品交易</a> |
+                <a href="list.php?fid=3">企业招聘</a> |
+                <a href="list.php?fid=4">求职简历</a> |
+                <a href="list.php?fid=5">同城交友</a> |
+                <a href="list.php?fid=6">同城活动</a> |
+                <a href="list.php?fid=10">教育培训</a> |
+                <a href="list.php?fid=150">餐饮美食</a>
+            </span>
+        </div>
+        <div class="cont">
+        	<div class="contl">
+            	<div class="cc1">{$label[fashion_findext6]}</div>
+            	<div class="cc2">{$label[fashion_findext7]}</div>
+            </div>
+            <div class="contr">
+            	{$label[fashion_findext8]}
+            </div>
+        </div>
+    </div>
+	<div class="clear"></div>
+</div>
+<div class="PhotoShow">
+	<div class="head">
+		<span class="tag">{$label[fashion_findexh3]}</span>
+        <span class="more"><br/></span>
+    </div>
+    <div class="cont">
+    	{$label[fashion_findext9]}
+    </div>
+</div>
+<div class="MainBanner">
+	{$label[fashion_findexad2]}
+</div>
+<div class="MainContainer1">
+	<div class="SideL">
+    	<div class="sidecont">
+        	<div class="head"><span class="tag">{$label[fashion_findexh4]}</span></div>
+            <div class="cont">
+            	<div class="cc1">{$label[fashion_findext10]}</div>
+                <div class="cc2">{$label[fashion_findext11]}</div>
+            </div>
+        </div>
+    </div>
+    <div class="SideC">
+    	<div class="sidecont">
+        	<div class="head"><span class="tag">{$label[fashion_findexh5]}</span></div>
+            <div class="cont">
+            	<div class="cc1">{$label[fashion_findext12]}</div>
+                <div class="cc2">{$label[fashion_findext13]}</div>
+            </div>
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="sidecont">
+        	<div class="head"><span class="tag">{$label[fashion_findexh6]}</span></div>
+            <div class="cont">
+            	<div class="h">
+                	<span onmouseover="ShowTab(1,1,3)" id="Span1">推荐信息</span>
+					<span onmouseover="ShowTab(2,1,3)" id="Span2">热门信息</span>
+                </div>
+                <div class="cc" id="Tab1">{$label[fashion_findext14]}</div>
+                <div class="cc" id="Tab2">{$label[fashion_findext15]}</div>
+            </div>
+            <SCRIPT LANGUAGE="JavaScript">ShowTab(1,1,3);</SCRIPT>
+        </div>
+    </div>
+</div>
+<div class="MainContainer1">
+	<div class="SideL">
+    	<div class="sidecont">
+        	<div class="head"><span class="tag">{$label[fashion_findexh7]}</span></div>
+            <div class="cont">
+            	<div class="cc1">{$label[fashion_findext16]}</div>
+                <div class="cc2">{$label[fashion_findext17]}</div>
+            </div>
+        </div>
+    </div>
+    <div class="SideC">
+    	<div class="sidecont">
+        	<div class="head"><span class="tag">{$label[fashion_findexh8]}</span></div>
+            <div class="cont">
+            	<div class="cc1">{$label[fashion_findext18]}</div>
+                <div class="cc2">{$label[fashion_findext19]}</div>
+            </div>
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="sidecont">
+        	<div class="head"><span class="tag">{$label[fashion_findexh9]}</span></div>
+            <div class="cont">
+            	<div class="cd1">{$label[fashion_findext20]}</div>
+                <div class="cd2">{$label[fashion_findext21]}</div>
+                <div class="cd1">{$label[fashion_findext22]}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="MainContainer2">
+	<div class="SideL">{$label[fashion_findexad3]}</div>
+    <div class="SideC">{$label[fashion_findexad4]}</div>
+    <div class="SideR">{$label[fashion_findexad5]}</div>
+</div>
+<div class="bottomdiv"></div>
+<!--
+EOT;
+?>
+-->

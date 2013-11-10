@@ -1,0 +1,8 @@
+<?php
+
+return array(
+	'name'=>'³ÈÉ«·ç¸ñ',
+	'keywords'=>'default',
+);
+
+?>

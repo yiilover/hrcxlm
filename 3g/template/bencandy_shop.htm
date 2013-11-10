@@ -1,0 +1,26 @@
+<!--
+<?php
+$pic_html=$rsdb[picurl]?"<div class=\"showPic\"><img src=\"$rsdb[picurl]\" width=\"300\" /></div>":"";
+print <<<EOT
+-->
+<div class="MiddleCont">
+	<div class="nav_guide">
+    	<div class="head">
+    		<div class="tag">
+            	当前位置：<a href="$Murl">首页</a> &gt; <a href="$Surl">$webdb[Info_webname]</a>
+            </div>
+        </div>
+    </div>
+    <div class="BenTitle">$rsdb[title]</div>
+    <div class="BenInfo BenInfo_shop">
+    	发布时间:{$rsdb[posttime]}　关注度:{$rsdb[hits]}次
+    </div>
+    <div class="BenContent">
+    	$showmoreconts
+        $pic_html
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

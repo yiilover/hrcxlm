@@ -1,0 +1,124 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/yellow/showroom_zh_list.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="showroom_topad">
+  <tr> 
+    <td><img src="$webdb[www_url]/images/yellow/showroom_topad.jpg"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="showroom_showzh">
+  <tr> 
+    <td width="25%" class="side" height="204" valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="drag">
+        <tr> 
+          <td class="head"> 
+            <div class="LL"></div>
+            <div class="TAG">按日期查找</div>
+            <div class="RR"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="50" class="CC list_t" style="padding:5px;"> 
+		  
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="city_hr">
+              <!--
+EOT;
+unset($newarray,$i);
+while($i<12){$i++;$newarray[]=$i;}
+$array = array_chunk($newarray,3);
+foreach($array AS $key=>$ar){
+print <<<EOT
+-->
+              <tr> 
+                <!--
+EOT;
+foreach($ar AS $value){print <<<EOT
+-->
+                <td width="33%"><a href="?daytime=$value">{$value}月份</a></td>
+                <!--
+EOT;
+}print <<<EOT
+-->
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+-->
+            </table>
+                              </td>
+        </tr>
+        <tr> 
+          <td  class="head2">热门展会</td>
+        </tr>
+        <tr> 
+          <td height="50" class="CC list_c" style="padding:12px;line-height:18px;">
+		  
+ <!--
+EOT;
+$array=list_zh('hot',8);
+foreach($array AS $rs){print <<<EOT
+-->
+            <a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a><br>
+	
+            <!--
+EOT;
+}print <<<EOT
+-->
+		  </td>
+        </tr>
+      </table>
+    </td>
+    <td width="75%" class="main" height="204" valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="drag">
+        <tr> 
+          <td class="head"> 
+            <div class="LL"></div>
+            <div class="TAG">展会列表</div>
+            <div class="RR"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="250" class="CC" valign="top"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" id="list_zh">
+              <tr class="hh"> 
+                <td width="44%">展会名称</td>
+                <td width="33%" align="center">展览馆</td>
+                <td width="14%" align="center">地区</td>
+                <td width="9%" align="center">开展日期</td>
+              </tr>
+<!--
+EOT;
+$i=0;
+foreach($listdb AS $key=>$rs){
+$i++;
+$class=($i%2==1)?'aa':'bb';
+print <<<EOT
+-->
+              <tr class="lt $class"> 
+                <td width="44%" class="t1"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]"><b>$rs[title]</b></a></td>
+                <td width="33%" align="center"><a href="showroom.php?id=$rs[roomid]" target="_blank">$rs[roomname]</a></td>
+                <td width="14%" align="center">{$cityDB['name'][$rs[roomcity]]}</td>
+                <td width="9%" align="center">$rs[day_begin]</td>
+              </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" id="page">
+              <tr>
+                <td align="center">$showpage</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

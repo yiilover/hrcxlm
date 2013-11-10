@@ -1,0 +1,74 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/green/coupon/index.css"> 
+<div class="ShowSorts">
+	<div class="head"><div class="tag">{$label[fashion_couponindexh1]}</div></div>
+    <div class="cont">
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$name){
+$i++;
+$url=get_info_url('',$key,$city_id);
+print <<<EOT
+-->
+		<dl class="dl$i">
+            <dt><a href="$url">$name</a></dt>
+            <dd> 
+<!--
+EOT;
+foreach($Fid_db[$key] AS $key2=>$name2){
+$url=get_info_url('',$key2,$city_id);
+print <<<EOT
+-->
+              	<a href="$url">$name2</a> | 
+<!--
+EOT;
+}print <<<EOT
+-->
+			</dd>
+         </dl>			
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    </div>
+</div>
+<div class="MainBanner">{$label[fashion_couponindext1]}</div>
+<div class="MainContainer2">
+	<div class="MainCont">
+    	<div class="head">
+        	<div class="tag">{$label[fashion_couponindexh2]}</div>
+            <div class="more">
+            	<a href="listall.php?ordertype=id">最新促销</a>
+                <a href="listall.php?ordertype=hits">热门促销</a>
+                <a href="listall.php?ordertype=levelstime">推荐促销</a>
+            </div>
+        </div>
+        <div class="cont">
+        	{$label[fashion_couponindext2]}
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="HotCoupon">
+            <div class="head"><div class="tag">{$label[fashion_couponindexh3]}</div></div>
+            <div class="cont">
+                {$label[fashion_couponindext3]}
+            </div>
+        </div>
+        <div class="NewsCoupon">
+            <div class="head"><div class="tag">{$label[fashion_couponindexh4]}</div></div>
+            <div class="cont">
+                $label[coupon_new23]
+            </div>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+</div>
+<!--
+EOT;
+?>
+-->

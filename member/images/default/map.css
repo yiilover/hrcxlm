@@ -1,0 +1,185 @@
+/*
+*综合信息页面开始
+*/
+.BaseInfo{
+	border:#FFCB95 solid 1px;
+	background:url(notice.jpg) 15px 10px no-repeat;
+	margin-bottom:10px;
+}
+.BaseInfo td{
+	padding-left:100px;
+	padding-bottom:15px;
+}
+.BaseInfo td div{
+	padding-top:10px;
+}
+.BaseInfo .group{
+	font-size:14px;
+	font-weight:bold;
+	color:#DD060D;
+}
+.InfoMore{
+	width:100%;
+	margin:0;	
+	border:#D4EAF1 solid 1px;
+	background:#F5FBFF;
+}
+.InfoMore td{
+	border:#D4EAF1 solid 1px;
+	vertical-align:middle;
+	line-height:30px;
+}
+.InfoMore td em{
+	color:red;
+	font-weight:bold;
+}
+.InfoMore td a{
+	color:blue;
+}
+.InfoMore td.TD1{
+	width:10%;
+	text-align:right;
+	padding-right:10px;
+}
+.InfoMore td.TD1 span{
+	padding-left:15px;
+	background:url(arrow1.gif) 5px 3px no-repeat;
+}
+.InfoMore td.TD2,.InfoMore td.TD3{
+	width:45%;
+	padding-left:10px;
+}
+.InfoMore td.TD3{
+	word-spacing:10px;
+}
+.ActionTips{
+	width:100%;
+	margin:0;
+}
+.ActionTips td{
+	background:url(red_bg2.gif);
+	padding:5px;
+	border:#fff solid 1px;
+}
+.ActionTips div{
+	display:block;
+	width:19%;
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	float:left;
+}
+.ActionTips div a{
+	font-size:14px;
+	font-weight:bold;
+	color:#dd6b06;
+	padding-left:40px;
+}
+.ActionTips div.home{
+	background:url(icon_home.gif) 15px 8px no-repeat;
+}
+.ActionTips div.set{
+	background:url(icon_set.gif) 15px 8px no-repeat;
+}
+.ActionTips div.sell{
+	background:url(icon_sell.gif) 15px 8px no-repeat;
+}
+.ActionTips div.buy{
+	background:url(icon_buy.gif) 15px 8px no-repeat;
+}
+.ActionTips div.coll{
+	background:url(icon_coll.gif) 15px 8px no-repeat;
+}
+.ActionTips div.pic{
+	background:url(icon_pic.gif) 15px 8px no-repeat;
+}
+.ActionTips div.bz{
+	background:url(icon_bz.gif) 15px 8px no-repeat;
+}
+.ActionTips div.sz{
+	background:url(icon_sz.gif) 15px 8px no-repeat;
+}
+.ActionTips div.tg{
+	background:url(icon_tg.gif) 15px 8px no-repeat;
+}
+.ActionTips div.money{
+	background:url(icon_money.gif) 15px 8px no-repeat;
+}
+.Tips{
+	height:40px;
+	line-height:40px;
+	background:url(icon_hand.jpg) 30px 10px no-repeat;
+	padding-left:60px;
+}
+.Tips span{
+	float:left;
+	font-size:14px;
+	font-weight:bold;
+	color:blue;
+}
+.Tips input{
+	margin-top:8px;
+	margin-left:5px;
+	cursor:pointer;
+}
+.Tips em{
+	color:red;
+}
+.TipsTable{
+	border:#CCC solid 1px;
+	margin:5px auto;
+}
+.TipsTable td{
+	padding:5px;
+	border:#CCC solid 1px;
+}
+.TipsTable td.Td1{
+	width:10%;
+	text-align:right;
+	font-weight:bold;
+}
+.TipsTable em{
+	color:red;
+	font-weight:bold;
+}
+.TipsTable a{
+	color:blue;
+}
+
+
+.Services_Tz td{
+	padding:5px;
+}
+.Services_Tz div{
+	display:block;
+	width:30%;
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	float:left;
+}
+.Services_Tz div a{
+	font-weight:bold;
+	padding-left:45px;
+}
+.Services_Tz div.dl{
+	background:url(icon_dl.gif) 15px 8px no-repeat;
+}
+.Services_Tz div.zh{
+	background:url(icon_zh.gif) 15px 8px no-repeat;
+}
+.Services_Tz div.job{
+	background:url(icon_job.gif) 15px 8px no-repeat;
+}
+.Services_Tz div.site{
+	background:url(icon_site.gif) 15px 8px no-repeat;
+}
+.Services_Tz div.tg{
+	background:url(icon_tg1.gif) 15px 8px no-repeat;
+}
+.Services_Tz div.dome{
+	background:url(icon_dome.gif) 15px 8px no-repeat;
+}
+/*
+*综合信息页面结束
+*/

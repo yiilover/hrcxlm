@@ -1,0 +1,98 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/fashion/tg/index.css"> 
+<div class="MainContainer1">
+	<div class="NewTg">
+    	<div class="head">
+        	{$label[fashion_tgindexh1]}
+        </div>
+        <div class="cont">
+        	{$label[fashion_tgindext1]}
+        </div>
+    </div>
+    <div class="ConnanyAd">
+    	<div class="head">
+        	{$label[fashion_tgindexh2]}
+        </div>
+        <div class="cont">
+        	<div class="SlideCont">
+        	{$label[fashion_tgindext2]}
+            </div>
+            <div class="tgaction">
+            	<a href="$webdb[_www_url]/member/?main=$Murl/member/post_choose.php" target="_blank"><img src="http://life.net/images/fashion/tg/atc1.gif" /></a> 
+                <a href="$webdb[_www_url]/member/?main=$Murl/member/list.php?job=list" target="_blank"><img src="http://life.net/images/fashion/tg/atc2.gif" /></a> 
+            </div>
+        </div>
+    </div>
+    <div class="Recmmend">
+    	<div class="head">
+        	{$label[fashion_tgindexh3]}
+        </div>
+        <div class="cont">
+        	{$label[fashion_tgindext3]}
+        </div>
+    </div>
+</div>
+<div class="HotTgCont">
+	<div class="head">
+    	<div class="tag">{$label[fashion_tgindexh4]}</div>
+        <div class="more">
+<!--
+EOT;
+foreach($Fid_db[0] AS $key=>$name){
+$url=get_info_url('',$key,$city_id);
+print <<<EOT
+-->
+        	<a href="$url">$name</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div>
+    </div>
+    <div class="cont">
+    	{$label[fashion_tgindext4]}
+    </div>
+</div>
+<div class="AboutTgCont">
+	<div class="StatusTg">
+    	<div class="head"><div class="tag">{$label[fashion_tgindexh5]}</div></div>
+        <div class="cont">
+<!--
+EOT;
+$array=list_apply(5);
+foreach($array AS $rs){
+print <<<EOT
+-->
+            <div class="list">
+                <div><span>$rs[username]</span>…Í«Î≤Œº”<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></div>
+                <em>$rs[posttime]</em>
+            </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div>
+    </div>
+    <div class="NoteTg">
+    	<div class="head"><div class="tag">{$label[fashion_tgindexh6]}</div></div>
+        <div class="cont">$label[tuangou_news]</div>
+    </div>
+</div>
+<div class="ChangeShow">
+	<div class="head"><div class="tag">{$label[fashion_tgindexh7]}</div></div>
+    <div class="cont">
+        <div id="showup"><a href="javascript:;" onclick="showup()"><br/></a></div>
+        <ul id="ShowList">
+            $label[fashion_tgindext5]
+        </ul>
+        <div id="showdown"><a href="javascript:;" onclick="showdown()"><br/></a></div>
+<script type="text/javascript" src="$webdb[www_url]/images/fashion/tg/showmore.js"></script> 
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

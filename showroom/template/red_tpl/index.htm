@@ -1,0 +1,222 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/red/showroom/index.css">
+<div class="MainBanner">$label[showroom_tt1ad]</div>
+<div class="MainContainer1">
+	<div class="SideL">
+    	<div class="sidecont1">
+        	<div class="head"><span class="tag">$label[showroom_t1]</span></div>
+            <div class="cont cont1">
+                $label[red_showroomindext1]
+            </div>
+        </div>
+    </div>
+    <div class="SideC">
+    	<div class="slideshowroom">$label[red_showroomindexslid]</div>
+    </div>
+    <div class="SideR">
+    	<div class="Todyshowroom">
+        	<div class="c1">$label[red_showroomindext2]</div>
+            <div class="c2">$label[red_showroomindext3]</div>
+        </div>
+    </div>
+</div>
+<div class="MainContainer2">
+	<div class="SideL">
+    	<div class="showroomsort">
+        	<div class="head"><span class="tag">展会分类</span></div>
+            <div class="cont">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="showcont">
+                  <tr>
+                    <td class="h">
+                    	<div class="tg1">按日期找展会</div>
+                    </td>
+                    <td class="c">
+                    	<table width="100%" border="0" cellspacing="0" cellpadding="0">                
+<!--
+EOT;
+unset($newarray,$i);
+while($i<12){$i++;$newarray[]=$i;}
+$array = array_chunk($newarray,3);
+foreach($array AS $key=>$ar){
+print <<<EOT
+-->
+							<tr align="center"> 
+<!--
+EOT;
+foreach($ar AS $value){print <<<EOT
+-->
+                  				<td width="33%"><a href="list_time.php?daytime=$value">{$value}月份</a></td>
+<!--
+EOT;
+}print <<<EOT
+-->
+  							</tr>
+<!--
+EOT;
+}print <<<EOT
+-->        
+						</table>
+                    </td>
+                  </tr>
+                </table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="showcont">
+                  <tr>
+                    <td class="h">
+                    	<div class="tg2">按区域找展会</div>
+                    </td>
+                    <td class="c">
+                    	<table width="100%" border="0" cellspacing="0" cellpadding="0">                
+<!--
+EOT;
+$newarray = array_flip($cityDB[name]);
+$array = array_chunk($newarray,4);
+foreach($array AS $key=>$ar){
+if($key>=4)break;	//只显示4行
+print <<<EOT
+-->
+				<tr align="center"> 
+                <!--
+EOT;
+foreach($ar AS $value){print <<<EOT
+-->
+                  <td width="25%"><a href="list_city.php?cityid=$value" target="_blank">{$cityDB[name][$value]}</a></td>
+<!--
+EOT;
+}print <<<EOT
+-->
+				</tr><!--
+EOT;
+}print <<<EOT
+-->         
+						</table>
+                    </td>
+                  </tr>
+                </table>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="showcont">
+                  <tr>
+                    <td class="h">
+                    	<div class="tg3">按行业找展会</div>
+                    </td>
+                    <td class="c">
+                    	<table width="100%" border="0" cellspacing="0" cellpadding="0">                
+<!--
+EOT;
+foreach($Fid_db[0] AS $key=>$value){
+	$Fid_db[fid][]=$key;
+}
+if(count($Fid_db[fid])%3==2)$Fid_db[fid][]='0';
+if(count($Fid_db[fid])%3==1){$Fid_db[fid][]='0';$Fid_db[fid][]='0';}
+$array=array_chunk($Fid_db[fid],3);
+foreach($array AS $rs){
+print <<<EOT
+-->
+				<tr align="center"> 
+<!--
+EOT;
+foreach($rs AS $fvalue){
+$Fid_db[name][$fvalue] || $Fid_db[name][$fvalue]='&nbsp;';
+print <<<EOT
+-->
+                  <td width="33%"> <a href="list.php?fid=$fvalue" >{$Fid_db[name][$fvalue]}</a> </td>
+<!--
+EOT;
+}print <<<EOT
+-->
+                </tr>
+<!--
+EOT;
+}print <<<EOT
+-->        
+						</table>
+                    </td>
+                  </tr>
+                </table>
+            </div>
+         </div>
+         <div class="sidecont1">
+        	<div class="head head1"><span class="tag">推荐展会信息</span></div>
+            <div class="cont">
+                $label[red_showroomtzlist]
+            </div>
+        </div>
+    </div>
+    <div class="MainR">
+    	<div class="showzhcont">
+        	$label[red_showroomzhlist]
+        </div>
+        <div class="sidecont2">
+        	<div class="head"><span class="tag">最新展会</span></div>
+            <div class="cont">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="h1">
+                    <td width="40%">展会名称</td>
+                    <td width="25%">展览馆</td>
+                    <td width="20%">地区</td>
+                    <td width="15%">开展日期</td>
+                  </tr>
+<!--
+EOT;
+$array=list_zh('new',6,true);
+foreach($array AS $rs){
+$rs[title]=get_word($rs[title],40);
+print <<<EOT
+-->
+                  <tr>
+                    <td class="t"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></td>
+                    <td><a href="showroom.php?id=$rs[roomid]" target="_blank">$rs[roomname]</a></td>
+                    <td>{$cityDB[name][$rs[roomcity]]}</td>
+                    <td>$rs[day_begin]</td>
+                  </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+                </table>
+            </div>
+        </div>
+        <div class="sidecont2">
+        	<div class="head"><span class="tag">热门展会</span></div>
+            <div class="cont">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="h1">
+                    <td width="40%">展会名称</td>
+                    <td width="25%">展览馆</td>
+                    <td width="20%">地区</td>
+                    <td width="15%">开展日期</td>
+                  </tr>
+<!--
+EOT;
+$array=list_zh('hot',6,true);
+foreach($array AS $rs){
+$rs[title]=get_word($rs[title],40);
+print <<<EOT
+-->
+                  <tr>
+                    <td class="t"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></td>
+                    <td><a href="showroom.php?id=$rs[roomid]" target="_blank">$rs[roomname]</a></td>
+                    <td>{$cityDB[name][$rs[roomcity]]}</td>
+                    <td>$rs[day_begin]</td>
+                  </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+                </table>
+            </div>
+        </div>
+        <div class="sidecont2 sidecont3">
+        	<div class="head"><span class="tag">展览馆</span></div>
+            <div class="cont">
+            	$label[showroom_news1]
+            </div>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+</div>
+<!--
+EOT;
+?>
+-->

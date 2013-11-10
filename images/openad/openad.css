@@ -1,0 +1,28 @@
+.TopBanner{
+	width:980px;
+	margin:auto;
+	position:relative;
+}
+.TopBanner .OpenAd{
+	width:25px;
+	height:18px;
+	position:absolute;
+	right:-25px;
+	top:-15px;
+	cursor:pointer;
+}
+#ShowMainAd{
+	text-align:center;
+}
+#ShowMainAd img{
+	width:980px;
+}
+.TopBanner .ColseAd{
+	width:50px;
+	height:22px;
+	position:absolute;
+	right:5px;
+	top:5px;
+	cursor:pointer;
+	display:none;
+}

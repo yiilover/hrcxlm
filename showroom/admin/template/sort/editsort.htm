@@ -1,0 +1,40 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<table border="0" cellspacing="1" cellpadding="3" width="100%" class="tablewidth">
+  <form name="form1" method="post" action="$admin_path&action=$job">
+    <tr align="center"> 
+      <td colspan="2" class="head">栏目修改</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td colspan="2"><font color="#FF0000"> [<a href="$Murl/list.php?fid=$fid" target="_blank">浏览前台</a>] 
+        [<a href="$admin_path&file=list&job=list&fid=$fid">管理内容</a>] </font></td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width="40%">栏目名称:</td>
+      <td width="60%"> 
+        <input type="text" name="postdb[name]" value="$rsdb[name]">
+      </td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width="40%"> 父栏目FID: (不选择,将作为顶级栏目) </td>
+      <td width="60%"> 
+        <select name="postdb[fup]">
+          <option value="0">请选择</option>{$fup_select}
+        </select>
+      </td>
+    </tr>
+    $TempLate 
+    <tr align="center"> 
+      <td colspan="2" bgcolor="#FFFFFF"> 
+        <input type="submit" name="Submit" value="提交">
+        <input type="hidden" name="postdb[fid]" value="$fid">
+      </td>
+    </tr>
+  </form>
+</table>
+<!--
+EOT;
+?>
+-->

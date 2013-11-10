@@ -1,0 +1,166 @@
+/*
+*css reset
+*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre, 
+form,fieldset,input,textarea,p,blockquote,th,td { 
+	padding: 0; 
+	margin: 0; 
+} 
+table{ 
+	border-collapse: collapse; 
+	border-spacing: 0; 
+} 
+fieldset,img { 
+	border: 0; 
+} 
+address,caption,cite,code,dfn,em,strong,th,var { 
+	font-weight: normal; 
+	font-style: normal; 
+} 
+ol,ul { 
+	list-style: none; 
+} 
+caption,th { 
+	text-align: left; 
+} 
+q:before,q:after { 
+	content:”; 
+} 
+abbr,acronym { 
+	border: 0; 
+}
+body{
+	font-size:12px;
+	background:url(bg.gif) repeat-x;
+}
+td{
+	vertical-align:top;
+}
+a,a:link,a:visited{
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+/*
+*
+*/
+.Toper{
+	height:73px;
+	overflow:hidden;
+}
+.Toper .logo{
+	float:left;
+}
+.Toper .topmenu{
+	foat:right;
+	padding:10px 10px 0 0;
+	height:30px;
+	overflow:hidden;
+}
+.Toper .topmenu li{
+	float:right;
+	line-height:30px;
+	padding:0 10px 0 10px;
+}
+.Toper .topmenu li a{
+	color:#FFF;
+	font-size:14px;
+}
+/*
+*
+*/
+.SiteInfo{
+	height:30px;
+	overflow:hidden;
+	line-height:30px;
+	color:#FFF;
+}
+.SiteInfo a{
+	color:#FFF;
+}
+.SiteInfo .members{
+	float:left;
+	padding-left:15px;
+}
+.SiteInfo .ShowSiteTime{
+	float:right;
+	padding-right:15px;
+}
+/*
+*
+*/
+.MainContainer .Side{
+	width:200px;
+	border:#FFCB95 solid 1px;
+}
+.MainContainer .Main{
+	padding:10px;
+	border:#FFCB95 solid 1px;
+}
+.MenuAct{
+	height:32px;
+	text-align:center;
+	line-height:32px;
+	background:url(head4.gif) repeat-x;
+	color:#800080;
+	word-spacing:15px;
+}
+.MenuAct span{
+	cursor:pointer;
+}
+.ShowMenu dl{
+	line-height:30px;
+	background:url(head4.gif) repeat-x;
+	border-bottom:#FFCB95 solid 1px;
+}
+.ShowMenu dl dt{
+	padding-left:30px;
+	color:#DD6B06;
+	font-size:14px;
+	font-weight:bold;
+	cursor:pointer;
+	background:url(icon1.jpg) 15px 9px no-repeat;
+	border-bottom:#FFF solid 1px;
+}
+.ShowMenu dl.show dt{
+	background:url(icon2.jpg) 15px 9px no-repeat;
+	line-height:31px;
+}
+.ShowMenu dl dd{
+	padding-left:35px;
+	line-height:25px;
+	background:url(arrow1.gif) 20px 8px no-repeat;
+	display:none;
+}
+.ShowMenu dl dd a{
+	color:#DD6B06;
+	font-size:14px;
+}
+.ShowMenu dl.show dd{
+	display:block;
+}
+.inlineserver{
+	padding:15px 10px 0 85px;
+	background:url(inlineserver.gif) 5px 5px no-repeat;
+	height:125px;
+	line-height:25px; 
+}
+.inlineserver div{
+	padding-left:5px;
+	color:#DD6B06;
+	font-weight:bold;
+}
+.inlineserver div.h{
+	border-bottom:#DDD solid 3px;
+}
+/*
+*
+*/
+.FootContainer{
+	margin-top:15px;
+	border-top:#DDD solid 1px;
+	padding:10px 0 10px 0;
+	text-align:center;
+	line-height:20px;
+}

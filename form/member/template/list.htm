@@ -1,0 +1,44 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">信息管理</div></div>
+    <div class="cont">
+    	
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+      <tr> 
+        <th width="35%">日 期</th>
+        <th width="24%">分 类</th>
+        <th width="15%">状态</th>
+        <th width="8%">删除</th>
+        <th width="8%">修改</th>
+        <th width="10%">查看</th>
+      </tr>
+      <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+      <tr> 
+        <td class="tL" width="35%"> {$rs[id]}、<a href="../bencandy_form.php?mid=$rs[mid]&id=$rs[id]" target="_blank">$rs[posttime]</a></td>
+        <td align="center" width="24%"><a href="../list_form.php?mid=$rs[mid]" target="_blank">$rs[name]</a></td>
+        <td align="center" width="15%">$rs[state]</td>
+        <td align="center" width="8%"><a href="../form.php?action=del&id=$rs[id]&mid=$rs[mid]" onclick="return confirm('你确认要删除吗?');" target="_blank">删除</a></td>
+        <td align="center" width="8%"><a href="../form.php?job=edit&id=$rs[id]&mid=$rs[mid]" target="_blank">修改</a></td>
+        <td align="center" width="10%"><a href="../bencandy_form.php?mid=$rs[mid]&id=$rs[id]" target="_blank">详情</a></td>
+      </tr>
+      <!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+    </table>
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

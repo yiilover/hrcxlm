@@ -1,0 +1,9 @@
+<?php
+
+return array(
+	'name'=>'ÕÐÉÌÄ£¿é',
+	'pre'=>'zhaoshang_',
+	'setup'=>1,
+);
+
+?>

@@ -1,0 +1,5 @@
+<?php
+unset($styledb);
+$styledb['name']='ÂÌÉ«·ç¸ñ';
+$styledb['keywords']='green_htm';
+?>

@@ -1,0 +1,67 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/blue/zhaoshang/list.css">
+<div class="MainContainer">
+	<div class="MainL">
+    	<div class="showlist">
+        	<div class="head"><span class="tag">$fidDB[name]</span></div>
+            <div class="cont">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[title]=get_word($rs[title],50);
+print <<<EOT
+-->
+                <div class="list list$key">
+                    <a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank" title='$rs[full_title]'>$rs[title]</a>
+                    <span>{$rs[posttime]}</span>
+                </div>
+<!--
+EOT;
+}if($showpage){print <<<EOT
+-->
+            	<div class="page">$showpage</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+        	</div>
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="sortcont">
+        	<div class="head"><span class="tag">相关栏目</span></div>
+            <div class="cont">
+<!--
+EOT;
+$array=$Fid_db[$fid]?$Fid_db[$fid]:$Fid_db[$fidDB[fup]];
+foreach($array AS $fkey=>$fvalue){
+$color = $fid == $fkey? " style=\"color:red\"":'';
+print <<<EOT
+-->
+				<a href="list.php?fid=$fkey"$color>$fvalue</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+        <div class="zstopcont mt10">
+        	<div class="head"><span class="tag">招商项目排行版</span></div>
+            <div class="cont">{$label[zhaoshang_listt1]}</div>
+        </div>
+        <div class="tzzscont mt10">
+        	<div class="head"><span class="tag">推荐招商</span></div>
+            <div class="cont">{$label[zhaoshang_listt2]}</div>
+        </div>
+        <div class="siderad mt10">{$label[zhaoshang_listrad1]}</div>
+        <div class="siderad mt10">{$label[zhaoshang_listrad2]}</div>
+    </div>
+    <div class="ClearDiv"></div>
+</div>
+<!--
+EOT;
+?>
+-->

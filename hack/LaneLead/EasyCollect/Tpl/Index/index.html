@@ -1,0 +1,134 @@
+<include file="header" />
+<script language="javascript">
+ <!--
+	function DeleteRule(ec_id){
+	     if(confirm('您确认要删除本条规则吗?')==true)
+		ThinkAjax.send('__URL__/DeleteRule','ajax=1&ec_id='+ec_id,DeleteRuleComplete,'result');
+	}
+	function DeleteRuleComplete(data,status){
+		if (status==1)
+		{
+			$('#rulelist_tr_'+data).remove();
+		}
+	}
+	function DeleteRuleList(){
+	     if(confirm('您确认要批量删除规则吗?')==true)
+		ThinkAjax.sendForm('rulelist','__URL__/DeleteRuleList',DeleteRuleListComplete,'result');
+	}
+	function DeleteRuleListComplete(data,status){
+		if (status==1)
+		{
+			window.setTimeout(function (){window.location.href='__SELF__'},2000);			
+		}
+	}
+	function CopyRule(ec_id){
+		ThinkAjax.send('__URL__/CopyRule','ajax=1&ec_id='+ec_id,CopyComplete,'result');
+	}
+	function CopyComplete(data,status){
+		if (status==1)
+		{
+			window.setTimeout(function (){window.location.href='__SELF__'},1000);
+		}
+	}
+	
+	function ShareRule(ec_id){
+		$.dialog({
+			title: "采集规则分享/备份",
+			content: '__URL__/ShareRule/ec_id/'+ec_id,
+			width: "600px",
+			height: "300px",
+			lock: true
+		});
+	}
+	function GatherRuleList(){
+		if(confirm('您确认立刻执行选中的采集任务吗?')==true) {
+			ThinkAjax.sendForm('rulelist','__APP__/Gather/index/runnow/1/showresult/1',GatherRuleListComplete);	
+		}
+	}
+	function GatherRuleListComplete(data,status){
+			$.dialog({
+				title: "多进程可视化采集 -  {$Think.config.ECAPP_ENNAME} {$Think.config.ECAPP_VER}",
+				content: '__APP__/Gather/showresult/showresult/1/',
+				width: "680px",
+				height: "360px",
+				lock: true
+			});	
+	}
+	
+	function GatherRule(ec_id){
+		 if(confirm('您确认要立刻执行采集吗?')==true) {
+			$.dialog({
+				title: "多进程可视化采集 -  {$Think.config.ECAPP_ENNAME} {$Think.config.ECAPP_VER}",
+				content: '__APP__/Gather/index/runnow/1/showresult/1/ec_id/'+ec_id,
+				width: "680px",
+				height: "360px",
+				lock: true
+			});
+		 }
+	}
+ //-->
+</script>
+
+<form name="rulelist" id="rulelist" method="post" action="" style="margin:0; padding:0;">
+  <table width='100%' cellspacing='1' cellpadding='3' class="tablewidth" align="center">
+    <tr class="head">
+      <td width="15">ID</td>
+      <td width="160">规则名称</td>
+      <td width="120">适用模块</td>
+      <td>入库栏目/城市</td>
+      <td width="60">采集模式</td>
+      <td width="120">上次采集时间/数量</td>
+      <td width="90">规则相关操作</td>
+      <td width="50">执行采集</td>
+    </tr>
+    <volist id="vo" name="list">
+      <tr  id="rulelist_tr_{$vo.ec_id}" class="trA" onMouseOver="this.className='trB'" onMouseOut="this.className='trA'">
+        <td>{$vo.ec_id}</td>
+        <td><div align="left"><a title="点击查看/修改规则" href="__URL__/ecrule/ec_id/{$vo.ec_id}">
+            <input type="checkbox" name="ec_iddb[{$vo.ec_id}]" value="{$vo.ec_id}">
+            {$vo.ec_name}</a></div></td>
+        <td><a title="点击查看/修改规则" href="__URL__/ecrule/ec_id/{$vo.ec_id}">{$Marray[$vo['cms_module']]}({$vo.cms_module})</a></td>
+        <td><php>$MTable = GetMpre($vo['cms_module']) . 'sort';
+            $fname = getFieldValue($MTable, C('CMS_PRE'), 'fid=' . $vo['cms_sfid'], 'name');
+            if ($fname) {
+            echo $fname;
+            $city = getFieldValue('city', C('CMS_PRE'), 'fid=' . $vo['cms_scityid'], 'name');
+            $zone = getFieldValue('zone', C('CMS_PRE'), 'fid=' . $vo['cms_szoneid'], 'name');
+            $street = getFieldValue('street', C('CMS_PRE'), 'fid=' . $vo['cms_sstreetid'], 'name');
+			$area = '&nbsp;【';
+			if ($city) $area .= $city;
+			if ($zone) $area .=  '/'.$zone; 
+			if ($street) $area .= '/'.$street;
+			$area .=  '】';
+			if ($city) echo $area;
+            }else{
+            echo '入库模块/栏目选择错误';
+            } </php>
+        </td>
+        <td><a title="点击查看/修改规则" href="__URL__/ecrule/ec_id/{$vo.ec_id}">{$vo.c_mode|getCMode}</a></td>
+        <td><font color="red">{$vo.ec_id|getLastgtime|default='暂未采集'}</font>【<a title="您可以到采集日志中查看详细采集结果" href="__URL__/eclog/ec_id/{$vo.ec_id}"><font color="green">{$vo.ec_id|getLastgnum|default='0'}</font>/<font color="red">{$vo.ec_id|getLastgnum=2|default='0'}</font></a>】</td>
+        <td><a  title="点击查看/修改规则" href="__URL__/ecrule/ec_id/{$vo.ec_id}"><img src='__PUBLIC__/Images/edit.png'></a>&nbsp;&nbsp;<a title='删除本条规则' href="javascript:;" onClick="DeleteRule({$vo.ec_id})"><img src='__PUBLIC__/Images/del.gif'></a>&nbsp;&nbsp;<a  title='导出本条规则' href="javascript:" onClick="ShareRule({$vo.ec_id})"><img src='__PUBLIC__/Images/plub.gif'></a>&nbsp;&nbsp;<a  title="快速复制,适合同一网站不同栏目的采集" href="javascript:" onClick="CopyRule({$vo.ec_id})"><img src='__PUBLIC__/Images/page.gif'></a></td>
+        <td><a href="javascript:;" onClick="GatherRule({$vo.ec_id})" title="立刻采集">采集</a></td>
+      </tr>
+    </volist>
+    <tr>
+      <td colspan="8"><a href="javascript:" onClick="CheckAll('rulelist','all')">全选</a>/<a href="javascript:" onClick="CheckAll('rulelist','')">反选</a> &nbsp;
+        <input type="button" name="Submit_delet_list" value="批量删除" onClick="DeleteRuleList()">
+        &nbsp;
+        <input type="button" name="Submit_edit_list" value="批量采集" onClick="GatherRuleList()">
+        &nbsp; <span class="sabrosus"> {$page} </span> 按采集类别显示:{$show_ec_sort}</td>
+    </tr>
+  </table>
+</form>
+<table width="100%" border="0"  cellpadding="3" cellspacing="1" class="tablewidth" align="center">
+  <tr class="head">
+    <td><div align="left">注意事项:</div></td>
+  </tr>
+  <tr>
+    <td><p>1.如果采集失败,出错信息包含php_network_getaddresses这样的字符串,那代表网络有问题,或者是您的服务器本机的DNS没配置好,不能解释域名的IP,请检查服务器DNS配置<br>
+        2.如果采集失败,出错信息包含URL file-access is disabled这样的字符串,那代表您的服务器PHP设置禁用了allow_url_fopen,请修改服务器php.ini把allow_url_fopen 
+        = Off改成allow_url_fopen = On然后重启服务器即可<br>
+        3.本采集系统,支持各个自定义内容模型的采集(如图片、下载、视频等),您只需要修改内容采集规则,把自定义模型的字段放进去即可. </p></td>
+  </tr>
+</table>
+<include file="footer" /> 

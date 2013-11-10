@@ -1,0 +1,129 @@
+<!--
+<?php
+print <<<EOT
+-->
+  <script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable">
+  <tr> 
+    <td height="100" valign="top" class="Main"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable" >
+        <tr> 
+          <td class="head">
+            <h3 class="L"></h3>
+            <span class="TAG">下订单</span>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <td class="middle"> 
+            <table width="100%" cellspacing="5" cellpadding="5" >
+              <tr> 
+                <td align="left"> 
+                  
+                <form name="form_order" method="post" action="?action=$atc" enctype="multipart/form-data">
+                    <table width="100%" border="0" cellspacing="4" cellpadding="5" style="border:1px dotted #ccc;">
+                      <tr align="center" > 
+                        <td colspan="3"><b>订单详情</b></td>
+                      </tr>
+                      <tr align="center"> 
+                        <td bgcolor="#F0F0F0"><b><font color="#FF0000">名称</font></b><b></b></td>
+                        <td width="18%" bgcolor="#F0F0F0"><b><font color="#FF0000">数 
+                          量</font></b> </td>
+                        <td width="28%" bgcolor="#F0F0F0"><b><font color="#FF0000">总 
+                          额</font></b></td>
+                      </tr>
+                      <tr > 
+                        <td ><a href="bencandy.php?city_id=$infodb[city_id]&fid=$fid&id=$cid" target="_blank">$infodb[title]</a></td>
+                        <td width="18%" align="center" > <a href="javascript:chang_num(-1)">-</a> 
+                          <input type="text" id="shopnums" name="shopnum" value="$hownum" size="5" onBlur="chang_num(this)">
+<SCRIPT LANGUAGE="JavaScript">
+ function chang_num(t){ 	
+	 num=Math.ceil($("#shopnums").val());
+	 if(t==1)num++;
+	 if(t==-1)num--;
+	 if(num<1){
+		 num=1;
+	 }
+	$("#shopnums").val(num);	
+	$("#price_show").html(num*'$infodb[price]');
+ }
+ </SCRIPT>
+                          <a href="javascript:chang_num(1)">+</a> </td>
+                        <td align="center" width="28%" ><font color="#FF0000" id="price_show">{$infodb[price]}</font>元</td>
+                      </tr>
+                    </table>
+                
+                  
+                   
+                    <table width="100%" border="0" cellspacing="4" cellpadding="4" style="border:1px dotted #ccc;margin-top:5px;">
+                      <tr align="left" bgcolor="#F0F0F0" > 
+                        <td colspan="2"><b>手机或邮箱你必须填写一项,你付款后,我们会通过以下任意一种方式给你发送消费密码</b></td>
+                      </tr>
+                      <tr> 
+                        <td width="16%">接收团购凭证的手机:(<font color="#FF0000">*</font>)<br>
+                        </td>
+                        <td width="84%"> 
+                          <input   type='text' name='postdb[order_mobphone]' id='atc_order_mobphone' style='width:100px;' value='$rsdb[order_mobphone]'>
+                          (团购成功后，团购凭证将发送到此手机)</td>
+                      </tr>
+                      <tr> 
+                        <td width="16%">接收团购凭证的邮箱:(<font color="#FF0000">*</font>)<br>
+                        </td>
+                        <td width="84%"> 
+                          <input   type='text' name='postdb[order_email]' id='atc_order_email' style='width:100px;' value='$rsdb[order_email]'>
+                        </td>
+                      </tr>
+                      <tr> 
+                        <td width="16%">支付方式:<br>
+                        </td>
+                        <td width="84%"> 
+                          <input type='radio' style='border:0;' name='postdb[order_paytype]' value='1' {$rsdb[order_paytype]['1']}>
+                          货到付款 
+                          <input type='radio' style='border:0;' name='postdb[order_paytype]' value='2' {$rsdb[order_paytype]['2']}>
+                          银行电汇或ATM转帐 
+                          <input type='radio' style='border:0;' name='postdb[order_paytype]' value='3' {$rsdb[order_paytype]['3']}>
+                          邮局汇款 
+                          <input type='radio' style='border:0;' name='postdb[order_paytype]' value='4' {$rsdb[order_paytype]['4']}>
+                          网上即时支付 </td>
+                      </tr>
+                      <!---->
+                      <tr> 
+                        <td width="16%">&nbsp;</td>
+                        <td width="84%"> 
+                          <input type="submit" name="Submit" value="提交订单"  >
+                          <input type="hidden" name="fid" value="$fid">
+                          <input type="hidden" name="id" value="$id">
+                          <input type="hidden" name="cid" value="$cid">
+                          <input type="hidden" name="postdb[title]" id="atc_title" size="50" value="$infodb[title]">
+                          <!--
+EOT;
+if($job=='edit'){print <<<EOT
+-->
+                          <a href="?action=del&id=$id&cid=$cid&fid=$rsdb[fid]" onClick="return confirm('你确认要删除吗?');">删除</a> 
+                          <!--
+EOT;
+}print <<<EOT
+-->
+                        </td>
+                      </tr>
+                    </table>
+                  </form>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="foot">
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

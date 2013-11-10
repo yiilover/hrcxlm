@@ -1,0 +1,351 @@
+.MainCont{
+	border:#E0E0E0 solid 1px;
+}
+.MainCont .Mhead{
+	height:61px;
+	overflow:hidden;
+	background:url(head7.gif) repeat-x;
+}
+.MainCont .Mhead .tag{
+	float:left;
+	padding:20px 0 0 15px;
+	font-size:18px;
+	font-weight:bold;
+}
+.MainCont .Mhead .info{
+	float:right;
+	padding:25px 15px 0 0;
+	color:#666;
+}
+.MainCont .Mhead .info a{
+	color:blue;
+}
+/*
+*
+*/
+.MainCont .baseinfo{
+	height:200px;
+	overflow:hidden;
+	padding:20px 0 20px 0;
+}
+.MainCont .baseinfo dt{
+	width:600px;
+	height:200px;
+	float:left;
+	overflow:hidden;
+	border-right:#E0E0E0 solid 1px;
+	position:relative;
+}
+.MainCont .baseinfo dt .infopic{
+	width:200px;
+	height:200px;
+	float:left;
+	overflow:hidden;
+}
+.MainCont .baseinfo dt .infopic div{
+	width:120px;
+	margin:auto;
+	text-align:center;
+}
+.MainCont .baseinfo dt .infopic div.img{
+	border:#DDD solid 1px;
+	padding:1px;
+	margin-bottom:8px;
+}
+.MainCont .baseinfo dt .infopic div.img a{
+	display:block;
+	width:120px;
+	height:90px;
+	overflow:hidden;
+	background:#fafafa;
+}
+.MainCont .baseinfo dt .liststyle{
+	width:380px;
+	float:left;
+}
+.MainCont .baseinfo dt .liststyle div{
+	width:180px;
+	height:25px;
+	float:left;
+	padding-right:10px;
+	overflow:hidden;
+	line-height:25px;
+	font-size:14px;
+}
+.MainCont .baseinfo dt .moreaction{
+	width:400px;
+	height:35px;
+	overflow:hidden;
+	position:absolute;
+	right:10px;
+	bottom:5px;
+	z-index:1000;
+	word-spacing:10px;
+}
+.MainCont .baseinfo dd{
+	width:350px;
+	height:200px;
+	float:right;
+	overflow:hidden;
+}
+.MainCont .baseinfo dd .moreinfo div{
+	height:25px;
+	overflow:hidden;
+	line-height:25px;
+	font-size:14px;
+}
+.MainCont .baseinfo dd .moreinfo div span{
+	color:#666;
+}
+.MainCont .contents .heads{
+	height:37px;
+	overflow:hidden;
+	background:url(head2.gif) repeat-x;
+}
+.MainCont .contents .heads .tag{
+	float:left;
+	padding-right:6px;
+	background:url(tag1.gif) right top no-repeat;	
+}
+.MainCont .contents .heads .tag span{
+	display:block;
+	padding:2px 20px 0 20px;
+	line-height:35px;
+	background:url(head0.gif) repeat-x;
+	font-size:14px;
+	font-weight:bold;
+}
+.MainCont .contents .heads .more{
+	width:100px;
+	height:37px;
+	float:right;
+	background:url(head1.gif) right top no-repeat;
+	margin-right:-1px;
+}
+.MainCont .contents .conts{
+	padding:15px;
+	line-height:30px;
+	font-size:14px;
+}
+/*
+*
+*/
+.MainCont1{
+	margin-top:10px;
+}
+.MainCont1 .CommentCont{
+	width:720px;
+	float:left;
+}
+.CommentCont .head{
+	height:37px;
+	overflow:hidden;
+	background:url(head2.gif) repeat-x;
+	border-left:#e0e0e0 solid 1px;
+}
+.CommentCont .head .tag{
+	float:left;
+	background:url(tag1.gif) right top no-repeat;
+	padding-right:6px;
+}
+.CommentCont .head .tag span{
+	display:block;
+	padding:2px 20px 0 20px;
+	background:url(head0.gif) repeat-x;
+	line-height:35px;
+	font-size:14px;
+	font-weight:bold;
+}
+.CommentCont .head .more{
+	float:right;
+	width:100px;
+	height:37px;
+	background:url(head1.gif) right top no-repeat;
+}
+.CommentCont .cont{
+	border:#e0e0e0 solid 1px;
+	border-top:0;
+}
+.MainCont1 .side{
+	width:250px;
+	float:right;
+}
+#comment{
+	padding:15px 15px 5px 15px;
+}
+#comment dl{
+	background:url(dotted.gif) left bottom repeat-x;
+	margin-bottom:10px;
+}
+#comment dl dt{
+	float:left;
+	width:75px;
+	height:50px;
+	padding-top:5px;
+	background:url(iconbg.gif) center top no-repeat;
+}
+#comment dl dt a{
+	display:block;
+	width:45px;
+	height:45px;
+	overflow:hidden;
+	margin:auto;
+}
+#comment dl dd{
+	width:600px;
+	float:left;
+	line-height:20px;
+	padding-left:5px;
+	color:#666;
+}
+#comment dl div{
+	clear:both;
+	line-height:30px;
+	word-spacing:10px;
+}
+#comment dl div em{
+	color:#f30;
+}
+#comment .page{
+	text-align:center;
+	line-height:30px;
+}
+#comment .no_comment{
+	text-align:center;
+	line-height:60px;
+	font-size:16px;
+	color:#f30;
+}
+.comment_form{
+	border-top:#e0e0e0 solid 1px;
+}
+.comment_form .h{
+	height:40px;
+	vertical-align:middle;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:35px;
+	background:url(add.gif) 10px 9px no-repeat;
+	color:#005CA5;
+}
+.comment_form .left{
+	width:100px;
+	line-height:25px;
+	text-align:right;
+	padding-right:10px;
+}
+.comment_form .right{
+	padding-top:3px;
+}
+#comment_content{
+	width:500px;
+}
+.comment_form .submits{
+	padding:10px 0 15px 0;
+}
+.comment_form .submits input{
+	border:0;
+}
+/*
+*
+*/
+.ActCont{
+	height:80px;
+	padding-top:15px;
+	background:url(actbg.gif) center top no-repeat;
+	margin-bottom:10px;
+	text-align:center;
+	overflow:hidden;
+	word-spacing:8px;
+}
+.ActCont img{
+	margin-bottom:5px;
+}
+.Poster{
+	padding-bottom:8px;
+	background:url(bottom.gif) center bottom no-repeat;
+	margin-bottom:10px;
+}
+.Poster .head{
+	height:30px;
+	overflow:hidden;
+	line-height:33px;
+	background:url(actbg.gif) center top no-repeat;
+	padding-left:10px;
+	font-size:14px;
+	font-weight:bold;
+}
+.Poster dl{
+	height:100px;
+	overflow:hidden;
+	padding:10px 10px 0 10px;
+	border:#FDD79D solid 1px;
+	border-bottom:0;
+}
+.Poster dl dt{
+	width:80px;
+	height:80px;
+	padding:8px 10px 0 5px;
+	overflow:hidden;
+	float:left;
+}
+.Poster dl dd{
+	width:130px;
+	float:left;
+	line-height:18px;
+}
+.Poster .all{
+	clear:both;
+	height:20px;
+	left:20px;
+	overflow:hidden;
+	padding:5px 10px 0 15px;
+	border-left:#FDD79D solid 1px;
+	border-right:#FDD79D solid 1px;
+}
+.sidecont{
+	border:#e0e0e0 solid 1px;
+}
+.sidecont .head{
+	height:30px;
+	background:url(head3.gif) left 1px repeat-x;
+	line-height:33px;
+	overflow:hidden;
+}
+.sidecont .head .tag{
+	float:left;
+	padding:0 15px 0 15px;
+	background:#FFF;
+	border-right:#e0e0e0 solid 1px;
+	font-size:14px;
+	font-weight:bold;
+}
+.sidecont .head .more{
+	float:right;
+	padding-right:10px;
+}
+.sidecont .head .more a{
+	color:#888;
+}
+.sidecont .cont{
+	padding:10px;
+	line-height:23px;
+}
+.sidecont .cont div{
+	height:23px;
+	overflow:hidden;
+}
+.sidecont .cont div span{
+	width:25px;
+	display:block;
+	text-align:center;
+	background:url(numbg.gif) center -20px no-repeat;
+	float:left;
+	color:#FFF;
+}
+.sidecont .cont div.list0 span,.sidecont .cont div.list1 span,.sidecont .cont div.list2 span{
+	background:url(numbg.gif) center 4px no-repeat;
+}
+.sidecont .cont div a{
+	color:#666;
+}

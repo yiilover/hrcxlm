@@ -1,0 +1,68 @@
+<!--
+<?php 
+print <<<EOT
+-->
+<style type="text/css">
+.MainTable .middle{
+	padding:10px;
+}
+.ListTable{
+	border-top:#DDD solid 1px;
+	border-left:#DDD solid 1px;
+	color:#666;
+}
+.ListTable th{
+	border-bottom:#DDD solid 1px;
+	border-right:#DDD solid 1px;
+	line-height:25px;
+	background:#EFEFEF;
+}
+.ListTable td{
+	border-bottom:#DDD solid 1px;
+	border-right:#DDD solid 1px;
+	line-height:25px;
+	text-align:center;
+}
+.ListTable td a{
+	color:#369;
+}
+</style> 
+<table width="794" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable">
+  <tr> 
+    <td width="100%" height="100" valign="top" class="Main">       
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" id="map_art">
+        <tr> 
+          <td class="top"><span class="L">内容管理</span> </td>
+        </tr>
+        <tr> 
+          <td class="middle" valign="top"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+              <tr>
+                <th width="50%">类别</th>
+                <th width="50%">管理</th>
+              </tr>
+<!--
+EOT;
+foreach($Fid_db[name] AS $key=>$name){
+if($key==6)continue;
+print <<<EOT
+-->
+              <tr>
+                <td>$name</td>
+                <td><a href="?type=$type&fid=$key">管理</a></td>
+              </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </table>
+          </td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

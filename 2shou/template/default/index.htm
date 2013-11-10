@@ -1,0 +1,237 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$Mdomain/images/default/index.css"> 
+<SCRIPT LANGUAGE="JavaScript" src="$Mdomain/images/default/changeshow.js"></SCRIPT>
+<ul class="ShowListAd">
+	$label[flea_indext1]
+</ul>
+<div class="MainCont1">
+	<div class="sideL">
+    	<div class="sidecont1">
+        	<div class="head">
+            	$label[flea_indext2]            	
+                <div class="more"></br></div>
+            </div>
+            <div class="cont" id="Tab1">
+            	<dl>
+                	$label[flea_indext3] 
+                </dl>
+                <ul>
+                	$label[flea_indext4] 
+                </ul>
+            </div>
+            <div class="cont" id="Tab2" style="display:none;">
+            	<dl>
+                	$label[flea_indext5] 
+                </dl>
+                <ul>
+                	$label[flea_indext6] 
+                </ul>
+            </div>
+        </div>
+        <div class="showSorts">
+        	<div class="head">分类栏目</div>
+            <div class="cont">
+				<ul id="ShowSortTable">
+<!--
+EOT;
+$trnum=0;
+foreach($Fid_db[0] as $key=>$value){
+$url=get_info_url('',$key,$city_id);
+if($trnum==0){
+print <<<EOT
+-->
+					<li>
+<!--
+EOT;
+}$trnum++;print <<<EOT
+-->
+						<dl>
+                        	<dt><a href="$url">{$value}</a></dt>
+                            <dd>
+<!--
+EOT;
+foreach($Fid_db[$key] as $keys=>$rs){
+$InfoNum[$keys]=intval($InfoNum[$keys]);
+$url=get_info_url('',$keys,$city_id);
+print <<<EOT
+-->
+								<div><a href="$url">{$rs}</a>({$InfoNum[$keys]})</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                            </dd>
+                        </dl>
+<!--
+EOT;
+if($trnum==2){
+$trnum=0;print <<<EOT
+-->
+					</li>
+<!--
+EOT;
+}}if($trnum && $trnum<2){
+for($i=$trnum;$i<2;$i++){print <<<EOT
+-->
+						<dl>&nbsp;</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+					</li>
+<!--
+EOT;
+}print <<<EOT
+-->
+                </ul>
+                <ul id="ShowSorts"></ul>
+                <div id="ShowUpS" onclick="showups()" onmouseout="clearcss()"></div>
+                <div id="ShowDownS" onclick="showdowns()" onmouseout="clearcss()"></div>
+                <div id="moveUpS" onclick="showups()" onmouseover="this.className='up'" onmouseout="this.className=''"></div>
+                <div id="moveDownS" onclick="showdowns()" onmouseover="this.className='down'" onmouseout="this.className=''"></div>
+<SCRIPT LANGUAGE="JavaScript" src="$Mdomain/images/default/showsort.js"></SCRIPT>
+            </div>
+        </div>
+    </div>
+    <div class="sideC">
+    	<div class="SlideCont">
+    		$label[flea_indext7] 
+        </div>        
+        <div class="sidecont2">
+        	<div class="head">
+            	$label[flea_indext8] 
+            </div>
+            <div class="cont" id="Tab3">
+            	<dl>
+                	$label[flea_indext9] 
+                </dl>
+                <ul>
+                	$label[flea_indext10] 
+                </ul>
+            </div>
+            <div class="cont" id="Tab4" style="display:none;">
+            	<dl>
+                	$label[flea_indext11] 
+                </dl>
+                <ul>
+                	$label[flea_indext12] 
+                </ul>
+            </div>
+        </div>
+        <dl class="CenterMinAd">
+        	<dt>$label[flea_indext13] </dt>
+            <dd>$label[flea_indext14] </dd>
+        </dl>
+        <div class="sidecont2">
+        	<div class="head">
+            	$label[flea_indext15]
+            </div>
+            <div class="cont" id="Tab5">
+            	<dl>
+                	$label[flea_indext16] 
+                </dl>
+                <ul>
+                	$label[flea_indext17] 
+                </ul>
+            </div>
+            <div class="cont" id="Tab6" style="display:none;">
+            	<dl>
+                	$label[flea_indext18] 
+                </dl>
+                <ul>
+                	$label[flea_indext19] 
+                </ul>
+            </div>
+        </div>
+        <dl class="CenterMinAd">
+        	<dt>$label[flea_indext20] </dt>
+            <dd>$label[flea_indext21] </dd>
+        </dl>
+    </div>
+    <div class="sideR">
+    	<div class="ActCont">
+        	<div class="head">
+            	<div class="tag">最新二手</div>
+                <div class="post"><a href="post.php" target="_blank"><img src="$Mdomain/images/default/post.gif"/></a></div>
+            </div>
+            <div class="cont">
+            	$label[flea_indext22]
+            </div>
+            <dl class="Act">
+            	<dt><a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/2shou/member/list.php" target="_blank">管理信息</a></dt>
+                <dd><a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/2shou/member/collection.php" target="_blank">收藏夹</a></dd>
+            </dl>
+        </div>
+        <div class="sidecont3">
+        	<div class="head">
+            	$label[flea_indext23]
+            </div>
+            <div class="cont">
+                $label[flea_indext24]
+            </div>
+        </div>
+        <div class="RightMinAd">$label[flea_indext25]</div>
+        <div class="sidecont4">
+        	<div class="head">
+            	$label[flea_indext26]
+            </div>
+            <div class="cont" id="Tab7">
+            	$label[flea_indext27]                
+            </div>
+            <div class="cont" id="Tab8" style="display:none;">
+            	$label[flea_indext28]
+            </div>
+            <div class="cont" id="Tab9" style="display:none;">
+            	$label[flea_indext29]
+            </div>
+            <div class="cont" id="Tab10" style="display:none;">
+            	$label[flea_indext30]
+            </div>
+        </div>
+    </div>
+</div>
+<div class="PhotoCont">
+	<div class="head">
+    	$label[flea_indext31]
+    </div>
+    <div class="cont">
+    	$label[flea_listpic]
+    </div>
+</div>
+<div class="MoreCont">
+<!--
+EOT;
+foreach($listdb_moresort AS $key1=>$rss){
+$url=get_info_url('',$rss[fid],$city_id);
+print <<<EOT
+-->
+		<dl>        	
+        	<dt><a href="$url" target="_blank">$rss[name]</a></dt>
+            <dd>
+<!--
+EOT;
+foreach($rss[article] AS $key2=>$rs){
+$url=get_info_url($rs[id],$rs[fid],$city_id);
+print <<<EOT
+-->
+                  <div>·<a href="$url" title="$rs[full_title]" target="_blank">$rs[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </dd>
+        </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+<!--
+EOT;
+?>
+-->

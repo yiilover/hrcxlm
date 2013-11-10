@@ -1,0 +1,33 @@
+#theme4{
+	background:url(theme.gif) -48px -10px no-repeat;
+}
+.Logo_Ad_Info .logo span{
+	display:block;
+	width:165px;
+	height:50px;
+	background:url(logo4.gif) no-repeat;
+}
+.Logo_Ad_Info .logo span em{
+	display:none;
+}
+.Logo_Ad_Info .Search{
+	background:url(search_bg4.gif) left bottom no-repeat;
+}
+.Logo_Ad_Info .Search .ListType li.ck{
+	background:url(ch_search4.gif) center 4px no-repeat;
+}
+.MenuCont{
+	background:url(nemu4.gif) repeat-x;
+}
+.MenuCont .ListMenu dl dt{
+	background:url(mspac4.gif) left 8px no-repeat;
+}
+.MenuCont .ListMenu dl.ck dt{
+	background:url(mover4.gif) left 6px no-repeat;
+}
+.MenuCont .ListMenu dl.ck dt span{
+	background:url(mover4.gif) right 6px no-repeat;
+}
+.wrap .ChageHead div.choose{
+	border-top:#1FA01B solid 2px;
+}

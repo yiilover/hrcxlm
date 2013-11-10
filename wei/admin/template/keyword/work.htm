@@ -1,0 +1,68 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<form name="form_work" method="post" action="$admin_path&action=work">
+<div class="MainCont">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+    <tr> 
+      <th width="5%">ID</th>
+      <th>关键字</th>
+    </tr>
+<!--
+EOT;
+foreach($listdb AS $id=>$title){
+print <<<EOT
+-->
+    <tr> 
+      <td>$id</td>
+      <td class="txL"><input type="checkbox" name="listdb[{$id}]" value="$id" checked> $title</td>
+    </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+  </table>
+	<div class="ListBut">
+    	<a href="#" onClick="CheckAll('all')">全选</a>/<a href="#" onClick='CheckAll()'>反选</a> 
+<!--
+EOT;
+if($jobs=="delete"){
+print <<<EOT
+-->
+        <input type="radio" name="forcedel" value="1" checked>
+        彻底删除 
+        <input type="button" name="Submit3" value="确认删除" onclick="postdo('delete')">
+<!--
+EOT;
+}print <<<EOT
+-->
+        <input type="hidden" name="jobs" value="$jobs">
+      	<input type="button" name="Submit" value="放弃本次操作，点击返回" onClick='javascript:history.go(-1);' style="background:#FFDFDF;">
+        <input type="hidden" name="fromurl" value="$FROMURL">
+    </div>
+</div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(va){
+	document.form_work.jobs.value=va
+	document.form_work.submit();
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,112 @@
+<!--
+<?php
+print<<<EOT
+--> 
+<div class="MainCont">
+	<div class="head"><div class="tag">栏目</div></div>
+	<div class="ListBut"> 
+      <form action="$admin_path&action=addsort" method=POST>
+        <span class=bold>创建新栏目--</span>&nbsp;名称 
+        <input type=text name="name" size=10>
+        归属 {$fup_select} 
+        <input type="radio" name="Type" value="0" checked>
+        栏目 
+        <input type="radio" name="Type" value="1">
+        分类(不可发表内容) 
+        <input type=submit value="创 建" name="submit">
+      </form>
+    </div>
+  	<div class="ListBut" style="display:none;">
+     <form action="?job=listsort" method=POST>
+        <span class=bold>查找栏目--</span>&nbsp;
+        <select name="Type">
+          <option value="name">名称</option>
+          <option value="fid" selected>fid</option>
+        </select>
+        <input type=text name="name" size=10 value="$_POST[name]">
+        <input type=submit value="查 找" name="submit">
+        <input type="hidden" name="step" value="2">
+      </form>
+    </div>
+</div>
+<form name="formlist" method="post" action="$admin_path&action=editlist">
+<div class="MainCont">
+	<div class="head"><div class="tag">编辑栏目</div></div> 
+    <ul class="NoteList">
+      <li>注意:<font color="#FF0000">栏目排序的规则是,数值大的排在前面,只能是同一级的进行排序</font></li>
+    </ul> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+      <tr> 
+        <th width="6%">FID</th>
+        <th width="32%">栏目名称</th>
+        <th width="14%">排序</th>
+        <th width="11%">栏目类型</th>
+        <th width="6%">设置</th>
+        <th width="6%">内容</th>
+        <th width="6%">子栏目</th>
+        <th width="5%">浏览</th>
+        <th width="4%">信息</th>
+        <th width="4%">标签</th>
+        <th width="6%">删除</th>
+      </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+      <tr> 
+        <td class="B red">$rs[fid]</td>
+        <td class="txL"> 
+          <input type="checkbox" name="fiddb[{$rs[fid]}]" value="$rs[name]" style="border:0px;">
+          {$rs[icon]}【<a href='$Murl/list.php?fid=$rs[fid]' target="_blank" style="color:$rs[color]">{$rs[name]}</a>】</td>
+        <td><input type='text' name='order[{$rs[fid]}]' value='$rs[list]' size='5'></td>
+        <td>$rs[_type]</td>
+        <td>[<a href='$admin_path&job=editsort&fid=$rs[fid]'><font color=red>修改</font></a>]</td>
+        <td>[<a href='$admin_path&file=list&job=list&fid=$rs[fid]' $rs[_ifcontent]>管理</a>]</td>
+        <td>[<a href='$admin_path&job=listsort&fid=$rs[fid]' $rs[_alert]>管理</a>]</td>
+        <td>[<a href='$Murl/list.php?fid=$rs[fid]' target="_blank">前台</a>]</td>
+        <td><a href="$webdb[www_url]/member/?main=$Murl/member/post.php?fid=$rs[fid]" target="_blank" $rs[_ifcontent]>发布</a></td>
+        <td><a href="$Murl/list.php?fid=$rs[fid]&jobs=show" target="_blank">标签</a></td>
+        <td>[<a href="$admin_path&action=delete&fid=$rs[fid]" onclick="return confirm('你确实要删除吗?不可恢复');">删除</a>]</td>
+      </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class='ShowPage'>$showpage</div>":"";
+print <<<EOT
+-->
+	</table>
+    <div class="ListBut">
+      <a href="javascript:" onClick="CheckAll('all')"> </a><a href="javascript:" onClick='CheckAll()'></a> 
+      <input type="button" name="Submit2" value="修改栏目排序" onclick="postlist('list')">          
+	</div>
+    $showpage
+</div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postlist(t){
+	if(t=='list'){
+		document.formlist.action="$admin_path&action=editlist";
+	}else{
+		document.formlist.action="$admin_path&job=batch_edit";
+	}
+	document.formlist.submit();
+}
+function CheckAll(va){
+	form=document.formlist
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

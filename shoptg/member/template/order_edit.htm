@@ -1,0 +1,33 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">修改订单</div></div>
+    <div class="cont">
+    	<form name="form1" method="post" action="?job=edit">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr>
+            <td class="tdL">应付总额:</td>
+            <td class="tdR"><input type="text" name="totalmoney" size="10" value="$rsdb[totalmoney]"> 元</td>
+          </tr>
+          <tr>
+            <td class="tdL">快递单号:</td>
+            <td class="tdR"><input type="text" name="emscode" size="50" value="$rsdb[emscode]"> 快递名称+单号</td>
+          </tr>
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+            	<input type="submit" name="Submit" value="提交">
+                <input type="hidden" name="step" value="2">
+                <input type="hidden" name="id" value="$id">
+            </td>
+          </tr>
+        </table>
+        </form>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

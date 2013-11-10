@@ -1,0 +1,186 @@
+.MainContainer{
+	width:980px;
+	margin:auto;
+}
+.MainContainer .Mhead{
+	height:50px;
+	overflow:hidden;
+	background:url(hbg.gif) center 7px no-repeat;
+}
+.MainContainer .Mhead .tag{
+	float:left;
+	padding:10px 0 0 75px;
+	line-height:35px;
+	background:url(icon.gif) 20px top no-repeat;
+	font-size:20px;
+	font-weight:bold;
+}
+.MainContainer .Mhead .more{
+	float:right;
+	padding:10px 15px 0 0;
+	line-height:35px;
+}
+.MainContainer .Mhead .more span{
+	color:#F60;
+}
+.MainContainer .Mcont{
+	border:#CACACA solid 1px;
+	border-top:0;
+	padding:20px;
+}
+
+ul.regtype{
+	height:285px;
+	overflow:hidden;
+	background:url(point.gif) center top repeat-y;
+}
+ul.regtype li{
+	width:50%;
+	height:285px;
+	overflow:hidden;
+	float:left;
+}
+ul.regtype li div{
+	line-height:30px;
+	padding-left:120px;
+	font-size:14px;
+	color:#666;
+	background:url(array.gif) 100px 5px no-repeat;
+}
+ul.regtype li div.other{
+	background:none;
+	padding-left:130px;
+}
+ul.regtype li div.sub{
+	background:none;
+	padding-left:100px;
+}
+ul.regtype li div.sub img{
+	cursor:pointer;
+}
+/*
+*
+*/
+.list1,.list2,.list3{
+	clear:both;
+	width:900px;
+	margin:auto;
+	height:30px;
+	line-height:30px;
+	padding-left:35px;
+	background:url(array1.gif) 10px 7px no-repeat;
+	font-size:16px;
+	font-weight:bold;
+	color:#F06600;
+}
+.list2,.list3{
+	background:url(array2.gif) 10px 7px no-repeat;
+	border-bottom:#DDD solid 1px;
+	margin:0 auto 5px auto;
+}
+.list2 span{
+	font-size:12px;
+	font-weight:normal;
+	color:#333;
+}
+.list3{
+	background:url(array3.gif) 10px 7px no-repeat;
+}
+.MainContainer .Mcont dl{
+	clear:both;
+	width:870px;
+	margin:auto;
+}
+.MainContainer .Mcont dl dt{
+	width:120px;
+	float:left;
+	line-height:40px;
+	font-size:14px;
+}
+.MainContainer .Mcont dl dt span{
+	color:#F00;
+	padding-right:3px;
+}
+.MainContainer .Mcont dl dd{
+	width:720px;
+	height:40px;
+	float:left;
+}
+.MainContainer .Mcont dl dd span{
+	display:block;
+	float:left;
+	line-height:40px;
+	padding-left:5px;
+	font-size:14px;
+}
+.MainContainer .Mcont dl dd span.input{
+	padding-top:7px;
+}
+.MainContainer .Mcont dl dd span.img{
+	padding-top:7px;
+}
+.MainContainer .Mcont dl dd span.radio{
+	padding-top:9px;
+}
+.MainContainer .Mcont dl dd span.radio input{
+	border:0;
+}
+.showinfo{
+	clear:both;
+	padding-left:30px;
+}
+.Agreement{
+	position:absolute;
+	width:1200px;
+	bottom:0;
+	left:0;
+}
+.Agreement .h{
+	border:#7F9DB9 solid 1px;
+	border-bottom:0;
+	height:25px;
+	line-height:25px;
+	font-size:14px;
+	width:700px;
+	margin:auto;
+	background:#efefef;
+}
+.Agreement .h span{
+	float:left;
+	font-weight:bold;
+	padding:1px 0 0 10px;
+}
+.Agreement .h a{
+	float:right;
+	padding:1px 10px 0 0;
+}
+.Agreement .c{
+	width:700px;
+	margin:auto;
+	border:#7F9DB9 solid 1px;
+	border-top:0;
+	line-height:20px;
+	background:#FFF;
+	padding:10px 0 10px 0;
+}
+.Agreement .c h3{
+	padding:5px 10px 5px 20px;
+	font-size:14px;
+	line-height:20px;
+}
+.Agreement .c div{
+	padding-left:30px;
+	line-height:20px;
+	color:#666;
+}
+.submits{
+	height:50px;
+	padding:10px 0 10px 30px;
+}
+.submits input{
+	border:0;
+}
+.submits a:link,.submits a:visited,.submits a:hover{
+	color:#083FF2;
+	text-decoration:underline;
+}

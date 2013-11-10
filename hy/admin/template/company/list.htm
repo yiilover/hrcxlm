@@ -1,0 +1,142 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/listpic.css">
+<form name="form_work" method="post" action="$admin_path&action=batch">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+  <tr class="head"> 
+    <td>商铺管理</td>
+  </tr>
+  <tr> 
+    <td>
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListPicTable">
+<!--
+EOT;
+$ids=0;
+foreach($listdb AS $key=>$rs){
+$rs[picurl] && $rs[picurl]=tempdir($rs[picurl]);
+if($ids==0){print <<<EOT
+-->
+          <tr>
+<!--
+EOT;
+}$ids++;print <<<EOT
+-->
+            <td class="img"><div><a href="$webdb[www_url]/home/?uid=$rs[uid]" target='_blank'><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" height="90"></a></div></td>
+            <td class="word">
+            	<div class="title"><input type="checkbox" name="udb[{$rs[uid]}]" value="$rs[title]"> <a href="$webdb[www_url]/home/?uid=$rs[uid]" target='_blank'  style="color:$rs[titlecolor];"><span>$rs[title]</span></a></div>
+                <div class="more">所在城市:<span>{$city_DB[name][$rs[city_id]]}</span> 登记者:<span><a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank">$rs[username]</a></span> 浏览:<span>$rs[hits]</span> 登记日期:<span>$rs[posttime]</span></div>
+                <div class="butter">$rs[ischeck] $rs[iscom] <a href="$Murl/member/homepage_ctrl.php?atn=info&uid=$rs[uid]" target=_blank>修改</a> <a onclick="return confirm('你确认要删除吗?');" href="$admin_path&action=work&jobs=del&uid=$rs[uid]">删除</a></div>
+            </td>
+<!--
+EOT;
+if($ids==2){
+$ids=0;print <<<EOT
+-->
+		</tr>
+<!--
+EOT;
+}}if($ids && $ids<2){
+for($i=$ids;$i<2;$i++){print <<<EOT
+-->
+            <td><br /></td><td><br /></td>
+<!--
+EOT;
+}print <<<EOT
+-->
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class='ShowPage'>$showpage</div>":"";
+print <<<EOT
+-->
+    	</table>
+		$showpage
+		<div class="ListButs">
+        	<a href="javascript:CheckAll('all')">全选</a> <a href="javascript:CheckAll()">反选</a> 
+        	<input type="button" name="Submit" value="批量删除" onclick="postdo()">
+        </div>
+    </td>
+  </tr>
+</table>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(){ 
+	if(confirm('你确认要批量删除选中的商家吗?不可恢复!')){
+		document.form_work.submit();
+	}	
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT><br> <form name="form1" method="post" action="$admin_path&job=$job">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+ 
+    <tr class="head"> 
+      <td><font color="#FFFFFF">搜索</font></td>
+    </tr>
+    <tr> 
+      <td >
+<!--
+EOT;
+if(count($city_DB[name])>1){
+print <<<EOT
+-->	  
+按城市筛选:<select name="select" onChange="window.location.href='$admin_path&job=$job&type=$type&cityid='+this.options[this.selectedIndex].value">
+    <option value="">不限</option>
+<!--
+EOT;
+foreach($city_DB[name] AS $t=>$v){
+$ck=$cityid==$t?' selected  style="color:red;"':'';
+print <<<EOT
+-->
+	<option value="$t" $ck>$v</option>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+  </select>
+<!--
+EOT;
+}
+print <<<EOT
+-->　	  
+	  关键字 
+        <input type="text" name="keyword">
+        <select name="type">
+          <option value="title">店铺名称</option>
+          <option value="id">店铺ID</option>
+          <option value="username">登记者</option>
+        </select>
+        <input type="submit" name="Submit7" value="提交">
+      </td>
+    </tr>
+  
+</table></form><br><table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+ 
+    <tr class="head"> <td>说明</td>
+    </tr>
+    <tr> 
+      
+    <td align="left"> 删除商家资料的话，不可恢复。他将会被降为个人用户。删除商家资料不会同时删除他的个人用户基本信息。要删除个人用户基本信息需要在用户资料管理那里进行删除！</td>
+    </tr>
+  
+</table>
+<!--
+EOT;
+?>
+-->
+ 

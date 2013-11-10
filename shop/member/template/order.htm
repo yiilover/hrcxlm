@@ -1,0 +1,72 @@
+<!--
+<?php
+print <<<EOT
+-->
+<style type="text/css">
+<!--
+.MainCont .cont .ListTable td{
+	vertical-align:middle;
+}
+.MainCont .cont .ListTable td.tL div{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+}
+-->
+</style>
+<div class="MainCont">
+	<div class="head"><div class="tag">我购买的订单</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="6%">订单</th>
+            <th width="40%">订购商品</th>
+            <th width="8%">总额</th>
+            <th width="8%">付款</th>
+            <th width="8%">发货</th>
+            <th width="8%">收货</th>
+            <th width="12%">订购时间</th>
+            <th width="10%">功能操作</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td>$rs[id]</td>
+            <td class="tL">
+<!--
+EOT;
+foreach($rs['plist'] AS $rs2){print <<<EOT
+-->
+                  <div><a href="../bencandy.php?fid=$rs2[fid]&id=$rs2[id]" target="_blank">$rs2[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </td>
+            <td>$rs[totalmoney]</td>
+            <td>$rs[pay]</td>
+            <td>$rs[send]</td>
+            <td>$rs[_receive]</td>
+            <td>$rs[posttime]</td>
+            <td>
+            	<a href="javascript:" click=1 editcode="$rs[back_rmb]<a href='joinshow.php?id=$rs[id]'>详情</a><br/><span  style='display:$rs[noedit];'><a href='$rs[editurl]'>修改</a><br/></span><span style='display:$rs[nodel];'><a href='?action=del&id=$rs[id]&cid=$rs[cid]'>删除</a></span>">功能操作</a>
+            </td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div>
+<div style="height:200px;"></div>
+<!--
+EOT;
+?>
+-->

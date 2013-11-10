@@ -1,0 +1,1 @@
+<?php if($action=="quit"){	$userDB->quit();	header("location:./");	exit;}else{	if($step==2){		$login = $userDB->login($username,$password,$cookietime);		if($login==0){			showerr("当前用户不存在,请重新输入",1);		}elseif($login==-1){			showerr("密码不正确,点击重新输入",1);		}		header("location:./");		exit;	}else{		require_once(Mpath."/template/login.htm");	}		}

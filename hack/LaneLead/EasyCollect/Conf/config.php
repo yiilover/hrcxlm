@@ -1,0 +1,2 @@
+<?php
+return array( 'DB_PREFIX' => 'lanelead_', 'URL_MODEL'=>3, 'APP_STATUS' => 'debug', 'APP_FILE_CASE' => true, 'SHOW_PAGE_TRACE' => 0, 'WAIT_TIME'=>28 , 'VAR_PAGE'=>'p', 'LOAD_EXT_CONFIG'=>'mysql_config,app_config,cconfig', "LOAD_EXT_FILE"=>"functions,cms,engine,save,seo", 'APP_AUTOLOAD_PATH' => '@.TagLib', ); ?>

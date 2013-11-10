@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<!--<?php
+print <<<EOT
+-->
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="qibosoft">
+<meta name="format-detection" content="telephone=no">
+<link href="$Murl/images/style.css" rel="stylesheet" type="text/css">
+<title>$WebTitle</title>
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+if(navigator.platform == "Win32" && window.self==window.top){
+	location.href="main.php";
+}
+//-->
+</SCRIPT>
+<script type="text/javascript" src="$Murl/images/3g.js"></script>
+<body onload="window.inApk.notify_user_key('$userkey')">
+<div class="header">
+	<div class="fl"><a href="$Murl"><img src="$Murl/images/logo.png"/></a></div>
+    <div class="act">
+<!--
+EOT;
+if(!$lfjid){
+print <<<EOT
+-->
+    	<a href="job.php?job=login"><img src="$Murl/images/login.png"/></a>
+        <a href="#" onclick="jumpto('$webdb[www_url]/do/reg.php')"><img src="$Murl/images/reg.png"/></a>
+		<!--
+EOT;
+}else{
+print <<<EOT
+-->
+<A HREF="pm.php">短消息</A> <A HREF="job.php?job=login&action=quit">退出</A><br>
+<font color=yellow>$lfjid</font>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    </div>
+</div>
+<div class="MiddleCont">
+	<ul class="IndexIcon">
+    	<li><a href="$Murl/news/"><img src="$Murl/images/news.gif"/></a><a href="$Murl/news/">新闻资讯</a></li>
+        <li><a href="$Murl/f/"><img src="$Murl/images/f.gif"/></a><a href="$Murl/f/">分类信息</a></li>
+        <li><a href="$Murl/shop/"><img src="$Murl/images/shop.gif"/></a><a href="$Murl/shop/">同城网购</a></li>
+        <li><a href="$Murl/hy/"><img src="$Murl/images/hy.gif"/></a><a href="$Murl/hy/">商家黄页</a></li>
+        <li><a href="$Murl/tg/"><img src="$Murl/images/tg.gif"/></a><a href="$Murl/tg/">团购活动</a></li>
+        <li><a href="$Murl/coupon/"><img src="$Murl/images/coupon.gif"/></a><a href="$Murl/coupon/">优惠促销</a></li>
+        <li><a href="$Murl/hr/"><img src="$Murl/images/hr.gif"/></a><a href="$Murl/hr/">求职招聘</a></li>
+        <li><a href="$Murl/gift/"><img src="$Murl/images/gift.gif"/></a><a href="$Murl/gift/">礼品兑换</a></li>
+        <li><a href="$Murl/shoptg/"><img src="$Murl/images/shoptg.gif"/></a><a href="$Murl/shoptg/">官方团</a></li>
+        <li><a href="$Murl/house/"><img src="$Murl/images/house.gif"/></a><a href="$Murl/house/">房产信息</a></li>
+        <li><a href="$Murl/dianping/"><img src="$Murl/images/dianping.gif"/></a><a href="$Murl/dianping/">点评信息</a></li>
+        <li><a href="$Murl/2shou/"><img src="$Murl/images/2shou.gif"/></a><a href="$Murl/2shou/">二手市场</a></li>
+        <div class="ClearDiv"></div>
+    </ul>        
+</div>
+<div class="Showcitys">
+    <span>热门城市:</span>
+<!--
+EOT;
+$i=0;
+$cityname=$city_DB[name];
+foreach($city_DB[hits] AS $key=>$value){
+$i++;
+if($i>5)break;
+print <<<EOT
+-->
+		<a href="allcity.php?cityid=$key">$cityname[$key]</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    <a href="allcity.php" class="more">更多&gt;&gt;</a>
+</div>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

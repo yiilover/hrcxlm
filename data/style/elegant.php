@@ -1,0 +1,5 @@
+<?php
+unset($styledb);
+		$styledb['name']='µäÑÅ·ç¸ñ';
+		$styledb['keywords']='elegant_tpl';
+?>

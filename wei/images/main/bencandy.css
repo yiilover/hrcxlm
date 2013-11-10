@@ -1,0 +1,337 @@
+.MainCont{
+	margin-top:20px;
+}
+.MainCont .Main{
+	width:720px;
+	float:left;
+}
+.MainCont .Side{
+	width:220px;
+	float:right;
+}
+.BaseInfo{
+	border:#CCC solid 1px;
+}
+.BaseInfo .head{
+	width:710px;
+	height:65px;
+	overflow:hidden;
+	margin:auto;
+	border-bottom:#CCC solid 1px;
+	line-height:30px;
+}
+.BaseInfo .head .tag{
+	float:left;
+	padding:20px 0 0 5px;
+	color:#888;
+}
+.BaseInfo .head .tag a{
+	font-weight:bold;
+	font-size:14px;
+	color:#f60;
+	padding-right:10px;
+}
+.BaseInfo .head .tag em{
+	font-style:normal;
+	color:#369;
+	padding:0 3px 0 3px;
+}
+.BaseInfo .head .more{
+	float:right;
+	padding:20px 5px 0 0;
+}
+.BaseInfo .head .more div{
+	float:left;
+	margin-right:10px;
+	padding-left:10px;
+	background:url(but3.gif) no-repeat;
+}
+.BaseInfo .head .more div span{
+	float:left;
+	padding-right:15px;
+	background:url(but3.gif) right top no-repeat;
+}
+.BaseInfo .head .more div span a{
+	float:left;
+	padding-left:15px;
+	color:#666;
+}
+.BaseInfo .head .more div.jb span a{
+	background:url(jb.gif) 2px 9px no-repeat;
+}
+.BaseInfo .head .more div.fs span a{
+	background:url(fs.gif) left 10px no-repeat;
+}
+.BaseInfo .head .more div.comment span a{
+	background:url(comment.gif) left 10px no-repeat;
+}
+.BaseInfo .head .more div.post span a{
+	background:url(post.gif) left 6px no-repeat;
+	padding-left:18px;
+}
+.BaseInfo .head .more div.load{
+	background:url(but4.gif) no-repeat;
+}
+.BaseInfo .head .more div.load span{
+	background:url(but4.gif) right top no-repeat;
+}
+.BaseInfo .head .more div.load span a{
+	background:url(load.gif) left 10px no-repeat;
+	color:#FFF;
+}
+.BaseInfo .title{
+	text-align:center;
+	padding:15px 10px 10px 10px;
+	line-height:25px;
+	color:#FF4605;
+	font-size:16px;
+}
+.BaseInfo .content{
+	width:680px;
+	margin:auto;
+	TABLE-LAYOUT: fixed;
+	WORD-WRAP: break-word;
+	font-size:14px;
+	color:#666;
+	line-height:20px;
+}
+.BaseInfo .content .contstart{
+	background:url(start.gif) no-repeat;
+	padding-left:20px;
+}
+.BaseInfo .content .contover{
+	background:url(over.gif) right top no-repeat;
+	padding-left:20px;
+}
+.BaseInfo .OtherAct{
+	width:710px;
+	height:40px;
+	padding-top:20px;
+	line-height:30px;
+	border-top:#CCC solid 1px;
+	margin:15px auto 0 auto;
+}
+.BaseInfo .OtherAct .fname{
+	float:left;
+	padding-left:30px;
+	background:url(icon1.gif) 10px 8px no-repeat;
+}
+.BaseInfo .OtherAct .fname a{
+	color:#666;
+}
+.BaseInfo .OtherAct .Act{
+	float:right;
+	padding-right:10px;
+	color:#666;
+}
+.BaseInfo .OtherAct .Act span{
+	padding-left:15px;
+	padding-right:10px;
+}
+.BaseInfo .OtherAct .Act .comment{
+	background:url(icon2.gif) no-repeat;
+}
+.BaseInfo .OtherAct .Act .like{
+	background:url(icon3.gif) no-repeat;
+}
+.BaseInfo .OtherAct .Act .move{
+	background:url(icon4.gif) no-repeat;
+}
+.MemberCont,.SideConts{
+	margin:0 auto 10px auto;
+	border:#CCC solid 1px;
+}
+.MemberCont .head{
+	height:30px;
+	background:#F7F4F4;
+}
+.MemberCont .head .tag{
+	float:left;
+	padding:8px 0 0 15px;
+	font-size:14px;
+}
+.MemberCont .cont{
+	height:50px;
+	padding:15px 0 0 8px;
+}
+.MemberCont .cont a{
+	display:block;
+	width:102px;
+	height:38px;
+	text-align:center;
+	line-height:38px;
+	float:left;
+	background:url(but1.gif) center top no-repeat;
+	font-size:16px;
+}
+.MemberCont .cont a.ck{
+	background:url(but2.gif) center top no-repeat;
+	color:#FFF;
+}	
+.SideConts .head{
+	height:42px;
+	background:url(head1.gif) left bottom repeat-x;
+}
+.SideConts .head .tag{
+	float:left;
+	padding:12px 0 0 15px;
+	font-weight:bold;
+	font-size:14px;
+	color:#228804;
+}
+.SideConts .head .more{
+	float:right;
+	padding:15px 10px 0 0;
+}
+.SideConts .head .more a{
+	color:#888;
+}
+.SideConts td.cont{
+	padding:15px 0 5px 15px;
+}
+.SideConts td.cont div{
+	height:35px;
+	padding-left:8px;
+	float:left;
+	margin-right:10px;
+	background:url(sort_bg.gif) no-repeat;
+}
+.SideConts td.cont div a{
+	display:block;
+	float:left;
+	padding:3px 16px 0 0;
+	background:url(sort_bg.gif) right top no-repeat;
+	line-height:22px;
+	white-space:nowrap;
+}
+.SideConts td.cont div.b{
+	clear:both;
+}
+.SideConts td.cont div.b a{
+	font-weight:bold;
+}
+.SideConts div.cont{
+	padding:10px;
+}
+.SideConts div.cont .list{
+	height:25px;
+	overflow:hidden;
+	line-height:25px;
+	padding-left:10px;
+	background:url(print.gif) left 11px no-repeat;
+}
+/*
+*
+*/
+.ShowComment{
+	clear:both;
+	margin-top:10px;
+	border:#DDD solid 1px;
+	background:#FBFBFB;
+	padding:10px;
+}
+.ListComment{
+	border-bottom:#DDD dotted 1px;
+}
+.ListComment .img{
+	width:5%;
+	padding:5px;
+}
+.ListComment .img div{
+	width:60px;
+	border:#DDD solid 1px;
+	padding:1px;
+	margin:auto;
+}
+.ListComment .img div a{
+	display:block;
+	width:60px;
+	height:60px;
+	overflow:hidden;
+}
+.ListComment .cont{
+	padding:5px 0 0 5px;
+}
+.ListComment .cont .Showcont div{
+	border:#DDD solid 1px;
+	padding:2px;
+	background:#FFF;
+	line-height:20px;	
+	TABLE-LAYOUT: fixed;
+	WORD-WRAP: break-word;
+}
+.ListComment .cont .Showcont div h3{
+	color:#369;
+	font-weight:normal;
+	font-size:12px;
+}
+.ListComment .cont .act{
+	padding:8px 5px 5px 0;
+	text-align:right;
+	color:#888;
+}
+.ListComment .cont .warp_comment{
+	width:400px;
+	background:#FFF;
+	border:#DDD solid 1px;
+	float:right;
+	margin-bottom:5px;
+}
+.ListComment .cont .warp_comment .tdL{
+	width:60px;
+	text-align:right;
+	line-height:25px;
+}
+.ListComment .cont .warp_comment .tdR{
+	padding-top:3px;
+}
+.ListComment .cont .warp_comment .tdR span{
+	float:left;
+	padding-right:3px;
+}
+.ListComment .cont .warp_comment .tdR textarea{
+	width:300px;
+	height:80px;
+}
+.ShowComment .ShowCommentPage{
+	text-align:center;
+	padding:15px 0 10px 0;	
+}
+.ShowComment .ShowCommentPage a{
+	border:#DDD solid 1px;
+	padding:3px 5px 2px 5px;
+	color:#888;
+}
+.ShowComment .no_Comment{
+	text-align:center;
+	padding:10px 0 10px 0;
+	font-size:16px;
+	color:#FF0000;
+}
+.AddComment{
+	border:#DDD solid 1px;
+	margin-top:10px;
+	padding:10px;
+}
+.AddComment .head{
+	height:25px;
+	border-bottom:#DDD solid 1px;
+	margin-bottom:10px;
+	line-height:20px;
+	padding-left:20px;
+	background:url(icon5.gif) no-repeat;
+	font-size:14px;
+	font-weight:bold;
+}
+.AddComment .tdL{
+	width:80px;
+	text-align:right;
+	line-height:30px;
+}
+.AddComment .tdR{
+	padding-top:5px;
+}
+.AddComment .tdR span{
+	float:left;
+	padding-right:5px;
+}

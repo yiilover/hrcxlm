@@ -1,0 +1,232 @@
+/*
+*Initialization
+*/
+body, form, ul, li, p, dl, dd, dt ,h,td,th,h3{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-size:12px;
+}
+li,ul{
+	list-style: none;
+} 
+TD {
+	color: #333333;
+	VERTICAL-ALIGN: top;
+} 
+input,textarea{
+	border:1px solid #ccc;
+}
+a {
+	color:#333;
+}
+a:link {
+	color:#333333;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #333333;
+}
+a:hover {
+	text-decoration: underline;
+	color: #4E667B;
+}
+a:active {
+	text-decoration: none;
+}
+.mt10{
+	margin-top:10px;
+}
+img{
+	border:0;
+}
+/*
+*TopContainer
+*/
+.TopContainer{
+	height:29px;
+	overflow:hidden;
+	line-height:30px;
+	background:url(stop.gif);
+	padding-left:15px;
+	color:#888;
+}
+.TopContainer a{
+	font-size:14px;
+}
+.TopContainer a.b{
+	color:#c00;
+}
+/*
+*Hearder
+*/
+.Hearder{
+	height:100px;
+	overflow:hidden;
+	margin:5px 0 5px 0;
+	position:relative;
+}
+.Hearder .logo{
+	width:160px;
+	height:60px;
+	position:absolute;
+	top:20px;
+	left:15px;
+}
+.Hearder .searchcont{
+	height:100px;
+	width:600px;
+	position:absolute;
+	overflow:hidden;
+	top:0;
+	left:190px;
+	background:url(searchbg.gif) left 35px no-repeat;
+}
+.Hearder .searchcont .module{
+	height:35px;
+	overflow:hidden;
+}
+.Hearder .searchcont .module li{
+	float:left;
+	line-height:35px;
+	padding-left:15px;
+	background:url(spac.gif) left 12px no-repeat;
+}
+.Hearder .searchcont .module li span{
+	display:block;
+	padding-right:15px;
+}
+.Hearder .searchcont .module li span a{
+	display:block;
+	color:#0000CC;
+}
+.Hearder .searchcont .module li.ck{
+	background:url(ck.gif) left 7px no-repeat;
+}
+.Hearder .searchcont .module li.ck span{
+	background:url(ck.gif) right 7px no-repeat;
+}
+.Hearder .searchcont .module li.ck span a{
+	background:url(ck.gif) center 7px no-repeat;
+	color:#FFF;
+}
+.Hearder .searchcont .module li.begin,.Hearder .searchcont .module li.next{
+	background:none;
+}
+.Hearder .searchcont .keyword{
+	width:488px;
+	height:29px;
+	overflow:hidden;
+	position:absolute;
+	top:38px;
+	left:3px;
+}
+.Hearder .searchcont .keyword input{
+	width:488px;
+	height:29px;
+	border:0;
+	background:none;
+	line-height:30px;
+	font-size:14px;
+	color:#666;
+}
+.Hearder .searchcont .type{
+	height:25px;
+	width:200px;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+.Hearder .searchcont .type span{
+	display:block;
+	float:left;
+	line-height:25px;
+}
+.Hearder .searchcont .type span.input{
+	padding:3px 2px 0 6px;
+}
+.Hearder .searchcont .type span input{
+	border:0;
+}
+.Hearder .searchcont .submit{
+	width:80px;
+	height:28px;
+	position:absolute;
+	right:20px;
+	top:39px;
+}
+.Hearder .searchcont .submit input{
+	border:0;
+}
+.Hearder .searchcont .showinfo{
+	width:300px;
+	height:25px;
+	line-height:25px;
+	position:absolute;
+	bottom:0;
+	right:20px;
+	text-align:right;
+	color:#666;
+}
+.Hearder .searchcont .showinfo span{
+	color:#999;
+}
+.Container .Mhead{
+	height:40px;
+	overflow:hidden;
+	background:url(head1.gif) repeat-x;
+	line-height:30px;
+}
+.Container .Mhead ul{
+	padding-left:25px;
+	background:url(icon.gif) 10px 10px no-repeat;
+}
+.Container .Mhead ul a{
+	color:#00c;
+}
+.Container .Mhead ul .current{
+	display:none;
+}
+.Container .Mcont{
+	width:980px;
+	padding-bottom:50px;
+}
+.MainC ul{
+	padding-bottom:10px;
+}
+.MainC ul .t{
+	height:25px;
+	line-height:25px;
+}
+.MainC ul .t a{
+	color:#00c;
+	font-size:14px;
+	text-decoration:underline;
+}
+.MainC ul .t a span{
+	color:#c00;
+}
+.MainC ul .c{
+	line-height:18px;
+}
+.MainC ul .c span{
+	color:#c00;
+}
+.MainC ul .m{
+	height:20px;
+	line-height:20px;
+	color:#666;
+}
+.MainC .page{
+	text-align:center;
+	line-height:30px;
+}
+.FootCont{
+	width:900px;
+	height:50px;
+	text-align:center;
+	color:#888;
+	line-height:20px;
+}

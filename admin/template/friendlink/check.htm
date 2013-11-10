@@ -1,0 +1,91 @@
+<!--
+<?php
+$domain = preg_replace("/http:\/\/([^\/]+)(\/|)(.*)/is","\\1",$webdb[www_url]);
+$domain = str_replace('www.','',$domain);
+print <<<EOT
+-->  
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function showget(id,va){
+	$('#'+id).html(va);
+}
+//-->
+</SCRIPT>
+<table width='100%' cellspacing='1' cellpadding='3' bgcolor='#CCCCCC' class="tablewidth">
+ 
+    <tr class="head"> 
+      <td width="5%" align="center">ID </td>
+      <td align="center">名称</td>
+      
+      <td width="15%" align="center">LOGO</td>
+      <td width="17%" align="center">状态</td>
+      <td width="11%" align="center">城市</td>
+      <td width="5%" align="center">审核</td>
+	  <!--<td width="5%" align="center">收录</td>-->
+	  <td width="10%" align="center">链接情况</td>
+      <td width="10%" align="center">修改/删除</td>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[_url]=urlencode($rs[url]);
+print <<<EOT
+-->
+    <tr bgcolor='#FFFFFF' class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+      <td width='5%' align="center">$rs[id]</td>
+      <td> 
+         
+        <a href="$rs[url]" target="_blank">$rs[name]</a> </td>
+       
+      <td width="15%" align="center"> 
+        <!--
+EOT;
+if(!$rs[iswordlink]&&$rs[logo]){
+print <<<EOT
+-->
+        <a href="$rs[url]" target="_blank">$rs[logo]</a> 
+        <!--
+EOT;
+}print <<<EOT
+-->
+      </td>
+      <td   align="center">$rs[state]</td>
+      <td  align="center"><a href="$admin_path&job=list&fid=$rs[fid]">$rs[fname]</a></td>
+      <td  align="center">$rs[yz]</td>
+	  
+	  <!--<td   align="center"><div id="bai$rs[id]"><img alt="内容加载中,请稍候..." src="$webdb[www_url]/images/default/ico_loading3.gif"></div>
+	  <iframe style="display:none;" width=0 height=0 src="?lfj=$lfj&job=getbai&url=$rs[_url]&lid=bai$rs[id]"></iframe>
+	  </td>-->
+
+	   <td  align="center"><div id="li$rs[id]"><img alt="内容加载中,请稍候..." src="$webdb[www_url]/images/default/ico_loading3.gif"></div>
+	   <iframe style="display:none;" width=0 height=0 src="?lfj=$lfj&job=getlink&url=$rs[_url]&lid=li$rs[id]"></iframe>
+	   </td>
+      <td   align="center"><a href="$admin_path&job=mod&id=$rs[id]"><img alt='点击修改' src='../member/images/button_edit.png' border=0></a>&nbsp;&nbsp;<a href="$admin_path&action=delete&id=$rs[id]" onClick="return confirm('删除后不可恢复,你确实要删除吗?')"><img alt='点击删除' src='../member/images/del_icon2.gif' border=0></a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+    <tr bgcolor='#FFFFFF'> 
+      <td colspan="10" align="center"> $showpage</td>
+    </tr>
+   
+ 
+</table>
+<table width='100%' cellspacing='1' cellpadding='3' bgcolor='#CCCCCC' class="tablewidth">
+     <tr class="head">  
+      <td>说明:</td>
+    </tr>
+  <tr>
+    <td bgcolor="#FFFFFF">在这里,你可以一目了然的检查对方是否给你做上了友情链接.而不必要一个一个的站点去手工去检查.检查的原理是去以上链接地址的页面去查找如下关键字“{$domain}”,假如你给他做的友情链接是他的主页,而他是在其它页面比如在论坛给你做的链接,这里就会检查失败.
+	<br>注意:如果功能不生效,请检查一下服务器php.ini里的allow_url_fopen=Off改成allow_url_fopen=On
+	<br></td>
+  </tr>
+</table>
+
+<!--
+EOT;
+?>
+-->
+
+

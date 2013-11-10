@@ -1,0 +1,192 @@
+<!--
+<?php
+$ck_class[$fid] = "class='ck'";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$Murl/images/default/msearch.css">
+<ul class="modemenu">
+    <li><span><a href="list.php?fid=1" $ck_class[1]>招标信息</a></span></li>
+    <li><span><a href="list.php?fid=4" $ck_class[4]>装修学堂</a></span></li>
+    <li><span><a href="list.php?fid=5" $ck_class[5]>装修公司</a></span></li>
+    <li><span><a href="list.php?fid=2" $ck_class[2]>装修案例</a></span></li>
+    <li><span><a href="list.php?fid=3" $ck_class[3]>装修日志</a></span></li>
+    <li><span><a href="list.php?fid=6" $ck_class[6]>设计师</a></span></li>
+</ul>
+<div class="modeSearch">
+<form name="modesearch" method="post" action="search.php" onsubmit="return check_keyword();" target="_blank">
+	<div class="showtype"><span>招标信息</span></div>
+    <ul class="listtype">
+    	<li><span class="ck">招标信息</span></li>
+        <li><span>装修学堂</span></li>
+        <li><span>装修公司</span></li>
+        <li><span>装修案例</span></li>
+        <li><span>装修日志</span></li>
+        <li><span>设计师</span></li>
+    </ul>
+    <div class="keyword"><input type="text" name="keyword"></div>
+    <div class="submits"><input type="image" src="$Murl/images/default/sub.gif" /></div>
+    <input type="hidden" name="mid" value="1">
+    <input type="hidden" name="action" value="search">
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript" src="$Murl/images/default/msearch.js"></SCRIPT>
+<link rel="stylesheet" type="text/css" href="$Murl/images/default/listdesigner.css">
+<div class="TopSearchs">
+	<div class="head"><div class="tag">请选择搜索分类</div><div class="more">共有设计精英<span>{$totalNum}</span>名</div></div>
+    <div class="cont">
+<!--
+EOT;
+if($city_id){
+$url=get_info_url('',$fid,$city_id,'','',$TempSearch_array);
+$ck_citys = $zone_id ? "" : "class='ck'";
+print <<<EOT
+-->
+		<div class="ListZone">
+        	<span $ck_citys><A HREF="$url">{$city_DB[name][$city_id]}</A></span>
+<!--
+EOT;
+foreach($zone_DB[name] AS $key=>$value){
+$url=get_info_url('',$fid,$city_id,$key,'',$TempSearch_array);
+$ck_zones = ($zone_id==$key) ? "class='ck'" : "";
+print <<<EOT
+-->
+            <span $ck_zones><A HREF="$url">$value</A></span> 
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </div>
+<!--
+EOT;
+if($street_DB[$zone_id]){
+print <<<EOT
+-->
+		<div class="ListStreet">
+<!--
+EOT;
+foreach($street_DB[$zone_id] AS $key=>$value){
+$url=get_info_url('',$fid,$city_id,$zone_id,$key,$TempSearch_array);
+$ck_street = ($street_id==$key) ? "class='ck'" : "";
+print <<<EOT
+-->
+            <A HREF="$url" $ck_street>$value</A> 
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </div>
+<!--
+EOT;
+}}
+print <<<EOT
+-->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListSelect">
+          <tr>
+            <td>
+<!--{filter}-->
+			<div><span class='t'>{title}：</span><span class='f'>{value}</span></div>
+<!--{/filter}-->
+            </td>
+          </tr>
+        </table>
+    </div>	
+</div>
+<div class="MainConts">
+	<div class="ListConts">
+    	<div class="head"><div class="tag">{$fidDB[name]}</div></div>
+        <div class="cont">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[picurl]=str_replace(".gif","",$rs[picurl]);
+$demos=List_Designer_Demo($rs[id],2);
+$list_demo="";
+foreach($demos AS $keys=>$rss){
+	$list_demo .= "<div class='listpic'><div class='img'><a href='$rss[url]' target='_blank'><img onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" src='$rss[picurl]' height='80'/></a></div><div class='t'><a href='$rss[url]' target='_blank'>$rss[title]</a></div></div>";
+}
+$rs[skill]=Display_Type1($rs[skill]);
+print <<<EOT
+-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTabel">
+              <tr>
+                <td class="pic"><div><span><a href='$rs[url]' target='_blank'><img onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'" src='$rs[picurl]' height='100'/></a></span></div></td>
+                <td class="info">
+                    <div class="name"><a href='$rs[url]' target='_blank'>$rs[title]</a></div>
+                    <div class="m">设计专长：<span>$rs[skill]</span></div>
+                    <div class="m">设计经验：<span>$rs[experience]</span></div>
+                    <div class="m">所属公司：<a href="bencandy.php?fid=5&id=$rs[company_id]">$rs[in_company]</a></div>
+                    <p>设计理念：$rs[design_goal]</p>
+                </td>
+                <td class="demo">$list_demo</td>
+              </tr>
+            </table>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			<div class="Showpage">$showpage</div>
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="sideconts">
+        	<div class="head"><div class="tag">最新加入设计师</div></div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td class="cont">
+<!--
+EOT;
+$array = Get_Info('new',8,40,$fid);
+foreach($array AS $rs){
+$rs[picurl]=str_replace(".gif","",$rs[picurl]);
+print <<<EOT
+-->
+                <dl class="listpic">
+                	<dt><a href="$rs[url]" target="_blank"><img src="$rs[picurl]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'" height="60" /></a></dt>
+                    <dd><a href="$rs[url]" target="_blank">$rs[title]</a></dd>
+                </dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+				</td>
+              </tr>
+            </table>
+        </div>
+        <div class="List_rad">$label[zhuangxiu_rightad3]</div>
+        <div class="List_rad">$label[zhuangxiu_rightad4]</div>
+        <div class="sideconts">
+        	<div class="head"><div class="tag">装修学堂</div></div>
+            <div class="cont_num">
+<!--
+EOT;
+$array = Get_Info('new',8,40,4);
+$i=0;
+foreach($array AS $rs){
+$i++;
+print <<<EOT
+-->
+            	<div class="listn list$i"><span>$i</span><a href="$rs[url]" target="_blank">$rs[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>	
+    </div>
+    <div class="ClearDiv"></div>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+	$(".ListTabel").mouseover(function(){
+		$(this).addClass("over");
+	});
+	$(".ListTabel").mouseout(function(){
+		$(this).removeClass("over");
+	});
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

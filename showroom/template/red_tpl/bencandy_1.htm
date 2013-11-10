@@ -1,0 +1,147 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/red/showroom/bencandy.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer">
+  <tr> 
+    <td>{$label[blue_showroombencandyad]}</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer mt10">
+  <tr> 
+    <td class="side">
+    	<div class="sortcont">
+        	<div class="head"><div class="tag">发布者信息</div></div>
+            <div class="cont">
+				<div class="user">
+                	发布者:<b><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$userinfo[username]</a></b><br/>
+                    用户级别:{$ltitle[$userinfo[groupid]]}<br/>
+                    发布日期:<a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>$rsdb[posttime]</a>
+                </div>
+				<div class="h"><div class="tg">相关展会信息</div></div>
+                <div class="c">
+<!--
+EOT;
+$array=list_zh('new',8);
+foreach($array AS $rs){print <<<EOT
+-->
+            		<div class="list"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></div>
+	
+<!--
+EOT;
+}print <<<EOT
+-->
+                </div>
+            </div>
+        </div>
+    </td>
+    <td class="main">
+    	<div class="drag">
+        	<div class="head"><div class="tag">展会详情</div></div>
+            <div class="cont">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="baseinfo">
+                  <tr>
+                    <td class="info">
+                    	<div><span>展会名称：</span>{$rsdb[title]}</div>
+<!--
+EOT;
+if($rsdb['day_begin']){print <<<EOT
+--> 
+						<div><span>开展时间：</span>{$rsdb[day_begin]} </div>      
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['day_end']){print <<<EOT
+--> 
+						<div><span>结束时间：</span>{$rsdb[day_end]} </div>      
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['main_preside']){print <<<EOT
+--> 
+						<div><span>主办单位：</span>{$rsdb[main_preside]} </div>      
+<!--
+EOT;
+}print <<<EOT
+--><!---->
+                        <div><span>所在展馆览：</span><a href="showroom.php?id=$rsdb[roomid]" target="_blank">$roomdb[title]</a></div>
+                        <div class="join"><a href="$webdb[www_url]/member/?main=$Murl/member/join.php?fid=$fid&cid=$id" target="_blank"><img src="$webdb[www_url]/images/red/showroom/join.gif"/></a></div>
+                    </td>
+                    <td class="img">
+                    	<div><img src="$rsdb[picurl]" width=200 onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'"></div>
+                    </td>
+                  </tr>
+                </table>
+<!--
+EOT;
+if($rsdb[assist_preside]){print <<<EOT
+-->
+                <div class="h3">协办单位</div>
+                <div class="c3">{$rsdb[assist_preside]}</div>
+<!--
+EOT;
+}
+if($rsdb[shop_area]){print <<<EOT
+-->
+                <div class="h3">展品范围</div>
+                <div class="c3">{$rsdb[shop_area]}</div>
+<!--
+EOT;
+}
+if($rsdb[joinmoney]){print <<<EOT
+-->
+                <div class="h3">参展费用</div>
+                <div class="c3">{$rsdb[joinmoney]}</div>
+<!--
+EOT;
+}
+if($rsdb[contact]){print <<<EOT
+-->
+                <div class="h3">联系方式</div>
+                <div class="c3">{$rsdb[contact]}</div>
+<!--
+EOT;
+}
+if($rsdb[about]){print <<<EOT
+-->
+                <div class="h3">注意事项</div>
+                <div class="c3">{$rsdb[about]}</div>
+<!--
+EOT;
+}
+if($rsdb['my_title1']&&$rsdb[my_content1]){print <<<EOT
+-->
+                <div class="h3">{$rsdb[my_title1]}</div>
+                <div class="c3">{$rsdb[my_content1]}</div>
+<!--
+EOT;
+}
+if($rsdb['my_title2']&&$rsdb[my_content2]){print <<<EOT
+-->
+                <div class="h3">{$rsdb[my_title2]}</div>
+                <div class="c3">{$rsdb[my_content2]}</div>
+<!--
+EOT;
+}
+if($rsdb[content]){print <<<EOT
+-->
+                <div class="h3">详细介绍</div>
+                <div class="c3">$rsdb[content]</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

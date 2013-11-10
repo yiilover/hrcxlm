@@ -1,0 +1,105 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+function ckdel(){
+	msg=confirm('你确认要批量删除选中用户吗？你慎重考虑，不可恢复！');
+	if(!msg){
+		return false;
+	}
+}
+//-->
+</SCRIPT>
+ 
+
+<form name="form_work" id="form_work" method="post" action="?lfj=$lfj&action=delete" onsubmit="return ckdel();">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+    <tr class="head"> 
+      <td width="6%" align="center">UID</td>
+      <td align="center">用户名</td>
+	  <td width="15%" align="center">$webdb[MoneyName]</td>
+      <td width="15%" align="center">可用余额</td>
+      <td width="15%" align="center">冻结资金</td>
+      <td width="15%" align="center">日期</td>
+      <td width="15%" align="center">用户权限</td>
+      <td width="7%" align="center">修改</td>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr bgcolor="#FFFFFF" class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+      <td align="center" > $rs[uid]</td>
+      <td   > <a href="$webdb[www_url]/member/userinfo.php?uid=$rs[uid]" onclick="$rs[alert]" target="_blank">$rs[username]</a> 
+      </td>
+	   <td   align="center"  ><b>$rs[money]</b> $webdb[MoneyDW] 
+      <td   align="center"  ><b><font color="#FF0000">$rs[rmb]</font></b> 
+        元<br>
+      </td>
+      <td  align="center" ><b><font color="#0000FF">$rs[rmb_freeze]</font></b> 
+        元</td>
+      <td align="center"  >注册:$rs[regdate]<br>
+        访问:$rs[lastvist]</td>
+      <td  align="center"  >{$ltitle[$rs[groupid]]}</td>
+      <td  align="center"> <a href="index.php?lfj=$lfj&job=editmember&uid=$rs[uid]" onclick="$rs[alert]" title="修改会员财务信息"><img src="../member/images/button_edit.png" border="0"></a> 
+      </td>
+    </tr>
+    <!--
+EOT;
+}
+print <<<EOT
+-->
+    <tr bgcolor="#FFFFFF"> 
+      <td colspan="8" align="center">$showpage</td>
+    </tr>
+  </table>
+</form>
+<form name="form1" method="post" action="index.php?lfj=$lfj&job=$job">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+    <tr bgcolor="#FFFFFF" align="left"> 
+      <td colspan="8">只列出指定用户组的用户{$select_group}　　
+         
+        搜索&gt;&gt; 关键字<a href="index.php?lfj=$lfj&action=delete&uid=$rs[uid]"></a> 
+        <input type="text" name="keywords">
+        <select name="type">
+          <option value="username">用户名</option>
+          <option value="uid">用户uid</option>
+        </select>
+        <select name="ordertype" >
+          <option value="0" $_ordertype[0]>排序方式</option>
+          <option value="1" $_ordertype[1]>可用余额降序</option>
+          <option value="2" $_ordertype[2]>可用余额升序</option>
+          <option value="3" $_ordertype[3]>冻结资金降序</option>
+          <option value="4" $_ordertype[4]>冻结资金升序</option>
+        </select>
+        <input type="submit" name="Submit" value="搜索">
+        [<a href="index.php?lfj=$lfj&job=$job">查看全部用户</a>] </td>
+    </tr>
+  </table>
+</form>
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+  <tr class="head"> 
+    <td>说明:</td>
+  </tr>
+  <tr>
+    <td>1、用户财务分为:可用余额与冻结资金两种，提现当中的资金也归为冻结不可用资金。</td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

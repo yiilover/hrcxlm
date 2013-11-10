@@ -1,0 +1,142 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/green/hy/index.css">
+<div class="MainContainer">
+	<div class="SideL">
+    	<div class="ShowSorts">
+        	<div class="head"><div class="tag">{$label[fashion_hyh1]}</div></div>
+            <div class="cont">
+<!--
+EOT;
+$ii=0;
+foreach($Fid_db[0] AS $key => $rs){
+$ii++;
+print <<<EOT
+-->
+			<dl class="dl$ii">
+            	<dt><a href="list.php?fid=$key">$rs</a></dt>
+                <dd>
+                	<div>
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[$key] AS $keys => $rss){
+$i++;
+$spacings = $i==1 ? "" : "| ";
+print <<<EOT
+-->
+					{$spacings}<a href="list.php?fid=$keys">$rss</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+					</div>
+                </dd>
+            </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+            </div>
+        </div>
+        <div class="sidecont">
+        	<div class="head"><div class="tag">{$label[fashion_hyh2]}</div></div>
+            <div class="coupon">
+            	{$label[fashion_hyt1]}
+            </div>
+        </div>
+        <div class="sidecont mt10">
+        	<div class="head"><div class="tag">{$label[fashion_hyh3]}</div></div>
+            <div class="hyadcont">
+            	{$label[fashion_hyt2]}
+            </div>
+        </div>
+    </div>
+    <div class="MainR">
+    	<div class="HoldCont">
+        	<div class="SideC">
+            	<div class="SlideCont">
+                	{$label[fashion_hyt3]}
+                </div>
+                <div class="BestCommany">
+                	<div class="head">
+                    	{$label[fashion_hyh4]}
+                    </div>
+                    <div class="cont">
+                    	{$label[fashion_hyt4]}
+                    </div>
+                </div>
+            </div>
+            <div class="SideR">
+            	<div class="ActionCont">
+                	<div class="but1"><span><a href="$webdb[www_url]/do/reg.php" target="_blank">免费注册</a></span></div>
+                   <div class="but2"><span><a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/member/money.php?job=list" target="_blank">积分充值</a></span></div>
+                   <div class="but3"><span><a href="$webdb[_www_url]/member/?main=$Murl/member/post_company.php" target="_blank">登记店铺</a></span></div>
+                    <div class="but4"><span><a href="ditu.php" target="_blank">地图搜店</a></span></div>
+                </div>
+                <div class="NewCommany">
+                	<div class="head"><div class="tag">{$label[fashion_hyh4b]}</div></div>
+                    <div class="cont">
+                    	{$label[fashion_hyt5]}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ChangeShow">
+        	<div class="head">
+            	{$label[fashion_hyh5]}
+            </div>
+            <div class="cont" id="Tab1">{$label[fashion_hyt6]}</div>
+            <div class="cont" id="Tab2">{$label[fashion_hyt7]}</div>
+            <div class="cont" id="Tab3">{$label[fashion_hyt8]}</div>
+            <SCRIPT LANGUAGE="JavaScript">ShowTab(1,1,4);</SCRIPT>
+        </div>
+        <div class="dianpingornews">
+        	<div class="sidecont dianpingcont">
+                <div class="head"><div class="tag">{$label[fashion_hyh6]}</div></div>
+                <div class="cont">
+<!--
+EOT;
+$array = get_dianping(3,70);
+foreach($array AS $rs){print <<<EOT
+-->			
+					<div class="listdianping">
+                    	<div class="t"><a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank" class="m">$rs[username]</a>在{$rs[posttime]}点评了<a href="$webdb[www_url]/home/?uid=$rs[id]" target="_blank" class="b">$rs[title]</a></div>
+                        <div class="dp">$rs[fen]</div>                        
+                        <div class="c">$rs[content]</div>
+                    </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+                </div>
+            </div>
+            <div class="sidecont newscont">
+                <div class="head"><div class="tag">{$label[fashion_hyh7]}</div></div>
+                <div class="cont">
+                    {$label[fashion_hyt9]}
+                </div>
+            </div>
+        </div>
+        <div class="ShopCont">
+        	<div class="head"><div class="tag">{$label[fashion_hyh8]}</div><div class="hot"><br/></div></div>
+            <div class="cont">
+            	<div id="showup"><a href="javascript:;" onclick="showup()"><br/></a></div>
+                <ul id="ShowList">
+                    $label[fashion_hyt10]
+                </ul>
+                <div id="showdown"><a href="javascript:;" onclick="showdown()"><br/></a></div>
+<script type="text/javascript" src="$webdb[www_url]/images/green/hy/showmore.js"></script> 
+            </div>
+        </div>
+    </div>
+    <div class="Clear"></div>
+</div>
+<!--
+EOT;
+?>
+-->

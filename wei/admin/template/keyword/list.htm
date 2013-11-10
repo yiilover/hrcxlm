@@ -1,0 +1,66 @@
+<!--
+<?php
+print <<<EOT
+-->
+<form name="form_work" method="post" action="$admin_path&job=work">
+<div class="MainCont">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+    <tr> 
+      <th width="15%">ID</th>
+      <th width="30%">关键字</th>
+      <th width="15%">个数</th>
+      <th width="15%">查看</th>
+      <th width="25%">修改/删除</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$color=$rs[color]?"color:$rs[color];":"";
+$bold=$rs[bold]?"font-weight:bold;":"";
+print <<<EOT
+-->
+    <tr> 
+      <td>$rs[kid]</td>
+      <td class="txL" style="$color $bold"><input type="checkbox" name="listdb[{$rs[kid]}]" value="$rs[keywords]">$rs[keywords]</td>
+      <td>$rs[num]</td>  
+      <td><a href="$Murl/tag.php?keyword=$rs[keywords]" target="_blank">查看</a></td>     
+      <td><a href="$admin_path&job=edit&kid=$rs[kid]">修改</a>/<a href="$admin_path&action=work&jobs=delete&kid=$rs[kid]" onClick="return confirm('你确认要删除吗?不可恢复');">删除</a></td>
+    </tr>
+<!--
+EOT;
+}$showpage=$showpage?"<div class='ShowPage'>$showpage</div>":"";
+print <<<EOT
+-->
+  </table>
+	<div class="ListBut">
+    	<a href="#" onClick="CheckAll('all')">全选</a>/<a href="#" onClick='CheckAll()'>反选</a> 
+        <input type="button" name="Submit3" value="删除" onclick="postdo('delete')">
+        <input type="hidden" name="jobs" value="0">
+    </div>
+    $showpage
+</div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(va){
+	document.form_work.jobs.value=va
+	document.form_work.submit();
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->
+ 

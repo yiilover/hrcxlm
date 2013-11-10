@@ -1,0 +1,33 @@
+<include file="header" />
+<form id="CrurlForm" name="CrurlForm" method="post" action="__URL__/ImportRule" style="margin:0; padding:0;">
+  <table cellspacing='1' cellpadding='3' class="tablewidth" align="center">
+    <tr class="head">
+      <td>请将备份的采集规则粘贴到下列文本框内,点击"导入采集规则"按钮,实现规则的导入 </td>
+    </tr>
+    <tr>
+      <td><textarea name="sharerule" id="sharerule" rows="16">{$sharerule}</textarea>
+      </td>
+    </tr>
+    <tr>
+      <td height="36"><input type="button" name="Submit" value="导入采集规则" onclick="ImportRule()">
+      </td>
+    </tr>
+    <tr>
+      <td style="background:#E4DCD9; color:#0000FF; line-height:160%;">注意:导出的规则可以在任意版本蓝锂易采集器“导入规则”处进行导入,但不能在其他系统运行. </td>
+    </tr>
+  </table>
+</form>
+<script language="javascript">
+ <!--
+	function ImportRule(){
+		ThinkAjax.sendForm('CrurlForm','__URL__/ImportRule/Insert/1',ImportComplete,'result');
+	}
+	function ImportComplete(data,status){
+		if (status==1)
+		{
+			window.setTimeout(function (){window.location.href='__URL__/index'},1000);			
+		}
+	}
+ //-->
+</script>
+<include file="footer" /> 

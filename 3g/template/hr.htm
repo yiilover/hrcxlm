@@ -1,0 +1,60 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MiddleCont">
+	<div class="SideCont SideCont1">
+    	<div class="head">
+        	<div class="tag">最新职位</div>
+            <div class="more">
+                <a href="listall.php?ordertype=id">更多&gt;&gt;</a>
+            </div>
+        </div>
+        <div class="cont">
+<!--
+EOT;
+$listnew = showlisttype("new",$rows=5,$leng=50,$fid=0,$conten=160);
+foreach($listnew AS $key=>$rs){ 
+print<<<EOT
+-->
+        <div class="ListHr">
+        	<div><span>职位名称：</span><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></div>
+            <div><span>招聘公司：</span><a href="javascript:jumpto('$webdb[www_url]/home/?uid=$rs[uid]')">$rs[company]</a></div>
+            <div><span>发布时间：</span>{$rs[posttime]}</div>
+        </div>
+<!--
+EOT;
+}print<<<EOT
+-->
+        </div>
+    </div>
+    <div class="SideCont"> 
+    	<div class="head">
+        	<div class="tag">热门职位</div>
+            <div class="more">
+                <a href="listall.php?ordertype=hits">更多&gt;&gt;</a>
+            </div>
+        </div>
+        <div class="cont">
+<!--
+EOT;
+$listhot = showlisttype("hot",$rows=5,$leng=50,$fid=0,$conten=160);
+foreach($listhot AS $key=>$rs){ 
+print<<<EOT
+-->
+        <div class="ListHr">
+        	<div><span>职位名称：</span><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></div>
+            <div><span>招聘公司：</span><a href="javascript:jumpto('$webdb[www_url]/home/?uid=$rs[uid]')">$rs[company]</a></div>
+            <div><span>发布时间：</span>{$rs[posttime]}</div>
+        </div>
+<!--
+EOT;
+}print<<<EOT
+-->
+        </div>
+    </div> 	
+</div>
+<!--
+EOT;
+?>
+-->

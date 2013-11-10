@@ -1,0 +1,105 @@
+<!--
+<?php
+print <<<EOT
+-->
+<style type="text/css">
+<!--
+.ListShop .img{
+	width:120px;
+	padding:10px 10px 10px 10px;
+}
+.ListShop .img div{
+	border:#DDD solid 1px;
+	padding:1px;
+	width:120px;
+}
+.ListShop .img div a{
+	display:block;
+	width:120px;
+	height:90px;
+	overflow:hidden;
+	text-align:center;
+}
+.ListShop .word{
+	text-align:left;
+	color:#888;
+}
+.ListShop .word div{
+	height:32px;
+	overflow:hidden;
+}
+.ListShop .word div span{
+	color:#f60;
+	padding-right:10px;
+}
+.ListShop .word div.t{
+	line-height:32px;
+}
+.ListShop .word div.t a{
+	font-size:14px;
+	font-weight:bold;
+}
+.ListShop .word div.atcs div{
+	float:right;
+	margin-right:10px;
+	background:url($webdb[_www_url]/member/images/blue/cover.gif) no-repeat;
+	padding-left:10px;
+}
+.ListShop .word div.atcs div a{
+	display:block;
+	padding:0 15px 0 5px;
+	line-height:28px;
+	background:url($webdb[_www_url]/member/images/blue/cover.gif) right top no-repeat;
+	color:#777;
+	outline:none;
+}
+-->
+</style>
+<div class="MainCont">
+	<div class="head"><div class="tag">我发布的商品信息 <a href="post_choose.php">发布商品</a></div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable ListShop">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[picurl] = tempdir($rs[picurl]);
+$rs[num]=$rs[num]?"<div>$rs[num]</div>":"";
+print <<<EOT
+-->
+          <tr>
+            <td class="img">
+            	<div><a href="../bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" title="$rs[title]"><img src="$rs[picurl]" height="90" onerror="this.src='$webdb[_www_url]/images/default/nopic.jpg';"/></a></div>
+            </td>
+            <td class="word">
+            	<div class="t">
+                	<a href="../bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" title="$rs[title]">$rs[title]</a>
+                </div>
+                <div>
+                	栏目:<a href="../list.php?fid=$rs[fid]" target="_blank">$rs[fname]</a> &nbsp;
+                	模型:<span>{$module_db[$rs[mid]]}</span>  
+                	发布时间:<span>$rs[posttime]</span>  
+                    浏览:<span>{$rs[hits]}</span> 
+                    评论:<span>{$rs[comments]}</span>                    
+                </div>
+                <div class="atcs">
+                	<div><a href='post.php?action=del&id=$rs[id]&fid=$rs[fid]' onclick="return confirm('你确认要删除吗?不可恢复');">删除</a></div>
+                    {$rs[num]}
+                    <div><a href='editsort.php?job=edit&fid=$rs[fid]&id=$rs[id]'>修改分类</a></div>
+                    <div><a href='post.php?job=edit&fid=$rs[fid]&id=$rs[id]'>修改内容</a></div>
+                    <div><a href='../bencandy.php?fid=$rs[fid]&id=$rs[id]' target='_blank'>查看</a></div>
+                </div>
+            </td>
+          </tr>        
+<!--
+EOT;
+}
+print <<<EOT
+-->
+		</table>
+        <div class="Showpage">$showpage</div>
+    </div>
+</div> 
+<!--
+EOT;
+?>
+-->

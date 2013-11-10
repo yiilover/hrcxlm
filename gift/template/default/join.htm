@@ -1,0 +1,45 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+<div class="MainCont">
+	<div class="head"><div class="tag">申请的礼品:<a href='bencandy.php?fid=$fid&id=$id&city_id=$infodb[city_id]'>$infodb[title]</a></div></div>
+    <div class="cont">
+    	<form name="FORM" method="post" action="?action=$atc" enctype="multipart/form-data">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+<!--{template}-->
+          <tr>
+            <td class="tdL">{title}</td>
+            <td class="tdR">{value}</td>
+          </tr>
+<!--{/template}-->           
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+            	<input type="submit" name="Submit" value="提 交" class='submit'>
+                    <input type="hidden" name="fid" value="$fid">
+                    <input type="hidden" name="id" value="$id">
+                    <input type="hidden" name="cid" value="$cid">
+                    <input type="hidden" name="postdb[title]" id="atc_title" size="50" value="$infodb[title]">
+					
+<!--
+EOT;
+if($job=='edit'){print <<<EOT
+-->
+                    <a href="?action=del&id=$id&fid=$fid&cid=$cid" onclick="return confirm('你确认要删除吗?');">删除</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </td>
+          </tr>
+        </table>
+        </form>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

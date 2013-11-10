@@ -1,0 +1,91 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/default/claim/claim.css">
+<SCRIPT LANGUAGE="JavaScript">
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+</SCRIPT>
+<div class="FormHeader">
+	<div class="tags">认领商铺</div>
+    <div class="show1"><span>资料填写</span></div>
+    <div class="show2"><span>完成</span></div>
+    <div class="more"><br/></div>
+</div>
+<div class="FormContainer">
+	<div class="NOtes">
+    	<h3>认领商铺说明<span>(请仔细阅读)</span>：</h3>
+        <ul>
+        	<li>1.必需登录才能认领商铺，不能认领自己的商铺；</li>
+			<li>2.被成功认领过的商铺不能再次认领；</li>
+            <li>3.要想尽可能的认领该商铺，请务必认真填写以下每一项资料；</li>
+			<li>4.为了提高企业信息认证的真实性，请务必上传相关扫描件；</li>
+			<li>5.以下<font color=red>*</font>星号是必填项目；</li>
+            <li>6.认领成功后，您就可以<em>管理商户资料</em>；</li>
+            
+        </ul>
+    </div>
+    <div class="Conts">
+    	<h3>带<span>*</span>为必填项</h3>
+        <form name="form1" method="post" action="?step=post" enctype="multipart/form-data">
+        	<h4>你申请认领的商铺：<a href="bencandy.php?fid=$rsdb[fid]&id=$rsdb[id]" target="_blank">$rsdb[title]</a></h4>
+            <h4>请填写企业相关信息</h4>
+            <dl>
+            	<dt><span>*</span>企业名称：</dt>
+                <dd><input type="text" name="postdb[company_name]" value="$infodb[company_name]" style="width:300px;" class="texts" /><br/>营业执照上登记的名称。4－30个字</dd>
+            </dl>
+            <dl>
+            	<dt><span>*</span>法人代表：</dt>
+                <dd><input type="text" name="postdb[company_man]" value="$infodb[company_man]" style="width:200px;" class="texts" /></dd>
+            </dl>
+            <dl>
+            	<dt><span>*</span>营业执照编号：</dt>
+                <dd><input type="text" name="postdb[company_license]" value="$infodb[company_license]" style="width:200px;" class="texts" /></dd>
+            </dl>
+			<dl>
+            	<dt><span></span>营业执照扫描件：</dt>
+                <dd><input type="text" name="postdb[pic_license]" value="$infodb[pic_license]" style="width:300px;" class="texts" id="pic_license"/>
+				<iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&label=pic_license&dir=$_pre/claim' width="310"></iframe>
+				</dd>
+            </dl>
+			<dl>
+            	<dt><span></span>法人身份证扫描件：</dt>
+                <dd><input type="text" name="postdb[pic_idcard]" value="$infodb[pic_idcard]" style="width:300px;" class="texts" id="pic_idcard"/>
+				<iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&label=pic_idcard&dir=$_pre/claim' width="310"></iframe></dd>
+            </dl>
+            <h4>联系人信息</h4>
+            <dl>
+            	<dt><span>*</span>联系人姓名：</dt>
+                <dd><input type="text" name="postdb[contact_man]" value="$infodb[contact_man]" style="width:200px;" class="texts" /></dd>
+            </dl>
+            <dl>
+            	<dt><span>*</span>手机：</dt>
+                <dd><input type="text" name="postdb[contact_mob]" value="$infodb[contact_mob]" style="width:200px;" class="texts" /></dd>
+            </dl>
+			<dl>
+            	<dt><span>*</span>邮箱：</dt>
+                <dd><input type="text" name="postdb[contact_email]" value="$infodb[contact_email]" style="width:200px;" class="texts" /><br/>很重要,将会通知你是否认领成功!</dd>
+            </dl>
+            <dl>
+            	<dt>固定电话：</dt>
+                <dd><input type="text" name="postdb[contact_tel]" value="$infodb[contact_tel]" style="width:200px;" class="texts" /><br/>分机号用-隔开，例如010-82780002-123 </dd>
+            </dl>
+			<dl>
+            	<dt>附注留言：</dt>
+                <dd><textarea name="postdb[about]" class="about"></textarea> </dd>
+            </dl>
+            <dl>
+            	<dt><br/></dt>
+                <dd><input name="" type="submit" value="提交申请" class="submits" /><input type="hidden" name="id" value="$id">
+  <input type="hidden" name="fid" value="$fid"></dd>
+            </dl>
+            <dl></dl>
+        </form>
+    </div>
+</div>
+ <!--
+EOT;
+?>
+-->

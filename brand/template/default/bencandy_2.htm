@@ -1,0 +1,251 @@
+<!--
+<?php
+$rsdb[price] || $rsdb[price]='';
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/yellow/brand_bencandy.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer">
+  <tr> 
+    <td width="75%" class="MainL" valign="top"> 
+      <table width="100%" cellspacing="0" cellpadding="0" class="brand_piclist">
+          <tr>
+            <td class="h">
+            	<span class="l">代理商资料</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="c">
+            	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="brand_base">
+                  <tr>
+                    
+                <td class="word"> <span>代理资质认证与否:</span> 
+                  <!--
+EOT;
+if($rsdb[yz]){print <<<EOT
+-->
+                  <font color="#FF0000">已通过验证</font> 
+                  <!--
+EOT;
+}else{print <<<EOT
+-->
+                  <font color="#0000FF">待验证</font> 
+                  <!--
+EOT;
+}print <<<EOT
+-->
+                  <br/><span>代理品牌:</span><a href="bencandy.php?fid={$rsdb[C][fid]}&id={$rsdb[C][id]}" target="_blank">{$rsdb[C][title]}</a><br/>
+				
+                  
+                 
+				  
+<!--
+EOT;
+if($rsdb['dl_name']){print <<<EOT
+--> <span>代理商名称:</span>{$rsdb[dl_name]} <br/>
+                       
+						
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['dl_level']){print <<<EOT
+--> <span>代理商级别:</span>{$rsdb[dl_level]} <br/>
+                       
+						
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['dl_man']){print <<<EOT
+--> <span>负责人姓名:</span>{$rsdb[dl_man]} <br/>
+                       
+						
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['dl_phone']){print <<<EOT
+--> <span>联系电话:</span>{$rsdb[dl_phone]} <br/>
+                       
+						
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['dl_fax']){print <<<EOT
+--> <span>传真:</span>{$rsdb[dl_fax]} <br/>
+                       
+						
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['dl_email']){print <<<EOT
+--> <span>邮箱地址:</span>{$rsdb[dl_email]} <br/>
+                       
+						
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['dl_address']){print <<<EOT
+--> <span>详细地址:</span>{$rsdb[dl_address]} <br/>
+                       
+						
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['dl_url']){print <<<EOT
+--> <span>网站:</span>{$rsdb[dl_url]} <br/>
+                       
+						
+<!--
+EOT;
+}print <<<EOT
+--><!---->
+                
+				  </td>
+                    <td class="pic">
+                    	
+                  <div class="b"><a href="$rsdb[dl_photo]" target="_blank"><img src="$rsdb[dl_photo]" width="150" onerror="this.src='$webdb[www_url]/images/yellow/brand.gif'" border="0" /></a></div>
+                        
+                  <div>资质证书</div>
+                    </td>
+                  </tr>
+              </table>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="brand_content">
+                  <tr>
+                    <td class="h1"><span>代理商介绍</span></td>
+                  </tr>
+                  <tr>
+                    <td class="c1">$rsdb[content]</td>
+                  </tr>
+                </table>
+
+            </td>
+          </tr>
+        </table>  
+    </td>
+    <td width="25%" class="SideR">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="sidertable md10">
+          <tr>
+            <td class="h"><span class="l">用户信息</span></td>
+          </tr>
+          <tr>
+            
+          <td class="c" style="line-height:23px;padding:8px;"> <b>用户名:</b><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$userinfo[username]</a><br>
+            <b>注册日期:</b>$userinfo[regdate] <br>
+            <b>级别:</b>{$ltitle[$userinfo[groupid]]} </td>
+          </tr>
+        </table>
+        
+    </td>
+  </tr>
+</table>
+<!--table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable">
+  <tr> 
+    <td width="75%" height="393" valign="top" class="Main"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable" id="viewarticle">
+        <tr> 
+          <td class="head"> 
+            <h3 class="L"></h3>
+            <span class="TAG"><a editurl='$city_url/job.php?job=doinfo&fid=$fid&id=$id&atc=do'>TOP</a></span> 
+            <span class="more postbt"><a href="post.php?fid=$fid">发布</a></span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <td class="middle"> 
+            
+			<table width="97%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:10px;">
+              <tr> 
+                <td width="66%">发布时间:{$rsdb[posttime]}　浏览量：{$rsdb[hits]}次</td>
+                <td width="34%" align="right"><span class="R"><a href="post.php?fid=$fid">发布</a> 
+                  &nbsp;<a href="post.php?job=edit&fid=$fid&id=$id">修改</a>&nbsp;<a href="post.php?action=del&fid=$fid&id=$id">删除</a></span></td>
+              </tr>
+            </table>
+ 
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+                <td width="36%" align="center" valign="top"><a href="$rsdb[picurl]" class="picurl" target="_blank"><img src='$rsdb[picurl]' onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" width="220" ></a></td>            
+                <td width="64%" height="100" align="left" valign="top"> 
+
+EOT;
+if($rsdb['offurl']){print <<<EOT
+
+                  <b>品牌官网：</b>{$rsdb[offurl]} <br>
+
+EOT;
+}print <<<EOT
+
+                  <br>
+                  <br>
+                  <a href="join.php?fid=$fid&cid=$id"><b><font color="#FF0000">我是代理</font></b></a> 
+                </td>
+  </tr>
+</table>
+ 
+             
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td style="background:#eee;"><b>详细介绍</b></td>
+              </tr>
+              <tr>
+                <td>$rsdb[content]</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td class="foot"> 
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+    <td width="25%" height="393" valign="top" class="Side" align="right"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="dragTable">
+        <tr> 
+          <td class="head"> 
+            <h3 class="L"></h3>
+            <span class="TAG">相关信息</span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <td class="middle" valign="top" align="left"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb">
+              <tr> 
+                <td class="m"> 
+                  <div>发布时间:$rsdb[posttime]<br>
+                    发起者: <a href="$webdb[www_url]/home/?uid=$rsdb[uid]" target="_blank">$rsdb[username]</a><br>
+                    关注度：{$rsdb[hits]} 人次 </div>
+                  <div class="img"></div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td class="foot"> 
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table></td>
+  </tr>
+</table-->
+<!--
+EOT;
+?>
+-->

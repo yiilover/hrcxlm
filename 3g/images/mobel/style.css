@@ -1,0 +1,71 @@
+/*reset*/
+header, hgroup, menu, nav, section, menu,footer,article,figure,figcaption,commend,aside{
+	display:block;
+	margin:0;
+	padding:0;
+}
+body,p,input,h1,h2,h3,h4,ul,li,dl,dt,dd,form,textarea{
+	margin:0;
+	padding:0;
+	list-style:none;
+	vertical-align:middle;
+}
+body{ 
+	font-family:"\5FAE\8F6F\96C5\9ED1", Helvetica;
+	font-size:16px; 
+}
+img {
+	border:0; 
+}
+/*
+*
+*/
+.Containers{
+	width:425px;
+	margin:auto;
+	background:url(left.gif) left top repeat-y;
+}
+.Containers .Heads{
+	height:110px;
+	background:url(top.gif) left top repeat-x;
+	overflow:hidden;
+}
+.Containers .Heads .topL{
+	width:85px;
+	height:110px;
+	float:left;
+	background:url(bg.png) left top no-repeat;
+}
+.Containers .Heads .topR{
+	width:285px;
+	height:110px;
+	float:right;
+	background:url(bg.png) right top no-repeat;
+}
+.Containers .Conts{
+	height:450px;
+	padding:0 43px 0 42px;
+	background:url(right.gif) right top repeat-y;
+}
+.Containers .Foots{
+	height:93px;
+	overflow:hidden;
+	background:url(bottom.gif) left bottom repeat-x;
+}
+.Containers .Foots div{
+	width:175px;
+	height:93px;
+	float:left;
+	background:url(bg.png) left bottom no-repeat;
+}
+.Containers .Foots div.footR{
+	float:right;
+	background:url(bg.png) right bottom no-repeat;
+}
+
+.msg{
+	font-size:13px;
+	width:98%;
+	margin-top:10px;
+	text-align:center;
+}

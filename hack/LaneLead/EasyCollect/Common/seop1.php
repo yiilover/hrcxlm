@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => array ( 'id' => '4', 'pcontent' => '<span class="left">&nbsp;&nbsp;&nbsp; &nbsp;(本文来源：<a href=\'http://www.mydemo.com\' target=\'_blank\'>地方门户系统</a> )</span>&nbsp; <span style="white-space:nowrap;" class="cDGray right">责任编辑：admin</span>', 'position' => '1', 'ifshow' => '1', ), 1 => array ( 'id' => '8', 'pcontent' => '本文出自：<a href=\'http://www.mydemo.com\' target=\'_blank\'>地方门户系统</a>，地址：http://www.mydemo.com，转载须注明！', 'position' => '1', 'ifshow' => '1', ), ); ?>

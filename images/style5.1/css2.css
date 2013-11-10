@@ -1,0 +1,33 @@
+#theme2{
+	background:url(theme.gif) -16px -10px no-repeat;
+}
+.Logo_Ad_Info .logo span{
+	display:block;
+	width:165px;
+	height:50px;
+	background:url(logo2.gif) no-repeat;
+}
+.Logo_Ad_Info .logo span em{
+	display:none;
+}
+.Logo_Ad_Info .Search{
+	background:url(search_bg1.gif) left bottom no-repeat;
+}
+.Logo_Ad_Info .Search .ListType li.ck{
+	background:url(ch_search1.gif) center 4px no-repeat;
+}
+.MenuCont{
+	background:url(nemu2.gif) repeat-x;
+}
+.MenuCont .ListMenu dl dt{
+	background:url(mspac2.gif) left 8px no-repeat;
+}
+.MenuCont .ListMenu dl.ck dt{
+	background:url(mover2.gif) left 6px no-repeat;
+}
+.MenuCont .ListMenu dl.ck dt span{
+	background:url(mover2.gif) right 6px no-repeat;
+}
+.wrap .ChageHead div.choose{
+	border-top:#0795E7 solid 2px;
+}

@@ -1,0 +1,276 @@
+<!--
+<?php
+$IF_Private_tpl[intval($webdb[IF_Private_tpl])]=' checked ';
+$giveMoneyFromSystem[intval($webdb[giveMoneyFromSystem])]=' checked ';
+print <<<EOT
+--> 
+<form name="form1" method="post" action="$admin_path&action=$job">
+<table width='100%' cellspacing='1' cellpadding='3' class="tablewidth">
+    <tr class="head"> 
+      <td colspan='2'> 
+        <div align='center'><b><font color='#FFFFFF'>参数设置</font></b></div>
+      </td>
+    </tr>
+    <tr> 
+      <td width='26%' bgcolor='#FFFFFF'> 
+        <div align="left">站点名称:</div>
+      </td>
+      <td bgcolor='#FFFFFF' width="74%"> 
+        <input    type='text' name='webdbs[Info_webname]' size='50' value='$webdb[Info_webname]'>
+      </td>
+    </tr>
+	
+	<tr> 
+      <td width='26%' bgcolor='#FFFFFF'> 
+        <div align="left">SEO优化标题title:</div>
+      </td>
+      <td bgcolor='#FFFFFF' width="74%"> 
+        <input    type='text' name='webdbs[SEO_title]' size='50' value='$webdb[SEO_title]'>
+      </td>
+    </tr>
+	
+	<tr> 
+      <td width='26%' bgcolor='#FFFFFF'> 
+        <div align="left">SEO优化关键字keywords:</div>
+      </td>
+      <td bgcolor='#FFFFFF' width="74%"> 
+        <input    type='text' name='webdbs[SEO_keywords]' size='50' value='$webdb[SEO_keywords]'>
+      </td>
+    </tr>
+	
+	<tr> 
+      <td width='26%' bgcolor='#FFFFFF'> 
+        <div align="left">SEO优化描述description:</div>
+      </td>
+      <td bgcolor='#FFFFFF' width="74%"> 
+        <input    type='text' name='webdbs[SEO_description]' size='50' value='$webdb[SEO_description]'>
+      </td>
+    </tr>
+    <tr> 
+      <td width='26%' bgcolor='#FFFFFF'>站点开放与否:</td>
+      <td bgcolor='#FFFFFF' width="74%"> 
+        <input type="radio" name="webdbs[module_close]" value="1" $module_close[1]>
+        关闭 
+        <input type="radio" name="webdbs[module_close]" value="0" $module_close[0]>
+        开放 </td>
+    </tr>
+    
+	
+	
+    <tr> 
+      <td width='22%' bgcolor='#FFFFFF'>当前使用的数据表前缀:</td>
+      <td bgcolor='#FFFFFF' width="78%"> 
+        <input type="text" name="webdbs[module_pre]" value="$webdb[module_pre]" readonly size="8">
+        (不可修改,仅供查看) </td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'> 
+        <div align="left">是否允许游客使用搜索功能:</div>
+      </td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[Info_allowGuesSearch]" value="1" $Info_allowGuesSearch[1]>
+        允许 
+        <input type="radio" name="webdbs[Info_allowGuesSearch]" value="0" $Info_allowGuesSearch[0]>
+        禁止</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'> 
+        <div align="left">是否只允许审核过的企业用户才能发布商品:<span help=1> 如果取消不限的话,那么只有通过审核的用户才能发布商品,个人用户与未通过审核的企业用户,将不能发布商品.管理员不受限制. <br>
+注意:如果选择不限的话,需要你手工把发布页的地址复制出来给非审核的企业用户发布.因为系统的设置是只有企业会员才显示发布菜单的,这也只是企业特有的功能,一般不建议个人会员拥有该项功能.
+          </span></div>
+      </td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[postShopNeedQy]" value="0" $postShopNeedQy[0]>
+        不限 
+        <input type="radio" name="webdbs[postShopNeedQy]" value="1" $postShopNeedQy[1]>
+        仅允许审核过的企业才能发布商品</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'> 
+        <div align="left">是否允许买家与卖家删除已付款订单:<span help=1> 买家付款后的订单是有效订单,建议不要给买家与卖家删除,否则出现纠纷的时候,比如收钱不发货,找不到任何凭证 
+          </span></div>
+      </td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[ForbidDelPayOrder]" value="0" $ForbidDelPayOrder[0]>
+        允许 
+        <input type="radio" name="webdbs[ForbidDelPayOrder]" value="1" $ForbidDelPayOrder[1]>
+        不允许(推荐)</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'> 
+        <div align="left">是否允许卖家删除未付款订单:<span help=1> 买家下订单后,在没付款前还不算有效订单,不会与卖家出现纠纷,买家是可以删除的,但卖家是否可以删除就看这里的设置. 
+          </span></div>
+      </td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[ForbidSellerDelNoPayOrder]" value="0" $ForbidSellerDelNoPayOrder[0]>
+        允许 
+        <input type="radio" name="webdbs[ForbidSellerDelNoPayOrder]" value="1" $ForbidSellerDelNoPayOrder[1]>
+        不允许 </td>
+    </tr>
+    <tr> 
+      <td width='26%' bgcolor='#FFFFFF'>发表一条信息奖励{$webdb[MoneyName]}:<br>
+        (只有通过审核的,才有奖励) </td>
+      <td bgcolor='#FFFFFF' width="74%"> 
+        <input type="text" name="webdbs[PostInfoMoney]" size="7" value="$webdb[PostInfoMoney]">
+        $webdb[MoneyDW]</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'>是否显示所有信息:</td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[Info_ShowNoYz]" value="1" $Info_ShowNoYz[1]>
+        显示所有信息 
+        <input type="radio" name="webdbs[Info_ShowNoYz]" value="0" $Info_ShowNoYz[0]>
+        只显示已审核信息</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'>未审核的评论是否显示出来:</td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[showNoPassComment]" value="1" $showNoPassComment[1]>
+        显示所有信息 
+        <input type="radio" name="webdbs[showNoPassComment]" value="0" $showNoPassComment[0]>
+        只显示已审核信息</td>
+    </tr>
+    <tr> 
+      <td width='26%' bgcolor='#FFFFFF'>刷新信息的时间间隔:</td>
+      <td bgcolor='#FFFFFF' width="74%"> 
+        <input type="text" name="webdbs[UpdatePostTime]" size="4" value="$webdb[UpdatePostTime]">
+        小时(留空,则默认为1小时)</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'>客户下订单是否短消息通知商家:</td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[order_send_msg]" value="1" $order_send_msg[1]>
+        通知 
+        <input type="radio" name="webdbs[order_send_msg]" value="0" $order_send_msg[0]>
+        不通知</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'>客户下订单是否邮件通知商家:<span help=1>需要先配置好邮件接口才能发送</span></td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[order_send_mail]" value="1" $order_send_mail[1]>
+        通知 
+        <input type="radio" name="webdbs[order_send_mail]" value="0" $order_send_mail[0]>
+        不通知 (<font color="#0000FF">注意:</font>必须要配置好邮件发送功能才能生效)</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'>客户下订单是否短信通知商家:<span help=1>需要先配置好短信接口才能发送,发送短信是要花钱的,慎重!</span></td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[order_send_sms]" value="1" $order_send_sms[1]>
+        通知 
+        <input type="radio" name="webdbs[order_send_sms]" value="0" $order_send_sms[0]>
+        不通知 (<font color="#0000FF">注意:</font>必须要申请短信接口,付费的.才能生效)</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'>客户付款后是否邮件通知商家:<span help=1>需要先配置好邮件接口才能发送,而上面设置的下单后,就不局限于是否已付款.</span></td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[pay_send_mail2Seller]" value="1" $pay_send_mail2Seller[1]>
+        通知 
+        <input type="radio" name="webdbs[pay_send_mail2Seller]" value="0" $pay_send_mail2Seller[0]>
+        不通知</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'>客户付款后是否短信通知商家:<span help=1>而上面设置的下单后,就不局限于是否已付款.需要先配置好短信接口才能发送,发送短信是要花钱的,慎重!</span></td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[pay_send_sms2Seller]" value="1" $pay_send_sms2Seller[1]>
+        通知 
+        <input type="radio" name="webdbs[pay_send_sms2Seller]" value="0" $pay_send_sms2Seller[0]>
+        不通知 (<font color="#0000FF">注意:</font>必须要申请短信接口,付费的.才能生效)</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'>商家发货后是否邮件通知买家:<span help=1>需要先配置好邮件接口才能发送</span></td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[give_send_mail]" value="1" $give_send_mail[1]>
+        通知 
+        <input type="radio" name="webdbs[give_send_mail]" value="0" $give_send_mail[0]>
+        不通知</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'>商家发货后是否短信通知买家:<span help=1>需要先配置好短信接口才能发送,发送短信是要花钱的,慎重!</span></td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[give_send_sms]" value="1" $give_send_sms[1]>
+        通知 
+        <input type="radio" name="webdbs[give_send_sms]" value="0" $give_send_sms[0]>
+        不通知 (<font color="#0000FF">注意:</font>必须要申请短信接口,付费的.才能生效)</td>
+    </tr>
+
+	<tr bgcolor="#FFFFFF"> 
+      <td width='26%'>购买商品赠送的积分是否从卖家帐户中扣除:<span help=1>可以设置客户购买商品赠送相应的积分（只有在线支付成功才赠送积分），如果从系统中扣除的话，就有可能会被卖家钻空子，请慎重考虑!</span></td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[giveMoneyFromSystem]" value="1" $giveMoneyFromSystem[1]>
+        从系统中扣除 
+        <input type="radio" name="webdbs[giveMoneyFromSystem]" value="0" $giveMoneyFromSystem[0]>
+        从卖家帐户中扣除</td>
+    </tr>
+
+
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'>用户评论限制:<span help=1>如果客户删除了订单,则没法做权限判断,被当作没购买的情况看待.<br>
+        然而管理员是不受限制的 </span></td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[comment_limit]" value="2" $comment_limit[2]>
+        付款后才可评论 
+        <input type="radio" name="webdbs[comment_limit]" value="1" $comment_limit[1]>
+        下订单后才可评论 
+        <input type="radio" name="webdbs[comment_limit]" value="0" $comment_limit[0]>
+        不做限制</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width='26%'>是否帮商家代收在线支付的货款:<span help=1><br>
+        如果选择帮商家代收贷款的话,那其它所有商家发布的商品,客户在购买时所在线支付的款项将会全部付给网站管理员后台所设置的收款帐号里.<br>
+        <br>
+        若取消商家代收款的话,客户付款时将会把款付给商家在会员中心所设置的收款帐号.若商家没有设置收款帐号的话,那客户就无法在线付款</span></td>
+      <td width="74%"> 
+        <input type="radio" name="webdbs[daili_receive]" value="1" $daili_receive[1]>
+        代收 
+        <input type="radio" name="webdbs[daili_receive]" value="0" $daili_receive[0]>
+        不代收</td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width='26%'>是否启用会员帐户余额付款:<span help=1><br>
+        若启用的话,上面必须要选择站长帮商家代收货款(否则设置无效),不然会导致众多商家无法收到会员的付款.当余额不足时,要求先输入支付密码预先冻结可用余额,然后提示会员在线支付欠缺部分款项.若不继续在线支付的话,将购买失败,冻结的余额请管理员帮他解封.</span></td>
+      <td width="74%">
+        <input type="radio" name="webdbs[rmb_pay]" value="1" $rmb_pay[1]>
+        启用余额付款 
+        <input type="radio" name="webdbs[rmb_pay]" value="0" $rmb_pay[0]>
+        不启用</td>
+    </tr>
+    <tr> 
+      <td width='26%' bgcolor='#FFFFFF'> 
+        <div align="left">举报信息的类型:</div>
+      </td>
+      <td bgcolor='#FFFFFF' width="74%"> 
+        <textarea name="webdbs[Info_ReportDB]" cols="30" rows="8">$webdb[Info_ReportDB]</textarea>
+        每个换一行 </td>
+    </tr>
+    <tr> 
+      <td bgcolor='#FFFFFF' height="8">本频道是否独立头部与尾部模板:<br>
+        <font color="#0000FF">注意：</font>头部与尾部模板，请放在本频道的template目录下，右边的输入框输入类似如下路径<br>
+        /template/***/head.htm 星号换成你实际的目录名,如果留空，就使用统一的风格</td>
+      <td bgcolor='#FFFFFF' height="8"> 
+        <input type="radio" name="webdbs[IF_Private_tpl]" value="1" $IF_Private_tpl[1]>
+        首页独立 
+        <input type="radio" name="webdbs[IF_Private_tpl]" value="2" $IF_Private_tpl[2]>
+        首页、列表页独立 
+        <input type="radio" name="webdbs[IF_Private_tpl]" value="3" $IF_Private_tpl[3]>
+        首页、列表页、内容独立 
+        <input type="radio" name="webdbs[IF_Private_tpl]" value="0" $IF_Private_tpl[0]>
+        不独立头部与尾部模板 <br>
+        头部模板路径: 
+        <input type="text" size="50" name="webdbs[Private_tpl_head]" value="$webdb[Private_tpl_head]">
+        <br>
+        底部模板路径: 
+        <input type="text" size="50" name="webdbs[Private_tpl_foot]" value="$webdb[Private_tpl_foot]">
+      </td>
+    </tr>
+    <tr> 
+      <td width='26%' bgcolor='#FFFFFF'>&nbsp;</td>
+      <td bgcolor='#FFFFFF' width="74%"> 
+        <input    type='submit' name='w' value='保存设置'>
+      </td>
+    </tr>
+  </table>
+</form>
+<!--
+EOT;
+?>
+--> 

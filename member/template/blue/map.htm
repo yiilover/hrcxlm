@@ -1,0 +1,84 @@
+<!--
+<?php
+include(dirname(__FILE__)."/map.php");
+$mob_yz=$lfjdb[mob_yz]==1?"":"<div class=\"yzmob\"><a href=\"yz.php?job=mob\">立即验证手机</a></div>";
+$lfjdb[icon]=tempdir($lfjdb[icon]);
+$lfjdb[regdate]=date("Y-m-d H:i:s",$lfjdb[regdate]);
+$butshow1=$lfjdb[grouptype]==1?"<a href=\"$webdb[_www_url]/shop/member/list.php\">管理我的商品</a>":"<a href=\"$webdb[_www_url]/shop/member/address.php?job=list\">管理收货地址</a>";
+$butshow2=$lfjdb[grouptype]==1?"<a href=\"$webdb[_www_url]/shop/member/sell_order.php?job=list\">查看我的订单</a>":"<a href=\"$webdb[_www_url]/shop/member/order.php?job=mylist\">查看我的交易</a>";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/blue/map/map.css">
+<div class="Notes">
+	<div><span>系统最新公告:</span>$webdb[memberNotice]</div>
+</div>
+<div class="MainCont mtop10">
+	<div class="head"><div class="tag tag1">帐号信息</div></div>
+    <div class="cont">
+    	<div class="MyInfo">
+        	<div class="img"><a href="homepage.php?uid=$lfjuid" target="_blank"><img onerror="this.src='$webdb[www_url]/images/default/noface.gif'" src="$lfjdb[icon]" width="50" /></a></div>
+            <div class="info">
+            	<div class="base">
+                	<div class="name"><a href="homepage.php?uid=$lfjuid" target="_blank">$lfjid</a> ID:$lfjuid</div>
+                    $mob_yz
+                </div>
+                <div class="list1">
+                	Email地址:$lfjdb[email]  注册时间:$lfjdb[regdate]
+                </div>
+                <div class="list2">
+                	上次访问时间:$lfjdb[lastvist]  上次访问IP:$lfjdb[lastip]
+                </div>
+            </div>
+            <div class="adds">
+            	<div class="rmb"><a href="$webdb[_www_url]/do/rmb_add.php" target="_blank">人民币充值</a></div>
+                <div class="zf"><a href="money.php?job=list">{$webdb[MoneyName]}充值</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="MainCont mtop10">
+	<div class="head"><div class="tag tag2">买家提醒</div><div class="tag">卖家提醒</div></div>
+    <div class="cont">
+    	<div class="shopinfo">
+        	<ul class="list1">
+            	<li>最近三个月共<span>{$m3buynum}</span>笔买入交易</li>
+                <li class="m">您有<span>$myunfay</span>笔交易尚未付款</li>
+                <li class="m">您有<span>{$myuncomment}</span>笔交易等待评价</li>
+            </ul>
+            <ul class="list2">
+            	<li>最近三个月共<span>{$m3ordernum}</span>笔买出交易</li>
+                <li class="m">您有<span>{$myunsend}</span>个订单尚未发货</li>
+                <li class="m">您有<span>$mynostorage</span>件商品库存为零</li>
+            </ul>
+            <ul class="list3">
+            	<li class="but1">$butshow1</li>
+                <li class="but2">$butshow2</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="MainCont mtop10">
+	<div class="head"><div class="tag">财务信息</div></div>
+    <div class="cont">
+    	<ul class="rmbinfo">
+		<li><div class="tg">{$webdb[MoneyName]}总数:</div><div><span>$lfjdb[money]</span>$webdb[MoneyDW]</div><div class="rmb"><a href="moneylog.php?job=list">明细查询</a></div><div class="add"><a href="money.php?job=list">充值</a></div></li>
+		
+        	<li><div class="tg">账户余额:</div><div><span>$lfjdb[rmb]</span>元</div><div class="rmb"><a href="rmb.php?job=list">帐户明细查询</a></div></li>
+            <li><div class="tg">冻结资金:</div><div><span>$lfjdb[rmb_freeze]</span>元</div><div class="add"><a href="$webdb[_www_url]/do/rmb_add.php" target="_blank">充值</a></div><div class="free"><a href="rmb.php?job=get">提现</a></div></li>
+            <li><div class="tg">提款银行:</div><div><a href="bank.php?job=set">设置银行帐号</a></div></li>
+        </ul>
+    </div>
+</div>
+<div class="MainCont mtop10">
+	<div class="head"><div class="tag">安全信息</div></div>
+    <div class="cont">
+    	<ul class="rmbinfo">
+            <li><div class="tg">登录密码:</div><div><a href="userinfo.php?job=edit">修改个人信息</a></div></li>
+            <li><div class="tg">支付密码:</div><div><a href="rmb.php?job=pwd">修改支付密码</a></div></li>
+        </ul>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

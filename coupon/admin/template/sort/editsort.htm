@@ -1,0 +1,77 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<form name="form1" method="post" action="$admin_path&action=$job">
+<table border="0" cellspacing="1" cellpadding="3" width="100%" class="tablewidth">
+    <tr align="center"> 
+      <td colspan="2" class="head">栏目修改</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td colspan="2"><font color="#0000FF">打开详细选项设置&gt;&gt;&gt;</font><font color="#FF0000"> 
+        <input type="checkbox" name="showmore" value="checkbox" id="showmore" onClick="show_more(0);" checked>
+        [<a href="$Murl/list.php?fid=$fid" target="_blank">浏览前台</a>] [<a href="$admin_path&file=list&job=list&fid=$fid">管理内容</a>] 
+        </font></td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width="40%">栏目名称:</td>
+      <td width="60%"> 
+        <input type="text" name="postdb[name]" value="$rsdb[name]">
+      </td>
+    </tr>
+    <tr bgcolor="#FFFFFF"> 
+      <td width="40%"> 父栏目FID: (不选择,将作为顶级栏目) </td>
+      <td width="60%"> 
+        <select name="postdb[fup]">
+          <option value="0">请选择</option>{$fup_select}
+        </select>
+      </td>
+    </tr>
+    <tr bgcolor="#FFFFFF"  class="hidetr" style="display:$smallsort"> 
+      <td width="40%"> 列表页每页显示多少条内容: </td>
+      <td width="60%"> 
+        <input type="text" name="postdb[maxperpage]" size="5" value="$rsdb[maxperpage]">
+        行 (留空或为0则以默认为标准)</td>
+    </tr>
+    <tr bgcolor="#FFFFFF"  class="hidetr"> 
+      <td width="40%"> 跳转到外部地址: (输入其它地址后,将不会显示本栏目)<br>
+      </td>
+      <td width="60%"> 
+        <input type="text" name="postdb[jumpurl]" value="$rsdb[jumpurl]" size="60">
+      </td>
+    </tr><tr bgcolor="#FFFFFF" style="dis play:$moresons"> 
+      <td width="40%">大分类/栏目: (大分类不能发表内容,栏目才可以)</td>
+      <td width="60%"> 
+        <input type="radio" name="postdb[type]" value="1" $typedb[1]  >
+        大分类 
+        <input type="radio" name="postdb[type]" value="0" $typedb[0]  >
+        栏目</td>
+    </tr> <tr bgcolor="#FFFFFF"  class="hidetr">
+      <td width="40%">SEO优化:</td>
+      <td width="60%"> 标题(title): 
+        <input type="text" name="postdb[metatitle]" size="35" value="$rsdb[metatitle]">
+        <br>关键字(metakeywords):
+        <input type="text" name="postdb[metakeywords]" size="35" value="$rsdb[metakeywords]">
+        <br>
+        描述(metadescription): 
+        <input type="text" name="postdb[metadescription]" size="35" value="$rsdb[metadescription]">
+        <br>
+        <br>
+        部分变量如下:<br>
+        {city_name} 代表当前城市名称<br>
+        {sort_name} 代表栏目名称</td>
+    </tr>
+    $TempLate 
+    <tr align="center"> 
+      <td colspan="2" bgcolor="#FFFFFF"> 
+        <input type="submit" name="Submit" value="提交">
+        <input type="hidden" name="postdb[fid]" value="$fid">
+       
+	  </td>
+    </tr>
+  </table>
+</form>
+<!--
+EOT;
+?>
+-->

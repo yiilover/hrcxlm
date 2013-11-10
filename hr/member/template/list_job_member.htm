@@ -1,0 +1,47 @@
+<!--
+<?php 
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head"><div class="tag">该职位下的应聘者如下</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="15%">姓名</th>
+            <th width="10%">性别</th>
+            <th width="10%">年龄</th>
+            <th width="12%">工作年限</th>
+            <th width="15%">收到简历</th>
+            <th width="10%">浏览</th>
+            <th width="18%">申请日期</th>
+            <th width="10%">查看</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td>{$rs[truename]}</td>                
+            <td>{$rs[sex]}</td>
+            <td>{$rs[age]} 岁</td>
+            <td>{$rs[workyear]} </td>
+            <td>$rs[username]</td>
+            <td>$rs[hits]</td>
+            <td>$rs[posttime]</td>
+            <td><a href="../joinshow.php?id=$rs[id]" target=_blank>查看</a>/{$rs[del]} </td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

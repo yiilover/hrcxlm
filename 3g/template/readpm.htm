@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!--<?php
+print <<<EOT
+-->
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="qibosoft">
+<meta name="format-detection" content="telephone=no">
+<link href="$Murl/images/style1.css" rel="stylesheet" type="text/css">
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+<title>$WebTitle</title>
+</head>
+<body>
+<dl class="Hearder">
+	<dt><a href="$Murl"><img src="$Murl/images/home.gif"/></a> <a href="javascript:;history.back()"><img src="$Murl/images/back.gif"/></a></dt>
+    <dd><a href="?job=list">短消息列表</a></dd>
+</dl>
+<ul class="Nav">
+	<li><a href="?job=list">列表</a></li>
+    <li class="title">$rsdb[title]</li>
+</ul>
+<dl class="Mtitle">
+	<dt>$rsdb[title]</dt>
+    <dd>$rsdb[mdate]</dd>
+</dl>
+<table width="100%" id="contents" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td>
+    $rsdb[content]
+    </td>
+  </tr>
+</table>
+<dl class="Hearder">
+	<dt><a href="$Murl"><img src="$Murl/images/home.gif"/></a> <a href="javascript:;history.back()"><img src="./images/back.gif"/></a></dt>
+    <dd><a href="?job=list">短消息列表</a></dd>
+</dl>
+<div class="Footer">
+	$titleDB[title]
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+$(".Nav li:eq(0)").addClass("begin");
+$("#contents img").each(function(){
+	var this_w = $(this).width();
+	if(this_w>310) $(this).css("width","310px");
+});
+</SCRIPT>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+$thiscityname = $city_DB[name][$city_id] ? $city_DB[name][$city_id] : "&nbsp;";
+$GuideFid[$fid]=str_replace("<a href='$webdb[www_url]' class='guide_menu'>&gt;首页</a>","",$GuideFid[$fid]);
+$bodyondblclick = (function_exists('label_array')&&$web_admin&&!$MakeIndex) ?"dblclick_label();":"";
+$changecity = count($city_DB[name])>1 ? "<a href=\"$webdb[www_url]/allcity.php\">[切换城市]</a>":"当前城市";
+print <<<EOT
+-->
+<head>
+<title>$titleDB[title]</title>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/style5.1/style.css">
+<link id="themecss" rel="stylesheet" type="text/css" href="$webdb[www_url]/images/style5.1/css2.css">
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/default/cms.css">
+<link rel="shortcut icon" type="image/ico" href="$webdb[www_url]/images/css4.0/favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="keywords" content="$titleDB[keywords]">
+<meta name="description" content="$titleDB[description]">
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function killErr(){
+	return true;
+}
+window.onerror=killErr;
+//-->
+</SCRIPT>
+<!--
+EOT;
+if($webdb[cookieDomain]){print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+//解决不同域名的框架跨域问题
+document.domain = "$webdb[cookieDomain]";
+</SCRIPT>
+<!--
+EOT;
+}
+$web_logo=($city_DB[logo][$city_id])?"<img src='tempdir($city_DB[logo][$city_id])'/>":"<span><em><img src='$webdb[www_url]/images/style5.1/logo.gif'/></em></span>";
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/default.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/swfobject.js"></SCRIPT>
+<script type="text/javascript" src="$webdb[www_url]/images/style5.1/sliding.js"></script>
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jscroll.js"></SCRIPT>
+<body ondblclick="$bodyondblclick">
+<div class="TopContainer">
+	<div class="userinfos">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span id="top_loginer"><div class="showmsg">$Load_Msg</div></span>');
+document.write('<div style="display:none;"><iframe src="$webdb[www_url]/do/hack.php?hack=login&styletype=login&iframeID=top_loginer" width=0 height=0></iframe></div>');
+//-->
+</SCRIPT>  
+    </div>    
+    <div class="siteinfo">
+	<A target="_blank" HREF="$webdb[www_url]/do/moble.htm" class="wap">手机版</A> | <A HREF="$webdb[www_url]/do/sitemap.php" target="_blank">网站地图</A> | 
+		<a onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('$webdb[www_url]');" href="#">设为首页</a> |
+        <a href="javascript:javascript:window.external.AddFavorite('$webdb[www_url]','$webdb[webname]');">加入收藏</a>
+    </div>
+    <div class="themelist" id="themelist">
+      <div id=theme1><a title="红色" href="javascript:;">红色</a></div>
+      <div id=theme2><a title="蓝色" href="javascript:;">蓝色</a></div>
+      <div id=theme3><a title="褐色" href="javascript:;">褐色</a></div>
+      <div id=theme4><a title="绿色" href="javascript:;">绿色</a></div>
+    </div>
+    <div class="changecolor">网站颜色：<input type="hidden" value="$webdb[www_url]" /></div>
+    <!--------以下隐藏域的值是网站默认打开时选择的颜色可以灵活选择1-4的数值--------->
+    <input class='sitedefalutcolor' type="hidden" value="2" />
+    <script type="text/javascript" src="$webdb[www_url]/images/style5.1/changecss.js"></script>
+</div>
+<ul class="Logo_Ad_Info">
+	<li class="logo"><a href="$webdb[www_url]/">$web_logo</a></li>
+    <li class="changecity">
+        <span class="city">{$thiscityname}</span>
+        <span class="change">$changecity</span>      
+    </li>    
+    <div class="Search">
+    	<form name="MainSearch" id="MainSearch" target="_blank" method="post" action=''>
+            <ul class="ListType">
+            	<li>资讯</li>
+                <li>分类</li>
+                <li>商城</li>
+                <li>商家</li>
+                <li>活动</li>
+                <li>促销</li>
+                <li>招聘</li>
+                <li>团购</li>
+                <li>房产</li>
+                <li>点评</li>
+                <li>二手</li>
+				<li>百度</li>
+		<input name=ct value=0 type=hidden>
+		<input name=si type=hidden value="">
+<!--把ct值设置为2097152，把si的域名换成你的，就可以在百度收录中查找你站内的内容-->
+            </ul>
+            <div class="keyword">
+              <input name="keyword" type="text" value="请输入您要查找的内容" />
+            </div>
+            <div class="subbutter">
+              <input type="submit" name="Submit" value="搜一下"/>
+            </div>
+        </form>
+        <span id="MySiteDomain" style="display:none">$webdb[_www_url]</span>
+    </div>
+</ul>
+<div class="MenuCont">
+	<div class="ListMenu">
+<!--
+EOT;
+$choose_class[intval($webdb['module_id'])]="choose";
+$detail=explode("\r\n",$webdb[guide_word]);
+foreach($detail AS $key=>$value){
+if(!$value)continue;
+list($Hname,$Hurl,$Hblank,$Hcolor,$Hlid,$link)=explode("|",$value);
+if(ereg("^\/",$Hurl)){$Hurl="$webdb[www_url]$Hurl";}elseif(!ereg("://",$Hurl)){$Hurl="$webdb[www_url]/$Hurl";}
+$Hblank=$Hblank?"  target=\"_blank\"":'';
+$Hcolor=$Hcolor?" style=\"color:$Hcolor;\"":'';
+$menu_check = $choose_class[$link] ? "class='ck'" : "";
+print <<<EOT
+-->
+		<dl $menu_check>
+        	<dt><span><a href="$Hurl"{$Hblank}{$Hcolor}>{$Hname}</a></span></dt>
+<!--
+EOT;
+$ch_guide_word="guide_word_".$Hlid;
+if($webdb[$ch_guide_word]){
+$details=explode("\r\n",$webdb[$ch_guide_word]);
+print <<<EOT
+-->
+			<dd>
+            	<span></span>
+                <ul>
+<!--
+EOT;
+foreach($details AS $keys=>$values){
+if(!$values)continue;
+list($Hnames,$Hurls,$Hblanks,$Hcolors,$Hlids,$links)=explode("|",$values);
+if(ereg("^\/",$Hurls)){$Hurls="$webdb[www_url]$Hurls";}elseif(!ereg("://",$Hurls)){$Hurls="$webdb[www_url]/$Hurls";}
+$Hblanks=$Hblanks?"  target=\"_blank\"":'';
+$Hcolors=$Hcolors?" style=\"color:$Hcolors;\"":'';
+$Hnames=get_word($Hnames,15);
+print <<<EOT
+-->
+					<li><a href="$Hurls"{$Hblanks}{$Hcolors}>{$Hnames}</a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                </ul>
+            </dd>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    </div>
+</div>
+<div class="NavMenu">
+	<div class="ListNavMenu">
+    	$label[style_51_navmenu]	
+    </div>
+</div>
+<script type="text/javascript" src="$webdb[www_url]/images/style5.1/heads.js"></script>
+<!--
+EOT;
+if($GuideFid[$fid]){
+print <<<EOT
+-->
+<div id="nav_guide">
+    <div class="t1">当前位置：</div><div class="t2"><a href="$Mdomain/">首页</a> $GuideFid[$fid] </div>
+</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function checkpost(){
+	if($("#MainSearch .keyword input").val() ==""){
+		alert('关键字不能为空!');
+		return false;
+	}
+}
+//目的是为了做风格方便
+document.write('<div class="wrap">');
+//-->
+</SCRIPT>
+<div style="margin-bottom:10px;">$label[style_51_headerad]</div>
+<!--
+EOT;
+?>
+-->
+

@@ -1,0 +1,212 @@
+<!--
+<?php
+$showmenu='';
+$webdb[yeepay_id] && $showmenu.='[<a href="?paytype=yeepay">易宝支付</a>] ';
+$webdb[chinabank_id] && $showmenu.='[<a href="?paytype=chinabank">网银在线</a>] ';
+$webdb[tenpay_id] && $showmenu.='[<a href="?paytype=tenpay">财付通</a>] ';
+$webdb[alipay_id] && $showmenu.='[<a href="?paytype=alipay">支付宝</a>] ';
+$webdb[paypal_id] && $showmenu.='[<a href="?paytype=paypal">贝宝</a>] ';
+print <<<EOT
+-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable">
+  <tr> 
+    <td height="393" valign="top" class="Main"><!--
+EOT;
+if($paytype=='yeepay'){print <<<EOT
+--> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable">
+        <tr> 
+          <td class="head"> 
+            <h3 class="L"></h3>
+            <span class="TAG">欢迎使用易宝支付在线充值系统</span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <form name="form1" method="post" action="?banktype=yeepay">
+            <td class="middle" align="center"> <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                <tr>
+                  <td align="left"><b><font color="#0000FF">支付方式: </font></b>$showmenu</td>
+                </tr>
+              </table>
+             
+              <p><a href="http://www.yeepay.com/" target="_blank"><img src="$webdb[www_url]/images/default/yeepay_logo.gif" border="0"></a><br>
+                你目前帐户可用余额 <b><font color="#FF0000">{$lfjdb[rmb]}</font></b> 元,请输入你要充值金额 
+                <input type="text" name="atc_moeny" size="6">
+                元（RMB） 
+                <input type="submit" name="Submit" value="充值">
+              </p>
+              <p><br>
+              </p>
+            </td>
+          </form>
+        </tr>
+        <tr>
+          <td class="foot">
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table>	  <!--
+EOT;
+}elseif($paytype=='paypal'){print <<<EOT
+--> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable">
+        <tr> 
+          <td class="head"> 
+            <h3 class="L"></h3>
+            <span class="TAG">欢迎使用贝宝在线充值系统</span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <form name="form1" method="post" action="?banktype=paypal">
+            <td class="middle" align="center"> <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                <tr>
+                  <td align="left"><b><font color="#0000FF">支付方式: </font></b>$showmenu</td>
+                </tr>
+              </table>
+             
+              <p><img src="$webdb[www_url]/images/default/paypal_logo.gif"><br>
+                你目前帐户可用余额 <b><font color="#FF0000">{$lfjdb[rmb]}</font></b> 元,请输入你要充值金额 
+                <input type="text" name="atc_moeny" size="6">
+                元（RMB） 
+                <input type="submit" name="Submit" value="充值">
+              </p>
+              <p><br>
+              </p>
+            </td>
+          </form>
+        </tr>
+        <tr>
+          <td class="foot">
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table>
+	  <!--
+EOT;
+}elseif($paytype=='chinabank'){print <<<EOT
+--> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable">
+        <tr> 
+          <td class="head"> 
+            <h3 class="L"></h3>
+            <span class="TAG">欢迎使用网银在线充值系统</span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <form name="form1" method="post" action="?banktype=chinabank">
+            <td class="middle" align="center"> <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                <tr>
+                  <td align="left"><b><font color="#0000FF">支付方式: </font></b>$showmenu</td>
+                </tr>
+              </table>
+             
+              <p><img src="$webdb[www_url]/images/default/chinabank_logo.gif"><br>
+                你目前帐户可用余额 <b><font color="#FF0000">{$lfjdb[rmb]}</font></b> 元,请输入你要充值金额 
+                <input type="text" name="atc_moeny" size="6">
+                元（RMB） 
+                <input type="submit" name="Submit" value="充值">
+              </p>
+              <p><br>
+              </p>
+            </td>
+          </form>
+        </tr>
+        <tr>
+          <td class="foot">
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table>
+	  
+     <!--
+EOT;
+}elseif($paytype=='tenpay'){print <<<EOT
+--> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable">
+        <tr> 
+          <td class="head"> 
+            <h3 class="L"></h3>
+            <span class="TAG">欢迎使用财付通在线充值系统</span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <form name="form1" method="post" action="?banktype=tenpay">
+            <td class="middle" align="center"> <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                <tr>
+                  <td align="left"><b><font color="#0000FF">支付方式: </font></b>$showmenu</td>
+                </tr>
+              </table>
+             
+              <p><img src="$webdb[www_url]/images/default/tenpay_logo.gif"><br>
+                你目前帐户可用余额 <b><font color="#FF0000">{$lfjdb[rmb]}</font></b> 元,请输入你要充值金额 
+                <input type="text" name="atc_moeny" size="6">
+                元（RMB） 
+                <input type="submit" name="Submit" value="充值">
+              </p>
+              <p><br>
+              </p>
+            </td>
+          </form>
+        </tr>
+        <tr>
+          <td class="foot">
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table>
+       <!--
+EOT;
+}else{print <<<EOT
+-->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable">
+        <tr> 
+          <td class="head"> 
+            <h3 class="L"></h3>
+            <span class="TAG">欢迎使用支付宝在线充值系统</span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <form name="form1" method="post" action="?banktype=alipay">
+            <td class="middle" align="center"> <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                <tr>
+                  <td align="left"><b><font color="#0000FF">支付方式: </font></b>$showmenu</td>
+                </tr>
+              </table>
+             
+              <p><img src="$webdb[www_url]/images/default/alipay_logo.gif"><br>
+                你目前帐户可用余额 <b><font color="#FF0000">{$lfjdb[rmb]}</font></b> 元,请输入你要充值金额 
+                <input type="text" name="atc_moeny" size="6">
+                元（RMB） 
+                <input type="submit" name="Submit" value="充值">
+                <br>
+              </p>
+              <p>&nbsp; </p>
+            </td>
+          </form>
+        </tr>
+        <tr>
+          <td class="foot">
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table>
+<!--
+EOT;
+}print <<<EOT
+-->
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

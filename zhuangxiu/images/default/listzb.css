@@ -1,0 +1,160 @@
+.TopSearchs{
+	clear:both;
+	margin:10px auto;
+	background:url(contbg.gif) center bottom no-repeat;
+	padding-bottom:15px;
+}
+.TopSearchs .head{
+	height:50px;
+	background:url(contbg.gif) center top no-repeat;
+}
+.TopSearchs .head .tag{
+	float:left;
+	padding:5px 0 0 15px;
+	line-height:35px;
+	font-size:14px;
+}
+.TopSearchs .cont{
+	padding:0 20px 0 20px;
+	background:url(contbgm.gif) center top repeat-y;
+}
+.ListZone{
+	height:25px;
+	overflow:hidden;
+	padding-left:10px;
+	background:url(zone.gif) left 20px repeat-x;
+	line-height:25px;
+}
+.ListZone span{
+	display:block;
+	float:left;
+	padding-left:5px;
+}
+.ListZone span a{
+	display:block;
+	float:left;
+	padding-right:5px;
+}
+.ListZone span.ck{
+	background:url(zone.gif) left -5px no-repeat;
+}
+.ListZone span.ck a{
+	background:url(zone.gif) right -5px no-repeat;
+	font-weight:bold;
+	color:#FF6000;
+	outline:none;
+}
+.ListStreet{
+	background:#FCEDC2;
+	padding:2px 10px 5px 10px;
+	line-height:20px;
+}
+.ListStreet a.ck{
+	color:#FF6000;
+	font-weight:bold;
+}
+.ListSelect{
+	margin-top:10px;
+}
+.ListSelect div{
+	clear:both;
+	border-top:#DDD dotted 1px;
+}
+.ListSelect div span.t{
+	display:block;
+	float:left;
+	padding:5px 0 0 0;
+	line-height:20px;
+}
+.ListSelect div span.f{
+	display:block;
+	float:left;
+	padding:5px 0 0 5px;
+	line-height:20px;
+}
+
+/*
+*ListCont
+*/
+.ListCont{
+	border:#D0D0D0 solid 1px;
+}
+.ListCont ul{
+	height:40px;
+	line-height:45px;
+	border-bottom:#F1F1F1 solid 1px;
+	overflow:hidden;
+}
+.ListCont ul li{
+	float:left;
+	height:40px;
+	overflow:hidden;
+}
+.ListCont ul li.li1{
+	width:300px;
+	padding:0 10px 0 15px;
+}
+.ListCont ul li.li2,.ListCont ul li.li3,.ListCont ul li.li4,.ListCont ul li.li5,.ListCont ul li.li6{
+	width:90px;
+	padding:0 10px 0 10px;
+}
+.ListCont ul li.li7{
+	padding-left:10px;
+}
+.ListCont ul li.li8{
+	clear:both;
+	width:950px;
+	height:20px;
+	line-height:20px;
+	padding:5px 10px 5px 15px;
+	color:#888;
+}
+.ListCont ul li.li3{
+	width:100px;
+}
+.ListCont ul li.li1 a{
+	font-size:14px;
+	color:#36c;
+}
+.ListCont ul.list li.li2{
+	color:#FF6000;
+	font-size:14px;
+	background:url(money.gif) right 12px no-repeat;
+}
+.ListCont ul.overs{
+	height:70px;
+	background:#FFFEE5;
+}
+.ListCont ul.head{
+	border-bottom:0;
+	background:url(h4.gif) left top repeat-x;
+	font-weight:bold;
+}
+.ListCont ul.head li{
+	background:url(spac.gif) left 16px no-repeat;
+}
+.ListCont ul.head li.li1{
+	background:none;
+}
+.ListCont .listInfo{
+	height:70px;
+	line-height:30px;
+}
+.ListCont .listInfo .info{
+	float:left;
+	padding:15px 0 0 20px;
+}
+.ListCont .listInfo .info span{
+	font-size:18px;
+	font-weight:bold;
+	color:#FF6000;
+}
+.ListCont .listInfo .showpage{
+	float:right;
+	padding:15px 15px 0 0;
+}
+.ListCont .listInfo .showpage a{
+	border:#DDD solid 1px;
+	padding:3px 5px 2px 5px;
+	color:#666;
+}

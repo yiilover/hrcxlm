@@ -1,0 +1,156 @@
+<include file="Index:header" />
+<script language="javascript">
+ <!--
+	function LaneLeadVerify(){
+		if(!$('#username').val()) {
+			$('#username').focus();  
+			contnet='<span class="errorTip">请输入您在蓝锂网络注册的用户名!</span>';			
+			showfloatTips(contnet);
+			return false;
+		}	
+		if(!$('#authcode').val()) {
+			$('#authcode').focus();  
+			contnet='<span class="errorTip">请输入您的蓝锂授权码!</span>';			
+			showfloatTips(contnet);
+			return false;
+		}	
+		ThinkAjax.sendForm('AuthVerify','__URL__/update/auth/1',AsyComplete,'result','正在提交认证,大约需耗时6s,请耐心等待...');
+	}
+	function AsyComplete(data,status){
+		if (status==1)
+		{
+			window.setTimeout(function (){window.location.href='__SELF__'},2000);			
+		}
+	}
+	function ShowApptips(){
+		$.dialog({
+			title: "更新摘要 [{$ecupdatetime|toDate='Y-m-d H:i'}] -  {$Think.config.ECAPP_ENNAME} {$Think.config.ECAPP_VER}",
+			content: "<div style='color:green; font-weight:bold; font-size:14px; line-height:180%;'>{$app_tips|default='常规更新,修正部分bug,使程序运行更稳定.'}</div><div style='color:green; font-weight:bold; font-size:14px; line-height:180%;'><br>备 注: 这里仅记录本次升级摘要,如果您需要了解详细升级过程,请访问 <a href='http://www.lanelead.com/list-1-1.htm' target='_blank' style='color:red; font-weight:bold; font-size:14px; line-height:180%;'>蓝锂产品中心</a> 查看.</div>",
+			width: "80%",
+			height: "80%",
+			lock: true
+		});
+	}	
+	function ECUpdate(){
+		if(confirm('升级前请备份您的程序文件和数据库,您确认继续执行自动更新吗?')==true)
+		ThinkAjax.sendForm('AuthVerify','__URL__/update',AsyComplete,'result','正在提交认证,大约需耗时6s,请耐心等待...');
+	}
+	
+	function UpdateKey(){
+		$.dialog({
+			title: "授权升级 [{$ecupdatetime|toDate='Y-m-d H:i'}] -  {$Think.config.ECAPP_ENNAME} {$Think.config.ECAPP_VER}",
+			content: "<span style='color:green; font-weight:bold; font-size:14px; line-height:180%;'><P>首先感谢您对蓝锂网络的大力支持！以下为蓝锂授权码升级步骤：</P><P>1、进入蓝锂官方 -&gt; <a href='http://www.lanelead.com/list.php?fid=8&authcode={$authcode}&username={$username}' target='_blank'><FONT color=#ff0000>授权中心</font></a> &nbsp;，选定您要授权的模块，根据提示进行在线付款，<FONT color=#ff0000><STRONG>新授权码会发送至您的eamil中</STRONG></FONT>。</P><P>2、登录您的采集器后台界面，点击“<FONT color=#ff0000><STRONG>清空缓存</STRONG></FONT>”，然后输入您刚刚获取的新的蓝锂授权码，完成授权升级。</P><P>&nbsp;</P><P><a href='http://www.lanelead.com/list.php?fid=8&authcode={$authcode}&username={$username}' target='_blank'><STRONG><FONT color=#ff0000><SPAN style='FONT-SIZE: 18px'>点击进入授权码升级界面</SPAN></FONT></STRONG></a></P></span>",
+			width: "660px",
+			height: "60%",
+			lock: true
+		});
+	}	
+	function ChangeKey(){
+		$.dialog({
+			title: "更换授权域名 [{$ecupdatetime|toDate='Y-m-d H:i'}] -  {$Think.config.ECAPP_ENNAME} {$Think.config.ECAPP_VER}",
+			content: "<span style='color:green; font-weight:bold; font-size:14px; line-height:180%;'><P>首先感谢您对蓝锂网络的大力支持！原则上不提供域名更换服务，不过考虑到站长运营的实际需要，我们提供一次免费的授权更换服务，前提是域名主体是同一个人或单位。以下为更换授权域名的步骤：</P><P>1、将原域名证书和新域名证书（电子图片，请在您的域名管理中心获取）发送至 admin@lanelead.com ，邮件主题为：XXX更换授权域名 。</P><P>2、通过QQ（570713592 或 1668142999）或者电话（13884867561）联系蓝锂授权人员进行手工修改授权域名，并告知您新的授权码。然后登录采集器管理界面，执行“清空缓存”，重新输入新的授权码即可。</P></span>",
+			width: "660px",
+			height: "60%",
+			lock: true
+		});
+	}	
+	
+ //-->
+</script>
+
+<form name="AuthVerify" id="AuthVerify" method="post" action="__URL__/update" style="margin:0; padding:0;">
+  <if condition="$auth">
+    <table width='100%' cellspacing='1' cellpadding='3' class="tablewidth" align="center">
+      <tr class="head8">
+        <td width="120">蓝锂通行证</td>
+        <td width="60">蓝锂产品</td>
+        <td width="120">授权域名</td>
+        <td width="60">授权类型</td>
+        <td width="">授权有效期</td>
+        <td width="80">授权操作</td>
+      </tr>
+      <tr class="head7">
+        <td>{$Think.config.username}</td>
+        <td>{$Think.config.ECAPP_ENNAME} <br>
+          {$Think.config.ECAPP_VER}</td>
+        <td>{$Think.config.domain}</td>
+        <td><php> if(C('vip_id') || C('authtype')==1) {
+            echo '
+            <p style="color:red;font-weight:bold">VIP商业版</p>
+            ';
+            }elseif(C('authtype')==2){
+            echo '
+            <p style="color:blue;">试用版</p>
+            ';
+            }else{
+            echo '
+            <p>免费版</p>
+            ';
+            }
+            if(C('iflock')) echo '
+            <p style="color:red;">已被锁定</p>
+            '; </php>
+        </td>
+        <td><p style="color:red;font-weight:bold">{$Think.config.begintime|toDate='Y-m-d H:i'} - {$Think.config.endtime|toDate='Y-m-d H:i'}</p></td>
+        <td><p><a href="javascript:;" onclick="UpdateKey()" style="color:green; font-weight:bold; font-size:14px;">授权升级</a></p>
+          <p><a href="javascript:;" onclick="ChangeKey()" style="color:green; font-weight:bold; font-size:14px;">更换域名</a></p></td>
+      </tr>
+      <tr class="head6">
+        <td><div style="color:blue; font-weight:bold; font-size:16px; text-align:center; padding:6px 0;">授权功能模块</div></td>
+        <td colspan="5"><php> $Marray = C('Marray');
+            foreach($Marray AS $mkey=>$mname){
+            $show1 .= $mname.' &nbsp; ';
+            } 
+            
+            $Marray = C('powerdb');
+            foreach($Marray AS $mkey=>$mname){
+            $show2 .= "<span style='color:red; font-size:14px; font-weight:bold;'>$mname</span> &nbsp; ";
+            } </php>
+          <p style="font-size:14px;"> {$show1} </p><p> {$show2} </p></td>
+      </tr>
+      <tr class="head7">
+        <td colspan="6" style="background:#FFCC00" height="88"><if condition="$ecupdatetime gt $updatetime">
+            <p style="font-size:16px;">检测到服务器有新版本,更新日期: <span style="font-size:16px;color:blue; padding-right:16px; padding-left:6px;"> {$ecupdatetime|toDate='Y-m-d H:i'}</span> 【 <a href="javascript:;" style="color:green; font-weight:bold; font-size:16px;" onclick="ECUpdate()">点击自动升级(推荐)</a> 】 &nbsp; &nbsp; 【 <a href="javascript:;" style="color:green; font-weight:bold; font-size:16px;" onclick="ShowApptips()">查看更新说明</a> 】</p>
+            <p style="font-size:14px;color:red;"> 提 醒：执行升级前,请自行备份您的程序文件和数据库!</p>
+            <else />
+            <p style="font-size:24px; color:green; font-weight:bold;">您的系统为最新版本,无需升级.</p>
+          </if></td>
+      </tr>
+    </table>
+    <else />
+    <div class="result" style="margin:8px auto; width:96%; text-align:left; ">提示:系统无法获取您的蓝锂授权码! 可能的原因: <br>
+      1.您首次使用蓝锂产品. <br>
+      2.您删除了蓝锂系统目录下的Runtime目录中的某些文件(该目录中为系统缓存文件,可以大大提升系统性能,正常运行时请勿删除).
+      <p style="color:blue;letter-spacing:1px;"> 请在下面输入您的授权码信息,以便您能正常使用蓝锂网络提供的产品.感谢您对蓝锂网络的支持. </p>
+    </div>
+    <table cellspacing='1' cellpadding='3' class="tablewidth" align="center">
+      <tr>
+        <td colspan="2"></td>
+      </tr>
+      <tr>
+        <td width="18%" class="f14">蓝锂网络会员名：</td>
+        <td><input type="text" name="username" id="username" value="{$username}" style="line-height:18px; height:18px; font-size:14px; color:blue; font-weight:bold; width:200px;"></td>
+      </tr>
+      <tr>
+        <td class="f14">蓝锂授权码：</td>
+        <td><textarea name="authcode" id="authcode" rows="2" style="line-height:240%; font-size:16px; color:blue; font-weight:bold;">{$authcode}</textarea></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="button" name="Submit" value="提交授权认证" onClick="LaneLeadVerify()" style=" height:26px;padding:5px; font-size:14px; font-weight:bold;">
+          <span class="blank2">( 提示：使用蓝锂产品必须先免费注册为蓝锂会员.  &nbsp; <a href="http://bbs.lanelead.com/member.php?mod=register" target="_blank">点击免费注册</a> ) </span></td>
+      </tr>
+    </table>
+  </if>
+</form>
+<table width="100%" border="0"  cellpadding="3" cellspacing="1" class="tablewidth" align="center">
+  <tr class="head">
+    <td><div align="left">注意事项:</div></td>
+  </tr>
+  <tr>
+    <td><p> 1、初次使用或者更新了授权(升级授权或更换域名等),需要重新提交认证,您可以根据提示输入email接收的授权码.</p>
+      <p> 2、<font color="#FF0000">正常使用期间,请勿修改核心文件,否则会导致程序无法运行。</font></p>
+      <p> 3、无论免费版还是VIP商业版,均可免费使用在线更新功能,<font color="#FF0000"> 前提是您是通过蓝锂官方获取的正版授权码</font>.如果您还没有授权码, <a href="http://www.lanelead.com/list.php?fid=8" target="_blank" style="color:blue; font-size:14px; font-weight:bold;">点击获取</a>. </p></td>
+  </tr>
+</table>
+<include file="Index:footer" /> 

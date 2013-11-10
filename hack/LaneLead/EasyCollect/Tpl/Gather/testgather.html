@@ -1,0 +1,95 @@
+<script language="javascript">	
+$(document).ready(function() {
+	var maxwidth = 200;
+	var maxheight = 150;
+	$('#testgather img').each(function(i,obj){
+	  if($(obj).width()==0) {
+		  //$(obj).width(maxwidth);
+		  //$(obj).height(maxheight);	
+	  }else{
+		  if($(obj).width()>maxwidth)   $(obj).width(maxwidth);
+		  if($(obj).height()>maxheight) $(obj).height(maxheight);	
+	  }
+	});
+});
+function testgatherRun(){
+	ThinkAjax.send('__URL__/testgather','ajax=1',testgatherComplete);
+}
+function testgatherComplete(data,status){
+	if (status==1)
+	{
+		window.location.href='__URL__/index/testgather/1';
+	}
+}
+
+</script>
+
+<div id="testgather" style="position:absolute;left:0;top:0; background:#FFFFFF; width:99%;height:360px;z-index:600;">
+  <table class="tablewidth" style="border:1px dashed silver;" cellspacing='1' cellpadding='3' align="center">
+    <tr>
+      <td width="160" style="font-size:13px; font-weight:bold; text-align:center; line-height:180%">获取文章列表
+        <if condition="$curlNum"> <font color="green">{$curlNum}</font> 篇
+          <else />
+          <font color="red">0</font> 篇 </if>
+        <br>
+        右侧显示部分文章URL </td>
+      <td><if condition="count($curlList) eq 0">
+          <div style="text-align:left; color:red; font-size:14px; line-height:150%; padding:0 10px;">未能获取文章列表,可能的原因:<br>
+            1、列表页规则错误<br>
+            2、已经采集了这些文章,url库自动过滤. </div>
+          <else />
+          <volist id="vo" name="curlList" offset="0" length='3'>
+            <div style="padding-top:2px">{$i}. <a href="{$vo}" target="_blank">{$titleList[$i-1]}</a></div>
+          </volist>
+        </if>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="border-bottom:#0066FF 1px dashed;"></td>
+    </tr>
+    <tr>
+      <td  style="font-size:13px; font-weight:bold; text-align:center; line-height:180%"> 当前采集第 {$curlKey} 篇文章 <br>
+        正文字段共 {$gstatus['fieldNum']} 个<br>
+        成功 <font color="green">{$gstatus['fieldSNum']}</font> 个,失败 <font color="red">{$gstatus['fieldFNum']}</font> 个.
+        <p> <a href="{$curCurl}" target="_blank">点击查看原文</a>
+        <p></td>
+      <td><table width="100%" border="0" cellpadding="3" cellspacing="1">
+          <tr class="head5">
+            <td width="60"><div align="center">字段名</div></td>
+            <td><div align="center">字段内容</div></td>
+            <td width="30"><div align="center">状态</div></td>
+          </tr>
+          <if condition="empty($gcDB)">
+            <tr class="head5">
+              <td height="160" colspan="3" style="font-size:13px; font-weight:bold; color:red;line-height:240%">未能获取任何内容,可能的原因：<br />
+                1、未添加内容规则,或者内容规则错误. <br />
+                2、目标站做了限制,蓝锂采集引擎未能正常获取远程内容.如果是这种情况,请到蓝锂官方论坛反馈: <a href="http://bbs.lanelead.com/forum.php?mod=forumdisplay&fid=39" target="_blank"> Bug反馈 </a> 
+				<p style='color:blue;'>提示：具体原因您可以在采集日志中查看.</p>
+				</td>
+            </tr>
+            <else />
+            <volist id="vo" name="gcDB">
+              <tr class="head5">
+                <td><div align="center">{$key}</div></td>
+                <td><if condition="is_array($vo)"> 文件获取成功,第一个文件: {$vo[0]}
+                    <else />
+                    {$vo|default='<font color="red">未能正确获取,该字段规则错误.</font>该字段非必需,不影响正常采集.'} </if>
+                </td>
+                <td><if condition="$vo">
+                    <div align="center"><font color="green">成功</font>
+                      <else />
+                      <font color="red">失败</font> </div>
+                  </if>
+                </td>
+              </tr>
+            </volist>
+          </if>
+        </table></td>
+    </tr>
+    <tr class="head6">
+      <td colspan="2"  height="24"><div align="center">
+          <input type="button" name="Submit_Next" style="padding:3px;" value="点击测试采集下一篇文章" onClick="testgatherRun()">
+          <span class="blank2">【该页面将在30s内自动关闭】</span> </div></td>
+    </tr>
+  </table>
+</div>

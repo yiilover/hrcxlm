@@ -1,0 +1,214 @@
+<include file="header" />
+<table width='100%' cellspacing='1' cellpadding='3' class="tablewidth" align="center">
+  <tr class="head">
+    <td  width="200">功能名称</td>
+    <td width="75">间隔运行时间</td>
+    <td>每天运行时间</td>
+    <td width="120">最后运行时间</td>
+    <td width="160">操 作</td>
+    <td width="60">运行状态</td>
+  </tr>
+  <volist id="vo" name="list">
+    <tr  id="tasklist_tr_{$vo.at_id}" class="trA" onMouseOver="this.className='trB'" onMouseOut="this.className='trA'">
+      <td>{$vo.at_name}</td>
+      <td><if condition="$vo.at_type eq 1"> {$vo.at_minutetime} 分钟
+          <else />
+          未启用该模式 </if>
+      </td>
+      <td><if condition="$vo.at_type eq 2">
+          <php>
+		  unset($show_at_daytime);
+		  for($i = 0;$i < 24;$i++) {
+            $t = 'h' . $i;
+            if(isset($vo[$t])) $show_at_daytime .= $vo[$t] .'点 ';
+            } </php>
+          {$show_at_daytime}
+          <else />
+          未启用该模式 </if>
+      </td>
+      <td>{$vo.at_lasttime|toDate='Y-m-d H:i:s'}</td>
+      <td><p>【
+          <if condition="$vo.ifclose eq 1"> <a href="javascript:;" onClick="OpenTask({$vo.at_id})">开启</a>
+            <else />
+            <a href="javascript:;" onClick="ColseTask({$vo.at_id})">关闭</a> </if>
+          】【<a href="__URL__/autotask/edit/1/at_id/{$vo.at_id}">修改</a> 】【<a href="javascript:;" onClick="DeleteTask({$vo.at_id})">删除</a>】</p>
+        <p> 【<a href="__APP__/Autotask/dotask/at_id/{$vo.at_id}" target="dohtml" onClick="this.outerHTML='已执行'" title="立即执行该任务">立即执行</a>】</p></td>
+      <td><if condition="$vo.ifclose eq 1"> <font color="red">已关闭</font>
+          <else />
+          <font color="green">已开启</font> </if>
+      </td>
+    </tr>
+  </volist>
+</table>
+<php> extract($taskdata);
+  $at_type ||  $at_type =2;
+  $check_array = array('at_type','if_random_minute');
+  foreach($check_array AS $k => $v) {
+  if(!$$v) $$v = 0;
+  $t = $v . '_db';
+  $$t = array($$v => ' checked ');
+  } 
+  unset($at_daytime_db);
+  for($i = 0;$i < 24;$i++) {
+  $t = 'h' . $i;
+  if(isset($$t)) $at_daytime_db[$$t] = ' checked ';
+  } </php>
+<form name="autotaskForm" id="autotaskForm" method="post" action="__URL__/autotask/save/1" style="margin:0; padding:0;">
+  <table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth" align="center">
+    <tr class="head5">
+      <td colspan="2" height="28" style="line-height:180%; color:#0000CC; font-weight:bold;"> <span class='left'> {$action|default='添加'} 定时采集任务 </span>  <span style='padding-left:30px;'>【 <a href="__URL__/autotask">定时任务列表</a> 】 【 <a href="__URL__/autotask">添加定时任务</a> 】</span> </td>
+    </tr>
+    <tr>
+      <td width="120">功能名称:</td>
+      <td><input type="text" name="at_name" size="80" value="{$at_name}">
+      </td>
+    </tr>
+    <tr>
+      <td width="120">定时执行模式:</td>
+      <td><input name="at_type" type="radio" value="1" {$at_type_db[1]} onclick="show_radio(this.name)" />
+        间隔时间
+        <input name="at_type" type="radio" value="2"  {$at_type_db[2]} onclick="show_radio(this.name)" />
+        每天定时 </td>
+    </tr>
+    <tr class="at_type1">
+      <td>间隔执行时间</td>
+      <td><input type="text" name="at_minutetime" id="at_minutetime" size="5" value="{$at_minutetime}" onkeydown="onlyNum();" style="ime-mode:Disabled">
+        分钟</td>
+    </tr>
+    <tr class="at_type2">
+      <td>每天执行时间</td>
+      <td><table width="100%" border="0" cellspacing="5" cellpadding="0">
+          <tr>
+            <td><input name="h0" type="checkbox" value="0" {$at_daytime_db[0]}>
+              0点</td>
+            <td><input name="h1" type="checkbox" value="1" {$at_daytime_db[1]}>
+              1点</td>
+            <td><input name="h2" type="checkbox" value="2" {$at_daytime_db[2]}>
+              2点</td>
+            <td><input name="h3" type="checkbox" value="3" {$at_daytime_db[3]}>
+              3点 </td>
+            <td><input name="h4" type="checkbox" value="4" {$at_daytime_db[4]}>
+              4点 </td>
+            <td><input name="h5" type="checkbox" value="5" {$at_daytime_db[5]}>
+              5点 </td>
+            <td><input name="h6" type="checkbox" value="6" {$at_daytime_db[6]}>
+              6点 </td>
+            <td><input name="h7" type="checkbox" value="7" {$at_daytime_db[7]}>
+              7点 </td>
+            <td><input name="h8" type="checkbox" value="8" {$at_daytime_db[8]}>
+              8点 </td>
+            <td><input name="h9" type="checkbox" value="9" {$at_daytime_db[9]}>
+              9点 </td>
+            <td><input name="h10" type="checkbox" value="10" {$at_daytime_db[10]}>
+              10点</td>
+            <td><input name="h11" type="checkbox" value="11" {$at_daytime_db[11]}>
+              11点 </td>
+          </tr>
+          <tr>
+            <td><input name="h12" type="checkbox" value="12" {$at_daytime_db[12]}>
+              12点 </td>
+            <td><input name="h13" type="checkbox" value="13" {$at_daytime_db[13]}>
+              13点 </td>
+            <td><input name="h14" type="checkbox" value="14" {$at_daytime_db[14]}>
+              14点 </td>
+            <td><input name="h15" type="checkbox" value="15" {$at_daytime_db[15]}>
+              15点</td>
+            <td><input name="h16" type="checkbox" value="16" {$at_daytime_db[16]}>
+              16点</td>
+            <td><input name="h17" type="checkbox" value="17" {$at_daytime_db[17]}>
+              17点</td>
+            <td><input name="h18" type="checkbox" value="18" {$at_daytime_db[18]}>
+              18点</td>
+            <td><input name="h19" type="checkbox" value="19" {$at_daytime_db[19]}>
+              19点 </td>
+            <td><input name="h20" type="checkbox" value="20" {$at_daytime_db[20]}>
+              20点</td>
+            <td><input name="h21" type="checkbox" value="21" {$at_daytime_db[21]}>
+              21点 </td>
+            <td><input name="h22" type="checkbox" value="22" {$at_daytime_db[22]}>
+              22点 </td>
+            <td><input name="h23" type="checkbox" value="23" {$at_daytime_db[23]}>
+              23点</td>
+          </tr>
+          <tr>
+            <td colspan="12">是否启用随机分钟数:
+              <input type="radio" name="if_random_minute" value="0"  {$if_random_minute_db[0]}>
+              否
+              <input type="radio" name="if_random_minute" value="1"  {$if_random_minute_db[1]}>
+              是  （<font color="red">举例:设置采集时间为12点,则实际采集执行时间为12点至13点的任意时刻,如12:28分.这样可以使采集更"真实化",对蜘蛛爬行、搜索引擎收录有利.</font>）</td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr>
+      <td>运行地址:</td>
+      <td><input type="text" name="at_taskurl"  style=" line-height:24px; height:24px; font-size:14px; color:blue; font-weight:bold; width:80%;" value="{$at_taskurl}">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="hidden" name="ajax" value="1">
+        <input type="hidden" name="at_id" value="{$at_id}">
+        <input type="button" name="Submit_add" value="确定{$action|default='添加'}" onClick="EditTask()">
+        <span class="blank2" style="font-weight:normal; color:blue;">【提示:定时任务会严格按照您设定的定时执行模式和时间执行!】</span></td>
+    </tr>
+  </table>
+</form>
+<table cellpadding="3" cellspacing="1" class="tablewidth" align="center">
+  <tr class="head">
+    <td><div align="left" style="font-weight:bold;">注 意:</div></td>
+  </tr>
+  <tr>
+    <td><p style="color:green; font-weight:bold;">1、该定时任务系统采用特殊的触发机制，不需要特定的函数支持，能够运行在绝大多数服务器和虚拟主机上，占用资源很小，属于蓝锂网络独创技术。</p>
+      <p> 2、设置好定时采集任务后，设定的任务将一直运行，您可以手动进行关闭。</p>
+      <p> 3、当服务器重启后，定时任务将终止。您需要登录蓝锂采集系统才能重新触发程序运行。 </p>
+	  
+	  <p>4、定时采集时间间隔不能太短。最短时间间隔计算公式:预计采集数量/线程数*3/60 (分钟,其中 6 代表每篇文章耗时秒数),比如计划采集数量 1000 篇,线程并发 10 ,则建议间隔时间: 1000/10*6/60=10 分钟(最短为10分钟，平均 0.6s/篇 ). </p></td>
+  </tr>
+</table>
+<script language="javascript">
+ <!--
+ 	function OpenTask(at_id){
+		ThinkAjax.send('__URL__/savetask/OpenTask/1/at_id/'+at_id,'ajax=1',autotaskComplete,'result');
+	}
+ 	function ColseTask(at_id){
+		ThinkAjax.send('__URL__/savetask/ColseTask/1/at_id/'+at_id,'ajax=1',autotaskComplete,'result');
+	}
+ 	function DeleteTask(at_id){
+		ThinkAjax.send('__URL__/savetask/DeleteTask/1/at_id/'+at_id,'ajax=1',autotaskComplete,'result');
+	}
+ 	function EditTask(){
+		if($("[name='at_type']:checked").val()==1){
+			if(!$('#at_minutetime').val()) {
+				$('#at_minutetime').focus();  
+				contnet='<span class="errorTip">请输入间隔执行时间!</span>';			
+				showfloatTips(contnet);
+				return false;
+			}			
+		}else if($("[name='at_type']:checked").val()==2){
+			var mycheck=0;
+			$('input[type="checkbox"]').each(function(){
+					if(this.checked==true){
+						mycheck=1;
+						return false;
+					}
+			});
+			if(mycheck==0) {
+				contnet='<span class="errorTip">请选择每天执行时间!</span>';			
+				showfloatTips(contnet);
+				return false;
+			}	
+		}
+	
+		ThinkAjax.sendForm('autotaskForm','__URL__/savetask/EditTask/1',autotaskComplete,'result');
+	}
+	function autotaskComplete(data,status){
+		if (status==1)
+		{
+			window.setTimeout(function (){window.location.href='__SELF__'},1000);
+		}
+	}	
+
+ show_radio('at_type');
+ //-->
+</script>
+<include file="footer" />

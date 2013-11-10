@@ -1,0 +1,132 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/yellow/showroom_zh_list.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="showroom_topad">
+  <tr> 
+    <td><img src="$webdb[www_url]/images/yellow/showroom_topad.jpg"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="showroom_showzh">
+  <tr> 
+    <td width="25%" class="side" height="204" valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="drag">
+        <tr> 
+          <td class="head"> 
+            <div class="LL"></div>
+            <div class="TAG">按地区查找</div>
+            <div class="RR"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="50" class="CC list_t" style="padding:5px;"> 
+            
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="city_hr">
+              <!--
+EOT;
+$newarray = array_flip($cityDB[name]);
+while(count($newarray)%4!=0)$newarray[]='';
+$array = array_chunk($newarray,4);
+foreach($array AS $key=>$ar){
+print <<<EOT
+-->
+              <tr> 
+                <!--
+EOT;
+foreach($ar AS $value){
+$name=$cityDB[name][$value]?$cityDB[name][$value]:'&nbsp;';
+$color=$value==$cityid?'red':'';
+print <<<EOT
+-->
+                <td width="25%"><a href="?cityid=$value" style="color:$color;">$name</a></td>
+                <!--
+EOT;
+}print <<<EOT
+-->
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+-->
+            </table>
+                    </td>
+        </tr>
+        <tr> 
+          <td  class="head2">热门展会</td>
+        </tr>
+        <tr> 
+          <td height="50" class="CC list_c" style="padding:12px;line-height:18px;"> 
+            <!--
+EOT;
+$array=list_zh('hot',8);
+foreach($array AS $rs){print <<<EOT
+-->
+            <a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a><br>
+            <!--
+EOT;
+}print <<<EOT
+-->
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td width="75%" class="main" height="204" valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="drag">
+        <tr> 
+          <td class="head"> 
+            <div class="LL"></div>
+            <div class="TAG">展览馆列表</div>
+            <div class="RR"></div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="250" class="CC" valign="top"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" id="list_zh">
+              <tr class="hh"> 
+                <td>展览馆名称</td>
+<!--{template}--> 
+<td>{title}</td>         
+<!--{/template}-->
+                <td width="25%" align="center">发布者</td>
+                <td width="14%" align="center">地区</td>
+                <td width="9%" align="center">关注度</td>
+              </tr>
+              <!--
+EOT;
+$i=0;
+foreach($listdb AS $key=>$rs){
+$i++;
+$class=($i%2==1)?'aa':'bb';
+print <<<EOT
+-->
+              <tr class="lt $class"> 
+                <td class="t1"><a href="showroom.php?id=$rs[id]" target="_blank"><b>$rs[title]</b></a></td>
+				
+<!--{template}--> 
+<td>{value}</td>         
+<!--{/template}-->
+                <td align="center"><a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank">$rs[username]</a></td>
+                <td align="center">{$cityDB['name'][$rs[city_id]]}</td>
+                <td align="center">$rs[hits]</td>
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+-->
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" id="page">
+              <tr> 
+                <td align="center">$showpage</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,12 @@
+#theme1{
+	background:url(theme.gif) left -10px no-repeat;
+}
+.Logo_Ad_Info .logo span{
+	display:block;
+	width:165px;
+	height:50px;
+	background:url(logo1.gif) no-repeat;
+}
+.Logo_Ad_Info .logo span em{
+	display:none;
+}

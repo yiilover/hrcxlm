@@ -1,0 +1,297 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/fresh/main/main.css">
+<!--大屏广告开始,$label[bunenqushao]这个标签虽然不显示,但不能缺少的-->
+<div style="display:none;">$label[bunenqushao]</div>
+<!--
+EOT;
+if($webdb[Main_openAd]){
+$showad_height = $jobs=="show" ? "":"style=\"display:none;margin-bottom:10px;\"";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/openad/openad.css">
+<div class="TopBanner">
+	<div class="OpenAd"><img src="$webdb[www_url]/images/openad/open.gif"/></div>
+    <div class="ColseAd"><img src="$webdb[www_url]/images/openad/colse.gif"/></div>
+	<div id="ShowMainAd" $showad_height>{$label[main_openad]}</div>
+</div>
+<!--
+EOT;
+if($jobs!="show"){
+print <<<EOT
+-->
+<script type="text/javascript" src="$webdb[www_url]/images/openad/time.js"></script>
+<script type="text/javascript" src="$webdb[www_url]/images/openad/openad.js"></script>
+<!--
+EOT;
+}}
+print <<<EOT
+-->
+<!--大屏广告结束-->
+<div class="Container1">
+	<div class="SideL">
+    	<div class="ShowSlides">
+		{$label[fresh_indexslide]}
+		<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/fresh/main/slide.js"></SCRIPT>
+        </div>
+    </div>
+    <div class="SideC">
+    	<div class="HotCenter">
+        	<div class="heada">
+            	<div class="tag">{$label[fresh_indexh1]}</div>
+                <div class="more">{$label[fresh_indexm1]}</div>
+            </div>
+            <div class="conta">
+            	{$label[fresh_indext1]}
+            </div>
+            <div class="headb"><div class="tag">{$label[fresh_indexh2]}</div></div>
+            <div class="contb">
+            	{$label[fresh_indext2]}
+            </div>
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="UserAction">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span id="userAction">$Load_Msg</span>');
+document.write('<div style="display:none;"><iframe src="$webdb[www_url]/do/hack.php?hack=login&styletype=fresh1&iframeID=userAction" width=0 height=0></iframe></div>');
+//-->
+</SCRIPT>
+        </div>
+        <div class="FenlieSort">
+        	<div class="head"><div class="tag">{$label[fresh_indexh3]}</div></div>
+            <div class="cont">
+<!--
+EOT;
+require_once(ROOT_PATH."/f/data/all_fid.php");//分类栏目的名称
+$i=0;
+foreach($Fid_db[0] AS $key=>$rs){
+$i++;
+if($i>3)break;
+print <<<EOT
+-->
+			<dl>
+				<dt><a href="f/list.php?fid=$key" target="_blank">$rs</a></dt>
+                <dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $keys=>$rss){
+print <<<EOT
+-->
+					<a href="f/list.php?fid=$keys" target="_blank">$rss</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                </dd>
+            </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				<div class="other"><a href="f/">查看其它分类信息&gt;&gt;</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Container2">
+	<div class="SideL">
+    	<div class="SideCont">
+        	<div class="head"><div class="tag tag1">{$label[fresh_indexh4]}</div><div class="more">{$label[fresh_indexm4]}</div></div>
+            <div class="cont">
+            	<div class="newimg">{$label[fresh_indext3]}</div>
+                <div class="newiword">{$label[fresh_indext4]}</div>
+            </div>
+        </div>
+    </div>
+    <div class="SideC">
+    	<div class="SideCont">
+        	<div class="head"><div class="tag tag2">{$label[fresh_indexh5]}</div><div class="more more2">{$label[fresh_indexm5]}</div></div>
+            <div class="cont">
+            	{$label[fresh_indext5]}
+            </div>
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="HotFenlie">
+        	<div class="head"><div class="tag">{$label[fresh_indexh6]}</div></div>
+            <div class="cont">
+            	{$label[fresh_indext6]}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Container3">
+	<div class="SideL">
+    	<div class="SideCont">
+        	<div class="head"><div class="tag tag3">{$label[fresh_indexh7]}</div><div class="more">{$label[fresh_indexm7]}</div></div>
+            <div class="cont">
+            	{$label[fresh_indext7]}
+            </div>
+        </div>
+    </div>
+    <div class="SideC">
+    	<div class="SideCont">
+        	<div class="head"><div class="tag tag2">{$label[fresh_indexh8]}</div><div class="more">{$label[fresh_indexm8]}</div></div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td class="cont">
+                	{$label[fresh_indext8]}
+                </td>
+              </tr>
+            </table>
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="SideCont">
+        	<div class="head"><div class="tag tag2">{$label[fresh_indexh9]}</div>
+        	<div class="more">{$label[fresh_indexm9]}</div>
+        	</div>
+            <dl class="conta">
+            	<dt>{$label[fresh_indext9]}</dt>
+                <dd>{$label[fresh_indext10]}</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div class="MiddleAdCont">
+	<div class="head"><div class="tag">{$label[fresh_indexh10]}</div></div>
+    <div class="cont">
+    	<div class="list">{$label[fresh_indexad1]}</div>
+        <div class="list">{$label[fresh_indexad2]}</div>
+        <div class="list">{$label[fresh_indexad3]}</div>
+        <div class="list">{$label[fresh_indexad4]}</div>
+        <div class="list">{$label[fresh_indexad5]}</div>
+    </div>
+</div>
+<div class="Container4">
+	<div class="SideL">
+    	<div class="SideCont">
+        	<div class="head"><div class="tag tag4">{$label[fresh_indexh11]}</div><div class="more more2">{$label[fresh_indexm11]}</div></div>
+            <dl class="contb">
+            	<dt>{$label[fresh_indext11]}</dt>
+                <dd>{$label[fresh_indext12]}</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="SideC">
+    	<div class="SideCont">
+        	<div class="head"><div class="tag tag2">{$label[fresh_indexh12]}</div><div class="more more2">{$label[fresh_indexm12]}</div></div>
+            <div class="cont">
+                {$label[fresh_indext13]}
+            </div>
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="SideCont">
+        	<div class="head"><div class="tag tag2">{$label[fresh_indexh13]}</div>
+        	<div class="more">{$label[fresh_indexm13]}</div>
+        	</div>
+            <div class="cont">
+                {$label[fresh_indext14]}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="MiddleBanner">{$label[fresh_indexad6]}</div>
+<div class="MainCoupon">
+	<div class="head"><div class="tag">{$label[fresh_indexh14]}</div></div>
+    <div class="cont">{$label[fresh_indext15]}</div>
+</div>
+<div class="Container5">
+	<div class="SideL">
+    	<div class="SideCont">
+        	<div class="head"><div class="tag tag3">{$label[fresh_indexh15]}</div></div>
+            <div class="cont contimg">
+            	{$label[fresh_indext16]}
+            </div>
+        </div>
+    </div>
+    <div class="SideC">
+    	<div class="SideCont">
+        	<div class="head heads">
+            	<div onmouseover="ShowTab(1,1,3)" id="Span1">{$label[fresh_indexh16]}</div>
+                <div onmouseover="ShowTab(2,1,3)" id="Span2">{$label[fresh_indexh17]}</div>
+            </div>
+            <div class="cont" id="Tab1">
+            	{$label[fresh_indext17]}
+            </div>
+            <div class="cont" id="Tab2">
+            	{$label[fresh_indext18]}
+            </div>
+        </div>
+<SCRIPT LANGUAGE="JavaScript">ShowTab(1,1,3);</SCRIPT>
+    </div>
+    <div class="SideR">
+    	<div class="Hrcont3">
+            <div class="word">{$label[fresh_indext19]}</div>
+            <div class="img">{$label[fresh_indext20]}</div>   
+        </div>
+        <div class="Hrcont4">
+            {$label[light_blue_maint29]}
+        </div>
+        <div class="Hrcont5">
+            {$label[light_blue_maint30]}
+        </div>
+    </div>
+</div>
+<div class="MainCotact">
+	<div class="head"><div class="tag">{$label[fresh_indexh18]}</div></div>
+    <div class="cont">
+    	{$label[light_blue_maint31]}
+    </div>
+</div>
+<div class="FrendLink">
+	<div class="head">
+    	{$label[light_blue_flinkh]}    	    
+   </div>
+   <div class="cont">
+    	<div class="piclink">
+<!--
+EOT;
+if($friendlinkDB[1]&&$friendlink_DB[$city_id][1]){
+$array = $friendlinkDB[1]+$friendlink_DB[$city_id][1];
+}elseif($friendlinkDB[1]){
+$array = $friendlinkDB[1];
+}else{
+$array = $friendlink_DB[$city_id][1];
+}
+foreach($array AS $rs){print <<<EOT
+-->
+		
+        	<a href="$rs[url]" title="$rs[name] $rs[descrip]" target="_blank"><img src="$rs[logo]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'" width="88" height="31"/></a>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div>
+        <div class="wordlink">
+<!--
+EOT;
+if($friendlinkDB[0]&&$friendlink_DB[$city_id][0]){
+$array = $friendlinkDB[0]+$friendlink_DB[$city_id][0];
+}elseif($friendlinkDB[0]){
+$array = $friendlinkDB[0];
+}else{
+$array = $friendlink_DB[$city_id][0];
+}
+foreach($array AS $rs){print <<<EOT
+-->
+		
+        	<a href="$rs[url]" title="$rs[descrip]" target="_blank">$rs[name]</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div>       
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

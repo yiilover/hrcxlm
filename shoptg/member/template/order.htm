@@ -1,0 +1,63 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head"><div class="tag">订单管理</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="8%">订单号</th>
+            <th width="33%">名称</th>
+            <th width="8%">总额</th>
+            <th width="15%">订购时间</th>
+            <th width="8%">付款</th>
+            <th width="8%">消费</th>
+            <th width="10%">消费密码</th>
+            <th width="10%">功能操作</th> 
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$title0=$rs[shop][title];
+$title=get_word($title0,40);
+print <<<EOT
+-->
+          <tr>
+            <td>$rs[id]</td>
+            <td class="tL">
+                <a href="../bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[cid]&city_id={$rs[shop][city_id]}" title="$title0" target="_blank">{$title}</a>
+            </td>
+            <td>$rs[totalmoney]</td>
+            <td>$rs[posttime]</td>
+            <td>$rs[pay]</td>
+            <td>$rs[send]</td>
+            <td>$rs[password]</td>
+            <td>
+            	<a href="javascript:" click=1 editcode="<a href='joinshow.php?fid=$rs[fid]&id=$rs[id]'>查看</a><br/><a href='$rs[editurl]'>修改</a><br/><span style='display:$rs[nodel];'><a href='?action=del&id=$rs[id]&fid=$rs[fid]&cid=$rs[cid]'>删除</a></span>">功能操作</a>
+            </td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div>
+<div class="MainCont mtop10">
+	<div class="head"><div class="tag">相关说明</div></div>
+    <div class="cont">
+    	<ul class="aboutnote">
+        	<li>1.如果你支付成功后,请不要删除订单,否则管理员查不到你的信息,会认为你没付款!</li>
+            <li>2.如果你要上门取货或者是去实体店消费的话,请牢记你的消费密码.商家会凭消费密码核实你是否已付款,请不要泄露你的消费密码.</li>
+            <li>3.如果你还没付款的话,你可以点击在线付款.</li>
+        </ul>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

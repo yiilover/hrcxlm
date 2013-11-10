@@ -1,0 +1,81 @@
+#comment{
+	padding:5px;
+}
+#comment .ListComment{
+	border-bottom:#DDD dotted 1px;
+}
+#comment .ListComment .img{
+	width:5%;
+	padding:5px;
+}
+#comment .ListComment .img div{
+	width:60px;
+	border:#DDD solid 1px;
+	padding:1px;
+	margin:auto;
+}
+#comment .ListComment .img div a{
+	display:block;
+	width:60px;
+	height:60px;
+	overflow:hidden;
+}
+#comment .ListComment .commentcont{
+	padding:5px 0 0 5px;
+}
+#comment .ListComment .commentcont .Showcont div{
+	border:#DDD solid 1px;
+	padding:2px;
+	background:#FFF;
+	line-height:20px;	
+	TABLE-LAYOUT: fixed;
+	WORD-WRAP: break-word;
+}
+#comment .ListComment .commentcont .Showcont div h3{
+	color:#369;
+	font-weight:normal;
+	font-size:12px;
+}
+#comment .ListComment .commentcont .act{
+	padding:8px 5px 5px 0;
+	text-align:right;
+	color:#888;
+}
+#comment .ListComment .commentcont .warp_comment{
+	width:400px;
+	background:#FFF;
+	border:#DDD solid 1px;
+	float:right;
+	margin-bottom:5px;
+}
+#comment .ListComment .commentcont .warp_comment .tdL{
+	width:60px;
+	text-align:right;
+	line-height:25px;
+}
+#comment .ListComment .commentcont .warp_comment .tdR{
+	padding-top:3px;
+}
+#comment .ListComment .commentcont .warp_comment .tdR span{
+	float:left;
+	padding-right:3px;
+}
+#comment .ListComment .commentcont .warp_comment .tdR textarea{
+	width:300px;
+	height:80px;
+}
+#comment .ShowCommentPage{
+	text-align:center;
+	padding:15px 0 10px 0;	
+}
+#comment .ShowCommentPage a{
+	border:#DDD solid 1px;
+	padding:3px 5px 2px 5px;
+	color:#888;
+}
+#comment .no_Comment{
+	text-align:center;
+	padding:10px 0 10px 0;
+	font-size:16px;
+	color:#FF0000;
+}

@@ -1,0 +1,104 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/blue/zhaoshang/bencandy.css">
+<div class="MainContainer">
+	<div class="MainL">
+    	<div class="showcont">
+        	<div class="head"><span class="tag">$fidDB[name]</span></div>
+            <div class="cont">
+				<div class="title">$rsdb[title]</div>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="basetable">
+                  <tr>
+                    <td class="word">
+                    	<dl class="begin">
+                        	<dt>提交日期：</dt>
+                            <dd>$rsdb[posttime]</dd>
+                        </dl>
+                        <dl>
+                        	<dt>浏览次数：</dt>
+                            <dd>$rsdb[hits] 次</dd>
+                        </dl>
+                        <dl>
+                        	<dt>发布者IP：</dt>
+                            <dd>$rsdb[ip]</dd>
+                        </dl>                        
+                        <!--
+EOT;
+if($rsdb['zs_type']){print <<<EOT
+-->
+                        <dl>
+                        	<dt>合作方式：</dt>
+                            <dd>{$rsdb[zs_type]} </dd>
+                        </dl>
+						<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['price']){print <<<EOT
+-->
+                        <dl>
+                        	<dt>资金需求：</dt>
+                            <dd>{$rsdb[price]} </dd>
+                        </dl>
+						<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['end_time']){print <<<EOT
+-->
+                        <dl>
+                        	<dt>截止日期：</dt>
+                            <dd>{$rsdb[end_time]} </dd>
+                        </dl>
+						<!--
+EOT;
+}print <<<EOT
+--><!---->
+                    </td>
+                    <td class="img"><div><img src="$rsdb[picurl]" width="160"></div></td>
+                  </tr>
+                </table>
+				<div class="h">项目内容</div>
+                <div class="c">$rsdb[content]</div>
+        	</div>
+        </div>
+    </div>
+    <div class="SideR">
+    	<div class="sortcont">
+        	<div class="head"><span class="tag">相关栏目</span></div>
+            <div class="cont">
+<!--
+EOT;
+$array=$Fid_db[$fid]?$Fid_db[$fid]:$Fid_db[$fidDB[fup]];
+foreach($array AS $fkey=>$fvalue){
+$color = $fid == $fkey? " style=\"color:red\"":'';
+print <<<EOT
+-->
+				<a href="list.php?fid=$fkey"$color>$fvalue</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+        <div class="zstopcont mt10">
+        	<div class="head"><span class="tag">招商项目排行版</span></div>
+            <div class="cont">{$label[zhaoshang_bencandyt1]}</div>
+        </div>
+        <div class="tzzscont mt10">
+        	<div class="head"><span class="tag">推荐招商</span></div>
+            <div class="cont">{$label[zhaoshang_bencandyt2]}</div>
+        </div>
+        <div class="siderad mt10">{$label[zhaoshang_bencandyrad1]}</div>
+        <div class="siderad mt10">{$label[zhaoshang_bencandyrad2]}</div>
+    </div>
+    <div class="ClearDiv"></div>
+</div>
+<!--
+EOT;
+?>
+-->

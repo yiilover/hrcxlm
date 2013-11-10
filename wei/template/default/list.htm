@@ -1,0 +1,106 @@
+<!--
+<?php
+$listmembers=$lfjid?"<a href='$webdb[www_url]/member/' target='_blank' class='ck'>管理</a> <a href='$webdb[www_url]/do/login.php?action=quit'>退出</a>":"<a href='$webdb[www_url]/do/reg.php'>注册</a> <a href='$webdb[www_url]/do/login.php' class='ck'>登录</a>";
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$Murl/images/main/main.css"><div class="Mwarp">
+<ul class="ShowWaterFall">
+	<li class="ListLi">
+    	$list_html1
+    </li>
+    <li class="ListLi">
+    	$list_html2
+    </li>
+    <li class="ListLi">
+    	$list_html3
+    </li>
+    <li class="ListLi">
+    	<div class="MemberCont" style="margin-bottom:10px;">
+        	<div class="head"><span class="tag">会员相关</span></div>
+            <div class="cont">
+				$listmembers
+            </div>
+        </div>
+		<div class="SideConts">
+        	<div class="head"><span class="tag">标签</span><span class="more"><a href="#">更多</a></span></div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td class="cont">
+ 
+<!--
+EOT;
+$listdb = list_hot_keyword($rows=20);
+foreach($listdb AS $rss){
+print <<<EOT
+-->
+                	<div><a style="$rss[style]" href="$webdb[www_url]/wei/tag.php?keyword=$rss[keywords]">$rss[keywords]</a></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                </td>
+              </tr>
+            </table>
+        </div>
+        <div class="SideConts">
+        	<div class="head"><span class="tag">分类</span><span class="more"><a href="#">更多</a></span></div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td class="cont">
+<!--
+EOT;
+$fidkey=$fidDB[type]?$fid:$fidDB[fup];
+foreach($Fid_db[$fidkey] AS $key=>$rs){
+print <<<EOT
+-->
+                	<div><a href="$webdb[www_url]/wei/list.php?fid=$key">$rs</a></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                </td>
+              </tr>
+            </table>
+        </div>
+        <div class="SideConts">
+        	<div class="head"><span class="tag">热门分享</span><span class="more"><a href="#">更多</a></span></div>
+            <div class="cont">
+<!--
+EOT;
+$array=Get_Info($type='hot',$webdb[InfoJsListRows]>0?$webdb[InfoJsListRows]:10,$webdb[InfoJsListLeng]>0?$webdb[InfoJsListLeng]:40,$fid,$mid=0,1);
+foreach($array AS $rs){print <<<EOT
+-->
+             
+            <div class="list"><a href="$webdb[www_url]/wei/bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" title="$rs[title]">$rs[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+    	$list_html4
+    </li>
+</ul>
+<div class="ClearBoth"></div>
+<div class="ShowLoading"><img src="$Murl/images/main/loading.gif"> 内容加载中……</div>
+<div class="ActionCont"><a href="javascript:;" title="返回顶部">返回顶部</a></div>
+<div class="ShowPage">$showpage</div>
+<div class="WebSeitUrl">$webdb[www_url]</div>
+<div class="NowPage">$page</div>
+<div class="LinkFiles">list.php</div>
+<div class="ShowFid">$fid</div>
+</div>
+<SCRIPT LANGUAGE="JavaScript" src="$Murl/images/main/waterfall.js"></SCRIPT>
+<!--
+EOT;
+?>
+-->
+<script type="text/javascript">
+$(".nav_guide").css({"margin":"10px auto 0 auto","width":"940px"});
+$(".ShowWaterFall .ListLi").each(function(){
+	var thishtml=$(this).html();
+	if(thishtml.indexOf('href')==-1) $(this).html("<br/>");
+});
+</script>

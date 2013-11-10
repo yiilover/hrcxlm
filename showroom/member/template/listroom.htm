@@ -1,0 +1,59 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable">
+  <tr> 
+    <td height="100"  class="Main"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable" >
+        <tr> 
+          <td class="head"><font color="#FF0000"><b>展览馆列表</b></font></td>
+        </tr>
+        <tr> 
+          <td class="middle"> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" class="linetable">
+              <tr align="center" class="head3"> 
+                <td class="top" width="48%">展览馆名称</td>
+                <td class="top" width="12%">所在城市</td>
+                <td class="top" width="12%">发布时间</td>
+                <td class="top" width="7%">审核与否</td>
+                <td class="top" width="7%">详情</td>
+                <td class="top" width="7%">修改</td>
+                <td class="top" width="7%">删除</td>
+              </tr>
+              <!--
+EOT;
+foreach($listdb AS $key=>$rs){print <<<EOT
+-->
+              <tr> 
+                <td class="middle" align="left">&nbsp;<a href="../showroom.php?id={$rs[id]}" target="_blank">{$rs[title]}</a></td>
+                <td class="middle" align="center">{$cityDB[name][$rs[city_id]]}</td>
+                <td class="middle" align="center">$rs[posttime]</td>
+                <td class="middle" align="center">$rs[yz]</td>
+                <td class="middle" align="center"><a href="../showroom.php?id={$rs[id]}" target="_blank">查看</a></td>
+                <td class="middle" align="center"><a href="postroom.php?job=edit&id=$rs[id]">修改</a></td>
+                <td class="middle" align="center"><a href="postroom.php?action=del&id=$rs[id]">删除</a></td>
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+-->
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td align="center" height="23">$showpage</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="foot"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

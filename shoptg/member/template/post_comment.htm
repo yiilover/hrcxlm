@@ -1,0 +1,58 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/shop.css">
+<script type="text/javascript">
+$(function(){
+	$(".fens a").click(function(){
+		clearclass($(this).parent());
+		var num=$(this).parent().children().index($(this))+1;
+		$(".fens input").val(num);
+		$(this).parent().addClass("show"+num);
+	});
+	$(".fens a").mouseover(function(){
+		clearclass($(".fens"));
+		var num=$(this).parent().children().index($(this))+1;
+		$(this).parent().addClass("show"+num);
+	});
+	$(".fens").mouseout(function(e){
+		clearclass($(this));
+		var num=$(this).children("input").val();
+		$(this).addClass("show"+num);
+	});	
+});
+function clearclass(objs){
+	for(var i=0;i<6;i++){
+		objs.removeClass("show"+i);
+	}
+}
+</script>
+<div class="MainCont">
+	<div class="head"><div class="tag">我发表的评论</div></div>
+    <div class="cont">
+    <form action="?id=$id&action=post" method="post">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable post_comment">
+          <tr>
+            <td class="tdL">产品打分：</td>
+            <td><div class="fens"><a title="1.0分"></a><a title="2.0分"></a><a title="3.0分"></a><a title="4.0分"></a><a title="5.0分"></a><input name="fens" type="hidden"/></div></td>
+          </tr>
+          <tr>
+            <td class="tdL">内容：</td>
+            <td class="tdR"><textarea name="content"></textarea></td>
+          </tr>
+          <tr>
+            <td class="tdL">&nbsp;</td>
+            <td class="tdbut">
+            	<input id="submitbut" type="submit" value="提交" />
+            	<input type="reset" class="resetbut" value="以后再评" onClick="history.back();" />
+            </td>
+          </tr>
+        </table>
+    </form>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

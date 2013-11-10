@@ -1,0 +1,372 @@
+<include file="header" />
+<php> $cconfig_array = array('thread_num', 'sleep_time', 'g_timeout', 'smallpic_width', 'smallpic_height', 'page_rows', 'feild_strip_tags','WaterWord','automakehtml','autoseol','ifauto_timingc');
+  foreach($cconfig_array AS $k => $v) {
+  $$v = C($v);
+  } 
+  
+  extract($rule_save);
+  extract($rule_seo);
+  $check_array = array('rs_ifgetfile', 'rs_postusermod','rs_autonamemod','rs_autopassmod', 'rs_autoip', 'rs_autohits', 'rs_ifyz', 'rs_ifautocopyfrom', 'rs_ifautocopyfromurl', 'rs_ifreverse', 'automakehtml','autoseol', 'rs_fiframe', 'rs_fobject', 'rs_fscript', 'rs_fembed', 'rs_fdisplaynone', 'rs_fa', 'rs_fimg','rs_ifautoauthor','ifauto_timingc');
+  foreach($check_array AS $k => $v) {
+  if(!$$v) $$v = 0;
+  $t = $v . '_db';
+  $$t = array($$v => ' checked ');
+  } 
+  $check_array = array('rseo_titlemod','rseo_kwmod','rseo_dcmod','rseo_autokwreplace','rseo_contentreplace','rseo_firstp','rseo_endp','rseo_middlep','rseo_autoseo');
+  foreach($check_array AS $k => $v) {
+  if(!$$v) $$v = 0;
+  $t = $v . '_db';
+  $$t = array($$v => ' checked ');
+  } 
+  $thread_num || $thread_num=3;
+  $sleep_time || $sleep_time=1;
+  $g_timeout ||  $g_timeout=3;
+  $smallpic_width || $smallpic_width=225;
+  $smallpic_height || $smallpic_height=300;
+  $page_rows || $page_rows=20;
+  $feild_strip_tags || $feild_strip_tags='title,url'; </php>
+<form id="CrurlForm" name="CrurlForm" method="post" action="__URL__/cconfig/save/1" style="margin:0; padding:0;">
+  <table cellspacing='1' cellpadding='3' class="tablewidth" align="center">
+    <tr class="head2" onClick="showHide('sysconfig');">
+      <td><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>系统参数配置 <font color="red">(配置前请看清说明,一般保持默认即可)</font></b></td>
+    </tr>
+    <tr id="sysconfig">
+      <td><table width="100%" border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="24%">并发线程数量: </td>
+            <td><input type="text" name="thread_num" value="{$thread_num}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              <span class="help"> (建议不要设置的太大,以免加重服务器负担,建议不超过10)</span> </td>
+          </tr>
+          <tr>
+            <td width="24%">采集每篇文章之间的间隔时间: </td>
+            <td><input type="text" name="sleep_time" value="{$sleep_time}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              秒 <span class="help"> (采集每篇文章之间有一定间隔,可以更好的保存系统稳定)</span> </td>
+          </tr>
+          <tr>
+            <td width="24%">远程文章内容获取超时设置: </td>
+            <td><input type="text" name="g_timeout" value="{$g_timeout}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              秒 <span class="help"> (可有效避免因远程链接失效而导致停止响应)</span> </td>
+          </tr>
+          <tr>
+            <td width="24%">列表页每页显示数量: </td>
+            <td><input type="text" name="page_rows" value="{$page_rows}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              条 <span class="help"> (不是很重要)</span> </td>
+          </tr>
+          <tr>
+            <td width="24%">自动生成缩略图宽度: </td>
+            <td><input type="text" name="smallpic_width" value="{$smallpic_width}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              像素 <span class="help"> (对含图片的文章,自动生成缩略图)</span> </td>
+          </tr>
+          <tr>
+            <td width="24%">自动生成缩略图高度: </td>
+            <td><input type="text" name="smallpic_height" value="{$smallpic_height}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              像素 <span class="help"> (对含图片的文章,自动生成缩略图)</span> </td>
+          </tr>
+          <tr>
+            <td width="24%">水印文字设置: </td>
+            <td><input type="text" name="WaterWord" value="{$WaterWord}" size="40">
+              <span class="help"> (采集回来的图片打上水印文字,如果留空,则不打水印)</span> </td>
+          </tr>
+          <tr>
+            <td width="24%">自动过滤html标签的字段:</td>
+            <td><input type="text" name="feild_strip_tags" value="{$feild_strip_tags}" size="40">
+              <span class="help">(英文逗号间隔,设置字段将只保留文本内容)</span> </td>
+          </tr>
+          <tr>
+            <td>是否启用自动生成SEO内链库: </td>
+            <td><input type="radio" name="autoseol" value="0" {$autoseol_db[0]}>
+              否
+              <input type="radio" name="autoseol" value="1" {$autoseol_db[1]}>
+              是(推荐)  &nbsp; <span style="color:blue">根据采集文章,智能分析出最核心的关键词,自动生成对应的内链URL,写入"关键词内链库".</span></td>
+          </tr>
+          <tr>
+            <td>是否启用自动静态化: </td>
+            <td><input type="radio" name="automakehtml" value="0" {$automakehtml_db[0]}>
+              否
+              <input type="radio" name="automakehtml" value="1" {$automakehtml_db[1]}>
+              是  &nbsp; <span style="color:blue">如果禁用，每次全部采集任务结束后，将不自动生成静态化。这个选项可以防止与您的CMS定时生成html功能冲突，避免资源浪费。另外，该功能与您的CMS系统设置有关：如果您的CMS支持自动静态化，并且您启用了该功能，这里的设置才起作用。</span></td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr class="head2" onClick="showHide('rule_other_rs');">
+      <td><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>采集入库规则通用设置</b></td>
+    </tr>
+    <tr id="rule_other_rs">
+      <td><table width="100%" border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="24%">远程图片本地化:<br />
+              (极影响采集速度,极占用空间,建议关闭)</td>
+            <td><input type="radio" name="rs_ifgetfile" value="0" {$rs_ifgetfile_db[0]}>
+              否
+              <input type="radio" name="rs_ifgetfile" value="1" {$rs_ifgetfile_db[1]}>
+              是 <span  class="blank3"></span>文件存放目录:
+              <input type="text" name="rs_file_dir" value="{$rs_file_dir}">
+              <span class="help">(只有启用后,该配置才生效)</span> </td>
+          </tr>
+          <tr>
+            <td>用户发表模式:<br />
+              (默认为执行采集的用户)</td>
+            <td><input type="radio" name="rs_postusermod" value="1" {$rs_postusermod_db[1]}>
+              随机会员
+              <input type="radio" name="rs_postusermod" value="2" {$rs_postusermod_db[2]}>
+              游客
+              <input type="radio" name="rs_postusermod" value="3" {$rs_postusermod_db[3]}>
+              自动注册的会员
+              <input type="radio" name="rs_postusermod" value="4" {$rs_postusermod_db[4]}>
+              指定用户 <span  class="blank3"></span>
+              <input type="text" name="rs_postusername" value="{$rs_postusername}" size="12">
+              <span class="help"> (启用指定用户模式时生效)</span> </td>
+          </tr>
+          <tr>
+            <td>自动注册会员模式:<br />
+              (一般在黄页、供求等模块使用) </td>
+            <td><p>
+                <input type="radio" name="rs_autonamemod" value="1" {$rs_autonamemod_db[1]}>
+                以获取的公司名称为用户名
+                <input type="radio" name="rs_autonamemod" value="0" {$rs_autonamemod_db[0]}>
+                以公司名称拼音首字母为用户名  （公司名称获取字段为:CompnayName） </p>
+              <p>
+                <input type="radio" name="rs_autopassmod" value="0" {$rs_autopassmod_db[0]}>
+                以公司名称拼音首字母为密码
+                <input type="radio" name="rs_autopassmod" value="1" {$rs_autopassmod_db[1]}>
+                手动指定密码 <span  class="blank3"></span>
+                <input type="text" name="rs_autopass" value="{$rs_autopass}" size="12">
+                <span class="help"> (启用指定密码模式时有效)</span> </p></td>
+          </tr>
+          <tr>
+            <td>是否启用随机IP: <br />
+              <span class="help">(如果启用随机IP,可以设定随机IP范围,以实现发表地区限制)</span></td>
+            <td><input type="radio" name="rs_autoip" value="0" {$rs_autoip_db[0]}>
+              否
+              <input type="radio" name="rs_autoip" value="1" {$rs_autoip_db[1]}>
+              是 <span  class="blank3"></span>IP范围:
+              <input type="text" name="rs_ip11" value="{$rs_ip11}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              -
+              <input type="text" name="rs_ip12" value="{$rs_ip12}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              ||
+              <input type="text" name="rs_ip21" value="{$rs_ip21}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              -
+              <input type="text" name="rs_ip22" value="{$rs_ip22}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              ||
+              <input type="text" name="rs_ip31" value="{$rs_ip31}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              -
+              <input type="text" name="rs_ip32" value="{$rs_ip32}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              ||
+              <input type="text" name="rs_ip41" value="{$rs_ip41}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              -
+              <input type="text" name="rs_ip42" value="{$rs_ip42}" size="2" maxlength="3" onkeydown="onlyNum();" style="ime-mode:Disabled">
+            </td>
+          </tr>
+          <tr>
+            <td>是否启用随机点击数: </td>
+            <td><input type="radio" name="rs_autohits" value="0" {$rs_autohits_db[0]}>
+              否
+              <input type="radio" name="rs_autohits" value="1" {$rs_autohits_db[1]}>
+              是 <span  class="blank3"></span> 最小点击数:
+              <input type="text" name="rs_hits1" value="{$rs_hits1}" size="5" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              &nbsp; 最大点击数:
+              <input type="text" name="rs_hits2" value="{$rs_hits2}" size="5" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              <span class="help">(只有启用后,该配置才生效)</span> </td>
+          </tr>
+          <tr>
+            <td>是否自动审核: </td>
+            <td><input type="radio" name="rs_ifyz" value="0" {$rs_ifyz_db[0]}>
+              否
+              <input type="radio" name="rs_ifyz" value="1" {$rs_ifyz_db[1]}>
+              是  &nbsp; <span class="help">(如果取消自动审核,采集的文章可以手动修改后发表.)</span> </td>
+          </tr>
+          <tr>
+            <td>是否启用默认文章来源: </td>
+            <td><input type="radio" name="rs_ifautocopyfrom" value="0" {$rs_ifautocopyfrom_db[0]}>
+              否
+              <input type="radio" name="rs_ifautocopyfrom" value="1" {$rs_ifautocopyfrom_db[1]}>
+              是 <span  class="blank3"></span> 默认文章来源:
+              <input type="text" name="rs_autocopyfrom" value="{$rs_autocopyfrom}">
+              <span class="help">(只有启用后,该配置才生效)</span> </td>
+          </tr>
+          <tr>
+            <td>是否启用默认文章来源url: </td>
+            <td><input type="radio" name="rs_ifautocopyfromurl" value="0" {$rs_ifautocopyfromurl_db[0]}>
+              否
+              <input type="radio" name="rs_ifautocopyfromurl" value="1" {$rs_ifautocopyfromurl_db[1]}>
+              是 <span  class="blank3"></span> 默认文章来源url:
+              <input type="text" name="rs_autocopyfromurl" value="{$rs_autocopyfromurl}" size="35">
+              <span class="help">(只有启用后,该配置才生效)</span> </td>
+          </tr>
+          <tr>
+            <td>是否启用自定义作者: </td>
+            <td><input type="radio" name="rs_ifautoauthor" value="0" {$rs_ifautoauthor_db[0]}>
+              否
+              <input type="radio" name="rs_ifautoauthor" value="1" {$rs_ifautoauthor_db[1]}>
+              是 <span  class="blank3"></span> 自定义作者:
+              <input type="text" name="rs_autoauthor" value="{$rs_autoauthor}" size="35">
+              <span class="help">(只有启用后,该配置才生效)</span> </td>
+          </tr>
+          <tr>
+            <td>每次采集数量限制: </td>
+            <td><input type="text" name="rs_limitnum" value="{$rs_limitnum}" size="5" onkeydown="onlyNum();" style="ime-mode:Disabled">
+              &nbsp; <span class="help">(为了提高采集有效性,建议每次采集10篇以下. 0 - 不限制)</span> </td>
+          </tr>
+          <tr>
+            <td>是否倒序采集: </td>
+            <td><input type="radio" name="rs_ifreverse" value="0" {$rs_ifreverse_db[0]}>
+              否
+              <input type="radio" name="rs_ifreverse" value="1" {$rs_ifreverse_db[1]}>
+              是  &nbsp; <span class="help">(与采集目标网站文章列表顺序相反,不常用.)</span> </td>
+          </tr>
+          <tr>
+            <td>格式化采集代码设置:<br />
+              (采集视频时,object、embed一般不能过滤.) </td>
+            <td><input type="checkbox" name="rs_fiframe" value="1" {$rs_fiframe_db[1]}>
+              iframe &nbsp;
+              <input type="checkbox" name="rs_fobject" value="1" {$rs_fobject_db[1]}>
+              object &nbsp;
+              <input type="checkbox" name="rs_fscript" value="1" {$rs_fscript_db[1]}>
+              script
+              <input type="checkbox" name="rs_fembed" value="1" {$rs_fembed_db[1]}>
+              embed
+              <input type="checkbox" name="rs_fdisplaynone" value="1" {$rs_fdisplaynone_db[1]}>
+              displaynone  &nbsp; <span class="help">(过滤脚本,过滤隐藏内容)</span> <br />
+              <input type="checkbox" name="rs_fa" value="1" {$rs_fa_db[1]}>
+              A <span class="help">(过滤超链接,字留下链接去掉) </span> &nbsp;
+              <input type="checkbox" name="rs_fimg" value="1" {$rs_fimg_db[1]}>
+              img <span class="help">(过滤图片,建议不过滤) </span><br />
+            </td>
+          </tr>
+          <tr>
+            <td style="color:blue;">是否启用定时采集:</td>
+            <td><input type="radio" name="ifauto_timingc" value="0" {$ifauto_timingc_db[0]}>
+              开启
+              <input type="radio" name="ifauto_timingc" value="1" {$ifauto_timingc_db[1]}>
+              关闭 <span class="help">(具体定时采集时间,可以在定时采集配置中设置)</span> </td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr class="head2" onClick="showHide('rule_other_rseo');">
+      <td><img src="__PUBLIC__/Images/file_tt.gif" width="7" height="8" style="padding:0px 8px;"> <b>伪原创(SEO)设置<font color="red">(重要)</font></b></td>
+    </tr>
+    <tr id="rule_other_rseo">
+      <td><table width="100%" border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td>[title]标题SEO模式:</td>
+            <td><input type="radio" name="rseo_titlemod" value="0" {$rseo_titlemod_db[0]}>
+              关闭
+              <input type="radio" name="rseo_titlemod" value="1" {$rseo_titlemod_db[1]}>
+              同义词替换(可能降低可读性)
+              <input type="radio" name="rseo_titlemod" value="2" {$rseo_titlemod_db[2]}>
+              蓝锂优化的SEO标题生成</td>
+          </tr>
+          <tr>
+            <td>[keywords]优化设置:</td>
+            <td><input type="radio" name="rseo_kwmod" value="0" {$rseo_kwmod_db[0]}>
+              关闭
+              <input type="radio" name="rseo_kwmod" value="1" {$rseo_kwmod_db[1]}>
+              与目标站相同
+              <input type="radio" name="rseo_kwmod" value="2" {$rseo_kwmod_db[2]}>
+              以标题作为keywords
+              <input type="radio" name="rseo_kwmod" value="3" {$rseo_kwmod_db[3]}>
+              蓝锂优化的keywords </td>
+          </tr>
+          <tr>
+            <td>[description]优化设置:</td>
+            <td><input type="radio" name="rseo_dcmod" value="0" {$rseo_dcmod_db[0]}>
+              关闭
+              <input type="radio" name="rseo_dcmod" value="1" {$rseo_dcmod_db[1]}>
+              与目标站相同
+              <input type="radio" name="rseo_dcmod" value="2" {$rseo_dcmod_db[2]}>
+              自动截取内容前200字作为description
+              <input type="radio" name="rseo_dcmod" value="3" {$rseo_dcmod_db[3]}>
+              蓝锂优化的description </td>
+          </tr>
+          <tr>
+            <td width="24%">[正文]启用关键词自动内链: </td>
+            <td><input type="radio" name="rseo_autokwreplace" value="0" {$rseo_autokwreplace_db[0]}>
+              关闭
+              <input type="radio" name="rseo_autokwreplace" value="1" {$rseo_autokwreplace_db[1]}>
+              开启 <span class="help" style="color:blue;">(启用时需要先配置好关键词链接词库,建议开启)</span> </td>
+          </tr>
+          <tr>
+            <td>[正文]启用正文内容同义词替换:</td>
+            <td><input type="radio" name="rseo_contentreplace" value="1" {$rseo_contentreplace_db[1]}>
+              开启同义词替换(会影响可读性)
+              <input type="radio" name="rseo_contentreplace" value="0" {$rseo_contentreplace_db[0]}>
+              关闭 </td>
+          </tr>
+          <tr>
+            <td>[正文]SEO首段设置: <span help=1><br />
+              自动添加文章首段或尾段,比如版权申明,来源出处等,可在SEO段落库中定义</span></td>
+            <td><input type="radio" name="rseo_firstp" value="1" {$rseo_firstp_db[1]} onclick="show_radio(this.name)">
+              段落库随机添首段
+              <input type="radio" name="rseo_firstp" value="2" {$rseo_firstp_db[2]} onclick="show_radio(this.name)">
+              段落库随机首段<span style="color:red; font-size:14px; padding:0 3px;">+</span>蓝锂SEO首段(推荐)
+              <input type="radio" name="rseo_firstp" value="0" {$rseo_firstp_db[0]} onclick="show_radio(this.name)">
+              关闭 </td>
+          </tr>
+          <tr>
+            <td>[正文]SEO尾段设置: <span help=1><br />
+              自动添加文章首段或尾段,比如版权申明,来源出处等,可在SEO段落库中定义</span></td>
+            <td><input type="radio" name="rseo_endp" value="1" {$rseo_endp_db[1]} onclick="show_radio(this.name)">
+              段落库随机添加尾段
+              <input type="radio" name="rseo_endp" value="2"  {$rseo_endp_db[2]} onclick="show_radio(this.name)">
+              段落库随机尾段<span style="color:red; font-size:14px; padding:0 3px;">+</span>蓝锂SEO尾段(推荐)
+              <input type="radio" name="rseo_endp" value="0" {$rseo_endp_db[0]} onclick="show_radio(this.name)">
+              关闭 </td>
+          </tr>
+          <tr>
+            <td>[正文]SEO随机段落添加: <span help=1><br />
+              自动添加一些随机段落,可在SEO段落库中定义</span></td>
+            <td><input type="radio" name="rseo_middlep" value="1" {$rseo_middlep_db[1]} onclick="show_radio(this.name)">
+              段落库随机添加
+              <input type="radio" name="rseo_middlep" value="2"  {$rseo_middlep_db[2]} onclick="show_radio(this.name)">
+              蓝锂随机段落SEO模式(推荐)
+              <input type="radio" name="rseo_middlep" value="0" {$rseo_middlep_db[0]} onclick="show_radio(this.name)">
+              关闭 </td>
+          </tr>
+          <tr>
+            <td>[正文]启用<span style="color:blue;">本栏目关键词</span>SEO: <span help=1><br />
+              启用后将根据栏目设置的关键词和蓝锂SEO优化模式自动执行SEO操作,不影响文章可读性,可以开启</span> </td>
+            <td><input type="radio" name="rseo_autoseo" value="1" {$rseo_autoseo_db[1]}>
+              开启(可以开启)
+              <input type="radio" name="rseo_autoseo" value="0" {$rseo_autoseo_db[0]}>
+              关闭</td>
+          </tr>
+          <tr>
+            <td>[正文]高级混淆(段落重排、语句重排): </td>
+            <td>将导致文章不可读,除非是做垃圾站,否则不建议使用.蓝锂官方已经取消该SEO功能.如需开启,请联系蓝锂官方.</td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr style="height:36px;">
+      <td><table width="100%" border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="24%"></td>
+            <td><input type="button" name="Submit_SaveBase" value="保存通用规则设置" onClick="cconfig();">
+            </td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+</form>
+<script language="javascript">
+ <!--
+function cconfig(){
+	$("input[type=checkbox]").each(function(){
+		if(this.checked==false) {
+			$(this).val('0');
+			this.checked=true;
+		}
+	}); 
+	ThinkAjax.sendForm('CrurlForm','__URL__/cconfig/save/1',cconfigComplete,'result');
+}
+function cconfigComplete(data,status){
+	if (status==1)
+	{
+		window.setTimeout(function (){window.location.href='__SELF__'},1000);			
+	}
+}
+show_radio('rseo_firstp');
+show_radio('rseo_endp');
+	
+ //-->
+</script>
+<include file="footer" /> 

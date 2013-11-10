@@ -1,0 +1,327 @@
+.ClearDiv{
+	clear:both;
+}
+.MainConts{
+	clear:both;
+	margin-top:10px;
+}
+.MainConts .MainL{
+	width:730px;
+	float:left;
+}
+.MainConts .SideR{
+	width:240px;
+	float:right;
+}
+.ShowPics{
+	border:#D1D1D1 solid 1px;
+}
+.ShowPics .head{
+	height:40px;
+	overflow:hidden;
+	padding:0 10px 0 10px;
+	line-height:45px;
+	background:url(h10.gif) repeat-x;
+	font-size:14px;
+}
+.ShowPics .head .tag{
+	float:left;	
+	font-weight:bold;
+}
+.ShowPics .head .more{
+	float:right;
+}
+.ShowPics .head .more span{
+	color:#FF3000;
+}
+.ShowPics .head .more a{
+	color:#666;
+}
+.ShowPics .ListBigPic{
+	height:440px;
+	padding-top:60px;
+	overflow:hidden;
+}
+.ShowPics .ListBigPic ul{
+	width:560px;
+	height:380px;
+	overflow:hidden;
+	margin:auto;
+}
+.ShowPics .ListBigPic ul li{
+	width:640px;
+	height:380px;
+	text-align:center;
+	overflow:hidden;
+	margin-left:-40px;
+}
+.ShowPics .ChangePic{
+	height:118px;
+	overflow:hidden;
+	position:relative;
+	background:url(contbg3.gif) repeat-x;
+}
+.ShowPics .ChangePic .Back,.ShowPics .ChangePic .Next{
+	width:65px;
+	height:80px;
+	position:absolute;
+	top:24px;
+}
+.ShowPics .ChangePic .Back{
+	left:20px;
+}
+.ShowPics .ChangePic .Next{
+	right:20px;
+}
+.ShowPics .ChangePic dl dt{
+	border:#DDD solid 1px;
+	width:60px;
+	padding:1px;
+	margin:auto;
+}
+.ShowPics .ChangePic dl dt a{
+	display:block;
+	width:60px;
+	height:45px;
+	text-align:center;
+	overflow:hidden;
+}
+.ShowPics .ChangePic dl dd{
+	text-align:center;
+	padding-top:5px;
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+}
+.ShowPics .ChangePic .Up_atc,.ShowPics .ChangePic .Down_atc{
+	width:43px;
+	height:56px;
+	overflow:hidden;
+	position:absolute;
+	top:30px;
+	z-index:1000;
+}
+.ShowPics .ChangePic .Up_atc{
+	left:93px;
+	background:url(but.gif) no-repeat;
+}
+.ShowPics .ChangePic .Up_atc a,.ShowPics .ChangePic .Down_atc a{
+	display:block;
+	padding-top:56px;
+}
+.ShowPics .ChangePic .Down_atc{
+	right:96px;
+	background:url(but.gif) left -56px no-repeat;
+}
+.ShowPics .ChangePic .slideTxt{
+	width:473px;
+	height:118px;
+	padding-left:13px;
+	overflow:hidden;
+	margin:auto;
+	border:#D1D1D1 solid 1px;
+	background:#F7F7F7;
+}
+.ShowPics .ChangePic .slideTxt li{
+	width:115px;
+	height:100px;
+	padding-top:18px;
+	overflow:hidden;
+	float:left;
+}
+.ShowPics .ChangePic .slideTxt li div{
+	width:100px;
+	border:#DDD solid 1px;
+	padding:1px;
+	background:#FFF;
+	margin:auto;
+	filter: alpha(opacity=60); 
+	opacity: 0.6; 
+	moz-opacity: 0.6;
+	cursor:pointer;
+}
+.ShowPics .ChangePic .slideTxt li.cur div{
+	border:#FF3000 solid 2px;
+	padding:0;
+	filter: alpha(opacity=100); 
+	opacity: 1; 
+	moz-opacity: 1;
+}
+.ShowPics .ChangePic .slideTxt li div span{
+	display:block;
+	width:100px;
+	height:75px;
+	overflow:hidden;
+	text-align:center;
+}
+.notitle{
+	border:#DDD solid 1px;
+	padding:10px 5px 10px 5px;
+	text-align:center;
+	line-height:25px;
+	color:#888;
+}
+/*
+*ShowMoreInfo
+*/
+.ShowMoreInfo {
+	width:240px;
+	background:url(contbg3m.gif) left top  repeat-y;
+}
+.ShowMoreInfo .head{
+	height:39px;
+	overflow:hidden;
+	background:url(h11.gif) no-repeat;
+}
+.ShowMoreInfo .head .tag{
+	float:left;
+	padding:4px 0 0 15px;
+	line-height:35px;
+	font-size:14px;
+	font-weight:bold;
+}
+.ShowMoreInfo .cont{
+	background:url(contbg3b.gif) left bottom  no-repeat;
+}
+.ShowMoreInfo .cont td{
+	padding:15px;
+	background:url(infobg.gif) right bottom no-repeat;
+}
+.ShowMoreInfo .cont td div{
+	padding-bottom:5px;
+	line-height:20px;
+	font-size:14px;
+}
+.show_content{
+	margin:10px auto;
+	padding-bottom:15px;
+	background:url(contbg4.gif) left bottom no-repeat;
+}
+.show_content .head{
+	height:55px;
+	background:url(contbg4.gif) left top no-repeat;
+}
+.show_content .head .tag{
+	float:left;
+	padding:6px 0 0 40px;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+}
+.show_content .content{
+	padding:0 20px 0 50px;
+	line-height:20px;
+	background:url(contbg4m.gif) repeat-y;
+}
+/*
+*
+*/
+.ListMoreDemo,.ListRightDemo{
+	border:#D0DFE4 solid 1px;
+}
+.ListMoreDemo .head,.ListRightDemo .head{
+	height:35px;
+	overflow:hidden;
+	line-height:40px;
+	background:url(h6.gif) repeat-x;
+	padding:0 10px 0 15px;
+}
+.ListMoreDemo .head .tag,.ListRightDemo .head .tag{
+	float:left;
+	font-size:14px;
+	font-weight:bold;
+}
+.ListMoreDemo .head .more{
+	float:right;
+}
+.ListMoreDemo .cont{
+	padding:20px 0 0 10px;
+	height:180px;
+	overflow:hidden;
+}
+.ListMoreDemo .cont .listpic{
+	width:176px;
+	height:180px;
+	overflow:hidden;
+	float:left;
+}
+.ListMoreDemo .cont .listpic div{
+	width:150px;
+	margin:auto;
+	text-align:center;
+}
+.ListMoreDemo .cont .listpic .img{
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.ListMoreDemo .cont .listpic .img span{
+	display:block;
+	width:150px;
+	height:110px;
+	overflow:hidden;
+}
+.ListMoreDemo .cont .listpic .img span a{
+	display:block;
+	width:210px;
+	height:110px;
+	text-align:center;
+	overflow:hidden;
+	margin-left:-30px;
+}
+.ListMoreDemo .cont .listpic .t{
+	height:20px;
+	padding-top:5px;
+	line-height:20px;
+	overflow:hidden;
+}
+.ListMoreDemo .cont .listpic .m{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	color:#FF3000;
+}
+.ListRightDemo{
+	margin-top:10px;
+}
+.ListRightDemo .cont{
+	padding-top:20px;
+}
+.ListRightDemo .cont .listpic{
+	height:180px;
+	overflow:hidden;
+}
+.ListRightDemo .cont .listpic div{
+	width:160px;
+	margin:auto;
+	text-align:center;
+}
+.ListRightDemo .cont .listpic .img{
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.ListRightDemo .cont .listpic .img span{
+	display:block;
+	width:160px;
+	height:120px;
+	overflow:hidden;
+}
+.ListRightDemo .cont .listpic .img span a{
+	display:block;
+	width:220px;
+	height:120px;
+	text-align:center;
+	overflow:hidden;
+	margin-left:-30px;
+}
+.ListRightDemo .cont .listpic .t{
+	height:20px;
+	padding-top:5px;
+	line-height:20px;
+	overflow:hidden;
+}
+.ListRightDemo .cont .listpic .m{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	color:#FF3000;
+}

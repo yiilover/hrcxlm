@@ -1,0 +1,427 @@
+/*
+*初始化样式
+*/
+body, form, ul, li, p, dl, dd, dt ,h,td,th,h3{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-size:12px;
+	background:url(bg.png) center -5px no-repeat;
+}
+li,ul{
+	list-style: none;
+} 
+TD {
+	color: #333333;
+	VERTICAL-ALIGN: top;
+} 
+input,textarea{
+	border:1px solid #ccc;
+}
+a {
+	color:#333;
+}
+a:link {
+	color:#333333;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #333333;
+}
+a:hover {
+	text-decoration: underline;
+	color: #4E667B;
+}
+a:active {
+	text-decoration: none;
+}
+.wrap{
+	width:980px;
+	margin:auto;
+}
+.mt10{
+	margin-top:10px;
+}
+img{
+	border:0;
+}
+/*
+*顶部信息
+*/
+.TopContainer{
+	height:35px;
+	width:980px;
+	overflow:hidden;
+	margin:auto;
+	line-height:38px;
+	color:#666;
+}
+.TopContainer .userinfos{
+	float:left;
+	height:35px;
+}
+.TopContainer .userinfos .showmsg{
+	padding:5px 0 0 10px;
+}
+.TopContainer .userinfos span{
+	display:block;
+	float:left;
+	padding-right:5px;
+}
+.TopContainer .userinfos em{
+	color:red;
+	font-style:normal;
+}
+.TopContainer .userinfos .input{
+	padding-top:7px;
+}
+.TopContainer .userinfos .input input{
+	width:100px;
+	height:15px;
+}
+.TopContainer .userinfos .sub{
+	padding:8px 10px 0 5px;
+}
+.TopContainer .userinfos .sub input{
+	border:0;
+}
+.TopContainer .userinfos .img{
+	padding:9px 3px 0 5px;
+}
+.TopContainer .userinfos .sub input{
+	background:#FFF;
+}
+.TopContainer .siteinfo{
+	float:right;
+	color:#888;
+}
+/*
+*logo
+*/
+.Logo_Ad_Info{
+	width:980px;
+	height:60px;
+	padding-top:20px;
+	overflow:hidden;
+	margin:auto;
+}
+.Logo_Ad_Info .logo{
+	height:50px;
+	padding-top:2px;
+	overflow:hidden;
+	float:left;
+}
+.Logo_Ad_Info .changecity{
+	width:70px;
+	height:42px;
+	float:left;
+	padding:8px 5px 0 10px;
+	overflow:hidden;
+	background:url(changecity.gif) no-repeat;
+	line-height:20px;
+}
+.Logo_Ad_Info .changecity span{
+	display:block;
+	text-align:center;
+	height:20px;
+	overflow:hidden;
+}
+.Logo_Ad_Info .changecity span.city{
+	font-size:16px;
+	font-weight:bold;
+	color:#666;
+}
+.Logo_Ad_Info .changecity span.change a{
+	color:#888;
+}
+.Logo_Ad_Info .moreinfo{
+	float:right;
+	height:30px;
+	padding-top:8px;
+	overflow:hidden;
+}
+.Logo_Ad_Info .moreinfo .weather{
+	border:#DEDEDE solid 1px;
+	float:left;
+	height:24px;
+	padding:4px 5px 0 5px;
+	background:#FFF;
+}
+.Logo_Ad_Info .moreinfo .hotline,.Logo_Ad_Info .moreinfo .post{
+	height:28px;
+	border:#DEDEDE solid 1px;
+	float:left;
+	margin-left:3px;
+	overflow:hidden;
+	text-align:center;
+	line-height:32px;
+	background:url(h0.gif) repeat-x;
+	font-size:14px;
+	padding:0 10px 0 10px;
+}
+.Logo_Ad_Info .moreinfo .hotline span{
+	color:#FD0101;
+	font-weight:bold;
+}
+.Logo_Ad_Info .moreinfo .post a{
+	float:left;
+	padding-left:25px;
+	background:url(icon1.gif) left 9px no-repeat;
+	color:#666;
+	font-weight:bold;
+}
+/*
+*MenuCont
+*/
+.MenuCont{
+	clear:both;
+	width:982px;
+	height:81px;
+	margin:auto;
+	background:url(menu.gif) center top no-repeat;
+	position:relative;
+	z-index:100000;
+}
+.MenuCont .ListMenu{
+	position:relative;
+	height:38px;
+	padding-left:15px;
+	background:url(menu1.gif) center 3px no-repeat;
+	z-index:100001;
+}
+.MenuCont .ListMenu dl{
+	float:left;
+	position:relative;
+}
+.MenuCont .ListMenu dl dt{
+	height:38px;
+	float:left;
+	padding-left:13px;
+	background:url(mspac.gif) left 8px no-repeat;
+	overflow:hidden;
+}
+.MenuCont .ListMenu dl.no dt{
+	background:none;
+}
+.MenuCont .ListMenu dl dt span{
+	display:block;
+	line-height:35px;
+	padding:3px 12px 0 0;
+}
+.MenuCont .ListMenu dl dt span a{
+	font-size:14px;
+	font-weight:bold;
+}
+.MenuCont .ListMenu dl.ck dt{
+	background:url(mover.gif) left top no-repeat;
+}
+.MenuCont .ListMenu dl.ck dt span{
+	background:url(mover.gif) right top no-repeat;
+}
+.MenuCont .ListMenu dl.ck dt span a{
+	color:#FFF;
+}
+.MenuCont .ListMenu dl.over dt{
+	background:url(mover1.gif) left top no-repeat;
+}
+.MenuCont .ListMenu dl.over dt span{
+	background:url(mover1.gif) right top no-repeat;
+}
+.MenuCont .ListMenu dl.over dt span a{
+	color:#36c;
+}
+.MenuCont .ListMenu dl dd{
+	position:absolute;
+	top:38px;
+	left:0;
+	width:120px;
+}
+.MenuCont .ListMenu dl dd span{
+	display:block;
+	height:15px;
+	background:url(cmenu.gif) left 2px no-repeat;
+}
+.MenuCont .ListMenu dl dd ul{
+	background:url(cmenu.gif) left bottom no-repeat;
+	padding-bottom:5px;
+}
+.MenuCont .ListMenu dl dd ul li{
+	display:block;
+	line-height:25px;
+	padding:0 10px 0 15px;
+}
+.MenuCont .ListMenu dl dd ul li.over1{
+	background:url(mck.gif) center top no-repeat;
+}
+.MenuCont .ListMenu dl dd ul li.over1 a{
+	color:#000;
+	font-weight:bold;
+}
+.MenuCont .menu{
+	height:38px;
+	padding-left:15px;
+	overflow:hidden;
+	background:url(menu1.gif) center 3px no-repeat;
+}
+.MenuCont .menu li{
+	float:left;
+	height:38px;
+	padding-left:14px;
+	background:url(mspac.gif) left 8px no-repeat;
+}
+.MenuCont .menu li span{
+	display:block;
+	line-height:35px;
+	padding:3px 12px 0 0;
+}
+.MenuCont .menu li span a{
+	font-size:14px;
+	font-weight:bold;
+}
+.MenuCont .menu li.no{
+	background:none;
+}
+.MenuCont .menu li.ck{
+	padding-left:10px;
+	background:url(mover.gif) left top no-repeat;
+}
+.MenuCont .menu li.ck span{
+	background:url(mover.gif) right top no-repeat;
+}
+.MenuCont .menu li.ck span a{
+	color:#FFF;
+}
+.MenuCont .menu li.over span a{
+	color:green;
+}
+
+.MenuCont .Search{
+	width:490px;
+	height:45px;
+	float:left;
+	position:relative;
+	background:url(search.gif) 100px 5px no-repeat; 
+}
+.MenuCont .Search .SelectShow{
+	float:left;
+	padding:8px 0 0 105px;
+}
+.MenuCont .Search .SelectShow span{
+	display:block;
+	width:35px;
+	padding:0 15px 0 10px;
+	line-height:30px;
+	overflow:hidden;
+	font-size:14px;
+	color:#666;
+	cursor:pointer;
+}
+.MenuCont .Search .ListType{
+	width:60px;
+	border:#DDD solid 1px;
+	border-top:0;
+	position:absolute;
+	background:#FFF;
+	left:107px;
+	top:35px;
+	display:none;
+}
+.MenuCont .Search .ListType li{
+	height:22px;
+	line-height:22px;
+	padding:0 5px 0 10px;
+	overflow:hidden;
+	color:#666;
+	cursor:pointer;
+}
+.MenuCont .Search .ListType li.over{
+	background:#EEE;
+}
+.MenuCont .Search .ListType li.ck{
+	background:#CCC;
+	color:red;
+}
+.MenuCont .Search .keyword{
+	width:230px;
+	height:25px;
+	float:left;
+	padding:8px 5px 0 10px;
+}
+.MenuCont .Search .keyword input{
+	width:230px;
+	height:22px;
+	line-height:22px;
+	border:0;
+	background:none;
+	font-size:14px;
+	color:#666;
+}
+.MenuCont .Search .subbutter{
+	float:left;
+	padding:8px 0 0 28px;
+}
+.MenuCont .Search .subbutter input{
+	border:0;
+	background:none;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	line-height:25px;
+	height:25px;
+	cursor:pointer;
+}
+.MenuCont .HotSearch{
+	float:left;
+	height:30px;
+	width:450px;
+	line-height:30px;
+	padding:6px 0 0 15px;
+	overflow:hidden;
+}
+.MenuCont .HotSearch span{
+	color:#FFCC00;
+}
+.MenuCont .HotSearch a{
+	color:#FFF;
+}
+
+/*
+*页面地图
+*/
+.HearderSpac{
+	clear:both;
+	margin-top:5px;
+}
+#nav_guide{
+	width:978px;
+	clear:both;
+	height:30px;
+	line-height:33px;
+	overflow:hidden;
+	margin: 5px auto 8px;
+	color:#666;
+	border:#DDD solid 1px;
+}
+#nav_guide a{
+	color:#666;
+}
+#nav_guide .t1{
+	float:left;
+	padding:0 5px 0 10px;
+}
+#nav_guide .t2{
+	float:left;
+}
+/*
+*copyright样式
+*/
+#copyright{
+	clear:both;
+	margin:auto;
+	text-align:center;
+	line-height:20px;
+	padding:10px 0 30px 0;
+	color:#888;
+}

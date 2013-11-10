@@ -1,0 +1,98 @@
+<include file="header" />
+<script language="javascript">
+ <!--
+	function EditSort(ec_sid){
+		if(ec_sid==undefined) ec_sid=0;
+		cs_name=$('#cs_name'+ec_sid).val();
+		cs_list=$('#cs_list'+ec_sid).val();
+		if(cs_name=='') {
+			$('#cs_name'+ec_sid).focus();
+			contnet='<span class="errorTip">请输入分类名称!</span>';			
+			showfloatTips(contnet);
+			return false;		
+		}
+		ThinkAjax.send('__URL__/ecsort/EditSort/1/cs_name/'+cs_name+'/cs_list/'+cs_list+'/ec_sid/'+ec_sid,'ajax=1',SortComplete,'result');
+	}
+	function SortComplete(data,status){
+		if (status==1)
+		{
+			window.setTimeout(function (){window.location.href='__SELF__'},1000);
+		}
+	}	
+	function DeleteSort(ec_sid){
+	    if(confirm('你确认要删除本栏目吗?')==true)
+		ThinkAjax.send('__URL__/ecsort/DeleteSort/1','ajax=1&ec_sid='+ec_sid,DeleteSortComplete,'result');
+	}
+	function DeleteSortComplete(data,status){
+		if (status==1)
+		{
+			$('#sortlist_tr_'+data).remove();
+		}
+	}
+	function EditSortList(){
+		ThinkAjax.sendForm('sortlist','__URL__/ecsort/EditSortList/1',SortListComplete,'result');
+	}
+	function DeleteSortList(){
+	     if(confirm('你确认要批量删除吗?')==true)	
+		ThinkAjax.sendForm('sortlist','__URL__/ecsort/DeleteSortList/1',SortListComplete,'result');
+	}	
+	function SortListComplete(data,status){
+		if (status==1)
+		{
+			window.setTimeout(function (){window.location.href='__SELF__'},1000);			
+		}
+	}
+ //-->
+</script>
+
+<form name="sortlist" id="sortlist" method="post" action="" style="margin:0; padding:0;">
+  <table width='100%' cellspacing='1' cellpadding='3' class="tablewidth" align="center">
+    <tr class="head">
+      <td width="80" align="center">规则分类ID</td>
+      <td>分类名称</td>
+      <td width="100" align="center">排序</td>
+      <td width="200" align="center">分类操作</td>
+      <td width="80" align="center">采集规则</td>
+    </tr>
+    <tr class="head5" height="36">
+      <td><div align="center" style="line-height:180%; color:#0000CC; font-weight:bold;">添加新分类</div></td>
+      <td><input type="text" name="cs_name" id="cs_name0" value="{$vo.cs_name}" style="width:96%"></td>
+      <td><div align="center">
+          <input type="text" name="cs_list" id="cs_list0" value="{$vo.cs_list}" size="16" onkeydown="onlyNum();" style="ime-mode:Disabled">
+        </div></td>
+      <td><div align="center">
+          <input type="button" name="Submit_add_ecsort" value="确定添加" onClick="EditSort()">
+        </div></td>
+      <td align="center"></td>
+    </tr>
+    <volist id="vo" name="list">
+      <tr  id="sortlist_tr_{$vo.ec_sid}" class="trA" onMouseOver="this.className='trB'" onMouseOut="this.className='trA'">
+        <td>{$vo.ec_sid|sprintf="%03d",###}
+          <input type="checkbox" name="ec_siddb[{$vo.ec_sid}]" value="{$vo.ec_sid}"></td>
+        <td style="text-align:left;"><input type="text" name="cs_name[{$vo.ec_sid}]" id="cs_name{$vo.ec_sid}" value="{$vo.cs_name}" style="width:96%"></td>
+        <td><input type="text" name="cs_list[{$vo.ec_sid}]"  id="cs_list{$vo.ec_sid}"  value="{$vo.cs_list}" size="16" onkeydown="onlyNum();" style="ime-mode:Disabled"></td>
+        <td><input type="button" name="Submit_edit_ecsort" value="确定修改" onClick="EditSort({$vo.ec_sid})">
+          <span class="blank2"></span>
+          <input type="button" name="Submit_add_ecsort" value="删除分类" onClick="DeleteSort({$vo.ec_sid})">
+        </td>
+        <td><a alt='修改规则' href="__URL__/index/ec_sid/{$vo.ec_sid}"><img src='__PUBLIC__/Images/art_icon.gif'></a></td>
+      </tr>
+    </volist>
+    <tr>
+      <td><div align="center"><a href="javascript:" onClick="CheckAll('sortlist','all')">全选</a> / <a href="javascript:" onClick="CheckAll('sortlist','')">反选</a></div></td>
+      <td colspan="4"><input type="button" name="Submit_eidit_list" value="批量修改栏目" onClick="EditSortList()">
+        &nbsp;
+        <input type="button" name="Submit_eidit_list" value="批量删除栏目" onClick="DeleteSortList()">
+        &nbsp; <span class="sabrosus"> {$page} </span> </td>
+    </tr>
+  </table>
+</form>
+<table cellpadding="3" cellspacing="1" class="tablewidth" align="center">
+  <tr class="head">
+    <td><div align="left">注意:</div></td>
+  </tr>
+  <tr>
+    <td><p><font color="#FF0000">栏目排序的规则是,数值小的排在前面</font></p></td>
+  </tr>
+</table>
+<include file="footer" />

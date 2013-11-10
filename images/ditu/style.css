@@ -1,0 +1,306 @@
+/*
+*初始化样式
+*/
+body, form, ul, li, p, dl, dd, dt ,h,td,th,h3{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-size:12px;
+	background:url(body.gif) repeat-x;
+}
+li,ul{
+	list-style: none;
+} 
+TD {
+	color: #333333;
+	VERTICAL-ALIGN: top;
+} 
+input,textarea{
+	border:1px solid #ccc;
+}
+a {
+	color:#333;
+}
+a:link {
+	color:#333333;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #333333;
+}
+a:hover {
+	text-decoration: underline;
+	color: #4E667B;
+}
+a:active {
+	text-decoration: none;
+}
+.mt10{
+	margin-top:10px;
+}
+img{
+	border:0;
+}
+/*
+*头部信息
+*/
+.Header{
+	height:65px;
+	overflow:hidden;
+	background:url(headbg.gif);
+	padding:10px 10px 0 10px;
+}
+.Header .logo{
+	float:left;
+	width:240px;
+	text-align:center;
+	padding-top:5px;
+}
+.Header .changecity{
+	float:left;
+	height:55px;
+	width:100px;
+	border-left:#B4B4B4 solid 1px;
+}
+.Header .changecity span{
+	display:block;
+	border-left:#FFF solid 1px;
+	text-align:center;
+	line-height:25px;
+	color:#F4670D;
+}
+.Header .changecity span a{
+	color:#F4670D;
+}
+.Header .changecity span.city{
+	background:url(city.gif) center top no-repeat;
+	padding:1px 0 4px 0;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+}
+.Header .login{
+	float:right;
+	height:30px;
+	padding:10px 10px 0 25px;
+	background:url(icon0.gif) left 18px no-repeat;
+}
+.Header .login span{
+	float:left;
+	line-height:30px;
+}
+.Header .login em{
+	color:#F4670D;
+	font-style:normal;
+}
+.Header .login span.word{
+	padding-left:8px;
+}
+.Header .login span.input{
+	padding-top:5px;
+}
+.Header .login span.input input{
+	width:100px;
+	height:15px;
+	border:#7CB0D2 solid 1px;
+}
+.Header .login span.sub,.Header .login span.img{
+	padding:5px 0 0 8px;
+}
+.Header .login span.sub input{
+	border:0;
+}
+/*
+导航
+*/
+.Mainmenu{
+	height:40px;
+	padding:0 10px 0 10px;
+	overflow:hidden;
+	background:url(menu.gif) repeat-x;
+}
+.Mainmenu li{
+	height:41px;
+	float:left;
+	background:url(spacing.gif) right 15px no-repeat;
+	padding:0 8px 0 8px;
+}
+.Mainmenu li span{
+	display:block;
+	padding-left:10px;
+}
+.Mainmenu li span a{
+	display:block;
+	padding:3px 10px 0 0;
+	line-height:38px;
+	font-size:14px;
+	font-weight:bold;
+}
+.Mainmenu li span a:link,.Mainmenu li span a:visited,.Mainmenu li span a:hover{	
+	color:#FFF;
+	text-decoration:none;
+}
+.Mainmenu li.ck span,.Mainmenu li.over span{
+	background:url(ck.gif) left 8px no-repeat;
+}
+.Mainmenu li.ck span a,.Mainmenu li.over span a{
+	background:url(ck.gif) right 8px no-repeat;
+}
+.Mainmenu li.over span a:link,.Mainmenu li.over span a:visited,.Mainmenu li.over span a:hover{	
+	color:yellow;
+}
+/*
+*主体
+*/
+.ShowCont{
+	border-bottom:#82B0D0 solid 1px;
+}
+.ShowCont .Left{
+	width:360px;
+	background:url(left.gif) right top repeat-y;
+	padding-right:3px;
+}
+.showsorts .head{
+	background:#F5F8FF url(icon1.gif) 15px -21px no-repeat;
+	border-top:#E2E8F8 solid 1px;
+	height:28px;
+	overflow:hidden;
+	line-height:30px;
+	padding-left:30px;
+	padding-left:30px;
+	cursor:pointer;
+}
+.showsorts .head span{
+	display:none;
+}
+.showsorts1 .head{
+	background:#F5F8FF url(icon1.gif) 15px 9px no-repeat;
+}
+.showsorts1 .head a{
+	display:none;
+}
+.showsorts1 .head span{
+	display:inline;
+	color:red;
+}
+.showsorts a:link,.showsorts a:visited,.showsorts a:hover{
+	color:#0041D9;
+}
+.showsorts .bigsorts td{
+	padding:5px 5px 5px 15px;
+}
+.showsorts .bigsorts td div{
+	width:25%;
+	height:25px;
+	line-height:25px;
+	overflow:hidden;
+	float:left;
+}
+.showsorts .bigsorts td div a{
+	font-size:14px;
+}
+.showsorts .allsorts{
+	display:none;
+}
+.showsorts1 .allsorts{
+	display:block;
+}
+.showsorts1 .bigsorts{
+	display:none;
+}
+.showsorts .allsorts td{
+	padding:5px 10px 5px 15px;
+}
+.showsorts .allsorts td dt{
+	border-bottom:#DDD dotted 1px;
+	line-height:25px;
+	padding-left:5px;
+}
+.showsorts .allsorts td dt a{
+	font-size:14px;
+}
+.showsorts .allsorts td dd{
+	padding:5px;
+	line-height:20px;
+	color:#666;
+}
+.showsorts .allsorts td dd a:link,.showsorts .allsorts td dd a:visited,.showsorts .allsorts td dd a:hover{
+	color:#666;
+}
+.showInfo .head{
+	height:28px;
+	border-top:#E2E8F8 solid 1px;
+	background:#F5F8FF url(icon2.gif) 15px 9px no-repeat;
+	line-height:30px;
+	overflow:hidden;
+	padding-left:30px;
+}
+.showInfo .InfoList{
+	padding:2px 10px 5px 10px;
+}
+.showInfo .InfoList dl{
+	border-bottom:#DDD dotted 1px;
+	height:100px;
+	overflow:hidden;
+}
+.showInfo .InfoList dl dt{
+	float:left;
+	width:30px;
+	text-align:center;
+	line-height:30px;
+	background:url(icon3.gif) center 5px no-repeat;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+}
+.showInfo .InfoList dl dd{
+	width:300px;
+	float:left;
+	padding-top:5px;
+	padding-left:5px;
+	line-height:18px;
+}
+.showInfo .InfoList dl dd div{
+	height:18px;
+	overflow:hidden;
+}
+.showInfo .InfoList dl dd div.t a{
+	font-size:14px;
+	font-weight:bold;
+	color:#0041D9;
+}
+.showInfo .InfoList dl dd div.c{
+	color:#888;
+}
+.showInfo .InfoList dl dd div span{
+	color:#0067CD;
+	font-weight:bold;
+	font-size:14px;
+}
+.showInfo .InfoList dl.over{
+	background:#F5F8FF;
+}
+.showInfo .InfoList .showpage{
+	text-align:center;
+	line-height:30px;
+	padding:10px 5px 0 5px;
+	height:30px;
+	overflow:hidden;
+}
+.showInfo .InfoList .showpage a{
+	border:#DDD solid 1px;
+	padding:3px 5px 2px 5px;
+	color:#1166BB;
+}
+/*
+*copyright
+*/
+.CopyRight{
+	text-align:center;
+	padding:10px 0 15px 0;
+	line-height:20px;
+	color:#888;
+	background:#F5F8FF;
+}

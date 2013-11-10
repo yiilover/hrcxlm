@@ -1,0 +1,1 @@
+INSERT INTO `qb_hack` (`keywords`, `name`, `isclose`, `author`, `config`, `htmlcode`, `hackfile`, `hacksqltable`, `adminurl`, `about`, `class1`, `class2`, `list`, `linkname`, `isbiz`) VALUES ('rmb_getout', '人民币提现管理', 0, '', '', '', '', '', 'index.php?lfj=rmb_infull&job=list', '', 'other', '电子商务管理', 20, '', 0);

@@ -1,0 +1,154 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/listpic.css">
+<form name="form_work" method="post" action="$admin_path&job=work">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+  <tr align="center" class="head">
+    <td>活动管理</td> 
+  </tr>
+  <tr> 
+    <td>
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListPicTable">
+<!--
+EOT;
+$ids=0;
+foreach($listdb AS $key=>$rs){
+$rs[picurl] && $rs[picurl]=tempdir($rs[picurl]);
+if($ids==0){print <<<EOT
+-->
+          <tr>
+<!--
+EOT;
+}$ids++;print <<<EOT
+-->
+            <td class="img"><div><a href="$Murl/bencandy.php?fid=$rs[fid]&id=$rs[id]" target='_blank'><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" height="90"></a></div></td>
+            <td class="word">
+            	<div class="title"><input type="checkbox" name="listdb[{$rs[id]}]" value="$rs[title]">
+        <a href="$Murl/bencandy.php?fid=$rs[fid]&id=$rs[id]" target='_blank'  style="color:$rs[titlecolor];"><span>$rs[title]</span></a>(ip:{$rs[ip]})</div>
+                <div class="more">所在城市：<span>{$city_DB[name][$rs[city_id]]}</span> 所在栏目:<a href="list.php?job=list&fid=$rs[fid]"><span>$rs[fname]</span></a> 发布者:<a href="$admin_path&job=$job&type=username&keyword=$rs[username]"><span>$rs[username]<span></a> 浏览:<span>$rs[hits]</span> 登记日期:<span>$rs[posttime]</span></div>
+                <div class="butter">$rs[ischeck] $rs[iscom] <a href="javascript:" click=1 editcode="<a href='$webdb[_www_url]/member/?main=$Murl/member/post.php?job=edit&fid=$rs[fid]&id=$rs[id]' target=_blank>修改内容</a><br><a href='$webdb[_www_url]/member/?main=$Murl/member/editsort.php?job=edit&fid=$rs[fid]&id=$rs[id]' target=_blank>修改分类</a>">修改</a>
+                <a href="$admin_path&action=work&jobs=delete&id=$rs[id]&fid=$rs[fid]" >删除</a></div>
+            </td>
+<!--
+EOT;
+if($ids==2){
+$ids=0;print <<<EOT
+-->
+		</tr>
+<!--
+EOT;
+}}if($ids && $ids<2){
+for($i=$ids;$i<2;$i++){print <<<EOT
+-->
+            <td><br /></td><td><br /></td>
+<!--
+EOT;
+}print <<<EOT
+-->
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class='ShowPage'>$showpage</div>":"";
+print <<<EOT
+-->
+    	</table>
+		$showpage
+		<div class="ListButs">
+        	<a href="#" onClick="CheckAll('all')">全选</a>/<a href="#" onClick='CheckAll()'>反选</a> 
+            <input type="button" name="Submit2" value="审核操作" onclick="postdo('yz')">
+            <input type="button" name="Submit42223" value="推荐操作" onclick="postdo('com')">
+            <input type="button" name="Submit4" value="置顶操作" onclick="postdo('top')">
+            <input type="button" name="Submit42222" value="移动" onClick="postdo('move')">
+            <input type="button" name="Submit3" value="删除" onclick="postdo('delete')">
+            <input type="hidden" name="jobs" value="0">
+        </div>
+    </td>
+  </tr>
+</table>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(va){
+	document.form_work.jobs.value=va
+	document.form_work.submit();
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT><br>
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+  <tr>
+    <td class="head">相关选项</td>
+  </tr>
+  <tr>
+    <td align="center"> 
+      <input type="button" name="Submit" value="所有" onclick="window.location.href='$admin_path&job=list'">
+      <input type="button" name="Submit6" value="已审核" onclick="window.location.href='$admin_path&job=list&fid=$fid&type=yz&cityid=$cityid'">
+      <input type="button" name="Submit5" value="未审核" onclick="window.location.href='$admin_path&job=list&fid=$fid&type=unyz&cityid=$cityid'">
+      <input type="button" name="Submit52" value="推荐" onclick="window.location.href='$admin_path&job=list&fid=$fid&type=levels&cityid=$cityid'">
+      <input type="button" name="Submit522" value="未推荐" onclick="window.location.href='$admin_path&job=list&fid=$fid&type=unlevels&cityid=$cityid'">
+	  $sort_fid
+    </td>
+  </tr>
+</table>
+<form name="form1" method="post" action="$admin_path&job=$job">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+    <tr class="head"> 
+      <td><font color="#FFFFFF">内容搜索</font></td>
+    </tr>
+    <tr> 
+      <td>
+<!--
+EOT;
+if(count($city_DB[name])>1){
+print <<<EOT
+-->	  
+按城市筛选:<select name="select" onChange="window.location.href='$admin_path&job=$job&fid=$fid&type=$type&cityid='+this.options[this.selectedIndex].value">
+    <option value="">不限</option>
+<!--
+EOT;
+foreach($city_DB[name] AS $t=>$v){
+$ck=$cityid==$t?' selected  style="color:red;"':'';
+print <<<EOT
+-->
+	<option value="$t" $ck>$v</option>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+  </select>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	  关键字 
+        <input type="text" name="keyword">
+        <select name="type">
+          <option value="title">标题名称</option>
+          <option value="id">ID</option> 
+          <option value="username">发布者</option>
+        </select>
+        <input type="submit" name="Submit7" value="提交">
+      </td>
+    </tr>
+  </table>
+</form>
+<!--
+EOT;
+?>
+-->
+ 

@@ -1,0 +1,45 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">职位管理</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="30%">职位</th>
+            <th width="15%">姓名</th>
+            <th width="10%">年龄</th>
+            <th width="10%">性别</th>
+            <th width="25%">毕业院校</th>
+            <th width="10%">简历/踢除</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td class="tL"><a href="../bencandy.php?job=edit&fid=$rs[fid]&id=$rs[job_id]" target="_blank" >{$rs[title]}</a></td>                  
+            <td><a href="../joinshow.php?id=$rs[uid]" target="_blank" >{$rs[truename]}</a></td>
+            <td>{$rs[age]}岁</td>
+            <td>$rs[sex]</td>
+            <td class="tL">$rs[alma_mater]</td>
+            <td>
+            	<a href="../joinshow.php?id=$rs[uid]" target="_blank" >查看</a>/<a href="?action=del&id=$rs[id]">踢除</a>               
+            </td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div> 
+<!--
+EOT;
+?>
+-->

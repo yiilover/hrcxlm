@@ -1,0 +1,129 @@
+.FormHeader{
+	width:980px;
+	height:35px;
+	overflow:hidden;
+	margin:auto;
+	background:url(hicon.gif) left -70px repeat-x;
+}
+.FormHeader div{
+	float:left;
+	line-height:38px;
+}
+.FormHeader div.tags{
+	padding:0 30px 0 30px;
+	font-size:14px;
+	font-weight:bold;
+	color:#555;
+	background:url(hicon.gif) left top no-repeat;
+}
+.FormHeader div.more{
+	float:right;
+	padding-right:30px;
+	background:url(hicon.gif) right -35px no-repeat;
+}
+.FormHeader div.show1,.FormHeader div.show2{
+	width:196px;
+	background:url(hshow.gif) left top no-repeat;
+}
+.FormHeader div.show1 span,.FormHeader div.show2 span{
+	float:left;
+	padding-left:70px;
+	font-size:14px;
+	color:#FFF;
+}
+.FormHeader div.show2{
+	background:url(hshow.gif) -196px top no-repeat;
+}
+.FormHeader div.show2 span{
+	color:#666;
+	padding-left:65px;
+}
+/****
+****/
+.FormContainer{
+	width:978px;
+	border:#E6E6E6 solid 1px;
+	margin:30px auto;
+}
+.FormContainer .NOtes{
+	border-top:#FFF solid 2px;
+	border-bottom:#E6E6E6 solid 1px;
+	background:#F8F8F8;
+	padding:20px;
+}
+.FormContainer .NOtes h3{
+	font-size:12px;
+	line-height:30px;
+}
+.FormContainer .NOtes h3 span{
+	font-weight:normal;
+}
+.FormContainer .NOtes ul{
+	line-height:20px;
+}
+.FormContainer .NOtes ul span{
+	color:#4666BA;
+}
+.FormContainer .NOtes ul em{
+	color:#F00;
+	font-style:normal;
+}
+.FormContainer .Conts{
+	padding:20px;
+}
+.FormContainer .Conts h3{
+	line-height:30px;
+	font-weight:normal;
+	font-size:12px;
+}
+.FormContainer .Conts span{
+	color:red;
+}
+.FormContainer .Conts h4{
+	clear:both;
+	padding:5px 0 5px 90px;
+	font-size:12px;
+	font-weight:bold;
+}
+.FormContainer .Conts h4 a{
+	color:#4666BA;
+}
+.FormContainer .Conts dl{
+	clear:both;	
+	padding:0;
+	margin:0;
+}
+.FormContainer .Conts dl dt{
+	width:200px;
+	float:left;
+	text-align:right;
+	line-height:35px;
+	padding:0;
+	margin:0;
+}
+.FormContainer .Conts dl dd{
+	width:500px;
+	float:left;
+	margin:0;
+	padding:5px 0 5px 5px;
+	color:#888;
+}
+.FormContainer .Conts dl dd .texts	{
+	height:22px;
+	border:#EE6E6 solid 1px;
+	line-height:22px;
+	margin-bottom:3px;
+}
+.FormContainer .Conts dl dd .submits{
+	border:0;
+	background:#f60;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	padding:5px 10px 3px 10px;
+}
+
+.FormContainer .Conts dl dd .about{
+	width:450px;
+	height:100px;
+}

@@ -1,0 +1,326 @@
+/*
+*
+*/
+.MainCont .main{
+	width:720px;
+	float:left;
+}
+.MainCont .side{
+	width:250px;
+	float:right;
+}
+.MainCont .cleardiv{
+	clear:both;
+} 
+/*
+*
+*/
+.ShowSorts div{
+	height:28px;
+	padding:0 0 10px 15px;
+	overflow:hidden;
+	float:left;
+	background:url(butbg1.gif) no-repeat;
+	margin-right:10px;
+}
+.ShowSorts div span{
+	display:block;
+	height:28px;
+	padding:8px 15px 0 0;
+	background:url(butbg1.gif) right top no-repeat;
+	float:left;	
+}
+.ShowSorts div a:link,.ShowSorts div a:visited,.ShowSorts div a:hover{
+	color:#0163AF;
+	text-decoration:none;
+}
+/*
+*
+*/
+.SearchType{
+	border:#FEDFC3 solid 1px;
+}
+.SearchType .head{
+	height:28px;
+	overflow:hidden;
+	line-height:30px;
+	background:url(head5.gif) repeat-x;
+}
+.SearchType .head .tag{
+	padding-left:20px;
+	background:url(tag2.gif) 10px 7px no-repeat;
+	font-size:14px;
+	color:#FF6000;
+}
+.SearchType .cont{
+	padding:10px;
+}
+.zone_street dt{
+	height:25px;
+	overflow:hidden;
+	line-height:25px;	
+	background:url(head6.gif) repeat-x;
+	padding-left:10px;
+}
+.zone_street dt div{
+	height:25px;
+	padding:0 5px 0 5px;
+	float:left;
+}
+.zone_street dt div.ck{
+	background:url(ck.gif) no-repeat;
+	padding:0 0 0 8px;
+}
+.zone_street dt div.ck span{
+	display:block;
+	float:left;
+	padding:0 8px 0 0 ;
+	background:url(ck.gif) right top no-repeat;
+}
+.zone_street dd{
+	background:#FFF2E1;
+	padding:3px 5px 5px 5px;
+	line-height:20px;
+}
+.zone_street dd .ck{
+	color:#FF0000;
+}
+.listsearch{
+	margin-top:10px;
+}
+.listsearch div{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	padding:0 5px 0 5px;
+}
+.listsearch div span.t{
+	font-weight:bold;
+}
+/*
+*
+*/
+.ShowListCont{
+	margin-top:10px;
+}
+.ShowListCont .head{
+	height:37px;
+	overflow:hidden;
+	background:url(head4.gif) repeat-x;
+}
+.ShowListCont .head .tag{
+	float:left;
+	line-height:42px;
+	padding-left:20px;
+	background:url(tag1.gif) left top no-repeat;
+}
+.ShowListCont .head .tag span{
+	display:block;
+	padding-right:20px;
+	background:url(tag1.gif) right top no-repeat;
+	font-size:14px;
+	font-weight:bold;
+}
+.ShowListCont .head .post{
+	float:right;
+	padding:7px 10px 0 20px;
+	height:30px;
+	background:url(head1.gif) right top no-repeat;
+}
+.ShowListCont .cont{
+	border:#E0E0E0 solid 1px;
+	border-top:0;
+}
+.ShowListCont .cont ul{
+	height:95px;
+	border-bottom:#E0E0E0 solid 1px;
+	overflow:hidden;
+}
+.ShowListCont .cont ul.hbg{
+	background:#F5FAFE;
+}
+.ShowListCont .cont ul.ck{
+	background:#EAEFF3;	
+}
+.ShowListCont .cont ul li{
+	float:left;
+}
+.ShowListCont .cont ul li.img{
+	width:120px;
+	padding-top:12px;
+}
+.ShowListCont .cont ul li.img a{
+	display:block;
+	width:90px;
+	border:#DDD solid 1px;
+	padding:1px;
+	margin:auto;
+}
+.ShowListCont .cont ul li.img a span{
+	display:block;width:90px;
+	height:70px;
+	overflow:hidden;
+	background:#FAFAFA;
+	text-align:center;
+}
+.ShowListCont .cont ul li.word{
+	width:380px;
+	padding-top:10px;
+}
+.ShowListCont .cont ul li.word h3{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	font-weight:normal;
+}
+.ShowListCont .cont ul li.word h3 a{
+	color:#767AD9;
+	font-size:14px;
+}
+.ShowListCont .cont ul li.word div{
+	height:20px;
+	line-height:20px;
+	color:#888;
+}
+.ShowListCont .cont ul li.word p{
+	padding:0;
+	height:54px;
+	overflow:hidden;
+	line-height:18px;
+	color:#666;
+}
+.ShowListCont .cont ul li.time{
+	width:105px;
+	padding-top:25px;
+}
+.ShowListCont .cont ul li.time div{
+	height:23px;
+	line-height:23px;
+	text-align:center;
+	overflow:hidden;
+	color:#333;
+}
+.ShowListCont .cont ul li.info{
+	width:100px;
+	padding-top:25px;
+}
+.ShowListCont .cont ul li.info div{
+	height:23px;
+	line-height:23px;
+	overflow:hidden;
+	color:#333;
+}
+.ShowListCont .cont ul li.info div span{
+	font-size:14px;
+	color:#f30;
+}
+.ShowListCont .cont .page{
+	height:40px;
+	overflow:hidden;
+	text-align:center;
+	padding-top:20px;
+}
+.ShowListCont .cont .page a{
+	font-size:14px;
+	padding:3px 5px 2px 5px;
+	color:#369;
+}
+/*
+*
+*/
+.sidecont{
+	border:#E0E0E0 solid 1px;
+	margin-bottom:10px;
+}
+.sidecont .head{
+	height:29px;
+	overflow:hidden;
+	line-height:32px;
+	background:url(head3.gif) repeat-x;
+}
+.sidecont .head .tag{
+	float:left;
+	padding:0 10px 0 10px;
+	border-right:#E0E0E0 solid 1px;
+	background:#FFF;
+	font-size:14px;
+	font-weight:bold;
+}
+.sidecont .head .more{
+	float:right;
+	padding-right:10px;	
+}
+.sidecont .head .more a{
+	color:#888;
+}
+.sidecont .cont{
+	padding:10px;
+}
+.sidecont .cont1 div{
+	height:25px;
+	padding-right:5px;
+	line-height:25px;
+	overflow:hidden;
+}
+.sidecont .cont1 div span{
+	display:block;
+	width:25px;
+	text-align:center;
+	float:left;
+	background:url(numbg.gif) center -19px no-repeat;
+	color:#FFF;
+}
+.sidecont .cont1 div.list0 span,.sidecont .cont1 div.list1 span,.sidecont .cont1 div.list2 span{
+	background:url(numbg.gif) center 5px no-repeat;
+}
+/*
+*
+*/
+.siderAd{
+	width:250px;
+	overflow:hidden;
+	margin-bottom:10px;
+}
+.sidecont .cont2{
+	padding:5px 10px 10px 10px;
+}
+.sidecont .cont2 dl{
+	height:75px;
+	overflow:hidden;
+	padding:10px 0 10px 0;
+	padding-left:2px;
+	background:url(dotted.gif) left 94px repeat-x;
+}
+.sidecont .cont2 dl dt{
+	width:100px;
+	border:#DDD solid 1px;
+	padding:1px;
+	float:left;
+}
+.sidecont .cont2 dl dt a{
+	display:block;
+	width:100px;
+	height:75px;
+	text-align:center;
+	overflow:hidden;
+	background:#fafafa;
+}
+.sidecont .cont2 dl dd{
+	width:110px;
+	padding-left:10px;
+	float:left;
+}
+.sidecont .cont2 dl dd h3{
+	font-weight:normal;
+	height:40px;
+	line-height:20px;
+	overflow:hidden;
+	font-size:12px;
+}
+.sidecont .cont2 dl dd div{
+	height:20px;
+	overflow:hidden;
+	line-height:20px;
+	color:#888;
+	padding-top:5px;
+}

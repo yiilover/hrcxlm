@@ -1,0 +1,123 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/red/brand/list.css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MainContainer">
+  <tr> 
+    <td class="MainL">
+    	<div class="sortcont">
+            <div class="h">分类</div>
+            <div class="c">
+<!--
+EOT;
+foreach($Fid_db[name] AS $key=>$value){
+$color = $key==$fid?" style=\"color:red\"":'';
+print <<<EOT
+-->
+                <a href="list.php?fid=$key"$color>$value</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+        <div class="brandlist mt10">
+        	<div class="head"><div class="tag">品牌列表</div></div>
+            <div class="cont">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="listtable">
+                  <tr class="h">
+                    <td class="butter"><img src="$webdb[www_url]/images/red/brand/butpic.gif"/></td>
+                    <td class="word">名称 | 企业 | 详情</td>
+                    <td width="12%">代言人</td>
+                    <td width="12%">商家认证</td>
+                  </tr>
+<!--
+EOT;
+foreach($listdb AS $rs){
+print <<<EOT
+-->
+                  <tr>
+                    <td class="pic"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onerror="this.src='$webdb[www_url]/images/yellow/brand.gif'" width="110"/></a></td>
+                    <td class="word">
+                    	<div><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" class="t">$rs[title]</a></div>
+                  		<div><a href="$webdb[www_url]/home/?uid=$rs[uid]" target="_blank">$rs[company]</a>
+<!---->
+                        </div>
+                    </td>
+                    <td><span>$rs[famous_person]</span></td>
+                    <td><img src="$webdb[www_url]/images/yellow/brand_yz{$rs[ifyz]}.gif"/></td>
+                  </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                  <tr class="d">
+                    <td colspan="4" class="butter"><img src="$webdb[www_url]/images/red/brand/butpic.gif"/> <a href="#"><img src="$webdb[www_url]/images/red/brand/butup.gif"/></a></td>
+                  </tr>
+<!--
+EOT;
+if($showpage){
+print <<<EOT
+-->
+                  <tr>
+                    <td colspan="4" class="page">$showpage</td>
+                  </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                </table>
+            </div>
+        </div>               
+    </td>
+    <td class="SideR">
+    	<div class="sidecont">
+        	<div class="head"><div class="tag">推荐品牌</div></div>
+            <div class="cont">
+<!--
+EOT;
+$array = list_title('com',5);
+foreach($array AS $rs){print <<<EOT
+-->
+             
+                <div class="list"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></div> 
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+        <div class="sidecont mt10">
+        	<div class="head"><div class="tag">温馨提示</div></div>
+            <div class="cont note">
+            	本报讯 昨晚，备受各界瞩目的盖茨和巴菲特慈善晚宴在北京昌平拉斐特城堡庄园举行。
+                    据主办单位表示，当晚赴宴的企业家约有50人，并未像此前预测的那样“有一半富豪拒绝出席”。
+                    且“巴比”信守此前承诺，并未借助慈善晚宴对中国富豪“劝捐”。
+            </div>
+        </div>
+        <div class="sidecont mt10">
+        	<div class="head"><div class="tag">热门品牌</div></div>
+            <div class="cont">
+<!--
+EOT;
+$array = list_title('hot',8);
+foreach($array AS $key=>$rs){
+print <<<EOT
+-->
+            	<div class="lista"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+        </div>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->
