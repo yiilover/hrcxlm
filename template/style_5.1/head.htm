@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+$thiscityname = $city_DB[name][$city_id] ? $city_DB[name][$city_id] : "&nbsp;";
+$GuideFid[$fid]=str_replace("<a href='$webdb[www_url]' class='guide_menu'>&gt;首页</a>","",$GuideFid[$fid]);
+$bodyondblclick = (function_exists('label_array')&&$web_admin&&!$MakeIndex) ?"dblclick_label();":"";
+$changecity = count($city_DB[name])>1 ? "<a href=\"$webdb[www_url]/allcity.php\">[切换城市]</a>":"当前城市";
+print <<<EOT
+-->
+<head>
+<title>$titleDB[title]</title>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/style5.1/style.css">
+<link id="themecss" rel="stylesheet" type="text/css" href="$webdb[www_url]/images/style5.1/css2.css">
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/default/cms.css">
+<link rel="shortcut icon" type="image/ico" href="$webdb[www_url]/images/css4.0/favicon.ico">
+
+
+<link href="$webdb[www_url]/images/style5.1/index/css/reset_v2.css" type="text/css" rel="stylesheet" />
+
+<!--
+EOT;
+if(isset($CURMODE) && $CURMODE=="index"){
+print <<<EOT
+-->
+<link href="$webdb[www_url]/images/style5.1/index/css/public_v2.css" type="text/css" rel="stylesheet" />
+<link href="$webdb[www_url]/images/style5.1/index/css/frontIndex.css" type="text/css" rel="stylesheet" />
+<!--
+EOT;
+}
+print <<<EOT
+-->
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="keywords" content="$titleDB[keywords]">
+<meta name="description" content="$titleDB[description]">
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+function killErr(){
+	return true;
+}
+window.onerror=killErr;
+</SCRIPT>
+<!--
+EOT;
+if($webdb[cookieDomain]){print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+//解决不同域名的框架跨域问题
+document.domain = "$webdb[cookieDomain]";
+</SCRIPT>
+<!--
+EOT;
+}
+$web_logo=($city_DB[logo][$city_id])?"<img src='tempdir($city_DB[logo][$city_id])'/>":"<span><em><img src='$webdb[www_url]/images/style5.1/logo.gif'/></em></span>";
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/default.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/swfobject.js"></SCRIPT>
+<script type="text/javascript" src="$webdb[www_url]/images/style5.1/sliding.js"></script>
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jscroll.js"></SCRIPT>
+
+
+
+
+
+
+<body ondblclick="$bodyondblclick" class="$index_body">
+
+
+
+
+
+
+<div class="container_topNav">
+    <div class="w">
+		<ul>
+		    <li class="fl">欢迎来到华人诚信联盟！ <a href="" class="colorGrey60_link">登录</a><span class="fgx">|</span><a href="" class="colorGrey60_link">免费注册</a></li>
+			<li class="fr"><a href="" class="colorGrey60_link">我的联盟</a><span class="fgx">|</span><a href="" class="colorGrey60_link">联盟服务</a><span class="fgx">|</span><a href="" class="colorGrey60_link">收藏</a><span class="fgx">|</span><a href="" class="colorGrey60_link">帮助</a><span class="fgx">|</span><a href="" class="colorGrey60_link">导航</a></li>    
+		</ul>
+	</div>
+</div>
+
+<div class="container_h">
+    <div class="container_h_inner">
+    <div class="w">
+		 <div class="cityChange">
+			 <h2 class="colorGrey40">联盟总站</h2>
+			 <span class="pointer">北京<em></em></span>
+		 </div>
+		 <div class="search_block">
+			 <div class="search_bt" id="search_menu"><a href="javascript:void(0);" class="on">供应</a><a href="javascript:void(0);">需求</a><a href="javascript:void(0);">代理加盟</a><a href="javascript:void(0);">商学院</a><a href="javascript:void(0);">产品</a><a href="javascript:void(0);">公司</a></div>
+			 <div class="search_wrap">
+				 <form method="post" id="searchForm">
+				 <ul>
+					 <li class="fl menu_options">
+					 	<span class="keySlect"><strong>代理加盟</strong><em></em></span>
+						<input type="hidden" value="" />
+						<div class="selectMenu hide">
+						    <span>供应</span>
+							<span>需求</span>
+							<span>代理加盟</span>
+							<span>商学院</span>
+						</div>
+					 </li>
+					 <li class="fl search_input"><input type="text" value="请输入关键字" /></li>
+					 <li class="fl subBtn"><a href="javascript:void(0);" onclick="$('#searchForm').submit();">搜索</a></li>
+				 </ul>
+				 </form>
+			 </div>
+			 <div class="search_key"><a href="" class="colorGrey60_link">项目</a><span class="fgx">|</span><a href="" class="colorGrey60_link">资金</a><span class="fgx">|</span><a href="" class="colorGrey60_link">技术</a><span class="fgx">|</span><a href="" class="colorGrey60_link">土地</a><span class="fgx">|</span><a href="" class="colorGrey60_link">渠道</a>  <span class="fgx">|</span><a href="" class="colorGrey60_link">其他</a><span class="fgx">|</span><a href="" class="colorBlue_red">热门资源TOP榜</a>
+	</div>
+		 </div>
+		 
+		 <div class="telepone">
+		     <h6>咨询热线：</h6>
+			 <p>888686666</p>
+		 </div>
+		 <div class="clearboth"></div>
+	</div>
+	</div>
+</div>
+
+<div class="container_nav">
+    <div class="w">
+		<div class="w mainNav" id="mainNav">
+			 <ul>
+				 <li>
+					 <a href="" class="menu1">首页</a>
+				 </li>
+				 <li>
+					 <a href="" class="menu1">需求</a>
+					 <div class="sunNav hide">
+						<div class="fl flMenus">
+							<dl>
+								<dt><a href="">资金</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">人才</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">人脉</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">土地</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">媒体</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">技术</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">其他</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class="frAd fr" style="display:none;">
+							<img src="img/index+20130905_17.jpg" alt="" width="130" height="80" />
+						</div>
+						<div class="clearboth"></div>
+					 </div>
+				 </li>
+				 <li>
+					 <a href="" class="menu1">供应</a>
+					 <div class="sunNav hide">
+						<div class="fl flMenus">
+							<dl>
+								<dt><a href="">资金</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">人才</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">人脉</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">土地</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">媒体</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">技术</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">其他</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class="frAd fr" style="display:none;">
+							<img src="img/index+20130905_17.jpg" alt="" width="132" height="70" />
+						</div>
+						<div class="clearboth"></div>
+					 </div>
+				 </li>
+				 <li>
+					 <a href="" class="menu1">华盟项目</a>
+					 <div class="sunNav hide">
+						<div class="fl flMenus">
+							<dl>
+								<dt><a href="">资源整合<em></em></a></dt>
+								<dd><a href="" class="no_ml">资源沙龙</a><a href="">展会</a><a href="" class="no_ml">招聘会</a><a href="">茶话会</a><a href="" class="no_ml">咨询会</a><a href="">项目推荐会</a><span class="height_10"></span></dd>
+							</dl>
+							<dl>
+								<dt><a href="">产品交易<em></em></a></dt>
+								<dd><a href="" class="no_ml">易货</a><a href="">团购</a><a href="" class="no_ml">采购</a><span class="height_10"></span></dd>
+							</dl>
+							<dl>
+								<dt><a href="">源头之旅</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">华盟教育</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class="frAd fr" style="display:none;">
+							<img src="img/index+20130905_17.jpg" alt="" width="132" height="70" />
+						</div>
+						<div class="clearboth"></div>
+					 </div>
+				 </li>
+				 <li>
+					 <a href="" class="menu1">行业联盟</a>
+					 <div class="sunNav hide">
+						<div class="fl flMenus">
+							<dl>
+								<dt><a href="">同业联盟</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">异业合作</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class="frAd fr" style="display:none;">
+							<img src="img/index+20130905_17.jpg" alt="" width="132" height="70" />
+						</div>
+						<div class="clearboth"></div>
+					 </div>
+				 </li>
+				 
+				 <li>
+					 <a href="" class="menu1">联盟社区</a>
+					 <div class="sunNav hide">
+					    <div class="fl flMenus">
+						    <dl>
+								<dt><a href="">老板思维</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">企业提升</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">员工管理</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">商人圈</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">草根创业</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">精品课程</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">精英团队</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class="frAd fr" style="display:none;">
+							<img src="img/index+20130905_17.jpg" alt="" width="132" height="70" />
+						</div>
+						<div class="clearboth"></div>
+					 </div>
+				 </li>
+				 <li>
+					 <a href="" class="menu1">联盟合伙人</a>
+					 <div class="sunNav hide">
+					    <div class="fl flMenus">
+							<dl>
+								<dt><a href="">华盟股东</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">华盟战略伙伴</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">华盟专家<em></em></a></dt>
+								<dd><a href="" class="no_ml">资金团</a><a href="">律师团</a><a href="" class="no_ml">策划团</a><a href="">营销团</a><a href="" class="no_ml">网络团</a><span class="height_10"></span></dd>
+							</dl>
+							<dl>
+								<dt><a href="">诚信服务商</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">整合案例</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class="frAd fr" style="display:none;">
+							<img src="img/index+20130905_17.jpg" alt="" width="132" height="70" />
+						</div>
+						<div class="clearboth"></div>
+					 </div>
+				 </li>
+				 <li>
+					 <a href="" class="menu1">联盟服务</a>
+					 <div class="sunNav hide">
+					    <div class="fl flMenus">
+							<dl>
+								<dt><a href="">华盟简介</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">招商加盟</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">客服平台</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">填写资源问卷</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href="">诚信指标查询</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class="frAd fr" style="display:none;">
+							<img src="img/index+20130905_17.jpg" alt="" width="132" height="70" />
+						</div>
+						<div class="clearboth"></div>
+					 </div>
+				 </li>
+			 </ul>
+			 <div class="clearboth"></div>
+			 <div class="classNav" style="display:none;">
+				<h4><a href="">资源分类</a></h4>
+				<dl class="hide">
+					<dt>行业资源</dt>
+					<dd><a href="">旅游住宿</a><a href="">餐饮房产</a><a href="">银行信托</a><a href="">批发零售</a><a href="">证券保险</a><a href="">服装鞋袜</a><a href="">教育培训</a><a href="">机械制造</a><a href="">造纸印刷</a></dd>
+				</dl>
+			</div>
+		</div>
+		
+		<div id="classNav" class="classNav">
+						<a href="javascript:void(0);" class="classNav_btn">资源分类</a>	
+						<div class="classNav_nr hide">
+							<div class="height_10"></div>
+							<dl class="fl">
+								<dt>行业资源</dt>
+								<dd><a href="">旅游住宿</a><a href="">餐饮房产</a><a href="">银行信托</a><a href=""> 批发零售</a><a href="">证券保险</a><a href="">服装鞋袜</a><a href="">教育培训</a><a href="">机械制造</a><a href="">造纸印刷</a><a href="">食品饮料</a><a href="">农林牧渔</a><a href="">文体娱乐</a><a href="">首饰</a><a href="">加工进出口</a><a href="">IT软件行业</a><a href="">交通运输物流</a><a href="">广电媒体传播</a><a href="">家电五金制造</a><a href="">建筑装修材料</a><a href="">医院化工设备
+</a></dd>
+							</dl>
+							<dl class="fl">
+								<dt>客户资源</dt>
+								<dd><a href="">老客户维护</a><a href="">客户关系管理</a><a href="">开发新客户</a><a href="">老客户转介绍</a><a href="">新客户拓展</a><a href="">客户满意度调查</a><a href="">跟进新客户</a><a href="">建设客户服务中心</a></dd>
+							</dl>
+							<dl class="fl">
+								<dt>营销平台</dt>
+								<dd><a href="">销售渠道</a><a href="">投资加盟渠道</a><a href="">招商渠道</a><a href="">推广渠道宣传</a></dd>
+							</dl>
+							<dl class="fl">
+								<dt>人力资源</dt>
+								<dd><a href="">创新人才</a><a href="">人力投资</a><a href="">技术团队</a><a href="">团队营销</a><a href="">策划团队</a><a href="">销售团队</a><a href="">医疗服务团队</a><a href="">兼职人才</a><a href="">海外高技能</a><a href="">管理人才</a><a href="">财务资本运作团队</a></dd>
+							</dl>
+							<dl class="fl">
+								<dt>人脉资源</dt>
+								<dd><a href="">政务关系</a><a href="">金融人脉</a><a href="">国企央企人脉</a><a href="">地产公司人脉</a><a href="">上市公司人脉</a><a href="">教育医疗人脉</a><a href="">协会商会人脉</a><a href="">军检政法人脉</a></dd>
+							</dl>
+							<dl class="fl">
+								<dt>技术交流</dt>
+								<dd><a href="">技术需求</a><a href="">技术转让</a><a href="">闲置资源</a></dd>
+							</dl>
+							<dl class="fl">
+								<dt>职业培训</dt>
+								<dd><a href="">财商教育类培训</a><a href="">总裁培训</a><a href="">市场营销类培训</a><a href="">人力资源类培训</a><a href="">技术管理类培训</a><a href="">生产管理类培训</a><a href="">职业技能类培训</a><a href="">指挥心理类培训</a></dd>
+							</dl>
+							<dl class="fl">
+								<dt>创业商机</dt>
+								<dd><a href="">创业项目</a><a href="">联盟商机</a></dd>
+							</dl>
+							<dl class="fl">
+								<dt>文化品牌</dt>
+								<dd><a href="">文化创新</a><a href="">品牌管理</a><a href="">品牌推广</a><a href=""> 品牌设计</a><a href="">企业文化策划</a></dd>
+							</dl>
+							<dl class="fl">
+								<dt>健康养生</dt>
+								<dd><a href="">心理健康</a><a href="">健康饮食</a><a href="">养生之道</a><a href="">美容养身</a><a href="">身体养护</a><a href="">中医保健</a></dd>
+							</dl>
+							<dl class="fl">
+								<dt>投资融资</dt>
+								<dd><a href="">银行理财</a><a href="">保险信托兼并转让</a><a href="">资金资源</a><a href="">项目资源</a><a href="">投融资源</a></dd>
+							</dl>
+							<div class="height_10"></div>
+						</div>
+					</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="$webdb[www_url]/images/style5.1/heads.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function checkpost(){
+	if($("#MainSearch .keyword input").val() ==""){
+		alert('关键字不能为空!');
+		return false;
+	}
+}
+//目的是为了做风格方便
+document.write('<div class="wrap">');
+//-->
+</SCRIPT>
+
+<!--
+EOT;
+?>
+-->
+
