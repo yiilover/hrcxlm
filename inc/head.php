@@ -4,5 +4,6 @@ if($cType){
 }else{
 	$fidson_menu="fidson_menu.js";
 }
+// echo html("head",$head_tpl);die;
 require(html("head",$head_tpl));
 ?>

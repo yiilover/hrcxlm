@@ -66,7 +66,7 @@ if($city_DB['tpl'][$city_id]){
 $template_file=html('main',$index_tpl);
 fetch_label_value(array('pagetype'=>'8','file'=>$template_file,'module'=>'0'));
 
-
+// echo ROOT_PATH."inc/head.php";die;
 
 require(ROOT_PATH."inc/head.php");
 require($template_file);
