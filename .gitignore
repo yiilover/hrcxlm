@@ -1,2 +1,4 @@
+/cache/label_cache/
+/cache/label_cache/**
 /data/config.php
 /data/mysql_config.php
