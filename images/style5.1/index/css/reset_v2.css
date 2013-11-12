@@ -75,7 +75,7 @@ h6{ font-size:12px;}
 .m_t10{ margin-top:10px;}
 .m_r10{ margin-right:10px;}
 .no_margin{ margin:0 !important;}
-.no_marginL{ margin-left:0 !important;}
+.no_marginL1,  .no_marginL4,  .no_marginL7 , .no_marginL10 , .no_marginL13,  .no_marginL16,  .no_marginL19{ margin-left:0 !important;}
 
 /* padding */ 
 .p_t10{ padding-top:10px;}

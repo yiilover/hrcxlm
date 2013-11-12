@@ -775,6 +775,65 @@ $TagDB['deepblue_weather']=array(
 				'code'=>'<iframe src=\"http://m.weather.com.cn/m/pn4/weather.htm \" width=\"160\" height=\"20\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\"></iframe>',
 				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:0:\"\";s:5:\"div_h\";s:0:\"\";s:11:\"div_bgcolor\";s:0:\"\";}'
 				);
+$TagDB['f1']=array(
+				'typesystem'=>'0',
+				'type'=>'code',
+				'code'=>'<div class=\"w\">
+   		<div class=\"service\">
+			<dl class=\"fore1\">
+				<dt><strong>新手入门</strong></dt>
+				<dd>
+				    <div><a href=\"/news/bencandy.php?fid=143&id=983\">新用户注册</a></div>
+					<div><a href=\"/news/bencandy.php?fid=143&id=984\">用户指南</a></div>
+					<div><a href=\"/news/bencandy.php?fid=143&id=985\">常见问题</a></div>
+				</dd>
+			</dl>
+			<dl class=\"fore2\">
+				<dt><strong>联盟服务</strong></dt>
+				<dd>
+					<div><a href=\"/news/bencandy.php?fid=144&id=986\">联盟简介</a></div>
+					<div><a href=\"/news/bencandy.php?fid=144&id=987\">联盟服务</a></div>
+					<div><a href=\"/news/bencandy.php?fid=144&id=988\">联盟保障</a></div>
+					<div><a href=\"/news/bencandy.php?fid=144&id=989\">诚信指标查询</a></div>
+				</dd>
+			</dl>
+			<dl class=\"fore3\">
+				<dt><strong>会员等级</strong></dt>
+				<dd>
+					<div><a href=\"/news/bencandy.php?fid=145&id=990\">会员等级</a></div>
+					<div><a href=\"/news/bencandy.php?fid=145&id=991\">会员制度</a></div>
+					<div><a href=\"/news/bencandy.php?fid=145&id=992\">会员优势</a></div>
+					<div><a href=\"/news/bencandy.php?fid=145&id=993\">会员查询</a></div>
+				</dd>
+			</dl>
+			<dl class=\"fore4\">
+				<dt><strong>资源在线</strong></dt>
+				<dd>
+					<div><a href=\"/news/bencandy.php?fid=146&id=994\">客服平台</a></div>
+					<div><a href=\"/news/bencandy.php?fid=146&id=995\">产品交易</a></div>
+					<div><a href=\"/news/bencandy.php?fid=146&id=996\">整合中心</a></div>
+					<div><a href=\"/news/bencandy.php?fid=146&id=997\">填写资源问卷</a></div>
+				</dd>
+			</dl>
+			<dl class=\"fore5\">
+				<dt><strong>联系我们</strong></dt>
+				<dd>
+					<div><a href=\"/news/bencandy.php?fid=147&id=998\">我有资源</a></div>
+					<div><a href=\"/news/bencandy.php?fid=147&id=999\">我有需求</a></div>
+					<div><a href=\"/news/bencandy.php?fid=147&id=1000\">成为合伙人</a></div>
+					<div><a href=\"/news/bencandy.php?fid=147&id=1001\">入盟申请</a></div>
+				</dd>
+			</dl>
+			<span class=\"clearboth\"></span>
+		</div>',
+				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:0:\"\";s:5:\"div_h\";s:0:\"\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['f2']=array(
+				'typesystem'=>'0',
+				'type'=>'code',
+				'code'=>'<div class=\"copy\">华人诚信联盟 客服专线：400-809-1689 邮箱:hrcxlm@163.com<br />&copy; 2011-2015 华人诚信联盟有限公司 版权所有.<br />工信部网络备案号：鲁ICP备13010229号.</div>',
+				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:0:\"\";s:5:\"div_h\";s:0:\"\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
 $TagDB['fashoin_main8h']=array(
 				'typesystem'=>'0',
 				'type'=>'code',
@@ -2322,6 +2381,300 @@ $TagDB['green_maint9']=array(
 </div>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:7:\"fenlei_\";s:7:\"typefid\";N;s:6:\"cityId\";s:17:\"$GLOBALS[city_id]\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:11:\"content_num\";s:2:\"80\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:2:\"30\";s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:8:\"moduleid\";s:0:\"\";s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:3:\"all\";s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:4:\"hits\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"4\";s:3:\"sql\";s:144:\"(SELECT * FROM qb_fenlei_content  WHERE ispic=1 AND city_id=\'$GLOBALS[city_id]\'  AND city_id=\'$GLOBALS[city_id]\' ) ORDER BY hits DESC LIMIT 0,4 \";s:7:\"colspan\";s:1:\"1\";s:8:\"titlenum\";s:2:\"20\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";}',
 				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
 				);
+$TagDB['h1']=array(
+				'typesystem'=>'0',
+				'type'=>'code',
+				'code'=>' <ul>
+				 <li>
+					 <a href=\"/\" class=\"menu1\">首页</a>
+				 </li>
+				 <li>
+					 <a href=\"/buy/\" class=\"menu1\">需求</a>
+					 <div class=\"sunNav hide\">
+						<div class=\"fl flMenus\">
+							<dl>
+								<dt><a href=\"/buy/list.php?fid=1\">资金</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/buy/list.php?fid=2\">人才</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/buy/list.php?fid=3\">人脉</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/buy/list.php?fid=5\">土地</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/buy/list.php?fid=6\">媒体</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/buy/list.php?fid=7\">技术</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/buy/list.php?fid=8\">其他</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class=\"frAd fr\" style=\"display:none;\">
+							<img src=\"img/index+20130905_17.jpg\" alt=\"\" width=\"130\" height=\"80\" />
+						</div>
+						<div class=\"clearboth\"></div>
+					 </div>
+				 </li>
+				 <li>
+					 <a href=\"/sell/\" class=\"menu1\">供应</a>
+					 <div class=\"sunNav hide\">
+						<div class=\"fl flMenus\">
+							<dl>
+								<dt><a href=\"/sell/list.php?fid=1\">资金</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/sell/list.php?fid=2\">人才</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/sell/list.php?fid=3\">人脉</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/sell/list.php?fid=5\">土地</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/sell/list.php?fid=6\">媒体</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/sell/list.php?fid=7\">技术</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/sell/list.php?fid=8\">其他</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class=\"frAd fr\" style=\"display:none;\">
+							<img src=\"img/index+20130905_17.jpg\" alt=\"\" width=\"132\" height=\"70\" />
+						</div>
+						<div class=\"clearboth\"></div>
+					 </div>
+				 </li>
+				 <li>
+					 <a href=\"\" class=\"menu1\">华盟项目</a>
+					 <div class=\"sunNav hide\">
+						<div class=\"fl flMenus\">
+							<dl>
+								<dt><a href=\"\">资源整合<em></em></a></dt>
+								<dd><a href=\"\" class=\"no_ml\">资源沙龙</a><a href=\"\">展会</a><a href=\"\" class=\"no_ml\">招聘会</a><a href=\"\">茶话会</a><a href=\"\" class=\"no_ml\">咨询会</a><a href=\"\">项目推荐会</a><span class=\"height_10\"></span></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">产品交易<em></em></a></dt>
+								<dd><a href=\"\" class=\"no_ml\">易货</a><a href=\"\">团购</a><a href=\"\" class=\"no_ml\">采购</a><span class=\"height_10\"></span></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">源头之旅</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">华盟教育</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class=\"frAd fr\" style=\"display:none;\">
+							<img src=\"img/index+20130905_17.jpg\" alt=\"\" width=\"132\" height=\"70\" />
+						</div>
+						<div class=\"clearboth\"></div>
+					 </div>
+				 </li>
+				 <li>
+					 <a href=\"\" class=\"menu1\">行业联盟</a>
+					 <div class=\"sunNav hide\">
+						<div class=\"fl flMenus\">
+							<dl>
+								<dt><a href=\"\">同业联盟</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">异业合作</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class=\"frAd fr\" style=\"display:none;\">
+							<img src=\"img/index+20130905_17.jpg\" alt=\"\" width=\"132\" height=\"70\" />
+						</div>
+						<div class=\"clearboth\"></div>
+					 </div>
+				 </li>
+				 
+				 <li>
+					 <a href=\"/news/\" class=\"menu1\">联盟社区</a>
+					 <div class=\"sunNav hide\">
+					    <div class=\"fl flMenus\">
+						    <dl>
+								<dt><a href=\"\">老板思维</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">企业提升</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">员工管理</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">商人圈</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">草根创业</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">精品课程</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">精英团队</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class=\"frAd fr\" style=\"display:none;\">
+							<img src=\"img/index+20130905_17.jpg\" alt=\"\" width=\"132\" height=\"70\" />
+						</div>
+						<div class=\"clearboth\"></div>
+					 </div>
+				 </li>
+				 <li>
+					 <a href=\"\" class=\"menu1\">联盟合伙人</a>
+					 <div class=\"sunNav hide\">
+					    <div class=\"fl flMenus\">
+							<dl>
+								<dt><a href=\"\">华盟股东</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">华盟战略伙伴</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">华盟专家<em></em></a></dt>
+								<dd><a href=\"\" class=\"no_ml\">资金团</a><a href=\"\">律师团</a><a href=\"\" class=\"no_ml\">策划团</a><a href=\"\">营销团</a><a href=\"\" class=\"no_ml\">网络团</a><span class=\"height_10\"></span></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">诚信服务商</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">整合案例</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class=\"frAd fr\" style=\"display:none;\">
+							<img src=\"img/index+20130905_17.jpg\" alt=\"\" width=\"132\" height=\"70\" />
+						</div>
+						<div class=\"clearboth\"></div>
+					 </div>
+				 </li>
+				 <li>
+					 <a href=\"\" class=\"menu1\">联盟服务</a>
+					 <div class=\"sunNav hide\">
+					    <div class=\"fl flMenus\">
+							<dl>
+								<dt><a href=\"\">华盟简介</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">招商加盟</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">客服平台</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">填写资源问卷</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"\">诚信指标查询</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class=\"frAd fr\" style=\"display:none;\">
+							<img src=\"img/index+20130905_17.jpg\" alt=\"\" width=\"132\" height=\"70\" />
+						</div>
+						<div class=\"clearboth\"></div>
+					 </div>
+				 </li>
+			 </ul>',
+				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"21\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['h2']=array(
+				'typesystem'=>'0',
+				'type'=>'code',
+				'code'=>'<div id=\"classNav\" class=\"classNav\">
+						<a href=\"javascript:void(0);\" class=\"classNav_btn\">资源分类</a>	
+						<div class=\"classNav_nr hide\">
+							<div class=\"height_10\"></div>
+							<dl class=\"fl\">
+								<dt>行业资源</dt>
+								<dd><a href=\"\">旅游住宿</a><a href=\"\">餐饮房产</a><a href=\"\">银行信托</a><a href=\"\"> 批发零售</a><a href=\"\">证券保险</a><a href=\"\">服装鞋袜</a><a href=\"\">教育培训</a><a href=\"\">机械制造</a><a href=\"\">造纸印刷</a><a href=\"\">食品饮料</a><a href=\"\">农林牧渔</a><a href=\"\">文体娱乐</a><a href=\"\">首饰</a><a href=\"\">加工进出口</a><a href=\"\">IT软件行业</a><a href=\"\">交通运输物流</a><a href=\"\">广电媒体传播</a><a href=\"\">家电五金制造</a><a href=\"\">建筑装修材料</a><a href=\"\">医院化工设备
+</a></dd>
+							</dl>
+							<dl class=\"fl\">
+								<dt>客户资源</dt>
+								<dd><a href=\"\">老客户维护</a><a href=\"\">客户关系管理</a><a href=\"\">开发新客户</a><a href=\"\">老客户转介绍</a><a href=\"\">新客户拓展</a><a href=\"\">客户满意度调查</a><a href=\"\">跟进新客户</a><a href=\"\">建设客户服务中心</a></dd>
+							</dl>
+							<dl class=\"fl\">
+								<dt>营销平台</dt>
+								<dd><a href=\"\">销售渠道</a><a href=\"\">投资加盟渠道</a><a href=\"\">招商渠道</a><a href=\"\">推广渠道宣传</a></dd>
+							</dl>
+							<dl class=\"fl\">
+								<dt>人力资源</dt>
+								<dd><a href=\"\">创新人才</a><a href=\"\">人力投资</a><a href=\"\">技术团队</a><a href=\"\">团队营销</a><a href=\"\">策划团队</a><a href=\"\">销售团队</a><a href=\"\">医疗服务团队</a><a href=\"\">兼职人才</a><a href=\"\">海外高技能</a><a href=\"\">管理人才</a><a href=\"\">财务资本运作团队</a></dd>
+							</dl>
+							<dl class=\"fl\">
+								<dt>人脉资源</dt>
+								<dd><a href=\"\">政务关系</a><a href=\"\">金融人脉</a><a href=\"\">国企央企人脉</a><a href=\"\">地产公司人脉</a><a href=\"\">上市公司人脉</a><a href=\"\">教育医疗人脉</a><a href=\"\">协会商会人脉</a><a href=\"\">军检政法人脉</a></dd>
+							</dl>
+							<dl class=\"fl\">
+								<dt>技术交流</dt>
+								<dd><a href=\"\">技术需求</a><a href=\"\">技术转让</a><a href=\"\">闲置资源</a></dd>
+							</dl>
+							<dl class=\"fl\">
+								<dt>职业培训</dt>
+								<dd><a href=\"\">财商教育类培训</a><a href=\"\">总裁培训</a><a href=\"\">市场营销类培训</a><a href=\"\">人力资源类培训</a><a href=\"\">技术管理类培训</a><a href=\"\">生产管理类培训</a><a href=\"\">职业技能类培训</a><a href=\"\">指挥心理类培训</a></dd>
+							</dl>
+							<dl class=\"fl\">
+								<dt>创业商机</dt>
+								<dd><a href=\"\">创业项目</a><a href=\"\">联盟商机</a></dd>
+							</dl>
+							<dl class=\"fl\">
+								<dt>文化品牌</dt>
+								<dd><a href=\"\">文化创新</a><a href=\"\">品牌管理</a><a href=\"\">品牌推广</a><a href=\"\"> 品牌设计</a><a href=\"\">企业文化策划</a></dd>
+							</dl>
+							<dl class=\"fl\">
+								<dt>健康养生</dt>
+								<dd><a href=\"\">心理健康</a><a href=\"\">健康饮食</a><a href=\"\">养生之道</a><a href=\"\">美容养身</a><a href=\"\">身体养护</a><a href=\"\">中医保健</a></dd>
+							</dl>
+							<dl class=\"fl\">
+								<dt>投资融资</dt>
+								<dd><a href=\"\">银行理财</a><a href=\"\">保险信托兼并转让</a><a href=\"\">资金资源</a><a href=\"\">项目资源</a><a href=\"\">投融资源</a></dd>
+							</dl>
+							<div class=\"height_10\"></div>
+						</div>
+					</div>
+',
+				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:0:\"\";s:5:\"div_h\";s:0:\"\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
 $TagDB['head_menus']=array(
 				'typesystem'=>'0',
 				'type'=>'code',
@@ -2348,6 +2701,287 @@ $TagDB['head_menus']=array(
         <div class=\"listm\"><a href=\"#\">空白链接</a></div>
         <div class=\"listm\"><a href=\"#\">空白链接</a></div>',
 				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:3:\"958\";s:5:\"div_h\";s:2:\"46\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i1']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:95:\"<li><a href=\"{$url}\"><img class=\"fl\" src=\"{$picurl}\" width=\"182\" height=\"64\" alt=\"\" /></a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";s:2:\"47\";s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"6\";s:3:\"sql\";s:138:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.fid IN (47)  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,6 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i10']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:48:\"<li><em></em><a href=\"{$url}\">{$title}</a></li>	\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";s:2:\"47\";s:5:\"stype\";s:1:\"4\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"7\";s:3:\"sql\";s:108:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.fid IN (47)   ORDER BY A.list DESC LIMIT 0,7 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i11']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_showroom_',
+				'code'=>'a:28:{s:13:\"tplpart_1code\";s:106:\"<li class=\"fl\"><a href=\"{$url}\" class=\"fl\"><img src=\"{$picurl}\" alt=\"\" width=\"168\" height=\"82\" /></a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:9:\"showroom_\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:11:\"content_num\";s:2:\"80\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:2:\"30\";s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:8:\"moduleid\";s:1:\"1\";s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:3:\"all\";s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"5\";s:3:\"sql\";s:147:\"SELECT * FROM qb_showroom_content A LEFT JOIN qb_showroom_content_1 B ON A.id=B.id  WHERE A.ispic=1  AND A.mid=\'1\'  ORDER BY A.list DESC LIMIT 0,5 \";s:7:\"colspan\";s:1:\"1\";s:8:\"titlenum\";s:2:\"20\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i12']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_sell_',
+				'code'=>'a:30:{s:13:\"tplpart_1code\";s:256:\"<li><em></em><a href=\"{$url}\">{$title}</a><span class=\"date\">{$time_Y}.{$time_m}.{$time_d}</span>
+<div class=\"detail-frame\">
+	<h2>分类：{$fname}</h2>
+	<p>在本教程中我们使用jQuery和CSS3中带来新的变革，创造了一个三维动态滑块效果的功能。</p>
+</div>
+</li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:7:\"typefid\";N;s:9:\"noReadMid\";i:1;s:6:\"wninfo\";s:5:\"sell_\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:11:\"content_num\";s:2:\"80\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:2:\"30\";s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:8:\"moduleid\";N;s:5:\"stype\";s:1:\"4\";s:2:\"yz\";s:3:\"all\";s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:2:\"10\";s:3:\"sql\";s:125:\"(SELECT A.*,B.* FROM qb_sell_content A LEFT JOIN qb_sell_content_1 B ON A.id=B.id  WHERE 1 ) ORDER BY A.list DESC LIMIT 0,10 \";s:7:\"colspan\";s:1:\"1\";s:8:\"titlenum\";s:2:\"20\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i13']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_buy_',
+				'code'=>'a:30:{s:13:\"tplpart_1code\";s:256:\"<li><em></em><a href=\"{$url}\">{$title}</a><span class=\"date\">{$time_Y}.{$time_m}.{$time_d}</span>
+<div class=\"detail-frame\">
+	<h2>分类：{$fname}</h2>
+	<p>在本教程中我们使用jQuery和CSS3中带来新的变革，创造了一个三维动态滑块效果的功能。</p>
+</div>
+</li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:7:\"typefid\";N;s:9:\"noReadMid\";i:1;s:6:\"wninfo\";s:4:\"buy_\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:11:\"content_num\";s:2:\"80\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:2:\"30\";s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:8:\"moduleid\";N;s:5:\"stype\";s:1:\"4\";s:2:\"yz\";s:3:\"all\";s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:2:\"10\";s:3:\"sql\";s:123:\"(SELECT A.*,B.* FROM qb_buy_content A LEFT JOIN qb_buy_content_1 B ON A.id=B.id  WHERE 1 ) ORDER BY A.list DESC LIMIT 0,10 \";s:7:\"colspan\";s:1:\"1\";s:8:\"titlenum\";s:2:\"20\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i14']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_sell_',
+				'code'=>'a:30:{s:13:\"tplpart_1code\";s:256:\"<li><em></em><a href=\"{$url}\">{$title}</a><span class=\"date\">{$time_Y}.{$time_m}.{$time_d}</span>
+<div class=\"detail-frame\">
+	<h2>分类：{$fname}</h2>
+	<p>在本教程中我们使用jQuery和CSS3中带来新的变革，创造了一个三维动态滑块效果的功能。</p>
+</div>
+</li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:7:\"typefid\";N;s:9:\"noReadMid\";i:1;s:6:\"wninfo\";s:5:\"sell_\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:11:\"content_num\";s:2:\"80\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:2:\"30\";s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:8:\"moduleid\";N;s:5:\"stype\";s:1:\"4\";s:2:\"yz\";s:3:\"all\";s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:2:\"10\";s:3:\"sql\";s:125:\"(SELECT A.*,B.* FROM qb_sell_content A LEFT JOIN qb_sell_content_1 B ON A.id=B.id  WHERE 1 ) ORDER BY A.list DESC LIMIT 0,10 \";s:7:\"colspan\";s:1:\"1\";s:8:\"titlenum\";s:2:\"20\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i15']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"0\";s:13:\"tplpart_1code\";s:47:\"<li><em></em><a href=\"{$url}\">{$title}</a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"4\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:2:\"10\";s:3:\"sql\";s:118:\" SELECT A.* FROM qb_news_content A  WHERE A.city_id=\'$GLOBALS[city_id]\'  AND A.yz=1   ORDER BY A.list DESC LIMIT 0,10 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i17']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_showroom_',
+				'code'=>'a:28:{s:13:\"tplpart_1code\";s:106:\"<li class=\"fl\"><a href=\"{$url}\" class=\"fl\"><img src=\"{$picurl}\" alt=\"\" width=\"168\" height=\"82\" /></a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:9:\"showroom_\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:11:\"content_num\";s:2:\"80\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:2:\"30\";s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:8:\"moduleid\";s:1:\"1\";s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:3:\"all\";s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"5\";s:3:\"sql\";s:147:\"SELECT * FROM qb_showroom_content A LEFT JOIN qb_showroom_content_1 B ON A.id=B.id  WHERE A.ispic=1  AND A.mid=\'1\'  ORDER BY A.list DESC LIMIT 0,5 \";s:7:\"colspan\";s:1:\"1\";s:8:\"titlenum\";s:2:\"20\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i18']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"0\";s:13:\"tplpart_1code\";s:108:\"<li><a href=\"{$url}\"><img class=\"fl p_r10\" src=\"{$picurl}\" width=\"74\" height=\"64\" alt=\"\" />{$title}</a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"8\";s:3:\"sql\";s:147:\" SELECT A.* FROM qb_news_content A  WHERE A.city_id=\'$GLOBALS[city_id]\'  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,8 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i19']=array(
+				'typesystem'=>'0',
+				'type'=>'code',
+				'code'=>'<li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/hrcxlm_ad.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> 
+                            
+                            <li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/hrcxlm_ad.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> 
+                            
+                            <li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/hrcxlm_ad.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li>',
+				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:0:\"\";s:5:\"div_h\";s:0:\"\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i2']=array(
+				'typesystem'=>'0',
+				'type'=>'code',
+				'code'=>'<li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/hrcxlm_ad.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> 
+                            
+                            <li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/index+20130905_38.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> 
+                            
+                            <li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/index+20130905_62.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> ',
+				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:0:\"\";s:5:\"div_h\";s:0:\"\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i20']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"0\";s:13:\"tplpart_1code\";s:84:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" alt=\"\" width=\"130\" height=\"80\" /></a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"8\";s:3:\"sql\";s:147:\" SELECT A.* FROM qb_news_content A  WHERE A.city_id=\'$GLOBALS[city_id]\'  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,8 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i21']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"0\";s:13:\"tplpart_1code\";s:256:\"<li><em></em><a href=\"{$url}\">{$title}</a><span class=\"date\">{$time_Y}.{$time_m}.{$time_d}</span>
+<div class=\"detail-frame\">
+	<h2>分类：{$fname}</h2>
+	<p>在本教程中我们使用jQuery和CSS3中带来新的变革，创造了一个三维动态滑块效果的功能。</p>
+</div>
+</li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"4\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"5\";s:3:\"sql\";s:117:\" SELECT A.* FROM qb_news_content A  WHERE A.city_id=\'$GLOBALS[city_id]\'  AND A.yz=1   ORDER BY A.list DESC LIMIT 0,5 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i22']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"0\";s:13:\"tplpart_1code\";s:256:\"<li><em></em><a href=\"{$url}\">{$title}</a><span class=\"date\">{$time_Y}.{$time_m}.{$time_d}</span>
+<div class=\"detail-frame\">
+	<h2>分类：{$fname}</h2>
+	<p>在本教程中我们使用jQuery和CSS3中带来新的变革，创造了一个三维动态滑块效果的功能。</p>
+</div>
+</li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"4\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"5\";s:3:\"sql\";s:117:\" SELECT A.* FROM qb_news_content A  WHERE A.city_id=\'$GLOBALS[city_id]\'  AND A.yz=1   ORDER BY A.list DESC LIMIT 0,5 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i23']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"0\";s:13:\"tplpart_1code\";s:93:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"202\" height=\"96\" alt=\"\" /> {$title}</a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"4\";s:3:\"sql\";s:147:\" SELECT A.* FROM qb_news_content A  WHERE A.city_id=\'$GLOBALS[city_id]\'  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,4 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i24']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"0\";s:13:\"tplpart_1code\";s:93:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"202\" height=\"96\" alt=\"\" /> {$title}</a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"4\";s:3:\"sql\";s:147:\" SELECT A.* FROM qb_news_content A  WHERE A.city_id=\'$GLOBALS[city_id]\'  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,4 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i25']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"0\";s:13:\"tplpart_1code\";s:93:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"202\" height=\"96\" alt=\"\" /> {$title}</a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"4\";s:3:\"sql\";s:147:\" SELECT A.* FROM qb_news_content A  WHERE A.city_id=\'$GLOBALS[city_id]\'  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,4 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i26']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"0\";s:13:\"tplpart_1code\";s:94:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"152\" height=\"96\" alt=\"\" /> {$title}</a></li>	\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"6\";s:3:\"sql\";s:147:\" SELECT A.* FROM qb_news_content A  WHERE A.city_id=\'$GLOBALS[city_id]\'  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,6 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i27']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"0\";s:13:\"tplpart_1code\";s:94:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"152\" height=\"96\" alt=\"\" /> {$title}</a></li>	\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"6\";s:3:\"sql\";s:147:\" SELECT A.* FROM qb_news_content A  WHERE A.city_id=\'$GLOBALS[city_id]\'  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,6 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i28']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"0\";s:13:\"tplpart_1code\";s:94:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"152\" height=\"96\" alt=\"\" /> {$title}</a></li>	\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"6\";s:3:\"sql\";s:147:\" SELECT A.* FROM qb_news_content A  WHERE A.city_id=\'$GLOBALS[city_id]\'  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,6 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i29']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:84:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"152\" height=\"96\" alt=\"\" /></a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"6\";s:3:\"sql\";s:119:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,6 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i3']=array(
+				'typesystem'=>'0',
+				'type'=>'code',
+				'code'=>'<li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/hrcxlm_ad.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> 
+                            
+                            <li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/index+20130905_38.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> 
+                            
+                            <li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/index+20130905_62.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> ',
+				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"21\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i30']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:84:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"152\" height=\"96\" alt=\"\" /></a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"6\";s:3:\"sql\";s:119:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,6 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i31']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:84:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"152\" height=\"96\" alt=\"\" /></a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"6\";s:3:\"sql\";s:119:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,6 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i32']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:106:\"<li class=\"fl\"><a href=\"{$url}\" class=\"fl\"><img src=\"{$picurl}\" alt=\"\" width=\"168\" height=\"82\" /></a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"5\";s:3:\"sql\";s:119:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,5 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i33']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:93:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"104\" height=\"84\" alt=\"\" /> {$title}</a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:15:\"/member/img.jpg\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:3:\"all\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"6\";s:3:\"sql\";s:107:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,6 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"14\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i34']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:93:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"104\" height=\"84\" alt=\"\" /> {$title}</a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"6\";s:3:\"sql\";s:119:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,6 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"14\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i35']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:93:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"104\" height=\"84\" alt=\"\" /> {$title}</a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"6\";s:3:\"sql\";s:119:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,6 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"14\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i36']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:111:\"<li class=\"first{$i}\"><a href=\"{$url}\"><img src=\"{$picurl}\" width=\"176\" height=\"98\" alt=\"\" /> {$title}</a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"4\";s:3:\"sql\";s:119:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,4 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i37']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"0\";s:13:\"tplpart_1code\";s:120:\"<li class=\"no_marginL{$i}\"><em></em><a href=\"{$url}\">{$title}</a><span class=\"date\">{$time_Y}.{$time_m}.{$time_d}</span>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"4\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:2:\"21\";s:3:\"sql\";s:118:\" SELECT A.* FROM qb_news_content A  WHERE A.city_id=\'$GLOBALS[city_id]\'  AND A.yz=1   ORDER BY A.list DESC LIMIT 0,21 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i38']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:106:\"<li class=\"fl\"><a href=\"{$url}\" class=\"fl\"><img src=\"{$picurl}\" alt=\"\" width=\"168\" height=\"82\" /></a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"5\";s:3:\"sql\";s:119:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.ispic=1   AND A.ispic=1  ORDER BY A.list DESC LIMIT 0,5 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i39']=array(
+				'typesystem'=>'0',
+				'type'=>'code',
+				'code'=>'<a href=\"\" class=\"first\">诚信认证</a>
+				<a href=\"\" class=\"two\">联盟保障</a>
+				<a href=\"\" class=\"last\">联盟规则</a> ',
+				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:0:\"\";s:5:\"div_h\";s:0:\"\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i4']=array(
+				'typesystem'=>'0',
+				'type'=>'code',
+				'code'=>'<li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/hrcxlm_ad.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> 
+                            
+                            <li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/index+20130905_38.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> 
+                            
+                            <li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/index+20130905_62.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> ',
+				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"21\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i40']=array(
+				'typesystem'=>'0',
+				'type'=>'code',
+				'code'=>'<a href=\"\">百度</a><a href=\"\">搜狐</a><a href=\"\">腾讯</a>',
+				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:0:\"\";s:5:\"div_h\";s:0:\"\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i5']=array(
+				'typesystem'=>'0',
+				'type'=>'code',
+				'code'=>'<li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/hrcxlm_ad.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> 
+                            
+                            <li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/index+20130905_38.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> 
+                            
+                            <li><a href=\"\" target=\"_blank\"><img src=\"/images/style5.1/index/img/index+20130905_62.jpg\" width=\"562\" height=\"313\" alt=\"\"></a></li> ',
+				'divcode'=>'a:4:{s:9:\"html_edit\";N;s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"21\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i6']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_showroom_',
+				'code'=>'a:28:{s:13:\"tplpart_1code\";s:84:\"<li><a href=\"{$url}\"><img src=\"{$picurl}\" alt=\"\" width=\"130\" height=\"80\" /></a></li>\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:9:\"showroom_\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:11:\"content_num\";s:2:\"80\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:2:\"30\";s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";N;s:8:\"moduleid\";s:1:\"1\";s:5:\"stype\";s:1:\"p\";s:2:\"yz\";s:3:\"all\";s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"8\";s:3:\"sql\";s:147:\"SELECT * FROM qb_showroom_content A LEFT JOIN qb_showroom_content_1 B ON A.id=B.id  WHERE A.ispic=1  AND A.mid=\'1\'  ORDER BY A.list DESC LIMIT 0,8 \";s:7:\"colspan\";s:1:\"1\";s:8:\"titlenum\";s:2:\"20\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i7']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:48:\"<li><em></em><a href=\"{$url}\">{$title}</a></li>	\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";s:2:\"48\";s:5:\"stype\";s:1:\"4\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"7\";s:3:\"sql\";s:108:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.fid IN (48)   ORDER BY A.list DESC LIMIT 0,7 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i8']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:48:\"<li><em></em><a href=\"{$url}\">{$title}</a></li>	\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";s:2:\"51\";s:5:\"stype\";s:1:\"4\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"7\";s:3:\"sql\";s:108:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.fid IN (51)   ORDER BY A.list DESC LIMIT 0,7 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
+				);
+$TagDB['i9']=array(
+				'typesystem'=>'1',
+				'type'=>'Info_news_',
+				'code'=>'a:37:{s:7:\"allcity\";s:1:\"1\";s:13:\"tplpart_1code\";s:48:\"<li><em></em><a href=\"{$url}\">{$title}</a></li>	\";s:13:\"tplpart_2code\";s:0:\"\";s:3:\"SYS\";s:2:\"wn\";s:6:\"wninfo\";s:5:\"news_\";s:9:\"noReadMid\";s:0:\"\";s:13:\"RollStyleType\";s:0:\"\";s:7:\"fidtype\";s:1:\"0\";s:8:\"rolltype\";s:10:\"scrollLeft\";s:8:\"rolltime\";s:1:\"3\";s:11:\"roll_height\";s:2:\"50\";s:5:\"width\";s:3:\"250\";s:6:\"height\";s:3:\"187\";s:7:\"newhour\";s:2:\"24\";s:7:\"hothits\";s:3:\"100\";s:7:\"amodule\";N;s:7:\"tplpath\";s:0:\"\";s:6:\"DivTpl\";i:1;s:5:\"fiddb\";s:2:\"51\";s:5:\"stype\";s:1:\"4\";s:2:\"yz\";s:1:\"1\";s:7:\"hidefid\";N;s:10:\"timeformat\";s:11:\"Y-m-d H:i:s\";s:5:\"order\";s:6:\"A.list\";s:3:\"asc\";s:4:\"DESC\";s:6:\"levels\";s:3:\"all\";s:7:\"rowspan\";s:1:\"7\";s:3:\"sql\";s:108:\" SELECT A.* FROM qb_news_content A  WHERE 1  AND A.yz=1  AND A.fid IN (51)   ORDER BY A.list DESC LIMIT 0,7 \";s:4:\"sql2\";N;s:7:\"colspan\";s:1:\"1\";s:11:\"content_num\";s:2:\"80\";s:12:\"content_num2\";s:3:\"120\";s:8:\"titlenum\";s:2:\"20\";s:9:\"titlenum2\";s:2:\"40\";s:10:\"titleflood\";s:1:\"0\";s:9:\"start_num\";s:1:\"1\";s:10:\"c_rolltype\";s:1:\"0\";}',
+				'divcode'=>'a:3:{s:5:\"div_w\";s:2:\"50\";s:5:\"div_h\";s:2:\"30\";s:11:\"div_bgcolor\";s:0:\"\";}'
 				);
 $TagDB['index_redbannerad']=array(
 				'typesystem'=>'0',
