@@ -172,7 +172,7 @@
     'list' => '77',
     'admingroup' => '',
     'adminmember' => '',
-    'ifclose' => '1',
+    'ifclose' => '0',
     'ifsys' => '0',
   ),
   'hr_' => 

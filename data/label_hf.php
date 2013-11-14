@@ -294,7 +294,7 @@ $label['ly_ft']=En_TruePath(stripslashes("<div class=\"w\">
 		<div class=\"copy fl\">华人诚信联盟 客服专线：400-809-1689 邮箱:hrcxlm@163.com<br />&#169; 2011-2015 华人诚信联盟有限公司 版权所有.<br />工信部网络备案号：鲁ICP备13010229号.</div>
 		<div class=\"clearboth\"></div>
     </div>			"),0);
-$label['h1']=En_TruePath(stripslashes(" <ul>
+$label['h1']=En_TruePath(stripslashes("<ul>
 				 <li>
 					 <a href=\"/\" class=\"menu1\">首页</a>
 				 </li>
@@ -377,23 +377,23 @@ $label['h1']=En_TruePath(stripslashes(" <ul>
 					 </div>
 				 </li>
 				 <li>
-					 <a href=\"\" class=\"menu1\">华盟项目</a>
+					 <a href=\"/news/list.php?fid=175\" class=\"menu1\">华盟项目</a>
 					 <div class=\"sunNav hide\">
 						<div class=\"fl flMenus\">
 							<dl>
-								<dt><a href=\"\">资源整合<em></em></a></dt>
-								<dd><a href=\"\" class=\"no_ml\">资源沙龙</a><a href=\"\">展会</a><a href=\"\" class=\"no_ml\">招聘会</a><a href=\"\">茶话会</a><a href=\"\" class=\"no_ml\">咨询会</a><a href=\"\">项目推荐会</a><span class=\"height_10\"></span></dd>
+								<dt><a href=\"/news/list.php?fid=176\">资源整合<em></em></a></dt>
+								<dd><a href=\"/news/list.php?fid=178\" class=\"no_ml\">资源沙龙</a><a href=\"/news/list.php?fid=179\">展会</a><a href=\"/news/list.php?fid=180\" class=\"no_ml\">招聘会</a><a href=\"/news/list.php?fid=181\">茶话会</a><a href=\"/news/list.php?fid=182\" class=\"no_ml\">咨询会</a><a href=\"/news/list.php?fid=183\">项目推荐会</a><span class=\"height_10\"></span></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">产品交易<em></em></a></dt>
-								<dd><a href=\"\" class=\"no_ml\">易货</a><a href=\"\">团购</a><a href=\"\" class=\"no_ml\">采购</a><span class=\"height_10\"></span></dd>
+								<dt><a href=\"/news/list.php?fid=177\">产品交易<em></em></a></dt>
+								<dd><a href=\"/news/list.php?fid=184\" class=\"no_ml\">易货</a><a href=\"/news/list.php?fid=185\">团购</a><a href=\"/news/list.php?fid=186\" class=\"no_ml\">采购</a><span class=\"height_10\"></span></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">源头之旅</a></dt>
+								<dt><a href=\"/news/list.php?fid=187\">源头之旅</a></dt>
 								<dd></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">华盟教育</a></dt>
+								<dt><a href=\"/news/list.php?fid=188\">华盟教育</a></dt>
 								<dd></dd>
 							</dl>
 						</div>
@@ -404,15 +404,15 @@ $label['h1']=En_TruePath(stripslashes(" <ul>
 					 </div>
 				 </li>
 				 <li>
-					 <a href=\"\" class=\"menu1\">行业联盟</a>
+					 <a href=\"/news/list.php?fid=172\" class=\"menu1\">行业联盟</a>
 					 <div class=\"sunNav hide\">
 						<div class=\"fl flMenus\">
 							<dl>
-								<dt><a href=\"\">同业联盟</a></dt>
+								<dt><a href=\"/news/list.php?fid=173\">同业联盟</a></dt>
 								<dd></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">异业合作</a></dt>
+								<dt><a href=\"/news/list.php?fid=174\">异业合作</a></dt>
 								<dd></dd>
 							</dl>
 						</div>
@@ -424,66 +424,35 @@ $label['h1']=En_TruePath(stripslashes(" <ul>
 				 </li>
 				 
 				 <li>
-					 <a href=\"/news/\" class=\"menu1\">联盟社区</a>
+					 <a href=\"/news/list.php?fid=46\" class=\"menu1\">联盟社区</a>
 					 <div class=\"sunNav hide\">
 					    <div class=\"fl flMenus\">
 						    <dl>
-								<dt><a href=\"\">老板思维</a></dt>
+								<dt><a href=\"/news/list.php?fid=148\">老板思维</a></dt>
 								<dd></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">企业提升</a></dt>
+								<dt><a href=\"/news/list.php?fid=149\">企业提升</a></dt>
 								<dd></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">员工管理</a></dt>
+								<dt><a href=\"/news/list.php?fid=150\">员工管理</a></dt>
 								<dd></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">商人圈</a></dt>
+								<dt><a href=\"/news/list.php?fid=151\">商人圈</a></dt>
 								<dd></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">草根创业</a></dt>
+								<dt><a href=\"/news/list.php?fid=152\">草根创业</a></dt>
 								<dd></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">精品课程</a></dt>
+								<dt><a href=\"/news/list.php?fid=153\">精品课程</a></dt>
 								<dd></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">精英团队</a></dt>
-								<dd></dd>
-							</dl>
-						</div>
-						<div class=\"frAd fr\" style=\"display:none;\">
-							<img src=\"img/index+20130905_17.jpg\" alt=\"\" width=\"132\" height=\"70\" />
-						</div>
-						<div class=\"clearboth\"></div>
-					 </div>
-				 </li>
-				 <li>
-					 <a href=\"\" class=\"menu1\">联盟合伙人</a>
-					 <div class=\"sunNav hide\">
-					    <div class=\"fl flMenus\">
-							<dl>
-								<dt><a href=\"\">华盟股东</a></dt>
-								<dd></dd>
-							</dl>
-							<dl>
-								<dt><a href=\"\">华盟战略伙伴</a></dt>
-								<dd></dd>
-							</dl>
-							<dl>
-								<dt><a href=\"\">华盟专家<em></em></a></dt>
-								<dd><a href=\"\" class=\"no_ml\">资金团</a><a href=\"\">律师团</a><a href=\"\" class=\"no_ml\">策划团</a><a href=\"\">营销团</a><a href=\"\" class=\"no_ml\">网络团</a><span class=\"height_10\"></span></dd>
-							</dl>
-							<dl>
-								<dt><a href=\"\">诚信服务商</a></dt>
-								<dd></dd>
-							</dl>
-							<dl>
-								<dt><a href=\"\">整合案例</a></dt>
+								<dt><a href=\"/news/list.php?fid=154\">精英团队</a></dt>
 								<dd></dd>
 							</dl>
 						</div>
@@ -494,27 +463,58 @@ $label['h1']=En_TruePath(stripslashes(" <ul>
 					 </div>
 				 </li>
 				 <li>
-					 <a href=\"\" class=\"menu1\">联盟服务</a>
+					 <a href=\"/news/list.php?fid=155\" class=\"menu1\">联盟合伙人</a>
 					 <div class=\"sunNav hide\">
 					    <div class=\"fl flMenus\">
 							<dl>
-								<dt><a href=\"\">华盟简介</a></dt>
+								<dt><a href=\"/news/list.php?fid=156\">华盟股东</a></dt>
 								<dd></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">招商加盟</a></dt>
+								<dt><a href=\"/news/list.php?fid=157\">华盟战略伙伴</a></dt>
 								<dd></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">客服平台</a></dt>
+								<dt><a href=\"/news/list.php?fid=160\">华盟专家<em></em></a></dt>
+								<dd><a href=\"/news/list.php?fid=161\" class=\"no_ml\">资金团</a><a href=\"/news/list.php?fid=162\">律师团</a><a href=\"/news/list.php?fid=163\" class=\"no_ml\">策划团</a><a href=\"/news/list.php?fid=164\">营销团</a><a href=\"/news/list.php?fid=165\" class=\"no_ml\">网络团</a><span class=\"height_10\"></span></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/news/list.php?fid=158\">诚信服务商</a></dt>
 								<dd></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">填写资源问卷</a></dt>
+								<dt><a href=\"/news/list.php?fid=159\">整合案例</a></dt>
+								<dd></dd>
+							</dl>
+						</div>
+						<div class=\"frAd fr\" style=\"display:none;\">
+							<img src=\"img/index+20130905_17.jpg\" alt=\"\" width=\"132\" height=\"70\" />
+						</div>
+						<div class=\"clearboth\"></div>
+					 </div>
+				 </li>
+				 <li>
+					 <a href=\"/news/list.php?fid=166\" class=\"menu1\">联盟服务</a>
+					 <div class=\"sunNav hide\">
+					    <div class=\"fl flMenus\">
+							<dl>
+								<dt><a href=\"/news/list.php?fid=167\">华盟简介</a></dt>
 								<dd></dd>
 							</dl>
 							<dl>
-								<dt><a href=\"\">诚信指标查询</a></dt>
+								<dt><a href=\"/news/list.php?fid=168\">招商加盟</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/news/list.php?fid=169\">客服平台</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/news/list.php?fid=170\">填写资源问卷</a></dt>
+								<dd></dd>
+							</dl>
+							<dl>
+								<dt><a href=\"/news/list.php?fid=171\">诚信指标查询</a></dt>
 								<dd></dd>
 							</dl>
 						</div>

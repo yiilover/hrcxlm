@@ -7,6 +7,7 @@ require(dirname(__FILE__)."/global.php");
 
 
 $fidDB=$db->get_one("SELECT A.* FROM {$_pre}sort A WHERE A.fid='$fid'");
+//print_r($fidDB);die;
 if(!$fidDB){
 	showerr("栏目不存在");
 }elseif($fidDB[jumpurl]){
@@ -122,7 +123,8 @@ foreach($field_db AS $key=>$value){
 if(!$webdb[Info_ShowNoYz]){
 	$SQL .= " AND A.yz='1' ";
 }
-
+//echo $fid;die;
+//print_r($Fid_db[$fid]);die;
 if($Fid_db[$fid]){
 	//同一个大分类下,必须是同一张表,否则数据获取不到
 	foreach($Fid_db[$fid] AS $key=>$value){
@@ -137,7 +139,7 @@ if($Fid_db[$fid]){
 
 
 $query=$db->query("SELECT SQL_CALC_FOUND_ROWS B.*,A.*,C.title AS companyname,C.renzheng FROM {$_pre}content$_erp A LEFT JOIN {$_pre}content_{$fidDB[mid]} B ON A.id=B.id LEFT JOIN {$pre}hy_company C ON A.uid=C.uid $SQL ORDER BY $sql_list $sql_order LIMIT $min,$rows");
-
+//echo "SELECT SQL_CALC_FOUND_ROWS B.*,A.*,C.title AS companyname,C.renzheng FROM {$_pre}content$_erp A LEFT JOIN {$_pre}content_{$fidDB[mid]} B ON A.id=B.id LEFT JOIN {$pre}hy_company C ON A.uid=C.uid $SQL ORDER BY $sql_list $sql_order LIMIT $min,$rows";die;
 $RS=$db->get_one("SELECT FOUND_ROWS()");
 $totalNum=$RS['FOUND_ROWS()'];
 $showpage=getpage("","","list.php?fid=$fid",$rows,$totalNum);
@@ -165,7 +167,7 @@ while( $rs=$db->fetch_array($query) ){
 
 	$listdb[]=$rs;
 }
-
+//print_r($listdb);die;
 /**
 *为获取标签参数
 **/

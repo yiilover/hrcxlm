@@ -2,3 +2,10 @@
 /cache/label_cache/**
 /data/config.php
 /data/mysql_config.php
+/nbproject/private/
+/.buildpath
+/.project
+/.settings/
+/.settings/**
+/nbproject/
+/nbproject/**
