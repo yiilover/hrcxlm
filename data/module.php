@@ -134,7 +134,7 @@
     'name' => '商城系统',
     'pre' => 'shop_',
     'dirname' => 'shop',
-    'domain' => '',
+    'domain' => 'http://shop.ddecshop.com',
     'admindir' => '',
     'config' => 'a:7:{s:12:"list_PhpName";s:18:"list.php?&fid=$fid";s:12:"show_PhpName";s:29:"bencandy.php?&fid=$fid&id=$id";s:8:"MakeHtml";N;s:14:"list_HtmlName1";N;s:14:"show_HtmlName1";N;s:14:"list_HtmlName2";N;s:14:"show_HtmlName2";N;}',
     'list' => '79',
