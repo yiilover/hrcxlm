@@ -1,5 +1,7 @@
 /cache/label_cache/
 /cache/label_cache/**
+/cache/admin_logs.php
+/cache/adminlogin_logs.php
 /data/config.php
 /data/mysql_config.php
 /nbproject/private/
