@@ -133,9 +133,14 @@ elseif($job=="edit")
 
 	$atc="edit";	
 
-	require(ROOT_PATH."inc/head.php");
-	require(getTpl("post_$mid",$FidTpl['post']));
-	require(ROOT_PATH."inc/foot.php");
+//	require(ROOT_PATH."inc/head.php");
+//	require(getTpl("post_$mid",$FidTpl['post']));
+//	require(ROOT_PATH."inc/foot.php");
+require(ROOT_PATH."/shop/template/qibomb_default/head.htm");
+require(ROOT_PATH."/shop/template/qibomb_default/post_".$mid.".htm");
+require(ROOT_PATH."/shop/template/qibomb_default/foot.htm");
+	
+	
 }
 
 /*处理提交的内容做修改*/
@@ -184,9 +189,12 @@ else
 
 	$atc="postnew";
 
-	require(ROOT_PATH."inc/head.php");
-	require(getTpl("post_$mid"));
-	require(ROOT_PATH."inc/foot.php");
+//	require(ROOT_PATH."inc/head.php");
+//	require(getTpl("post_$mid"));
+//	require(ROOT_PATH."inc/foot.php");
+require(ROOT_PATH."/shop/template/qibomb_default/head.htm");
+require(ROOT_PATH."/shop/template/qibomb_default/post_".$mid.".htm");
+require(ROOT_PATH."/shop/template/qibomb_default/foot.htm");
 }
 
 ?>

@@ -24,8 +24,11 @@ fetch_label_value(array('pagetype'=>'0','file'=>$template_file,'module'=>$webdb[
 //每个栏目的信息数
 //$InfoNum=get_infonum($city_id);
 
+
+
 require(ROOT_PATH."inc/head.php");
-require($template_file);
+//require($template_file);
+require(ROOT_PATH."/shop/template/qibomb_default/index.htm");
 require(ROOT_PATH."inc/foot.php");
 
 

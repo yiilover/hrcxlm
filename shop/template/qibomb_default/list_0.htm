@@ -1,0 +1,146 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="mainbox" id="index_mainbox">
+	<div class="l">
+		<div class="l_guide a_fff size_14"><a href="$webdb[www_url]/shop/">所有商品分类</a></div>
+		<div id="guide_box">
+            <div class="cont">
+<!--
+EOT;
+$j=0;
+foreach($Fid_db[0] AS $key=>$name){
+$j++;
+$name=get_word($name,20);
+print <<<EOT
+-->
+				
+          <div class="bigsort list$j"><a href="list.php?fid=$key">$name</a></div>
+          <div class="sort"> 
+            <!--
+EOT;
+foreach($Fid_db[$key] AS $fid=>$name ){
+$name=get_word($name,24);
+print <<<EOT
+-->
+            <a href="list.php?fid=$fid">$name</a> | 
+            <!--
+EOT;
+}print <<<EOT
+-->
+          </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--//
+function ShowTabs(ID,FID,EID)
+{
+	for (i=FID;i<EID;i++)
+	{
+		if(i == ID)
+		{
+			document.getElementById("Mune" + i).className="choose";
+			document.getElementById("Tab" + i).style.display="";
+		}
+		else
+		{
+			document.getElementById("Mune" + i).className="";
+			document.getElementById("Tab" + i).style.display="none";
+		}
+	}
+}
+//-->
+</SCRIPT>
+		</div>
+		<div class="l_r_box_head top_10">
+			<span class="tit">热销商品排行榜</span>
+			<span class="more"></span>
+		</div>
+		<div class="l_r_box_list2" style="padding-bottom:9px;">
+              <!--
+EOT;
+$array=list_title('hot',4);
+$rs[title]=get_word($rs[title],20);
+foreach($array AS $rs){print <<<EOT
+-->
+			<div class="pic_tit2">
+				<div class="pic"><a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0"></a></div>
+				<div class="tit"><a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></div>
+				<div class="price">促销价：￥{$rs[price]}元</div>
+			</div>
+            <!--
+EOT;
+}print <<<EOT
+-->
+		</div>
+	</div>
+	<div class="r">
+		<div id="list_small_guide">
+			<div class="bigword color_616161">小分类</div>
+			<div class="sonname">
+<!--
+EOT;
+$array=$Fid_db[$fid]?$Fid_db[$fid]:$Fid_db[$fidDB[fup]];
+foreach($array AS $fkey=>$fvalue){
+$color=$fid==$fkey?'red':'';
+print <<<EOT
+-->
+			<a href="list.php?fid=$fkey" style="color:$color;">$fvalue</a>&nbsp;
+ <!--
+EOT;
+}print <<<EOT
+-->
+			</div>
+		</div>
+		<div class="top_10" id="list_name_guide">
+			<span class="l color_616161">{$fidDB[name]}</span>
+			<span class="r color_616161"></span>
+		</div>
+		<div class="r_maibox" style="padding-bottom:20px;">
+			<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+			<div class="pic_tit3">
+				<div class="pic"><a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0"></a></div>
+				<div class="tit">
+					<div class="top color_616161"><a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank" title='$rs[full_title]' style="color:$rs[titlecolor];">$rs[title]</a></div>
+					<div class="bottom color_616161">促销价：<font>￥{$rs[price]}元</font></div>
+				</div>
+				<div class="butom">
+					<div class="gou">
+              	<form name="buyform" id="buyform" method="post" target="_blank" action="join.php?fid=$rs[fid]&cid=$rs[id]">
+			  		<input type="hidden" name="hownum" size="8" value="1">
+					<a href="javascript:;" onClick="postbuy()"><img src="$webdb[www_url]/images/qibomb_yellow/goumai.gif" /></a>
+<script language="JavaScript">
+<!--
+function postbuy(){
+document.getElementById("buyform").submit();
+}
+//-->
+</script>
+              	</form>
+					</div>
+					<div class="chang"><a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank"><img src="$webdb[www_url]/images/qibomb_yellow/shoucang.gif" /></a></div>
+				</div>
+			</div>
+ <!--
+EOT;
+}print <<<EOT
+-->
+			<div class="auto_height"></div>
+		</div>
+		<div class="page">$showpage</div>
+		<div class="auto_height"></div>
+	</div>
+	<div class="auto_height"></div>
+</div>
+<!--
+EOT;
+?>
+-->

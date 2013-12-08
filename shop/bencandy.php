@@ -140,9 +140,13 @@ $companydb=$db->get_one("SELECT * FROM {$pre}hy_company WHERE uid='$rsdb[uid]'")
 
 
 
-require(ROOT_PATH."inc/head.php");
-require($template_file);
-require(ROOT_PATH."inc/foot.php");
+//require(ROOT_PATH."inc/head.php");
+//require($template_file);
+//require(ROOT_PATH."inc/foot.php");
 
+
+require(ROOT_PATH."/shop/template/qibomb_default/head.htm");
+require(ROOT_PATH."/shop/template/qibomb_default/bencandy_".$fidDB[mid].".htm");
+require(ROOT_PATH."/shop/template/qibomb_default/foot.htm");
 
 ?>

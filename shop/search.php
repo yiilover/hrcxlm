@@ -64,6 +64,8 @@ require(ROOT_PATH."inc/head.php");
 require(getTpl("search_".$mid));
 require(ROOT_PATH."inc/foot.php");
 
+
+
 $Search->clear_moreTpl();
 
 

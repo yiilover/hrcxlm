@@ -1,0 +1,33 @@
+
+
+.slidegrid {
+	POSITION: relative; FLOAT: left; OVERFLOW: hidden
+}
+.slideitems {
+	POSITION: absolute; WIDTH: 20000em
+}
+
+
+
+
+#hotslide {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND: url(hotslidebg.png); HEIGHT: 118px; PADDING-TOP: 4px
+}
+#hotslide .slidegrid {
+	MARGIN: 0px 12px; WIDTH: 442px; HEIGHT: 106px
+}
+#hotslide .slideitems LI {
+	WIDTH: 86px; PADDING-RIGHT: 3px; DISPLAY: block; HEIGHT: 106px; OVERFLOW: hidden
+}
+#hotslide .slideitems LI A {
+	WIDTH: 88px; DISPLAY: block; BACKGROUND: url(img_bk.gif) no-repeat 50% top; HEIGHT: 108px; OVERFLOW: hidden; CURSOR: pointer
+}
+#hotslide IMG {
+	BORDER-BOTTOM: #ccc 0px solid; BORDER-LEFT: #ccc 0px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; BORDER-TOP: #ccc 0px solid; BORDER-RIGHT: #ccc 0px solid; PADDING-TOP: 4px
+}
+#hotslide .prevPage {
+	MARGIN-TOP: 30px; WIDTH: 26px; BACKGROUND: url(icons.png) -150px -95px; FLOAT: left; HEIGHT: 45px; CURSOR: pointer
+}
+#hotslide .nextPage {
+	MARGIN-TOP: 30px; WIDTH: 26px; BACKGROUND: url(icons.png) -181px -95px; FLOAT: left; HEIGHT: 45px; CURSOR: pointer
+}

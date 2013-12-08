@@ -1,0 +1,244 @@
+<!--
+<?php
+print <<<EOT
+-->
+<SCRIPT type=text/javascript src="$webdb[www_url]/images/qibomb_yellow/pic_hd/base.min.js"></SCRIPT>
+<SCRIPT type=text/javascript>$(function() { $('#push .recommends').scrollable({vertical:true,size:1}).circular().autoscroll(); var slideapi = $('#slide .slidegrid').scrollable({ size:1, clickable:false, onBeforeSeek: function(event, i) { var pane = this.getItems().eq(i); if (pane.is(":empty")) { pane.append(slide[this.getIndex()]); } } }).circular().autoscroll({interval:5000}).navigator({navi:'.slidenav ul',api:true}); $('.navctl').toggle(function() { slideapi.pause();$(this).addClass('pause').attr('title','播放'); },function() { slideapi.play();$(this).removeClass('pause').attr('title','暂停'); }); $('.slidenav li').hover(function() { $(this).trigger('click'); var index = slideapi.getIndex(); $('#slide img:eq('+ index +')').trigger('mouseover'); $('.navctl').addClass('pause').attr('title','播放'); }, function() { var index = slideapi.getIndex(); $('#slide img:eq('+ index +')').trigger('mouseout'); $('.navctl').removeClass('pause').attr('title','暂停'); }); $('#hotslide .slidegrid').scrollable({ clickable:false, onBeforeSeek: function(event, i) { var pane = this.getItems().eq(i + 4); if (pane.is(":empty")) { pane.append(hot[this.getIndex()]); } } }).circular().autoscroll({steps:1}); $('#topic .leftgrid').scrollable({ vertical:true, size:1, clickable:false, onBeforeSeek: function(event, i) { var pane = this.getItems().eq(i); if (pane.is(":empty")) { pane.append(topic[this.getIndex()]); } } }).circular().autoscroll({interval:5000}).navigator(); var tabarr = ['#designers', '#industry', '#production', '#design']; $.each(tabarr, function() { $(this + ' .tabs').tabs(this + ' > div',{ onBeforeClick: function(event, i) { var pane = this.getPanes().eq(i); if (pane.is(':empty')) { var parent = this.getCurrentTab().parents('ul'); parent.after('<div class="loading" style="padding:20px;">数据加载中...</div>'); pane.load(this.getTabs().eq(i).attr('href'), function(){parent.next('.loading').remove();}); } } }); }); $("#galleries .tabs").tabs("#galleries >div",{ onBeforeClick:function(event,i) {if(i==2) {window.open('http://arttalk.arting365.com','_blank');return false;} else {var pane=this.getPanes().eq(i);if(pane.is(':empty')) {var parent = this.getCurrentTab().parents('ul');parent.after('<div class="loading" style="padding:20px;">数据加载中...</div>');pane.load(this.getTabs().eq(i).attr('href'), function(){parent.next('.loading').remove();});}}} });});</SCRIPT>
+
+<div class="mainbox" id="index_mainbox">
+	<div class="l">
+		<div class="l_guide a_fff size_14"><a href="$webdb[www_url]/shop/">所有商品分类</a></div>
+		<div id="guide_box">
+            <div class="cont">
+<!--
+EOT;
+$j=0;
+foreach($Fid_db[0] AS $key=>$name){
+$j++;
+$name=get_word($name,20);
+print <<<EOT
+-->
+				
+          <div class="bigsort list$j"><a href="list.php?fid=$key">$name</a></div>
+                
+          <div class="sort"> 
+            <!--
+EOT;
+foreach($Fid_db[$key] AS $fid=>$name ){
+$name=get_word($name,24);
+print <<<EOT
+-->
+            <a href="list.php?fid=$fid">$name</a> | 
+            <!--
+EOT;
+}print <<<EOT
+-->
+          </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--//
+function ShowTabs(ID,FID,EID)
+{
+	for (i=FID;i<EID;i++)
+	{
+		if(i == ID)
+		{
+			document.getElementById("Mune" + i).className="choose";
+			document.getElementById("Tab" + i).style.display="";
+		}
+		else
+		{
+			document.getElementById("Mune" + i).className="";
+			document.getElementById("Tab" + i).style.display="none";
+		}
+	}
+}
+//-->
+</SCRIPT>
+		</div>
+<!--		
+		<div class="l_r_box_head top_10">
+			<span class="tit"><a href="www.qibomb.com" target="_blank">齐博模板网</a></span>
+			<span class="more"><a href="www.qibomb.com" target="_blank">more</a></span>
+		</div>
+		<div class="l_r_box_list2"><img src="$webdb[www_url]/images/qibomb_yellow/129738839.jpg" /></div>
+-->		
+	</div>
+	<div class="r">
+		<div class="r_banner_ad">{$label[xiao_a1]}</div>
+		<div class="r_lbox">
+			<div id="pic_js" class="top_10">{$label[xiao_a2]}</div>
+			<div id="pic_guendond" class="top_10">
+					<DIV id=hotslide>
+						<DIV class=nextPage></DIV>
+						<div class=slidegrid>
+                          <div class=slideitems>{$label[xiao_a3]}</div>
+					  </div>
+						<DIV class=prevPage></DIV>
+					</DIV>
+			</div>
+			<div class="myhdm top_10"> 
+				<div class="head">
+					<span class="hd2" id="chdt_1" onmouseover="chd(1);" style="cursor: hand;">{$label[xiao_a4]}</span> 
+					<span class="hd1" id="chdt_2" onmouseover="chd(2);" style="cursor: hand;">{$label[xiao_a5]}</span>
+					<span class="hd1" id="chdt_3" onmouseover="chd(3);" style="cursor: hand;">{$label[xiao_a6]}</span>
+					<span class="hd1" id="chdt_4" onmouseover="chd(4);" style="cursor: hand;">{$label[xiao_a7]}</span>
+				</div> 
+				<div class="middle"> 
+					<div id="chdc_1">
+						{$label[xiao_a8]}
+						<div class="auto_height"></div>
+					</div> 
+					<div id="chdc_2">
+						{$label[xiao_a82]}
+						<div class="auto_height"></div>
+					</div> 
+					<div id="chdc_3">
+						{$label[xiao_a83]}
+						<div class="auto_height"></div>
+					</div> 
+					<div id="chdc_4">
+						{$label[xiao_a84]}
+						<div class="auto_height"></div>
+					</div> 
+					<div class="auto_height"></div>
+      <SCRIPT LANGUAGE="JavaScript"> 
+<!-- 
+var chd_num=4 
+function chd(k){ 
+    for(var i=1;i<=chd_num ;i++ ) 
+    { 
+        if(i==k){ 
+            document.getElementById("chdc_"+i).style.display=''; 
+            document.getElementById("chdt_"+i).className='hd2'; 
+        }else{ 
+            document.getElementById("chdc_"+i).style.display='none'; 
+            document.getElementById("chdt_"+i).className='hd1'; 
+        } 
+    } 
+} 
+chd(1); 
+//--> 
+</SCRIPT> 
+				</div> 
+			</div> 
+		</div>
+		<div class="r_rbox">
+			<div class="l_r_box_head" style="margin-top:10px;">
+				<span class="tit">{$label[xiao_w1]}</span>
+				<span class="more">{$label[xiao_w2]}</span>
+			</div>
+			<div class="l_r_box_list">{$label[xiao_w3]}</div>
+			<div class="l_r_box_head top_8">
+				<span class="tit">{$label[xiao_w4]}</span>
+				<span class="more">{$label[xiao_w5]}</span>
+			</div>
+			<div class="l_r_box_list">{$label[xiao_w6]}</div>
+			<div class="l_r_ad top_10">{$label[xiao_w7]}</div>
+			<div class="l_r_box_head top_8">
+				<span class="tit">{$label[xiao_w8]}</span>
+				<span class="more">{$label[xiao_w9]}</span>
+			</div>
+			<div class="l_r_box_list">{$label[xiao_w10]}</div>
+		</div>
+		<div class="auto_height"></div>
+	</div>
+	<div class="auto_height"></div>
+</div>
+<div class="mainbox box980_tit top_10">
+	<div class="l">
+		<span class="tit">{$label[xiao_s1]}</span>
+		<span class="more">{$label[xiao_s2]}</span>
+	</div>
+</div>
+<div class="mainbox box980_list">
+	<div class="l">{$label[xiao_s3]}</div>
+	<div class="m">{$label[xiao_s4]}</div>
+	<div class="r">
+		<div class="list">{$label[xiao_s5]}</div>
+		<div class="ad">{$label[xiao_s6]}</div>
+		<div class="ad top_10">{$label[xiao_s7]}</div>
+	</div>
+</div>
+<div class="mainbox box980_tit top_10">
+	<div class="l">
+		<span class="tit">{$label[xiao_z1]}</span>
+		<span class="more">{$label[xiao_z2]}</span>
+	</div>
+</div>
+<div class="mainbox box980_list">
+	<div class="l">{$label[xiao_z3]}</div>
+	<div class="m">{$label[xiao_z4]}</div>
+	<div class="r">
+		<div class="list">{$label[xiao_z5]}</div>
+		<div class="ad">{$label[xiao_z6]}</div>
+		<div class="ad top_10">{$label[xiao_z7]}</div>
+	</div>
+</div>
+<div class="mainbox top_10">{$label[xiao_z8]}</div>
+<div class="mainbox box980_tit top_10">
+	<div class="l">
+		<span class="tit">{$label[xiao_z9]}</span>
+		<span class="more">{$label[xiao_z10]}</span>
+	</div>
+</div>
+<div class="mainbox box980_list">
+	<div class="l">{$label[xiao_c1]}</div>
+	<div class="m">{$label[xiao_c2]}</div>
+	<div class="r">
+		<div class="list">{$label[xiao_c3]}</div>
+		<div class="ad">{$label[xiao_c4]}</div>
+		<div class="ad top_10">{$label[xiao_css5]}</div>
+	</div>
+</div>
+<div class="mainbox box980_tit top_10">
+	<div class="l">
+		<span class="tit">{$label[xiao_c5]}</span>
+		<span class="more">{$label[xiao_c6]}</span>
+	</div>
+</div>
+<div class="mainbox box980_list">
+	<div class="l">{$label[xiao_v1]}</div>
+	<div class="m">{$label[xiao_v2]}</div>
+	<div class="r">
+		<div class="list">{$label[xiao_v4]}</div>
+		<div class="ad">{$label[xiao_v44]}</div>
+		<div class="ad top_10">{$label[xiao_v6]}</div>
+	</div>
+</div>
+<div class="a_fff" id="index_foot_tit">{$label[xiao_b1]}</div>
+<div id="index_foot_list">
+	<div class="tit_li">
+		<div class="tit">{$label[xiao_bq1]}</div>
+		<div class="li">{$label[xiao_bw1]}</div>
+	</div>
+	<div class="tit_li">
+		<div class="tit">{$label[xiao_eb1]}</div>
+		<div class="li">{$label[xiao_br1]}</div>
+	</div>
+	<div class="tit_li">
+		<div class="tit">{$label[xiao_bt1]}</div>
+		<div class="li">{$label[xiao_by1]}</div>
+	</div>
+	<div class="tit_li">
+		<div class="tit">{$label[xiao_bu1]}</div>
+		<div class="li">{$label[xiao_bi1]}</div>
+	</div>
+	<div class="tit_li">
+		<div class="tit">{$label[xiao_bo1]}</div>
+		<div class="li">{$label[xiao_bj1]}</div>
+	</div>
+</div>
+<div class="mainbox top_10" align="center">
+	<span><img src="$webdb[www_url]/images/qibomb_yellow/footer_pic_01.gif" /></span>
+	<span style="padding-left:10px;"><img src="$webdb[www_url]/images/qibomb_yellow/footer_pic_02.gif" /></span>
+	<span style="padding-left:10px;"><img src="$webdb[www_url]/images/qibomb_yellow/footer_pic_03.gif" /></span>
+</div>
+<!--
+EOT;
+?>
+-->
