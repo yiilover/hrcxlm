@@ -1,0 +1,172 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div id="nei_tit" class="color_616161">
+	<div class="l">{$rsdb[title]}</div>
+	<div class="r">
+		<span>发布时间:<a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a></span>
+		<span>览量：{$rsdb[hits]}</span>
+        <span><a href="$webdb[_www_url]/member/?main=$Murl/member/post.php?fid=$fid">发布</a></span>
+              <!--
+EOT;
+if($web_admin||$lfjuid==$rsdb[uid]){print <<<EOT
+-->
+        <span><a href="$webdb[_www_url]/member/?main=$Murl/member/post.php?job=edit&fid=$fid&id=$id">修改</a></span>
+        <span><a href="$webdb[_www_url]/member/?main=$Murl/member/post.php?action=del&fid=$fid&id=$id">删除</a></span>
+              <!--
+EOT;
+}print <<<EOT
+-->
+	</div>
+</div>
+<div class="mainbox top_10" id="nei_maintop">
+<!--
+EOT;
+$min_pic="";
+$i=0;
+$images="images = new Array(); \r\n";
+foreach($picdb AS $key=>$rs){
+$i++;
+$images.="images[$key]=new Image();\r\n";
+$images.="images[$key].src='$rs[imgurl]';\r\n";
+$cur_class = ($i==1) ? "class='cur'" : "";;
+$min_pic .= "<li $cur_class><div><a href='$rs[picurl]' target='_blank'><img onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" src=\"$rs[picurl]\" height=\"50\"/></a></div></li>";
+}
+$min_pic=($i<2)?"<li class='cur'><div><a href='$rsdb[picurl]' target='_blank'><img onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" src=\"$rsdb[picurl]\" height=\"50\" alt=\"$rsdb[picurl]\"/></a></div></li>":"$min_pic";
+$hidenChange=($i>4)?"":"style='display:none;'";
+$showmorejs=($i>4)?"<SCRIPT LANGUAGE='JavaScript' src='$webdb[www_url]/images/showshop/show_pic.js'></SCRIPT> ":"";
+$images=($i<2)?"images = new Array(); \r\n images[0]=new Image();\r\n images[0].src='$rsdb[picurl]';\r\n":$images;
+print <<<EOT
+-->
+	<div class="lbox">
+                        <div id="BigPic" class="BigPic"><a href="$rsdb[picurl]" target="_blank"><img src='$rsdb[picurl]' onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></div>
+                        <div class="ChangePic">
+                            <div id="Up_atc" $hidenChange></div>
+                            <div id="Down_atc" $hidenChange></div>
+                            <div class="listminpic"><div id="listminpic" class="lists"><ul>{$min_pic}</ul></div></div>
+                        </div>                       
+	</div>
+	<div class="rbox">
+		<div class="box">
+			<div class="box_box" style="padding-top:15px;">
+				<div id="bdja" class="color_616161">本店价格:<font>￥{$rsdb[price]}元</font></div>
+				<div class="scjg color_616161">市场价格:<font>￥{$rsdb[market_price]}</font></div>
+			</div>
+			<div class="box_box" style="padding:10px 0px 13px 20px;"><span style="float:left;padding:4px 4px 0px 0px;">购买数量</span><span style="float:left"><input type="text" class="shopnum" value="1" /></span></div>
+			<div class="box_box">
+                          <div class="gouwuch color_616161"><a href="javascript:;post_ordershop($id,1)"><img src="$webdb[www_url]/images/qibomb_yellow/buy.png"/></a></div>
+                          <div class="gouwuch color_616161" style="margin-left:15px;"><a href="javascript:;post_ordershop($id,2);"><img src="$webdb[www_url]/images/qibomb_yellow/car.png"/></a></div>
+<script language="JavaScript">
+<!--
+var fid=$fid;
+var au;
+function post_ordershop(id,u){au=u;
+	var num=$(".shopnum").val();
+	if(/^[1-9][0-9]*$/.test(num)==false){
+        alert("请输入一个整数!");
+        $(".shopnum").focus();
+        return false;
+    }
+	else{
+		show_layer_msg('shop_order',"#0000ff");
+		$.get("order2.php?type=setcookie&cid="+id+"&num="+num+"&"+Math.random(),function(d){
+			if(u==1){
+				join_shop();
+			}else if(u==2){
+				$("#shop_order dl dd p").html(d);
+			}
+		});
+	}	
+}
+function join_shop(){
+	window.location.href="join.php";
+}
+//-->
+</script>
+				<div class="souchang color_616161"><a href="job.php?job=collect&id=$id" class="fav" target="_blank">收藏此信息</a></div>
+				<div class="souchang color_616161"><a href="job.php?job=report&fid=$fid&id=$id" class="report" target="_blank">举报此信息</a></div>
+			</div>
+		</div>
+		<div class="box_2">
+			<div class="l">
+<!--{template}-->
+				<div class="scjg_2 color_616161"><span class="aa">{title}：</span><span class="bb">{value}</span></div>
+<!--{/template}-->
+			</div>
+			<div class="r">
+<div class="goto_shop"><a href="$webdb[www_url]/home/?uid=$rsdb[uid]" target="_blank"><img src="$webdb[www_url]/images/qibomb_yellow/goto_shop.gif" border="0"></a></div>
+			</div>
+			<div class="auto_height"></div>
+		</div>
+	</div>
+	<div class="auto_height"></div>
+</div>
+<script>
+$images
+function loadImg(num){
+	//var screenImage = $("#BigPic img");
+	//var theImage = new Image();
+	//theImage.src = screenImage.attr("src");
+	//var imageWidth = theImage.width;
+	//var imageHeight = theImage.height;
+	var imageWidth=images[num].width;
+	var imageHeight = images[num].height;
+	if(imageWidth>imageHeight){
+		if(imageWidth>370){
+			var zoom=Math.round(imageHeight/(imageWidth/370));
+			$("#BigPic img").css({"width":"370px","height":zoom+"px"});
+		}else{
+			$("#BigPic img").css({"height":imageHeight+"px","width":imageWidth+"px"});
+		}
+	}else if(imageWidth<imageHeight){
+		if(imageHeight>215){
+			var zoom=Math.round(imageWidth/(imageHeight/215));
+			$("#BigPic img").css({"height":"215px","width":zoom+"px"});
+		}else{
+			$("#BigPic img").css({"height":imageHeight+"px","width":imageWidth+"px"});
+		}
+	}else{
+		if(imageHeight>215){
+			$("#BigPic img").css({"height":"215px","width":"215px"});
+		}else{
+			$("#BigPic img").css({"height":imageHeight+"px","width":imageWidth+"px"});
+		}
+	}
+} 
+$("#listminpic ul li").mouseover(function(){
+	$("#listminpic ul li").removeClass("cur");
+	$(this).addClass("cur");
+	var num=$("#listminpic ul li").index(this);
+	var theurl=images[num].src;	
+	$('#BigPic img').attr("src",theurl);
+	//$('#ShowThePic').attr("src",theurl);
+	$('#BigPic a').attr("href",theurl);
+	loadImg(num);
+});
+</script>
+<div id="nei_neihead">
+	<span class="hd_tit">商品描述</span>
+</div>
+<div id="nei_neimiddle">$rsdb[content]</div>
+
+
+$showmorejs 
+<div id="shop_order" style="display: none;position:absolute;top:50%;left:50%;z-index=2;">
+<div style="position:relative;top:-50%;left:-50%;">
+<!--  -->
+<dl>
+<dt><span>宝贝已成功添加到购物车中</span><em onClick="close_layer_msg()">关闭</em></dt>
+<dd>
+<p><img src="$webdb[www_url]/images/default/loading.gif">请稍候,数据加载中...</p>
+<div><a href="#" onclick="join_shop()">去购物车结算</a></div>
+</dd>
+</dl>
+<!--  -->
+</div>
+</div>
+
+<!--
+EOT;
+?>
+-->

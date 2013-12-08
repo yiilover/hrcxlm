@@ -54,7 +54,7 @@ $titleDB[description] = seo_eval($fidDB[metadescription]);
 
 //栏目风格
 //$fidDB[style] && $STYLE=$fidDB[style];
-
+$fidDB[style] && $STYLE='qibomb_default';
 
 /**
 *栏目模板优先于城市模板
@@ -162,8 +162,23 @@ while( $rs=$db->fetch_array($query) ){
 $template_file=getTpl("list_$fidDB[mid]",$FidTpl['list']);
 fetch_label_value(array('pagetype'=>'2','file'=>$template_file,'module'=>$webdb['module_id']));
 
-require(ROOT_PATH."inc/head.php");
-require($template_file);
-require(ROOT_PATH."inc/foot.php");
+//require(ROOT_PATH."inc/head.php");
+//require($template_file);
+//require(ROOT_PATH."inc/foot.php");
+
+
+
+require(ROOT_PATH."/shop/template/qibomb_default/head.htm");
+require(ROOT_PATH."/shop/template/qibomb_default/list_".$fidDB[mid].".htm");
+require(ROOT_PATH."/shop/template/qibomb_default/foot.htm");
+
+
+
+
+
+
+
+
+
 
 ?>

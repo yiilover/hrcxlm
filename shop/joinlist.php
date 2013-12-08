@@ -27,7 +27,10 @@ if(!$lfjuid||$rs[uid]!=$lfjuid){
 	showerr("你无权查看");
 }
 
-require(ROOT_PATH."inc/head.php");
-require(getTpl("list_$mid"));
-require(ROOT_PATH."inc/foot.php");
+//require(ROOT_PATH."inc/head.php");
+//require(getTpl("list_$mid"));
+//require(ROOT_PATH."inc/foot.php");
+require(ROOT_PATH."/shop/template/qibomb_default/head.htm");
+require(ROOT_PATH."/shop/template/qibomb_default/post_".$mid.".htm");
+require(ROOT_PATH."/shop/template/qibomb_default/foot.htm");
 ?>

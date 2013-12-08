@@ -1,0 +1,24 @@
+
+.auto_height{font: 0px/0px sans-serif;clear: both;display: block;}
+
+
+#qibomb_FenlieShowSort{
+	width:980px;margin:auto;
+}
+#qibomb_FenlieShowSort .listsort{
+	width:980px;border-bottom:1px dotted #ccc;margin-bottom:10px;
+}
+#qibomb_FenlieShowSort .listsort .bigsort{
+	width:952px;height:17px;background:0% 60% url(icon1[1].gif) no-repeat ;
+	padding:3px 0px 0px 28px;font-size:14px;font-weight:bold;
+}
+#qibomb_FenlieShowSort .listsort .moresort{
+	width:952px;padding:5px 0px 5px 28px;line-height:22px;
+}
+#qibomb_FenlieShowSort .listsort .moresort div{
+	width:155px;height:25px;float:left;
+}
+
+
+
+
