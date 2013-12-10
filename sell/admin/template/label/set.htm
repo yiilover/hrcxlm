@@ -113,7 +113,24 @@ print <<<EOT
             <td width="76%">
               <input type="text" name="start_num" size="5" value="$start_num">
               一般为1 </td>
+          </tr><!--
+EOT;
+if(count($city_DB[name])>1){
+$allcitydb[intval($allcity)] = "checked";
+print <<<EOT
+--> 
+<tr bgcolor="#FFFFFF"> 
+            <td width="24%">是否显示全国的数据:</td>
+            <td width="76%"> 
+              <input type="radio" name="postdb[allcity]" value="0" $allcitydb[0] />
+              仅调用本市数据
+              <input type="radio" name="postdb[allcity]" value="1" $allcitydb[1] />
+              调用全国数据</td>
           </tr>
+<!--
+EOT;
+}print <<<EOT
+-->	
         </table>
         <table width="100%" border="0" cellspacing="1" cellpadding="3" style="background:#F5F5F5;display:none;" id="tb2">
           <tr bgcolor="#FFFFFF" id="preview"> 

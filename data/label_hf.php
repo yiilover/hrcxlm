@@ -1,5 +1,20 @@
 <?php
-
+$HFlabelArray=@unserialize(stripslashes('a:2:{i:0;s:50:\"<li class=\"li_ing\"><a href=\"/\">网站首页</a></li>
+\";i:1;s:496:\"<li class=\"li_ing\"><a href=\"/\">网站首页</a></li>
+<li class=\"li_hover\"><a href=\"/news/\">新闻资讯</a></li>
+<li class=\"li_hover\"><a href=\"/f/\">分类信息</a></li>
+<li class=\"li_hover\"><a href=\"/shop/\">网上商城</a></li>
+<li class=\"li_hover\"><a href=\"/hy/\">商家黄页</a></li>
+<li class=\"li_hover\"><a href=\"/house/\">房产频道</a></li>
+<li class=\"li_hover\"><a href=\"/tg/\">团购活动</a></li>
+<li class=\"li_hover\"><a href=\"/hr/\">求职招聘</a></li>
+<li class=\"li_hover\"><a href=\"/gift/\">礼品兑换</a></li>\";}'));
+							if(isset($HFlabelArray[$city_id])){
+								$label['head_guidejj']=$HFlabelArray[$city_id];
+							}else{
+								$label['head_guidejj']=$HFlabelArray[0];
+							}
+							
 
 $label['head_menu']=En_TruePath(stripslashes("<a href=\"http://www_qibosoft_com/member/?main=http://www_qibosoft_com/hy/member/homepage_ctrl.php?atn=info\" target=\"_blank\">管理商铺</a> 
 <a href=\"http://www_qibosoft_com/member/?main=http://www_qibosoft_com/sell/member/post_choose.php\" target=\"_blank\">发布产品</a> 
@@ -493,6 +508,7 @@ $label['h1']=En_TruePath(stripslashes("<ul>
 						<div class=\"clearboth\"></div>
 					 </div>
 				 </li>
+<!--
 				 <li>
 					 <a href=\"/news/list.php?fid=166\" class=\"menu1\">联盟服务</a>
 					 <div class=\"sunNav hide\">
@@ -523,7 +539,7 @@ $label['h1']=En_TruePath(stripslashes("<ul>
 						</div>
 						<div class=\"clearboth\"></div>
 					 </div>
-				 </li>
+				 </li>-->
 			 </ul>"),0);
 $label['h2']=En_TruePath(stripslashes("<div id=\"classNav\" class=\"classNav\">
 						<a href=\"javascript:void(0);\" class=\"classNav_btn\">资源分类</a>	
@@ -627,3 +643,32 @@ $label['f1']=En_TruePath(stripslashes("<div class=\"w\">
 			<span class=\"clearboth\"></span>
 		</div>"),0);
 $label['f2']=En_TruePath(stripslashes("<div class=\"copy\">华人诚信联盟 客服专线：400-809-1689 邮箱:hrcxlm@163.com<br />&copy; 2011-2015 华人诚信联盟有限公司 版权所有.<br />工信部网络备案号：鲁ICP备13010229号.</div>"),0);
+$label['head_guide']=En_TruePath(stripslashes("<li class=\"li_ing\"><a href=\"http://localhost/life_xiaoqi/\">网站首页</a></li>
+<li class=\"li_hover\"><a href=\"http://localhost/life_xiaoqi/news/\">新闻资讯</a></li>
+<li class=\"li_hover\"><a href=\"http://localhost/life_xiaoqi/f/\">分类信息</a></li>
+<li class=\"li_hover\"><a href=\"http://localhost/life_xiaoqi/shop/\">网上商城</a></li>
+<li class=\"li_hover\"><a href=\"http://localhost/life_xiaoqi/hy/\">商家黄页</a></li>
+<li class=\"li_hover\"><a href=\"http://localhost/life_xiaoqi/house/\">房产频道</a></li>
+<li class=\"li_hover\"><a href=\"http://localhost/life_xiaoqi/tg/\">团购活动</a></li>
+<li class=\"li_hover\"><a href=\"http://localhost/life_xiaoqi/hr/\">求职招聘</a></li>
+<li class=\"li_hover\"><a href=\"http://localhost/life_xiaoqi/gift/\">礼品兑换</a></li>"),0);
+$label['hootd']=En_TruePath(stripslashes("热搜：
+<a class=\"key_search\" href=\"../shop/search.php?type=keyword&keyword=州&action=search\" target=\"_blank\">笔记本</a>
+<a class=\"key_search\" href=\"../shop/search.php?type=keyword&keyword=州&action=search\" target=\"_blank\">玩乐</a>
+<a class=\"key_search\" href=\"../shop/search.php?type=keyword&keyword=州&action=search\" target=\"_blank\">找工作</a>
+<a class=\"key_search\" href=\"../shop/search.php?type=keyword&keyword=州&action=search\" target=\"_blank\">兼职</a>
+<a class=\"key_search\" href=\"../shop/search.php?type=keyword&keyword=州&action=search\" target=\"_blank\">租房</a>
+"),0);
+$label['mt_goot']=En_TruePath(stripslashes("<!--<p><a href=\"\" target=\"_blank\">设置首页 - 搜狗输入法 - 支付中心 - 搜狐招聘 - 广告服务 - 客服中心 - 联系方式</a></p>
+<p>Copyright 2011 Sohu.com Inc. All Rights Reserved. 搜狐公司 版权所有 </p>
+<p><a href=\"\" target=\"_blank\">保护隐私权 - About SOHU - 公司介绍</a></p>-->
+
+
+<p><a href=\"\" target=\"_blank\">设置首页  - 广告服务 - 客服中心 - 联系方式</a></p>
+<p>Copyright 2013 华人诚信联盟 版权所有 </p>
+
+"),0);
+$label['head_topmenujj']=En_TruePath(stripslashes("<a href=\"http://www_qibosoft_com/do/jf.php\" target=\"_blank\"> 如何赚积分</a>
+ | <a href=\"http://www_qibosoft_com/news/list.php?fid=43\" target=\"_blank\"> 新手入门</a>
+ |  | <a href=\"http://www_qibosoft_com/guestbook/\" target=\"_blank\"> 访问留言</a>"),0);
+$label['head_teljj']=En_TruePath(stripslashes("客服热线：400-45874147"),0);

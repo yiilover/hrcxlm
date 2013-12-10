@@ -88,7 +88,9 @@ document.write('<div style="display:none;"><iframe src="$webdb[www_url]/do/hack.
 			
 			
 			</li>
-			<li class="fr"><span class="fgx">|</span><a href="../member" class="colorGrey60_link">我的联盟</a><span class="fgx">|</span><a href="" class="colorGrey60_link">联盟服务</a><span class="fgx">|</span><a href="" class="colorGrey60_link">收藏</a><span class="fgx">|</span><a href="" class="colorGrey60_link">帮助</a><span class="fgx">|</span><a href="" class="colorGrey60_link">华盟交易网</a><span class="fgx">|</span></li>    
+
+			<li class="fr"><span class="fgx">|</span><a href="/member" class="colorGrey60_link">我发布的资源</a><span class="fgx">|</span><a href="/member" class="colorGrey60_link">我发布的需求</a><span class="fgx">|</span><a href="" class="colorGrey60_link">我的商铺</a><span class="fgx">|</span><a href="" class="colorGrey60_link">我的客服</a><span class="fgx">|</span><a href="" class="colorGrey60_link">加盟合作</a></li>    
+
 		</ul>
 	</div>
 </div>
@@ -105,6 +107,7 @@ document.write('<div style="display:none;"><iframe src="$webdb[www_url]/do/hack.
 			 <div class="search_wrap">
 				 <form name="MainSearch" id="searchForm" target="_blank" method="post" action="$webdb[www_url]/f/search.php?action=search">
 				 <ul>
+				 <!--
 					 <li class="fl menu_options">
 					 	<span class="keySlect"><strong>代理加盟</strong><em></em></span>
 						<input type="hidden" value="" />
@@ -114,7 +117,7 @@ document.write('<div style="display:none;"><iframe src="$webdb[www_url]/do/hack.
 							<span>代理加盟</span>
 							<span>商学院</span>
 						</div>
-					 </li>
+					 </li>-->
 					 <li class="fl search_input"><input type="text" value="请输入关键字" onClick="if(this.value.indexOf('请输入关键字')!=-1)this.value=''"/></li>
 					 <li class="fl subBtn"><a href="javascript:void(0);" onclick="$('#searchForm').submit();">搜索</a></li>
 				 </ul>
@@ -156,7 +159,21 @@ $label[h2]
 
 
 
-
+<style type="text/css">
+	.wdlm{ background:url(images/icons.gif) no-repeat 42px -4px; padding-right:15px;}
+	.container_topNav .w{ position:relative; z-index:6;}
+	.wdlmSon_block{ display:block; width:126px; position:absolute; top:32px; right:92px; background-color:#f8f8f8; border:1px solid #c5cad0;}
+	.wdlmSon_block a{ display:block; padding-left:10px; line-height:26px; border-bottom:1px dashed #ebebeb; color:#808080;}
+	.wdlmSon_block a:hover{ color:#f25f04;}
+	
+	.search_block{ left:208px; width:476px;}
+	.search_wrap{ width:476px;}
+	.search_wrap .search_input input{ width:396px;}
+	
+	.classNav_nr dd a{ font-family:"microsoft yahei"; line-height:33px; color:#006e97; border-bottom:1px dashed #ccc;}
+	.classNav_nr{ background-color:#fff;}
+	.classNav_nr dl dt{ font-weight:bold; color:#666;}
+	</style>
 
 
 

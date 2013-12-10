@@ -430,7 +430,7 @@ focus_form = function(obj){
 
 //图片向左滚动滚动
 ScrollImgLeft = function(obj,timer){
-	var speed=10;
+	var speed=80;
 	var i=1;
 	var change_val;
 	var scroll_begin = $(obj).find(".scroll_begin");
