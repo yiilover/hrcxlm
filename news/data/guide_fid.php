@@ -171,5 +171,6 @@ $GuideFid=array (
   208 => ' -&gt; <A href=\'list.php?fid=208\'> 商学院学友会</A>',
   209 => ' -&gt; <A href=\'list.php?fid=208\'> 商学院学友会</A> -&gt; <A href=\'list.php?fid=209\'>商会联盟</A>',
   210 => ' -&gt; <A href=\'list.php?fid=208\'> 商学院学友会</A> -&gt; <A href=\'list.php?fid=210\'>行业协会联盟</A>',
+  211 => ' -&gt; <A href=\'list.php?fid=211\'>行业资讯</A>',
   43 => ' -&gt; <A href=\'list.php?fid=43\'>客服中心</A>',
 );?>
