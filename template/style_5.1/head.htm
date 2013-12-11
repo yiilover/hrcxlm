@@ -88,7 +88,31 @@ document.write('<div style="display:none;"><iframe src="$webdb[www_url]/do/hack.
 			
 			
 			</li>
-			<li class="fr"><span class="fgx">|</span><a href="/member" class="colorGrey60_link">我发布的资源</a><span class="fgx">|</span><a href="/member" class="colorGrey60_link">我发布的需求</a><span class="fgx">|</span><a href="" class="colorGrey60_link">我的商铺</a><span class="fgx">|</span><a href="" class="colorGrey60_link">我的客服</a><span class="fgx">|</span><a href="" class="colorGrey60_link">加盟合作</a></li>    
+			<!--
+			<li class="fr"><span class="fgx">|</span><a href="/member" class="colorGrey60_link">我发布的资源</a><span class="fgx">|</span><a href="/member" class="colorGrey60_link">我发布的需求</a><span class="fgx">|</span><a href="" class="colorGrey60_link">我的商铺</a><span class="fgx">|</span><a href="" class="colorGrey60_link">我的客服</a><span class="fgx">|</span><a href="" class="colorGrey60_link">加盟合作</a></li>   
+-->
+
+
+
+			<li class="fr p_l10" id="topServer_r">
+				<a href="" class="colorGrey60_link wdlm">我的联盟</a>
+				<span class="fgx">|</span><a href="" class="colorGrey60_link">收藏</a><span class="fgx">|</span><a href="" class="colorGrey60_link">帮助</a><span class="fgx">|</span><a href="" class="colorGrey60_link">导航</a>
+			    <div class="wdlmSon_block" style="display:none;" id="wdlmSon_block" >
+					<a href="/member">我发布的资源</a>
+					<a href="/member">我发布的需求</a>
+					<a href="">我的商铺</a>
+					<a href="">我的客服</a>
+					<a href="">加盟合作</a>
+				</div>
+				
+			</li>  
+
+
+
+
+
+
+			
 		</ul>
 	</div>
 </div>
@@ -154,11 +178,25 @@ $label[h2]
 
 
 
+<script type="text/javascript">
+$(function(){
 
+  $("#topServer_r").find(".wdlm").hover(function(){
+								$("#wdlmSon_block").css({"display":"block"});
+									 },
+							function(){	 
+								
+									 });
+   $("#topServer_r").mouseleave(function(){
+       $("#wdlmSon_block").css({"display":"none"}); 
+   })
+
+})
+</script>
 
 
 <style type="text/css">
-	.wdlm{ background:url(images/icons.gif) no-repeat 42px -4px; padding-right:15px;}
+	.wdlm{ background:url(/images/style5.1/index/images/icons.gif) no-repeat 42px -4px; padding-right:15px;}
 	.container_topNav .w{ position:relative; z-index:6;}
 	.wdlmSon_block{ display:block; width:126px; position:absolute; top:32px; right:92px; background-color:#f8f8f8; border:1px solid #c5cad0;}
 	.wdlmSon_block a{ display:block; padding-left:10px; line-height:26px; border-bottom:1px dashed #ebebeb; color:#808080;}
