@@ -2,6 +2,10 @@
 require(dirname(__FILE__)."/global.php");
 require(ROOT_PATH."inc/class.search.php");
 
+
+
+
+
 class search extends search_Father{
 	function search(&$mid,&$type,&$keyword){
 		global $module_DB,$Fid_db,$fid;
@@ -13,10 +17,12 @@ class search extends search_Father{
 		$this->check_select_type = 0;	//针对多选框:为0时,扩大搜索范围,为1时,缩小搜索范围
 		$this->filtrate($type);
 		$this->filtrate($keyword);
+		$keyword = mb_convert_encoding($keyword,'gb2312','utf-8' );
 		$this->type =& $type;	//type如果不符合的话,要重新赋值,所以要用=&
 		$this->keyword = $keyword;
 	}
 }
+
 
 $Search = new search($mid,$type,$keyword);
 
@@ -24,6 +30,8 @@ $GuideFid[$fid] = " -&gt;  <A HREF='index.php'>{$webdb[Info_webname]}首页</A>";
 $typedb = '';
 
 if($action=="search"){
+
+
 
 	$Search->ckpower();
 
